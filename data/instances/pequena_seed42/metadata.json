@@ -1,0 +1,14 @@
+{
+  "nome": "pequena_seed42",
+  "tamanho": "pequena",
+  "n_lojas": 5,
+  "n_produtos": 10,
+  "n_ofertas": 30,
+  "seed": 42,
+  "densidade": 0.5,
+  "densidade_efetiva": 0.6,
+  "variacao_preco": 0.15,
+  "base": "semente",
+  "data_referencia_precos": "2026-10-17",
+  "data_geracao": "2026-10-17T18:14:58"
+}

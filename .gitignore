@@ -1,0 +1,9 @@
+# banco SQLite (recriado a partir dos CSVs), cache de páginas e exportações
+*.db
+*.db-journal
+data/cache/
+data/export/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.venv/

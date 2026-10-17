@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,tipo_dado
+P02,Nintendo Switch OLED 64GB,Games,,1.4,5.6,sintetico
+P03,Controle Sony DualSense Edge,Games,,0.9,3.0,sintetico
+P05,Apple iPhone 16 Pro Max 256GB,Celulares,,0.45,0.7,sintetico
+P06,Samsung Galaxy S24 Ultra 256GB,Celulares,,0.5,0.8,sintetico
+P08,Apple AirPods Pro 2ª geração,Áudio,,0.2,0.4,sintetico
+P09,JBL Charge 5,Áudio,,1.2,3.2,sintetico
+P11,Notebook Lenovo IdeaPad Slim 3 15,Informática,,2.6,12.0,sintetico
+P13,SSD Kingston NV2 1TB,Informática,,0.05,0.1,sintetico
+P14,Perfume Dior Sauvage EDT 100ml,Perfumes,,0.5,1.2,sintetico
+P17,Drone DJI Mini 4 Pro,Câmeras,,1.0,4.0,sintetico
