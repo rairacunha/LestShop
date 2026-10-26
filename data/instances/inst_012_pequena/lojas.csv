@@ -1,0 +1,6 @@
+loja_id,nome,slug,cidade,endereco,predio,latitude,longitude,coordenada_pendente,abre,fecha,tempo_permanencia_min,fonte,tipo_dado
+L002,Delta Games (fictícia),delta-games,Ciudad del Este,"Centro Comercial Rio, CDE (fictício)",Centro Comercial Rio,-25.511283,-54.609948,False,07:30,16:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L001,Delta Center (fictícia),delta-center,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512666,-54.614003,False,07:00,17:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L031,Royal Games (fictícia),royal-games,Ciudad del Este,"Torre Fronteira, CDE (fictício)",Torre Fronteira,-25.507037,-54.613066,False,08:00,16:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L038,Sol Digital (fictícia),sol-digital,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512591,-54.61399,False,08:00,15:00,15,ficticio (gerado para teste da Fase 1),sintetico
+L035,Smart Digital (fictícia),smart-digital,Ciudad del Este,"Centro Comercial Rio, CDE (fictício)",Centro Comercial Rio,-25.511195,-54.609776,False,07:30,17:00,20,ficticio (gerado para teste da Fase 1),sintetico

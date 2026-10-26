@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P003,Celular Modelo B Pro 256GB,Celulares,,0.5,1.3,780,sintetico
+P007,Smartwatch Esportivo S1,Eletrônicos,,0.25,0.6,95,sintetico
+P015,Câmera de Ação 4K,Eletrônicos,,0.5,1.5,260,sintetico
+P021,Console de Mesa Geração Atual 1TB,Games,,4.5,30.0,520,sintetico
+P023,Console Portátil Híbrido,Games,,1.3,5.5,340,sintetico
+P024,Controle Sem Fio Console,Games,,0.4,1.5,65,sintetico
+P027,Headset Gamer 7.1,Games,,0.7,3.0,70,sintetico
+P031,Mouse Sem Fio,Informática,,0.15,0.5,18,sintetico
+P034,Pendrive 128GB,Informática,,0.05,0.1,12,sintetico
+P040,Perfume Feminino Oriental 50ml,Perfumes,,0.3,0.4,65,sintetico

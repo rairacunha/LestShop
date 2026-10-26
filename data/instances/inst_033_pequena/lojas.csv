@@ -1,0 +1,6 @@
+loja_id,nome,slug,cidade,endereco,predio,latitude,longitude,coordenada_pendente,abre,fecha,tempo_permanencia_min,fonte,tipo_dado
+L044,Super Shop (fictícia),super-shop,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.505853,-54.608702,False,07:30,16:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L014,Luna Eletrônicos (fictícia),luna-eletronicos,Ciudad del Este,"Torre Fronteira, CDE (fictício)",Torre Fronteira,-25.507192,-54.613104,False,07:00,16:30,15,ficticio (gerado para teste da Fase 1),sintetico
+L010,Gold Center (fictícia),gold-center,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508195,-54.610557,False,08:00,15:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L026,Nova Tech (fictícia),nova-tech,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.501274,-54.623153,False,07:30,17:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L016,Luna Perfumes (fictícia),luna-perfumes,Ciudad del Este,"Torre Fronteira, CDE (fictício)",Torre Fronteira,-25.507202,-54.612944,False,08:00,17:00,25,ficticio (gerado para teste da Fase 1),sintetico

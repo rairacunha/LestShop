@@ -1,0 +1,19 @@
+{
+  "nome": "inst_003_pequena",
+  "tamanho": "pequena",
+  "seed": 2026003,
+  "densidade": 0.27,
+  "n_lojas": 5,
+  "n_produtos": 10,
+  "n_ofertas": 20,
+  "n_itens_lista": 3,
+  "cota_disponivel_usd": 500.0,
+  "aliquota_excedente": 0.5,
+  "orcamento_usd": 138.7,
+  "custo_minimo_lista_usd": 128.79,
+  "lista_excede_cota": false,
+  "horario_chegada": "10:00",
+  "horario_saida": "14:00",
+  "data_geracao": "2026-10-26",
+  "tipo_dado": "sintetico"
+}

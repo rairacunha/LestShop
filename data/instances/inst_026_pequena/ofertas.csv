@@ -1,0 +1,14 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L020,P003,Celular Modelo B Pro 256GB - Max Perfumes (fictícia),922729,907.99,4667.07,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L008,P006,Celular Modelo D 5G 128GB - Flash Tech (fictícia),836411,316.99,1629.33,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P006,Celular Modelo D 5G 128GB - Max Perfumes (fictícia),457492,360.9,1855.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L048,P033,SSD Externo 1TB - Top Shop (fictícia),311010,71.99,370.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L008,P039,Perfume Feminino Floral 100ml - Flash Tech (fictícia),64491,91.9,472.37,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L048,P039,Perfume Feminino Floral 100ml - Top Shop (fictícia),551657,74.99,385.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L024,P041,Perfume Masculino Amadeirado 100ml - Mega Shop (fictícia),144768,61.9,318.17,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P042,Perfume Masculino Cítrico 200ml - Max Perfumes (fictícia),914074,87.9,451.81,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L017,P044,Kit Maquiagem Básico - Max Eletrônicos (fictícia),443766,41.99,215.83,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L017,P045,Sérum Facial Vitamina C 30ml - Max Eletrônicos (fictícia),644115,23.99,123.31,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L017,P061,Brinquedo Blocos de Montar 500pç - Max Eletrônicos (fictícia),282993,41.0,210.74,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P061,Brinquedo Blocos de Montar 500pç - Max Perfumes (fictícia),62417,52.9,271.91,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L008,P073,Mala de Bordo 10kg - Flash Tech (fictícia),691591,70.9,364.43,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

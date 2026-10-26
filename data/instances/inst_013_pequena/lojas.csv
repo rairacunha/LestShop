@@ -1,0 +1,6 @@
+loja_id,nome,slug,cidade,endereco,predio,latitude,longitude,coordenada_pendente,abre,fecha,tempo_permanencia_min,fonte,tipo_dado
+L011,Gold Digital (fictícia),gold-digital,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508657,-54.610794,False,07:30,16:30,30,ficticio (gerado para teste da Fase 1),sintetico
+L004,Delta Outlet (fictícia),delta-outlet,Ciudad del Este,"Plaza Comercial Este, CDE (fictício)",Plaza Comercial Este,-25.514183,-54.611475,False,07:30,17:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L025,Mega Tech (fictícia),mega-tech,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508359,-54.610641,False,07:00,16:00,20,ficticio (gerado para teste da Fase 1),sintetico
+L022,Mega Bazar (fictícia),mega-bazar,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508471,-54.610664,False,08:00,15:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L035,Smart Digital (fictícia),smart-digital,Ciudad del Este,"Centro Comercial Rio, CDE (fictício)",Centro Comercial Rio,-25.511195,-54.609776,False,07:30,17:00,20,ficticio (gerado para teste da Fase 1),sintetico

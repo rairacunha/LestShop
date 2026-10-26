@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P003,Celular Modelo B Pro 256GB,Celulares,,0.5,1.3,780,sintetico
+P017,Carregador Portátil 20000mAh,Eletrônicos,,0.45,0.6,30,sintetico
+P029,Notebook Gamer RTX 16GB/1TB,Informática,,3.5,12.0,1100,sintetico
+P037,Placa de Vídeo Intermediária 8GB,Informática,,1.4,6.0,340,sintetico
+P038,Memória RAM 16GB DDR5,Informática,,0.1,0.2,55,sintetico
+P039,Perfume Feminino Floral 100ml,Perfumes,,0.45,0.6,85,sintetico
+P044,Kit Maquiagem Básico,Cosméticos,,0.5,1.0,40,sintetico
+P059,Vara de Pesca Telescópica,Lazer,,0.7,3.0,45,sintetico
+P069,Óculos de Sol Polarizado,Moda,,0.15,0.5,70,sintetico
+P070,Relógio Analógico Aço,Moda,,0.25,0.6,120,sintetico

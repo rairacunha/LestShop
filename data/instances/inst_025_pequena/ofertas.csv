@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L044,P003,Celular Modelo B Pro 256GB - Super Shop (fictícia),683417,836.99,4302.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P003,Celular Modelo B Pro 256GB - Delta Games (fictícia),666054,587.9,3021.81,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P007,Smartwatch Esportivo S1 - Star Games (fictícia),44170,99.9,513.49,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L013,P007,Smartwatch Esportivo S1 - Luna Center (fictícia),139780,106.9,549.47,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P015,Câmera de Ação 4K - Super Shop (fictícia),296044,293.99,1511.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L013,P015,Câmera de Ação 4K - Luna Center (fictícia),39529,278.0,1428.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P021,Console de Mesa Geração Atual 1TB - Super Shop (fictícia),236524,560.0,2878.4,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P021,Console de Mesa Geração Atual 1TB - Ultra Outlet (fictícia),506873,553.9,2847.05,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P023,Console Portátil Híbrido - Super Shop (fictícia),43028,347.9,1788.21,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P023,Console Portátil Híbrido - Ultra Outlet (fictícia),371535,359.9,1849.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P024,Controle Sem Fio Console - Super Shop (fictícia),23533,60.9,313.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P024,Controle Sem Fio Console - Ultra Outlet (fictícia),238114,68.9,354.15,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P027,Headset Gamer 7.1 - Ultra Outlet (fictícia),447845,77.0,395.78,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P027,Headset Gamer 7.1 - Delta Games (fictícia),500979,68.0,349.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P031,Mouse Sem Fio - Ultra Outlet (fictícia),452755,19.0,97.66,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P031,Mouse Sem Fio - Delta Games (fictícia),664936,14.0,71.96,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P034,Pendrive 128GB - Star Games (fictícia),830584,10.0,51.4,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P034,Pendrive 128GB - Delta Games (fictícia),843987,9.99,51.35,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P040,Perfume Feminino Oriental 50ml - Super Shop (fictícia),174733,70.0,359.8,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P040,Perfume Feminino Oriental 50ml - Star Games (fictícia),35978,60.9,313.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

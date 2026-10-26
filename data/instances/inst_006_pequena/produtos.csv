@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P005,Celular Modelo C Lite 64GB,Celulares,,0.4,1.1,120,sintetico
+P014,Soundbar 2.1 Canais,Áudio,,6.5,25.0,230,sintetico
+P026,Jogo Mídia Física Catálogo,Games,,0.12,0.3,30,sintetico
+P028,Notebook Ultrafino 16GB/512GB,Informática,,2.2,8.0,750,sintetico
+P032,Teclado Mecânico RGB,Informática,,1.1,4.0,55,sintetico
+P038,Memória RAM 16GB DDR5,Informática,,0.1,0.2,55,sintetico
+P040,Perfume Feminino Oriental 50ml,Perfumes,,0.3,0.4,65,sintetico
+P049,Barbeador Elétrico,Beleza,,0.5,1.2,75,sintetico
+P056,Garrafa Térmica 1L,Lazer,,0.6,1.8,35,sintetico
+P060,Barraca Camping 4 Pessoas,Lazer,,4.5,18.0,90,sintetico

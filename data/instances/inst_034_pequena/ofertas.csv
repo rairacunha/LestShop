@@ -1,0 +1,25 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L031,P001,Celular Modelo A 128GB - Royal Games (fictícia),949489,226.99,1166.73,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L005,P001,Celular Modelo A 128GB - Delta Perfumes (fictícia),127378,242.99,1248.97,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P020,Streaming Stick HD - Prime Eletrônicos (fictícia),236870,36.99,190.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L019,P020,Streaming Stick HD - Max Mix (fictícia),552041,36.9,189.67,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L019,P042,Perfume Masculino Cítrico 200ml - Max Mix (fictícia),633623,112.0,575.68,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L011,P042,Perfume Masculino Cítrico 200ml - Gold Digital (fictícia),419015,77.9,400.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P048,Prancha Alisadora Titânio - Prime Eletrônicos (fictícia),362607,44.9,230.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L019,P048,Prancha Alisadora Titânio - Max Mix (fictícia),842456,56.99,292.93,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P050,Whisky 12 anos 1L - Royal Games (fictícia),79512,35.9,184.53,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L019,P050,Whisky 12 anos 1L - Max Mix (fictícia),411276,43.99,226.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L011,P050,Whisky 12 anos 1L - Gold Digital (fictícia),885507,33.99,174.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P052,Vodka Premium 1L - Royal Games (fictícia),425763,18.9,97.15,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P052,Vodka Premium 1L - Prime Eletrônicos (fictícia),136439,25.9,133.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P068,Jogo de Panelas Antiaderente 5pç - Prime Eletrônicos (fictícia),451680,85.9,441.53,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L019,P068,Jogo de Panelas Antiaderente 5pç - Max Mix (fictícia),917385,93.0,478.02,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P069,Óculos de Sol Polarizado - Prime Eletrônicos (fictícia),336285,72.99,375.17,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P069,Óculos de Sol Polarizado - Royal Games (fictícia),28514,61.0,313.54,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L019,P069,Óculos de Sol Polarizado - Max Mix (fictícia),927956,69.0,354.66,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P071,Tênis Esportivo Corrida - Royal Games (fictícia),194816,70.99,364.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L019,P071,Tênis Esportivo Corrida - Max Mix (fictícia),238242,84.0,431.76,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L005,P071,Tênis Esportivo Corrida - Delta Perfumes (fictícia),17237,92.0,472.88,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P073,Mala de Bordo 10kg - Royal Games (fictícia),845541,59.0,303.26,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P073,Mala de Bordo 10kg - Prime Eletrônicos (fictícia),721091,64.0,328.96,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L019,P073,Mala de Bordo 10kg - Max Mix (fictícia),929713,72.9,374.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

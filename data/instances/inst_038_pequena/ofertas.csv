@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L013,P001,Celular Modelo A 128GB - Luna Center (fictícia),719902,201.0,1033.14,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P001,Celular Modelo A 128GB - Royal Games (fictícia),949489,226.99,1166.73,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L013,P004,Celular Modelo B Pro Max 512GB - Luna Center (fictícia),279487,1105.9,5684.33,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P004,Celular Modelo B Pro Max 512GB - Ultra Games (fictícia),928531,900.0,4626.0,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L013,P005,Celular Modelo C Lite 64GB - Luna Center (fictícia),706553,117.0,601.38,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P005,Celular Modelo C Lite 64GB - Ultra Games (fictícia),924600,113.9,585.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L013,P006,Celular Modelo D 5G 128GB - Luna Center (fictícia),209898,299.0,1536.86,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P006,Celular Modelo D 5G 128GB - Ultra Games (fictícia),552400,309.9,1592.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L013,P015,Câmera de Ação 4K - Luna Center (fictícia),39529,278.0,1428.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P015,Câmera de Ação 4K - Royal Games (fictícia),831839,218.99,1125.61,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P050,Whisky 12 anos 1L - Royal Games (fictícia),79512,35.9,184.53,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P050,Whisky 12 anos 1L - Ultra Outlet (fictícia),385550,42.99,220.97,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P052,Vodka Premium 1L - Royal Games (fictícia),425763,18.9,97.15,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P052,Vodka Premium 1L - Ultra Games (fictícia),97176,23.9,122.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P057,Copo Térmico 473ml - Royal Games (fictícia),24757,23.99,123.31,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P057,Copo Térmico 473ml - Ultra Games (fictícia),382785,28.0,143.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L010,P061,Brinquedo Blocos de Montar 500pç - Gold Center (fictícia),846494,47.99,246.67,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P061,Brinquedo Blocos de Montar 500pç - Ultra Outlet (fictícia),115804,40.9,210.23,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L010,P062,Boneca Articulada Colecionável - Gold Center (fictícia),721558,33.9,174.25,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L013,P062,Boneca Articulada Colecionável - Luna Center (fictícia),998268,31.0,159.34,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

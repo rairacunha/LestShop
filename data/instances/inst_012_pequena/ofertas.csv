@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L038,P003,Celular Modelo B Pro 256GB - Sol Digital (fictícia),255128,847.0,4353.58,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P003,Celular Modelo B Pro 256GB - Delta Games (fictícia),666054,587.9,3021.81,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P005,Celular Modelo C Lite 64GB - Royal Games (fictícia),570393,99.9,513.49,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L038,P005,Celular Modelo C Lite 64GB - Sol Digital (fictícia),828003,102.0,524.28,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P012,Caixa de Som Portátil Mini - Delta Center (fictícia),59954,43.0,221.02,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P012,Caixa de Som Portátil Mini - Smart Digital (fictícia),82217,46.99,241.53,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P013,Caixa de Som Portátil Grande - Delta Center (fictícia),516762,193.99,997.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P013,Caixa de Som Portátil Grande - Delta Games (fictícia),567188,173.99,894.31,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P023,Console Portátil Híbrido - Delta Center (fictícia),894025,328.0,1685.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P023,Console Portátil Híbrido - Delta Games (fictícia),932760,259.0,1331.26,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P025,Jogo Mídia Física Lançamento - Delta Center (fictícia),404731,65.0,334.1,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P025,Jogo Mídia Física Lançamento - Delta Games (fictícia),415922,51.0,262.14,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P039,Perfume Feminino Floral 100ml - Smart Digital (fictícia),41537,97.9,503.21,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P039,Perfume Feminino Floral 100ml - Delta Center (fictícia),169178,75.9,390.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P043,Perfume Árabe Unissex 100ml - Delta Center (fictícia),293583,33.9,174.25,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L038,P043,Perfume Árabe Unissex 100ml - Sol Digital (fictícia),842666,36.99,190.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P068,Jogo de Panelas Antiaderente 5pç - Delta Center (fictícia),375870,99.0,508.86,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P068,Jogo de Panelas Antiaderente 5pç - Smart Digital (fictícia),179492,99.99,513.95,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P069,Óculos de Sol Polarizado - Royal Games (fictícia),28514,61.0,313.54,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L038,P069,Óculos de Sol Polarizado - Sol Digital (fictícia),732222,76.99,395.73,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

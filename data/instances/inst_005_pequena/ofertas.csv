@@ -1,0 +1,22 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L020,P004,Celular Modelo B Pro Max 512GB - Max Perfumes (fictícia),637541,1203.0,6183.42,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P004,Celular Modelo B Pro Max 512GB - Delta Tech (fictícia),971516,1171.9,6023.57,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L043,P007,Smartwatch Esportivo S1 - Super Perfumes (fictícia),935497,93.99,483.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P007,Smartwatch Esportivo S1 - Star Games (fictícia),44170,99.9,513.49,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P013,Caixa de Som Portátil Grande - Max Perfumes (fictícia),900485,179.99,925.15,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P013,Caixa de Som Portátil Grande - Delta Tech (fictícia),749543,182.0,935.48,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L043,P025,Jogo Mídia Física Lançamento - Super Perfumes (fictícia),121490,55.99,287.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P025,Jogo Mídia Física Lançamento - Max Perfumes (fictícia),834051,59.0,303.26,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L043,P030,"Tablet 10"" 128GB - Super Perfumes (fictícia)",178897,325.0,1670.5,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P030,"Tablet 10"" 128GB - Delta Tech (fictícia)",552354,306.9,1577.47,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P031,Mouse Sem Fio - Royal Center (fictícia),228640,18.0,92.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P031,Mouse Sem Fio - Delta Tech (fictícia),387167,18.0,92.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P055,Espumante Brut 750ml - Star Games (fictícia),798164,17.0,87.38,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P055,Espumante Brut 750ml - Delta Tech (fictícia),571638,18.99,97.61,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P057,Copo Térmico 473ml - Star Games (fictícia),800247,28.99,149.01,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P057,Copo Térmico 473ml - Royal Center (fictícia),594865,29.99,154.15,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P059,Vara de Pesca Telescópica - Star Games (fictícia),498109,47.9,246.21,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P059,Vara de Pesca Telescópica - Royal Center (fictícia),82976,42.0,215.88,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P071,Tênis Esportivo Corrida - Star Games (fictícia),665989,77.0,395.78,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P071,Tênis Esportivo Corrida - Max Perfumes (fictícia),963445,84.99,436.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L043,P071,Tênis Esportivo Corrida - Super Perfumes (fictícia),255058,89.0,457.46,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

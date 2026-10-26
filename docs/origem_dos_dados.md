@@ -5,8 +5,8 @@
 | tipo_dado | Significado | Onde aparece |
 |---|---|---|
 | `real` | Lido de uma fonte pública no dia indicado em `data_coleta` | Coletas do Compras Paraguai (`data/coletas/<data>/`) |
-| `estimado` | Valor plausível, sem fonte direta, a conferir | Peso e volume dos produtos da base-semente |
-| `sintetico` | Inventado para testes e experimentos | Lojas e ofertas da base-semente; instâncias geradas em `data/instances/` |
+| `estimado` | Valor plausível, sem fonte direta, a conferir | Peso e volume dos produtos da semente dos testes (`tests/fixtures/semente/`) |
+| `sintetico` | Inventado para testes e experimentos | Toda a base fictícia de `data/raw/`; as 100 instâncias de `data/instances/`; a semente dos testes |
 
 Nenhum dado inventado é marcado como `real`.
 
@@ -22,7 +22,8 @@ Nenhum dado inventado é marcado como `real`.
 | Catálogo de modelos | Sitemap indicado no `robots.txt` | Nome derivado do slug da URL |
 | Cotação do dólar | PTAX de venda do Banco Central (API Olinda) | Só para exibir R$ |
 | Ponte da Amizade (nó 0) | Posição aproximada da cabeceira paraguaia, lida no mapa | `estimado` |
-| Base-semente (`data/raw/`) | Criada à mão para testes e uso sem internet | Lojas fictícias ("Loja Semente …"); preços sintéticos em torno de valores de mercado; produtos são modelos reais com peso/volume estimados |
+| Base fictícia (`data/raw/`, `data/instances/inst_*`) | `scripts/gerar_base_ficticia.py`, seed 2026 | Lojas, prédios e produtos inventados ("(fictícia)" no nome); coordenadas sorteadas no microcentro; preços ±15% em torno de um preço-base com viés por loja; cotação fictícia R$ 5,14 |
+| Semente dos testes (`tests/fixtures/semente/`) | Criada à mão para os testes automáticos | Lojas fictícias ("Loja Semente …"); preços sintéticos em torno de valores de mercado; produtos são modelos reais com peso/volume estimados |
 
 ## Boa conduta na coleta
 
@@ -34,6 +35,10 @@ Nenhum dado inventado é marcado como `real`.
 * Se o HTML mudar, a coleta para com `ErroEstruturaHTML` e nada é gravado.
 
 ## Limitações conhecidas
+
+* **A Fase 1 foi concluída com dados fictícios.** O coletor real está pronto e testado com
+  páginas imitadas, mas a primeira coleta real ainda não foi feita (depende da verificação
+  anti-robô, item 0). Nenhum preço desta base deve ser usado para decidir compras.
 
 0. **Proteção anti-robô do site (Cloudflare).** Em 17/10/2026 o Compras Paraguai passou a
    responder HTTP 403 com `cf-mitigated: challenge` a qualquer acesso automático, inclusive ao

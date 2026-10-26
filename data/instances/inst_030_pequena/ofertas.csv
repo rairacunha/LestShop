@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L011,P006,Celular Modelo D 5G 128GB - Gold Digital (fictícia),276646,292.9,1505.51,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P006,Celular Modelo D 5G 128GB - Smart Mix (fictícia),256198,293.99,1511.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P013,Caixa de Som Portátil Grande - Delta Center (fictícia),516762,193.99,997.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L028,P013,Caixa de Som Portátil Grande - Rapid Perfumes (fictícia),417969,194.0,997.16,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P019,"Smart TV 50"" 4K - Delta Center (fictícia)",843070,323.9,1664.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P019,"Smart TV 50"" 4K - Smart Mix (fictícia)",987028,401.9,2065.77,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P023,Console Portátil Híbrido - Delta Center (fictícia),894025,328.0,1685.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P023,Console Portátil Híbrido - Smart Mix (fictícia),818959,356.9,1834.47,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P041,Perfume Masculino Amadeirado 100ml - Delta Center (fictícia),86297,81.0,416.34,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P041,Perfume Masculino Amadeirado 100ml - Star Games (fictícia),480759,65.0,334.1,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P043,Perfume Árabe Unissex 100ml - Delta Center (fictícia),293583,33.9,174.25,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P043,Perfume Árabe Unissex 100ml - Star Games (fictícia),359344,36.99,190.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P051,Whisky 18 anos 750ml - Smart Mix (fictícia),491590,91.99,472.83,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P051,Whisky 18 anos 750ml - Star Games (fictícia),168997,107.9,554.61,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L028,P059,Vara de Pesca Telescópica - Rapid Perfumes (fictícia),519256,48.9,251.35,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P059,Vara de Pesca Telescópica - Star Games (fictícia),498109,47.9,246.21,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P065,Robô Aspirador - Delta Center (fictícia),478868,206.99,1063.93,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L028,P065,Robô Aspirador - Rapid Perfumes (fictícia),23307,185.99,955.99,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P067,Cafeteira de Cápsulas - Delta Center (fictícia),602313,93.9,482.65,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P067,Cafeteira de Cápsulas - Star Games (fictícia),576451,88.99,457.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

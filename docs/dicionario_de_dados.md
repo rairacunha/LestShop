@@ -11,7 +11,7 @@ Convenções: `texto` = string UTF-8; `real` = número decimal; vazio = desconhe
 
 | Campo | Tipo | Unidade / formato | Significado |
 |---|---|---|---|
-| loja_id | texto (PK) | `CP-<slug>` (coletada), `S01`… (semente), `SIN-L001`… (gerador) | Identificador único da loja |
+| loja_id | texto (PK) | `CP-<slug>` (coletada), `L001`… (base fictícia), `S01`… (semente dos testes), `SIN-L001`… (gerador) | Identificador único da loja |
 | nome | texto | — | Nome exibido pela fonte |
 | slug | texto | — | Identificador da loja na URL `/lojas/<slug>/` do Compras Paraguai |
 | cidade | texto | — | Sempre `Ciudad del Este` (lojas de outras cidades são descartadas) |
@@ -23,7 +23,7 @@ Convenções: `texto` = string UTF-8; `real` = número decimal; vazio = desconhe
 | abre | texto | `HH:MM` | Horário de abertura (vazio se a fonte não informar) |
 | fecha | texto | `HH:MM` | Horário de fechamento; deve ser maior que `abre` |
 | tempo_permanencia_min | real | minutos | Tempo médio gasto dentro da loja (a fonte não informa; definido na Fase 2) |
-| fonte | texto | — | `comprasparaguai.com.br`, `semente_manual` ou `gerador` |
+| fonte | texto | — | `comprasparaguai.com.br`, `ficticio (gerado para teste da Fase 1)`, `semente_manual` ou `gerador` |
 | tipo_dado | texto | — | Ver convenções |
 
 ## produtos
@@ -95,3 +95,34 @@ A matriz loja × produto é esparsa: nem toda loja vende todo produto.
 * **data/lojas_complemento.csv** (`loja_id`, `latitude`, `longitude`, `predio`, `observacao`):
   coordenadas copiadas do Google Maps e prédios corrigidos à mão. É aplicado ao gravar e ao
   recriar o banco, e sobrevive a novas coletas.
+
+## Arquivos extras das instâncias de teste (`data/instances/inst_*`)
+
+Vêm da base fictícia e trazem parâmetros que **só serão usados nas Fases 2 e 3**; a Fase 1
+apenas os guarda e valida.
+
+**lista_compras.csv**
+
+| Campo | Tipo | Significado |
+|---|---|---|
+| produto_id | texto (FK → produtos da instância) | Item que o turista quer comprar |
+| nome | texto | Nome do produto (cópia, para leitura) |
+| quantidade | inteiro | Unidades desejadas (hoje sempre 1) |
+| prioridade | inteiro 1–5 | Importância do item para o turista (5 = mais importante) |
+
+**metadata.json**
+
+| Campo | Unidade | Significado |
+|---|---|---|
+| nome, tamanho, seed, densidade | — | Identificação e parâmetros de geração |
+| n_lojas, n_produtos, n_ofertas, n_itens_lista | — | Tamanho real da instância |
+| cota_disponivel_usd | US$ | Cota de isenção ainda disponível no mês (500, 300 ou 150) |
+| aliquota_excedente | fração | Imposto sobre o que passar da cota (0,5 = 50%) |
+| orcamento_usd | US$ | Quanto o turista pode gastar |
+| custo_minimo_lista_usd | US$ | Soma dos menores preços dos itens da lista (sem deslocamento) |
+| lista_excede_cota | booleano | `custo_minimo_lista_usd > cota_disponivel_usd` |
+| horario_chegada, horario_saida | HH:MM | Janela de tempo do turista em Ciudad del Este |
+| data_geracao, tipo_dado | — | Sempre `sintetico` |
+
+**Coluna extra em produtos.csv:** `preco_base_usd` (preço de referência usado só para gerar
+as ofertas fictícias; não é dado de mercado).

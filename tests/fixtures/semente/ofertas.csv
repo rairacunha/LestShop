@@ -1,0 +1,73 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+S05,P01,Sony PlayStation 5 Pro 2TB Digital Edition,,775.83,,2026-10-17,semente_manual,sintetico
+S06,P01,Sony PlayStation 5 Pro 2TB Digital Edition,,724.73,,2026-10-17,semente_manual,sintetico
+S04,P02,Nintendo Switch OLED 64GB,,339.62,,2026-10-17,semente_manual,sintetico
+S05,P02,Nintendo Switch OLED 64GB,,323.71,,2026-10-17,semente_manual,sintetico
+S01,P03,Controle Sony DualSense Edge,,195.21,,2026-10-17,semente_manual,sintetico
+S02,P03,Controle Sony DualSense Edge,,172.25,,2026-10-17,semente_manual,sintetico
+S04,P03,Controle Sony DualSense Edge,,204.44,,2026-10-17,semente_manual,sintetico
+S05,P03,Controle Sony DualSense Edge,,187.7,,2026-10-17,semente_manual,sintetico
+S07,P03,Controle Sony DualSense Edge,,204.35,,2026-10-17,semente_manual,sintetico
+S08,P03,Controle Sony DualSense Edge,,198.44,,2026-10-17,semente_manual,sintetico
+S03,P04,Apple iPhone 16 128GB,,892.14,,2026-10-17,semente_manual,sintetico
+S04,P04,Apple iPhone 16 128GB,,882.43,,2026-10-17,semente_manual,sintetico
+S06,P04,Apple iPhone 16 128GB,,858.59,,2026-10-17,semente_manual,sintetico
+S08,P04,Apple iPhone 16 128GB,,895.93,,2026-10-17,semente_manual,sintetico
+S01,P05,Apple iPhone 16 Pro Max 256GB,,1237.23,,2026-10-17,semente_manual,sintetico
+S02,P05,Apple iPhone 16 Pro Max 256GB,,1362.94,,2026-10-17,semente_manual,sintetico
+S03,P05,Apple iPhone 16 Pro Max 256GB,,1311.19,,2026-10-17,semente_manual,sintetico
+S06,P05,Apple iPhone 16 Pro Max 256GB,,1273.23,,2026-10-17,semente_manual,sintetico
+S07,P05,Apple iPhone 16 Pro Max 256GB,,1107.42,,2026-10-17,semente_manual,sintetico
+S08,P05,Apple iPhone 16 Pro Max 256GB,,1313.26,,2026-10-17,semente_manual,sintetico
+S01,P06,Samsung Galaxy S24 Ultra 256GB,,1039.14,,2026-10-17,semente_manual,sintetico
+S04,P06,Samsung Galaxy S24 Ultra 256GB,,962.41,,2026-10-17,semente_manual,sintetico
+S07,P06,Samsung Galaxy S24 Ultra 256GB,,1033.73,,2026-10-17,semente_manual,sintetico
+S08,P06,Samsung Galaxy S24 Ultra 256GB,,933.0,,2026-10-17,semente_manual,sintetico
+S03,P07,Xiaomi Redmi Note 13 128GB,,187.39,,2026-10-17,semente_manual,sintetico
+S04,P07,Xiaomi Redmi Note 13 128GB,,169.15,,2026-10-17,semente_manual,sintetico
+S05,P07,Xiaomi Redmi Note 13 128GB,,170.73,,2026-10-17,semente_manual,sintetico
+S06,P07,Xiaomi Redmi Note 13 128GB,,150.64,,2026-10-17,semente_manual,sintetico
+S07,P07,Xiaomi Redmi Note 13 128GB,,158.76,,2026-10-17,semente_manual,sintetico
+S08,P07,Xiaomi Redmi Note 13 128GB,,154.86,,2026-10-17,semente_manual,sintetico
+S02,P08,Apple AirPods Pro 2ª geração,,205.87,,2026-10-17,semente_manual,sintetico
+S06,P08,Apple AirPods Pro 2ª geração,,198.56,,2026-10-17,semente_manual,sintetico
+S01,P09,JBL Charge 5,,141.95,,2026-10-17,semente_manual,sintetico
+S04,P09,JBL Charge 5,,149.89,,2026-10-17,semente_manual,sintetico
+S05,P09,JBL Charge 5,,150.52,,2026-10-17,semente_manual,sintetico
+S07,P09,JBL Charge 5,,126.93,,2026-10-17,semente_manual,sintetico
+S08,P09,JBL Charge 5,,131.83,,2026-10-17,semente_manual,sintetico
+S04,P10,Apple MacBook Air 13 M3 256GB,,975.04,,2026-10-17,semente_manual,sintetico
+S06,P10,Apple MacBook Air 13 M3 256GB,,1133.62,,2026-10-17,semente_manual,sintetico
+S07,P10,Apple MacBook Air 13 M3 256GB,,926.34,,2026-10-17,semente_manual,sintetico
+S08,P10,Apple MacBook Air 13 M3 256GB,,961.76,,2026-10-17,semente_manual,sintetico
+S01,P11,Notebook Lenovo IdeaPad Slim 3 15,,490.06,,2026-10-17,semente_manual,sintetico
+S03,P11,Notebook Lenovo IdeaPad Slim 3 15,,518.2,,2026-10-17,semente_manual,sintetico
+S04,P11,Notebook Lenovo IdeaPad Slim 3 15,,521.41,,2026-10-17,semente_manual,sintetico
+S05,P11,Notebook Lenovo IdeaPad Slim 3 15,,560.71,,2026-10-17,semente_manual,sintetico
+S07,P11,Notebook Lenovo IdeaPad Slim 3 15,,558.43,,2026-10-17,semente_manual,sintetico
+S08,P11,Notebook Lenovo IdeaPad Slim 3 15,,527.22,,2026-10-17,semente_manual,sintetico
+S03,P12,Monitor LG UltraGear 27GP850 27,,326.65,,2026-10-17,semente_manual,sintetico
+S05,P12,Monitor LG UltraGear 27GP850 27,,354.7,,2026-10-17,semente_manual,sintetico
+S02,P13,SSD Kingston NV2 1TB,,66.34,,2026-10-17,semente_manual,sintetico
+S04,P13,SSD Kingston NV2 1TB,,62.14,,2026-10-17,semente_manual,sintetico
+S05,P13,SSD Kingston NV2 1TB,,65.81,,2026-10-17,semente_manual,sintetico
+S07,P13,SSD Kingston NV2 1TB,,58.13,,2026-10-17,semente_manual,sintetico
+S08,P13,SSD Kingston NV2 1TB,,55.6,,2026-10-17,semente_manual,sintetico
+S01,P14,Perfume Dior Sauvage EDT 100ml,,103.77,,2026-10-17,semente_manual,sintetico
+S03,P14,Perfume Dior Sauvage EDT 100ml,,106.17,,2026-10-17,semente_manual,sintetico
+S04,P14,Perfume Dior Sauvage EDT 100ml,,113.48,,2026-10-17,semente_manual,sintetico
+S05,P14,Perfume Dior Sauvage EDT 100ml,,107.78,,2026-10-17,semente_manual,sintetico
+S06,P14,Perfume Dior Sauvage EDT 100ml,,97.41,,2026-10-17,semente_manual,sintetico
+S01,P15,Perfume Carolina Herrera Good Girl EDP 80ml,,96.06,,2026-10-17,semente_manual,sintetico
+S07,P15,Perfume Carolina Herrera Good Girl EDP 80ml,,89.72,,2026-10-17,semente_manual,sintetico
+S01,P16,Câmera GoPro Hero 12 Black,,335.88,,2026-10-17,semente_manual,sintetico
+S03,P16,Câmera GoPro Hero 12 Black,,363.76,,2026-10-17,semente_manual,sintetico
+S05,P16,Câmera GoPro Hero 12 Black,,358.57,,2026-10-17,semente_manual,sintetico
+S08,P16,Câmera GoPro Hero 12 Black,,345.03,,2026-10-17,semente_manual,sintetico
+S04,P17,Drone DJI Mini 4 Pro,,729.19,,2026-10-17,semente_manual,sintetico
+S05,P17,Drone DJI Mini 4 Pro,,818.84,,2026-10-17,semente_manual,sintetico
+S08,P17,Drone DJI Mini 4 Pro,,836.97,,2026-10-17,semente_manual,sintetico
+S02,P18,Apple Watch Series 10 46mm,,463.85,,2026-10-17,semente_manual,sintetico
+S04,P18,Apple Watch Series 10 46mm,,448.57,,2026-10-17,semente_manual,sintetico
+S06,P18,Apple Watch Series 10 46mm,,461.83,,2026-10-17,semente_manual,sintetico
+S08,P18,Apple Watch Series 10 46mm,,400.45,,2026-10-17,semente_manual,sintetico

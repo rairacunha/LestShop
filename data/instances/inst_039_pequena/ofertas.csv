@@ -1,0 +1,23 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L001,P019,"Smart TV 50"" 4K - Delta Center (fictícia)",843070,323.9,1664.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P019,"Smart TV 50"" 4K - Super Shop (fictícia)",708269,399.9,2055.49,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P023,Console Portátil Híbrido - Delta Center (fictícia),894025,328.0,1685.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P023,Console Portátil Híbrido - Super Shop (fictícia),43028,347.9,1788.21,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P025,Jogo Mídia Física Lançamento - Delta Center (fictícia),404731,65.0,334.1,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P025,Jogo Mídia Física Lançamento - Super Shop (fictícia),308189,52.99,272.37,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L025,P028,Notebook Ultrafino 16GB/512GB - Mega Tech (fictícia),809143,666.99,3428.33,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P028,Notebook Ultrafino 16GB/512GB - Top Mix (fictícia),852210,778.0,3998.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L011,P042,Perfume Masculino Cítrico 200ml - Gold Digital (fictícia),419015,77.9,400.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P042,Perfume Masculino Cítrico 200ml - Delta Center (fictícia),663768,79.0,406.06,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P042,Perfume Masculino Cítrico 200ml - Super Shop (fictícia),304339,93.0,478.02,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P043,Perfume Árabe Unissex 100ml - Super Shop (fictícia),955541,36.0,185.04,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P043,Perfume Árabe Unissex 100ml - Delta Center (fictícia),293583,33.9,174.25,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P043,Perfume Árabe Unissex 100ml - Top Mix (fictícia),351824,38.9,199.95,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P057,Copo Térmico 473ml - Super Shop (fictícia),487379,31.9,163.97,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P057,Copo Térmico 473ml - Top Mix (fictícia),302358,29.9,153.69,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P058,Molinete de Pesca - Super Shop (fictícia),525137,55.9,287.33,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P058,Molinete de Pesca - Top Mix (fictícia),24277,54.9,282.19,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P059,Vara de Pesca Telescópica - Super Shop (fictícia),864554,41.9,215.37,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P059,Vara de Pesca Telescópica - Top Mix (fictícia),95725,53.99,277.51,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P065,Robô Aspirador - Delta Center (fictícia),478868,206.99,1063.93,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P065,Robô Aspirador - Top Mix (fictícia),20734,204.9,1053.19,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

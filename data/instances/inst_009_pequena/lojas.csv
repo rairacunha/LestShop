@@ -1,0 +1,6 @@
+loja_id,nome,slug,cidade,endereco,predio,latitude,longitude,coordenada_pendente,abre,fecha,tempo_permanencia_min,fonte,tipo_dado
+L033,Royal Shop (fictícia),royal-shop,Ciudad del Este,"Plaza Comercial Este, CDE (fictício)",Plaza Comercial Este,-25.513969,-54.611723,False,07:30,15:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L006,Delta Tech (fictícia),delta-tech,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.506098,-54.608607,False,07:00,16:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L017,Max Eletrônicos (fictícia),max-eletronicos,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.505968,-54.608556,False,07:30,16:30,25,ficticio (gerado para teste da Fase 1),sintetico
+L044,Super Shop (fictícia),super-shop,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.505853,-54.608702,False,07:30,16:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L001,Delta Center (fictícia),delta-center,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512666,-54.614003,False,07:00,17:00,30,ficticio (gerado para teste da Fase 1),sintetico

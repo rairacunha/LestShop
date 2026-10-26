@@ -1,0 +1,6 @@
+loja_id,nome,slug,cidade,endereco,predio,latitude,longitude,coordenada_pendente,abre,fecha,tempo_permanencia_min,fonte,tipo_dado
+L018,Max Games (fictícia),max-games,Ciudad del Este,"Plaza Comercial Este, CDE (fictício)",Plaza Comercial Este,-25.514165,-54.611377,False,08:00,16:30,25,ficticio (gerado para teste da Fase 1),sintetico
+L002,Delta Games (fictícia),delta-games,Ciudad del Este,"Centro Comercial Rio, CDE (fictício)",Centro Comercial Rio,-25.511283,-54.609948,False,07:30,16:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L011,Gold Digital (fictícia),gold-digital,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508657,-54.610794,False,07:30,16:30,30,ficticio (gerado para teste da Fase 1),sintetico
+L040,Super Bazar (fictícia),super-bazar,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.506081,-54.608744,False,07:00,16:30,25,ficticio (gerado para teste da Fase 1),sintetico
+L022,Mega Bazar (fictícia),mega-bazar,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508471,-54.610664,False,08:00,15:00,10,ficticio (gerado para teste da Fase 1),sintetico

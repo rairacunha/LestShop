@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P003,Celular Modelo B Pro 256GB,Celulares,,0.5,1.3,780,sintetico
+P004,Celular Modelo B Pro Max 512GB,Celulares,,0.55,1.4,1150,sintetico
+P005,Celular Modelo C Lite 64GB,Celulares,,0.4,1.1,120,sintetico
+P006,Celular Modelo D 5G 128GB,Celulares,,0.45,1.2,330,sintetico
+P025,Jogo Mídia Física Lançamento,Games,,0.12,0.3,60,sintetico
+P026,Jogo Mídia Física Catálogo,Games,,0.12,0.3,30,sintetico
+P033,SSD Externo 1TB,Informática,,0.15,0.3,85,sintetico
+P035,"Monitor 27"" QHD",Informática,,6.8,35.0,230,sintetico
+P044,Kit Maquiagem Básico,Cosméticos,,0.5,1.0,40,sintetico
+P068,Jogo de Panelas Antiaderente 5pç,Casa,,6.0,28.0,95,sintetico

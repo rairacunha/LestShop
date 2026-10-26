@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P003,Celular Modelo B Pro 256GB,Celulares,,0.5,1.3,780,sintetico
+P004,Celular Modelo B Pro Max 512GB,Celulares,,0.55,1.4,1150,sintetico
+P006,Celular Modelo D 5G 128GB,Celulares,,0.45,1.2,330,sintetico
+P032,Teclado Mecânico RGB,Informática,,1.1,4.0,55,sintetico
+P034,Pendrive 128GB,Informática,,0.05,0.1,12,sintetico
+P035,"Monitor 27"" QHD",Informática,,6.8,35.0,230,sintetico
+P036,Roteador Wi-Fi 6,Informática,,0.9,3.0,70,sintetico
+P064,Air Fryer 5L,Casa,,4.8,22.0,75,sintetico
+P069,Óculos de Sol Polarizado,Moda,,0.15,0.5,70,sintetico
+P071,Tênis Esportivo Corrida,Moda,,0.9,7.0,80,sintetico

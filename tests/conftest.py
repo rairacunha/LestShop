@@ -77,9 +77,12 @@ def cliente_falso(tmp_path):
     return cliente
 
 
+SEMENTE = FIXTURES / "semente"  # base pequena e estável usada pelos testes
+
+
 @pytest.fixture
 def semente():
-    fonte = FonteCSV(config.DIR_RAW)
+    fonte = FonteCSV(SEMENTE)
     base = fonte.carregar_tudo()
     base["pontos_partida"] = fonte.carregar_pontos_partida()
     return base

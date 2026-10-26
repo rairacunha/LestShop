@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P003,Celular Modelo B Pro 256GB,Celulares,,0.5,1.3,780,sintetico
+P006,Celular Modelo D 5G 128GB,Celulares,,0.45,1.2,330,sintetico
+P033,SSD Externo 1TB,Informática,,0.15,0.3,85,sintetico
+P039,Perfume Feminino Floral 100ml,Perfumes,,0.45,0.6,85,sintetico
+P041,Perfume Masculino Amadeirado 100ml,Perfumes,,0.45,0.6,78,sintetico
+P042,Perfume Masculino Cítrico 200ml,Perfumes,,0.7,0.9,95,sintetico
+P044,Kit Maquiagem Básico,Cosméticos,,0.5,1.0,40,sintetico
+P045,Sérum Facial Vitamina C 30ml,Cosméticos,,0.12,0.2,22,sintetico
+P061,Brinquedo Blocos de Montar 500pç,Brinquedos,,1.0,4.0,45,sintetico
+P073,Mala de Bordo 10kg,Moda,,2.8,40.0,70,sintetico

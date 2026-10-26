@@ -1,0 +1,23 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L004,P008,Smartwatch Premium S3 - Delta Outlet (fictícia),588019,278.0,1428.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L022,P008,Smartwatch Premium S3 - Mega Bazar (fictícia),650419,303.99,1562.51,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P015,Câmera de Ação 4K - Delta Outlet (fictícia),812043,231.0,1187.34,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L022,P015,Câmera de Ação 4K - Mega Bazar (fictícia),780008,272.0,1398.08,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P025,Jogo Mídia Física Lançamento - Delta Outlet (fictícia),537665,59.9,307.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L022,P025,Jogo Mídia Física Lançamento - Mega Bazar (fictícia),205950,55.9,287.33,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P026,Jogo Mídia Física Catálogo - Delta Outlet (fictícia),34721,32.99,169.57,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P026,Jogo Mídia Física Catálogo - Smart Digital (fictícia),208647,33.99,174.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L022,P026,Jogo Mídia Física Catálogo - Mega Bazar (fictícia),567756,30.99,159.29,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P036,Roteador Wi-Fi 6 - Delta Outlet (fictícia),922059,67.9,349.01,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L025,P036,Roteador Wi-Fi 6 - Mega Tech (fictícia),579290,60.0,308.4,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L011,P040,Perfume Feminino Oriental 50ml - Gold Digital (fictícia),646841,68.0,349.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P040,Perfume Feminino Oriental 50ml - Smart Digital (fictícia),306665,72.9,374.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L025,P040,Perfume Feminino Oriental 50ml - Mega Tech (fictícia),113357,68.0,349.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L011,P042,Perfume Masculino Cítrico 200ml - Gold Digital (fictícia),419015,77.9,400.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P042,Perfume Masculino Cítrico 200ml - Smart Digital (fictícia),589764,88.9,456.95,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L011,P045,Sérum Facial Vitamina C 30ml - Gold Digital (fictícia),882788,20.99,107.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L025,P045,Sérum Facial Vitamina C 30ml - Mega Tech (fictícia),543257,19.9,102.29,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L011,P046,Protetor Solar FPS 50 200ml - Gold Digital (fictícia),884526,18.9,97.15,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L022,P046,Protetor Solar FPS 50 200ml - Mega Bazar (fictícia),97877,19.0,97.66,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P068,Jogo de Panelas Antiaderente 5pç - Delta Outlet (fictícia),422594,79.99,411.15,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P068,Jogo de Panelas Antiaderente 5pç - Smart Digital (fictícia),179492,99.99,513.95,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

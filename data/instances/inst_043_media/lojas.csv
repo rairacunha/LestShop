@@ -1,0 +1,16 @@
+loja_id,nome,slug,cidade,endereco,predio,latitude,longitude,coordenada_pendente,abre,fecha,tempo_permanencia_min,fonte,tipo_dado
+L005,Delta Perfumes (fictícia),delta-perfumes,Ciudad del Este,"Shopping Monte Azul, CDE (fictício)",Shopping Monte Azul,-25.509462,-54.612287,False,07:00,16:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L038,Sol Digital (fictícia),sol-digital,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512591,-54.61399,False,08:00,15:00,15,ficticio (gerado para teste da Fase 1),sintetico
+L037,Smart Mix (fictícia),smart-mix,Ciudad del Este,"Torre Fronteira, CDE (fictício)",Torre Fronteira,-25.507045,-54.61297,False,07:30,16:30,10,ficticio (gerado para teste da Fase 1),sintetico
+L012,Gold Shop (fictícia),gold-shop,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512391,-54.61397,False,07:00,17:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L008,Flash Tech (fictícia),flash-tech,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.504245,-54.609024,False,07:00,15:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L010,Gold Center (fictícia),gold-center,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508195,-54.610557,False,08:00,15:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L033,Royal Shop (fictícia),royal-shop,Ciudad del Este,"Plaza Comercial Este, CDE (fictício)",Plaza Comercial Este,-25.513969,-54.611723,False,07:30,15:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L001,Delta Center (fictícia),delta-center,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512666,-54.614003,False,07:00,17:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L023,Mega Eletrônicos (fictícia),mega-eletronicos,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.506128,-54.608673,False,07:00,15:00,20,ficticio (gerado para teste da Fase 1),sintetico
+L028,Rapid Perfumes (fictícia),rapid-perfumes,Ciudad del Este,"Plaza Comercial Este, CDE (fictício)",Plaza Comercial Este,-25.513786,-54.611564,False,08:00,17:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L004,Delta Outlet (fictícia),delta-outlet,Ciudad del Este,"Plaza Comercial Este, CDE (fictício)",Plaza Comercial Este,-25.514183,-54.611475,False,07:30,17:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L006,Delta Tech (fictícia),delta-tech,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.506098,-54.608607,False,07:00,16:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L042,Super Games (fictícia),super-games,Ciudad del Este,"Torre Fronteira, CDE (fictício)",Torre Fronteira,-25.50687,-54.612878,False,07:00,15:00,15,ficticio (gerado para teste da Fase 1),sintetico
+L026,Nova Tech (fictícia),nova-tech,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.501274,-54.623153,False,07:30,17:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L041,Super Eletrônicos (fictícia),super-eletronicos,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.500127,-54.612877,False,07:30,15:00,15,ficticio (gerado para teste da Fase 1),sintetico

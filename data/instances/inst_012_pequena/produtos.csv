@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P003,Celular Modelo B Pro 256GB,Celulares,,0.5,1.3,780,sintetico
+P005,Celular Modelo C Lite 64GB,Celulares,,0.4,1.1,120,sintetico
+P012,Caixa de Som Portátil Mini,Áudio,,0.4,1.0,45,sintetico
+P013,Caixa de Som Portátil Grande,Áudio,,2.8,9.0,180,sintetico
+P023,Console Portátil Híbrido,Games,,1.3,5.5,340,sintetico
+P025,Jogo Mídia Física Lançamento,Games,,0.12,0.3,60,sintetico
+P039,Perfume Feminino Floral 100ml,Perfumes,,0.45,0.6,85,sintetico
+P043,Perfume Árabe Unissex 100ml,Perfumes,,0.5,0.7,35,sintetico
+P068,Jogo de Panelas Antiaderente 5pç,Casa,,6.0,28.0,95,sintetico
+P069,Óculos de Sol Polarizado,Moda,,0.15,0.5,70,sintetico

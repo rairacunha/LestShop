@@ -1,0 +1,6 @@
+loja_id,nome,slug,cidade,endereco,predio,latitude,longitude,coordenada_pendente,abre,fecha,tempo_permanencia_min,fonte,tipo_dado
+L045,Top Bazar (fictícia),top-bazar,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512495,-54.614011,False,07:00,16:00,20,ficticio (gerado para teste da Fase 1),sintetico
+L048,Top Shop (fictícia),top-shop,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.505878,-54.609017,False,08:00,15:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L030,Royal Eletrônicos (fictícia),royal-eletronicos,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512434,-54.613887,False,07:00,16:30,25,ficticio (gerado para teste da Fase 1),sintetico
+L011,Gold Digital (fictícia),gold-digital,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508657,-54.610794,False,07:30,16:30,30,ficticio (gerado para teste da Fase 1),sintetico
+L007,Flash Games (fictícia),flash-games,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512708,-54.613991,False,07:00,17:00,10,ficticio (gerado para teste da Fase 1),sintetico

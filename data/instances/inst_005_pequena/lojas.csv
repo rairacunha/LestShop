@@ -1,0 +1,6 @@
+loja_id,nome,slug,cidade,endereco,predio,latitude,longitude,coordenada_pendente,abre,fecha,tempo_permanencia_min,fonte,tipo_dado
+L006,Delta Tech (fictícia),delta-tech,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.506098,-54.608607,False,07:00,16:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L029,Royal Center (fictícia),royal-center,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.50583,-54.608705,False,07:30,16:00,20,ficticio (gerado para teste da Fase 1),sintetico
+L039,Star Games (fictícia),star-games,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.508611,-54.612811,False,07:30,16:00,20,ficticio (gerado para teste da Fase 1),sintetico
+L043,Super Perfumes (fictícia),super-perfumes,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.516755,-54.622247,False,07:00,17:00,15,ficticio (gerado para teste da Fase 1),sintetico
+L020,Max Perfumes (fictícia),max-perfumes,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508273,-54.610713,False,07:00,17:00,15,ficticio (gerado para teste da Fase 1),sintetico

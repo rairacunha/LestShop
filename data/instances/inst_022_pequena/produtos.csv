@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P001,Celular Modelo A 128GB,Celulares,,0.45,1.2,210,sintetico
+P006,Celular Modelo D 5G 128GB,Celulares,,0.45,1.2,330,sintetico
+P015,Câmera de Ação 4K,Eletrônicos,,0.5,1.5,260,sintetico
+P017,Carregador Portátil 20000mAh,Eletrônicos,,0.45,0.6,30,sintetico
+P035,"Monitor 27"" QHD",Informática,,6.8,35.0,230,sintetico
+P042,Perfume Masculino Cítrico 200ml,Perfumes,,0.7,0.9,95,sintetico
+P043,Perfume Árabe Unissex 100ml,Perfumes,,0.5,0.7,35,sintetico
+P047,Secador de Cabelo Profissional,Beleza,,0.9,4.0,65,sintetico
+P057,Copo Térmico 473ml,Lazer,,0.4,1.0,28,sintetico
+P059,Vara de Pesca Telescópica,Lazer,,0.7,3.0,45,sintetico

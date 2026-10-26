@@ -3,10 +3,12 @@ import pytest
 from lesteshop.data import database
 from lesteshop.data.sources import FonteAPI, FonteComprasParaguai, FonteCSV
 
+from conftest import SEMENTE
+
 
 @pytest.fixture
 def con(tmp_path):
-    return database.recriar_banco(tmp_path / "t.db", fontes=[FonteCSV()])
+    return database.recriar_banco(tmp_path / "t.db", fontes=[FonteCSV(SEMENTE)])
 
 
 def test_recriar_banco_com_chaves(con):

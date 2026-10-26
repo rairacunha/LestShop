@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P004,Celular Modelo B Pro Max 512GB,Celulares,,0.55,1.4,1150,sintetico
+P006,Celular Modelo D 5G 128GB,Celulares,,0.45,1.2,330,sintetico
+P012,Caixa de Som Portátil Mini,Áudio,,0.4,1.0,45,sintetico
+P014,Soundbar 2.1 Canais,Áudio,,6.5,25.0,230,sintetico
+P029,Notebook Gamer RTX 16GB/1TB,Informática,,3.5,12.0,1100,sintetico
+P030,"Tablet 10"" 128GB",Informática,,0.9,2.5,290,sintetico
+P046,Protetor Solar FPS 50 200ml,Cosméticos,,0.25,0.3,18,sintetico
+P062,Boneca Articulada Colecionável,Brinquedos,,0.5,2.0,30,sintetico
+P063,Carrinho Controle Remoto,Brinquedos,,1.2,6.0,55,sintetico
+P071,Tênis Esportivo Corrida,Moda,,0.9,7.0,80,sintetico

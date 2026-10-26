@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P002,Celular Modelo A 256GB,Celulares,,0.45,1.2,260,sintetico
+P028,Notebook Ultrafino 16GB/512GB,Informática,,2.2,8.0,750,sintetico
+P031,Mouse Sem Fio,Informática,,0.15,0.5,18,sintetico
+P032,Teclado Mecânico RGB,Informática,,1.1,4.0,55,sintetico
+P033,SSD Externo 1TB,Informática,,0.15,0.3,85,sintetico
+P035,"Monitor 27"" QHD",Informática,,6.8,35.0,230,sintetico
+P042,Perfume Masculino Cítrico 200ml,Perfumes,,0.7,0.9,95,sintetico
+P043,Perfume Árabe Unissex 100ml,Perfumes,,0.5,0.7,35,sintetico
+P049,Barbeador Elétrico,Beleza,,0.5,1.2,75,sintetico
+P061,Brinquedo Blocos de Montar 500pç,Brinquedos,,1.0,4.0,45,sintetico

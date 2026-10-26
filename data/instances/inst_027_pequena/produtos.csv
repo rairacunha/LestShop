@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P001,Celular Modelo A 128GB,Celulares,,0.45,1.2,210,sintetico
+P008,Smartwatch Premium S3,Eletrônicos,,0.3,0.7,320,sintetico
+P042,Perfume Masculino Cítrico 200ml,Perfumes,,0.7,0.9,95,sintetico
+P044,Kit Maquiagem Básico,Cosméticos,,0.5,1.0,40,sintetico
+P049,Barbeador Elétrico,Beleza,,0.5,1.2,75,sintetico
+P051,Whisky 18 anos 750ml,Bebidas,,1.4,1.3,95,sintetico
+P054,Vinho Tinto Reserva 750ml,Bebidas,,1.3,1.1,15,sintetico
+P055,Espumante Brut 750ml,Bebidas,,1.5,1.2,20,sintetico
+P069,Óculos de Sol Polarizado,Moda,,0.15,0.5,70,sintetico
+P073,Mala de Bordo 10kg,Moda,,2.8,40.0,70,sintetico

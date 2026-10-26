@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P001,Celular Modelo A 128GB,Celulares,,0.45,1.2,210,sintetico
+P004,Celular Modelo B Pro Max 512GB,Celulares,,0.55,1.4,1150,sintetico
+P006,Celular Modelo D 5G 128GB,Celulares,,0.45,1.2,330,sintetico
+P015,Câmera de Ação 4K,Eletrônicos,,0.5,1.5,260,sintetico
+P038,Memória RAM 16GB DDR5,Informática,,0.1,0.2,55,sintetico
+P039,Perfume Feminino Floral 100ml,Perfumes,,0.45,0.6,85,sintetico
+P044,Kit Maquiagem Básico,Cosméticos,,0.5,1.0,40,sintetico
+P045,Sérum Facial Vitamina C 30ml,Cosméticos,,0.12,0.2,22,sintetico
+P057,Copo Térmico 473ml,Lazer,,0.4,1.0,28,sintetico
+P073,Mala de Bordo 10kg,Moda,,2.8,40.0,70,sintetico

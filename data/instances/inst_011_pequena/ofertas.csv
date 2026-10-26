@@ -1,0 +1,14 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L007,P017,Carregador Portátil 20000mAh - Flash Games (fictícia),357515,30.9,158.83,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L025,P017,Carregador Portátil 20000mAh - Mega Tech (fictícia),935423,32.9,169.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L025,P020,Streaming Stick HD - Mega Tech (fictícia),966660,31.9,163.97,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L033,P038,Memória RAM 16GB DDR5 - Royal Shop (fictícia),117297,50.9,261.63,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P039,Perfume Feminino Floral 100ml - Max Tech (fictícia),162510,83.99,431.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L011,P045,Sérum Facial Vitamina C 30ml - Gold Digital (fictícia),882788,20.99,107.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L025,P045,Sérum Facial Vitamina C 30ml - Mega Tech (fictícia),543257,19.9,102.29,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L007,P047,Secador de Cabelo Profissional - Flash Games (fictícia),163910,73.99,380.31,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P047,Secador de Cabelo Profissional - Max Tech (fictícia),738725,58.9,302.75,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P051,Whisky 18 anos 750ml - Max Tech (fictícia),125672,90.0,462.6,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P052,Vodka Premium 1L - Max Tech (fictícia),147462,22.99,118.17,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L007,P063,Carrinho Controle Remoto - Flash Games (fictícia),704114,62.99,323.77,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L007,P068,Jogo de Panelas Antiaderente 5pç - Flash Games (fictícia),661629,83.9,431.25,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

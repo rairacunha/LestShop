@@ -1,0 +1,22 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L037,P006,Celular Modelo D 5G 128GB - Smart Mix (fictícia),256198,293.99,1511.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L003,P006,Celular Modelo D 5G 128GB - Delta Imports (fictícia),945169,326.9,1680.27,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L003,P012,Caixa de Som Portátil Mini - Delta Imports (fictícia),755981,48.0,246.72,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P012,Caixa de Som Portátil Mini - Delta Center (fictícia),59954,43.0,221.02,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L003,P013,Caixa de Som Portátil Grande - Delta Imports (fictícia),120417,170.99,878.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P013,Caixa de Som Portátil Grande - Delta Center (fictícia),516762,193.99,997.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P023,Console Portátil Híbrido - Super Shop (fictícia),43028,347.9,1788.21,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P023,Console Portátil Híbrido - Smart Mix (fictícia),818959,356.9,1834.47,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P023,Console Portátil Híbrido - Delta Center (fictícia),894025,328.0,1685.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P025,Jogo Mídia Física Lançamento - Super Shop (fictícia),308189,52.99,272.37,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P025,Jogo Mídia Física Lançamento - Delta Center (fictícia),404731,65.0,334.1,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P026,Jogo Mídia Física Catálogo - Super Shop (fictícia),93479,32.99,169.57,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P026,Jogo Mídia Física Catálogo - Smart Mix (fictícia),386982,25.9,133.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L048,P028,Notebook Ultrafino 16GB/512GB - Top Shop (fictícia),206999,763.9,3926.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P028,Notebook Ultrafino 16GB/512GB - Smart Mix (fictícia),546242,771.0,3962.94,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L048,P033,SSD Externo 1TB - Top Shop (fictícia),311010,71.99,370.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P033,SSD Externo 1TB - Smart Mix (fictícia),979453,92.9,477.51,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P042,Perfume Masculino Cítrico 200ml - Super Shop (fictícia),304339,93.0,478.02,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P042,Perfume Masculino Cítrico 200ml - Delta Center (fictícia),663768,79.0,406.06,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P043,Perfume Árabe Unissex 100ml - Super Shop (fictícia),955541,36.0,185.04,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P043,Perfume Árabe Unissex 100ml - Delta Center (fictícia),293583,33.9,174.25,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

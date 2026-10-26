@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L022,P003,Celular Modelo B Pro 256GB - Mega Bazar (fictícia),319706,739.0,3798.46,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P003,Celular Modelo B Pro 256GB - Luna Perfumes (fictícia),638193,796.9,4096.07,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P011,Headphone Over-Ear Wireless - Royal Outlet (fictícia),471622,221.99,1141.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L012,P011,Headphone Over-Ear Wireless - Gold Shop (fictícia),901568,177.9,914.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P031,Mouse Sem Fio - Luna Perfumes (fictícia),289897,17.0,87.38,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L012,P031,Mouse Sem Fio - Gold Shop (fictícia),131778,14.0,71.96,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P037,Placa de Vídeo Intermediária 8GB - Royal Outlet (fictícia),654801,366.0,1881.24,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L012,P037,Placa de Vídeo Intermediária 8GB - Gold Shop (fictícia),13263,323.9,1664.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P042,Perfume Masculino Cítrico 200ml - Royal Outlet (fictícia),559497,98.99,508.81,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P042,Perfume Masculino Cítrico 200ml - Max Tech (fictícia),766900,97.9,503.21,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L022,P046,Protetor Solar FPS 50 200ml - Mega Bazar (fictícia),97877,19.0,97.66,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P046,Protetor Solar FPS 50 200ml - Luna Perfumes (fictícia),454912,17.9,92.01,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P049,Barbeador Elétrico - Royal Outlet (fictícia),169410,83.99,431.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P049,Barbeador Elétrico - Luna Perfumes (fictícia),894175,76.99,395.73,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P050,Whisky 12 anos 1L - Max Tech (fictícia),634144,33.9,174.25,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L012,P050,Whisky 12 anos 1L - Gold Shop (fictícia),45887,36.99,190.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P051,Whisky 18 anos 750ml - Max Tech (fictícia),125672,90.0,462.6,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L012,P051,Whisky 18 anos 750ml - Gold Shop (fictícia),800853,88.0,452.32,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L022,P061,Brinquedo Blocos de Montar 500pç - Mega Bazar (fictícia),686094,50.0,257.0,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L012,P061,Brinquedo Blocos de Montar 500pç - Gold Shop (fictícia),232128,39.99,205.55,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

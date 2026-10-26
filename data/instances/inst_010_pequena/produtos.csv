@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P011,Headphone Over-Ear Wireless,Áudio,,0.6,3.5,210,sintetico
+P013,Caixa de Som Portátil Grande,Áudio,,2.8,9.0,180,sintetico
+P014,Soundbar 2.1 Canais,Áudio,,6.5,25.0,230,sintetico
+P015,Câmera de Ação 4K,Eletrônicos,,0.5,1.5,260,sintetico
+P029,Notebook Gamer RTX 16GB/1TB,Informática,,3.5,12.0,1100,sintetico
+P041,Perfume Masculino Amadeirado 100ml,Perfumes,,0.45,0.6,78,sintetico
+P043,Perfume Árabe Unissex 100ml,Perfumes,,0.5,0.7,35,sintetico
+P045,Sérum Facial Vitamina C 30ml,Cosméticos,,0.12,0.2,22,sintetico
+P065,Robô Aspirador,Casa,,3.5,14.0,210,sintetico
+P066,Liquidificador Potente 1200W,Casa,,3.8,12.0,55,sintetico

@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L045,P013,Caixa de Som Portátil Grande - Top Bazar (fictícia),601321,190.0,976.6,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P013,Caixa de Som Portátil Grande - Delta Tech (fictícia),749543,182.0,935.48,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L048,P028,Notebook Ultrafino 16GB/512GB - Top Shop (fictícia),206999,763.9,3926.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P028,Notebook Ultrafino 16GB/512GB - Top Mix (fictícia),852210,778.0,3998.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L048,P029,Notebook Gamer RTX 16GB/1TB - Top Shop (fictícia),927554,1052.0,5407.28,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P029,Notebook Gamer RTX 16GB/1TB - Delta Tech (fictícia),434220,998.0,5129.72,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L048,P030,"Tablet 10"" 128GB - Top Shop (fictícia)",813100,285.0,1464.9,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P030,"Tablet 10"" 128GB - Delta Tech (fictícia)",552354,306.9,1577.47,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L048,P031,Mouse Sem Fio - Top Shop (fictícia),107068,18.9,97.15,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P031,Mouse Sem Fio - Delta Tech (fictícia),387167,18.0,92.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L048,P039,Perfume Feminino Floral 100ml - Top Shop (fictícia),551657,74.99,385.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P039,Perfume Feminino Floral 100ml - Max Tech (fictícia),162510,83.99,431.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P041,Perfume Masculino Amadeirado 100ml - Max Tech (fictícia),951270,73.0,375.22,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P041,Perfume Masculino Amadeirado 100ml - Delta Tech (fictícia),94882,74.0,380.36,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P043,Perfume Árabe Unissex 100ml - Top Mix (fictícia),351824,38.9,199.95,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P043,Perfume Árabe Unissex 100ml - Delta Tech (fictícia),361067,38.99,200.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L045,P045,Sérum Facial Vitamina C 30ml - Top Bazar (fictícia),39651,21.99,113.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P045,Sérum Facial Vitamina C 30ml - Delta Tech (fictícia),792646,20.9,107.43,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P051,Whisky 18 anos 750ml - Max Tech (fictícia),125672,90.0,462.6,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P051,Whisky 18 anos 750ml - Delta Tech (fictícia),916659,93.9,482.65,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

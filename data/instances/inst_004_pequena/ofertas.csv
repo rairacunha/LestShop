@@ -1,0 +1,23 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L046,P004,Celular Modelo B Pro Max 512GB - Top Center (fictícia),639366,1036.99,5330.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P004,Celular Modelo B Pro Max 512GB - Max Perfumes (fictícia),637541,1203.0,6183.42,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P004,Celular Modelo B Pro Max 512GB - Delta Tech (fictícia),971516,1171.9,6023.57,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P006,Celular Modelo D 5G 128GB - Max Perfumes (fictícia),457492,360.9,1855.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L003,P006,Celular Modelo D 5G 128GB - Delta Imports (fictícia),945169,326.9,1680.27,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L015,P012,Caixa de Som Portátil Mini - Luna Outlet (fictícia),193598,40.9,210.23,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L003,P012,Caixa de Som Portátil Mini - Delta Imports (fictícia),755981,48.0,246.72,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P014,Soundbar 2.1 Canais - Max Perfumes (fictícia),723409,243.99,1254.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P014,Soundbar 2.1 Canais - Delta Tech (fictícia),157094,246.99,1269.53,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L046,P029,Notebook Gamer RTX 16GB/1TB - Top Center (fictícia),347839,997.0,5124.58,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P029,Notebook Gamer RTX 16GB/1TB - Delta Tech (fictícia),434220,998.0,5129.72,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L046,P030,"Tablet 10"" 128GB - Top Center (fictícia)",383459,257.99,1326.07,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P030,"Tablet 10"" 128GB - Delta Tech (fictícia)",552354,306.9,1577.47,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L015,P046,Protetor Solar FPS 50 200ml - Luna Outlet (fictícia),415559,18.99,97.61,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P046,Protetor Solar FPS 50 200ml - Delta Tech (fictícia),208989,17.9,92.01,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P062,Boneca Articulada Colecionável - Max Perfumes (fictícia),657609,33.0,169.62,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L015,P062,Boneca Articulada Colecionável - Luna Outlet (fictícia),579923,32.99,169.57,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L046,P063,Carrinho Controle Remoto - Top Center (fictícia),931291,53.9,277.05,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L015,P063,Carrinho Controle Remoto - Luna Outlet (fictícia),47682,55.99,287.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L046,P071,Tênis Esportivo Corrida - Top Center (fictícia),436070,70.0,359.8,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P071,Tênis Esportivo Corrida - Max Perfumes (fictícia),963445,84.99,436.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L003,P071,Tênis Esportivo Corrida - Delta Imports (fictícia),638133,77.0,395.78,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

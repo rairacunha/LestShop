@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P001,Celular Modelo A 128GB,Celulares,,0.45,1.2,210,sintetico
+P020,Streaming Stick HD,TV,,0.2,0.4,35,sintetico
+P042,Perfume Masculino Cítrico 200ml,Perfumes,,0.7,0.9,95,sintetico
+P048,Prancha Alisadora Titânio,Beleza,,0.6,2.0,48,sintetico
+P050,Whisky 12 anos 1L,Bebidas,,1.6,1.5,38,sintetico
+P052,Vodka Premium 1L,Bebidas,,1.5,1.4,22,sintetico
+P068,Jogo de Panelas Antiaderente 5pç,Casa,,6.0,28.0,95,sintetico
+P069,Óculos de Sol Polarizado,Moda,,0.15,0.5,70,sintetico
+P071,Tênis Esportivo Corrida,Moda,,0.9,7.0,80,sintetico
+P073,Mala de Bordo 10kg,Moda,,2.8,40.0,70,sintetico

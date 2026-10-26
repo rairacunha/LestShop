@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L020,P003,Celular Modelo B Pro 256GB - Max Perfumes (fictícia),922729,907.99,4667.07,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P003,Celular Modelo B Pro 256GB - Smart Mix (fictícia),333516,826.9,4250.27,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P004,Celular Modelo B Pro Max 512GB - Max Perfumes (fictícia),637541,1203.0,6183.42,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P004,Celular Modelo B Pro Max 512GB - Smart Mix (fictícia),335876,1177.0,6049.78,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P005,Celular Modelo C Lite 64GB - Max Perfumes (fictícia),616732,132.9,683.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P005,Celular Modelo C Lite 64GB - Royal Center (fictícia),991192,110.9,570.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P010,Fone Bluetooth Intra com Cancelamento - Max Perfumes (fictícia),111173,137.99,709.27,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L038,P010,Fone Bluetooth Intra com Cancelamento - Sol Digital (fictícia),796583,146.0,750.44,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P017,Carregador Portátil 20000mAh - Royal Center (fictícia),596789,26.9,138.27,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P017,Carregador Portátil 20000mAh - Smart Mix (fictícia),334938,32.9,169.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P033,SSD Externo 1TB - Royal Center (fictícia),830584,72.0,370.08,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P033,SSD Externo 1TB - Smart Mix (fictícia),979453,92.9,477.51,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P036,Roteador Wi-Fi 6 - Royal Center (fictícia),303591,75.99,390.59,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P036,Roteador Wi-Fi 6 - Smart Mix (fictícia),34207,59.9,307.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P048,Prancha Alisadora Titânio - Max Perfumes (fictícia),417038,45.9,235.93,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P048,Prancha Alisadora Titânio - Smart Mix (fictícia),124548,42.0,215.88,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L020,P053,Gin Importado 750ml - Max Perfumes (fictícia),17461,28.9,148.55,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L038,P053,Gin Importado 750ml - Sol Digital (fictícia),431355,30.99,159.29,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P059,Vara de Pesca Telescópica - Royal Center (fictícia),82976,42.0,215.88,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P059,Vara de Pesca Telescópica - Ultra Games (fictícia),262974,38.99,200.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

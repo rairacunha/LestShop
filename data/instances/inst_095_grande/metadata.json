@@ -1,0 +1,19 @@
+{
+  "nome": "inst_095_grande",
+  "tamanho": "grande",
+  "seed": 2026095,
+  "densidade": 0.43,
+  "n_lojas": 39,
+  "n_produtos": 70,
+  "n_ofertas": 330,
+  "n_itens_lista": 6,
+  "cota_disponivel_usd": 500.0,
+  "aliquota_excedente": 0.5,
+  "orcamento_usd": 505.23,
+  "custo_minimo_lista_usd": 672.58,
+  "lista_excede_cota": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "14:00",
+  "data_geracao": "2026-10-26",
+  "tipo_dado": "sintetico"
+}

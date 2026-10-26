@@ -1,0 +1,6 @@
+loja_id,nome,slug,cidade,endereco,predio,latitude,longitude,coordenada_pendente,abre,fecha,tempo_permanencia_min,fonte,tipo_dado
+L044,Super Shop (fictícia),super-shop,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.505853,-54.608702,False,07:30,16:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L037,Smart Mix (fictícia),smart-mix,Ciudad del Este,"Torre Fronteira, CDE (fictício)",Torre Fronteira,-25.507045,-54.61297,False,07:30,16:30,10,ficticio (gerado para teste da Fase 1),sintetico
+L003,Delta Imports (fictícia),delta-imports,Ciudad del Este,"Centro Comercial Rio, CDE (fictício)",Centro Comercial Rio,-25.511415,-54.609937,False,07:30,16:30,25,ficticio (gerado para teste da Fase 1),sintetico
+L048,Top Shop (fictícia),top-shop,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.505878,-54.609017,False,08:00,15:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L001,Delta Center (fictícia),delta-center,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512666,-54.614003,False,07:00,17:00,30,ficticio (gerado para teste da Fase 1),sintetico

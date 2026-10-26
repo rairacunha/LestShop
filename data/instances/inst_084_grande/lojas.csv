@@ -1,0 +1,41 @@
+loja_id,nome,slug,cidade,endereco,predio,latitude,longitude,coordenada_pendente,abre,fecha,tempo_permanencia_min,fonte,tipo_dado
+L032,Royal Outlet (fictícia),royal-outlet,Ciudad del Este,"Plaza Comercial Este, CDE (fictício)",Plaza Comercial Este,-25.513983,-54.611555,False,07:30,17:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L034,Smart Center (fictícia),smart-center,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.515889,-54.611216,False,08:00,15:00,15,ficticio (gerado para teste da Fase 1),sintetico
+L008,Flash Tech (fictícia),flash-tech,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.504245,-54.609024,False,07:00,15:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L010,Gold Center (fictícia),gold-center,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508195,-54.610557,False,08:00,15:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L006,Delta Tech (fictícia),delta-tech,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.506098,-54.608607,False,07:00,16:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L026,Nova Tech (fictícia),nova-tech,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.501274,-54.623153,False,07:30,17:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L024,Mega Shop (fictícia),mega-shop,Ciudad del Este,"Centro Comercial Rio, CDE (fictício)",Centro Comercial Rio,-25.511125,-54.609689,False,08:00,16:30,10,ficticio (gerado para teste da Fase 1),sintetico
+L046,Top Center (fictícia),top-center,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.51246,-54.614016,False,08:00,15:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L004,Delta Outlet (fictícia),delta-outlet,Ciudad del Este,"Plaza Comercial Este, CDE (fictício)",Plaza Comercial Este,-25.514183,-54.611475,False,07:30,17:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L029,Royal Center (fictícia),royal-center,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.50583,-54.608705,False,07:30,16:00,20,ficticio (gerado para teste da Fase 1),sintetico
+L023,Mega Eletrônicos (fictícia),mega-eletronicos,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.506128,-54.608673,False,07:00,15:00,20,ficticio (gerado para teste da Fase 1),sintetico
+L035,Smart Digital (fictícia),smart-digital,Ciudad del Este,"Centro Comercial Rio, CDE (fictício)",Centro Comercial Rio,-25.511195,-54.609776,False,07:30,17:00,20,ficticio (gerado para teste da Fase 1),sintetico
+L043,Super Perfumes (fictícia),super-perfumes,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.516755,-54.622247,False,07:00,17:00,15,ficticio (gerado para teste da Fase 1),sintetico
+L027,Prime Eletrônicos (fictícia),prime-eletronicos,Ciudad del Este,"Shopping Monte Azul, CDE (fictício)",Shopping Monte Azul,-25.509714,-54.612301,False,07:30,16:30,10,ficticio (gerado para teste da Fase 1),sintetico
+L037,Smart Mix (fictícia),smart-mix,Ciudad del Este,"Torre Fronteira, CDE (fictício)",Torre Fronteira,-25.507045,-54.61297,False,07:30,16:30,10,ficticio (gerado para teste da Fase 1),sintetico
+L013,Luna Center (fictícia),luna-center,Ciudad del Este,"Shopping Monte Azul, CDE (fictício)",Shopping Monte Azul,-25.509727,-54.612028,False,08:00,16:30,20,ficticio (gerado para teste da Fase 1),sintetico
+L036,Smart Games (fictícia),smart-games,Ciudad del Este,"Shopping Monte Azul, CDE (fictício)",Shopping Monte Azul,-25.509682,-54.612105,False,07:30,15:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L022,Mega Bazar (fictícia),mega-bazar,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508471,-54.610664,False,08:00,15:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L002,Delta Games (fictícia),delta-games,Ciudad del Este,"Centro Comercial Rio, CDE (fictício)",Centro Comercial Rio,-25.511283,-54.609948,False,07:30,16:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L001,Delta Center (fictícia),delta-center,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512666,-54.614003,False,07:00,17:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L019,Max Mix (fictícia),max-mix,Ciudad del Este,"Centro Comercial Rio, CDE (fictício)",Centro Comercial Rio,-25.510884,-54.609673,False,07:30,17:00,15,ficticio (gerado para teste da Fase 1),sintetico
+L018,Max Games (fictícia),max-games,Ciudad del Este,"Plaza Comercial Este, CDE (fictício)",Plaza Comercial Este,-25.514165,-54.611377,False,08:00,16:30,25,ficticio (gerado para teste da Fase 1),sintetico
+L003,Delta Imports (fictícia),delta-imports,Ciudad del Este,"Centro Comercial Rio, CDE (fictício)",Centro Comercial Rio,-25.511415,-54.609937,False,07:30,16:30,25,ficticio (gerado para teste da Fase 1),sintetico
+L050,Ultra Outlet (fictícia),ultra-outlet,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.50869,-54.610476,False,07:00,17:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L033,Royal Shop (fictícia),royal-shop,Ciudad del Este,"Plaza Comercial Este, CDE (fictício)",Plaza Comercial Este,-25.513969,-54.611723,False,07:30,15:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L045,Top Bazar (fictícia),top-bazar,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512495,-54.614011,False,07:00,16:00,20,ficticio (gerado para teste da Fase 1),sintetico
+L049,Ultra Games (fictícia),ultra-games,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508774,-54.610401,False,07:30,17:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L031,Royal Games (fictícia),royal-games,Ciudad del Este,"Torre Fronteira, CDE (fictício)",Torre Fronteira,-25.507037,-54.613066,False,08:00,16:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L016,Luna Perfumes (fictícia),luna-perfumes,Ciudad del Este,"Torre Fronteira, CDE (fictício)",Torre Fronteira,-25.507202,-54.612944,False,08:00,17:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L038,Sol Digital (fictícia),sol-digital,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512591,-54.61399,False,08:00,15:00,15,ficticio (gerado para teste da Fase 1),sintetico
+L040,Super Bazar (fictícia),super-bazar,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.506081,-54.608744,False,07:00,16:30,25,ficticio (gerado para teste da Fase 1),sintetico
+L007,Flash Games (fictícia),flash-games,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512708,-54.613991,False,07:00,17:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L015,Luna Outlet (fictícia),luna-outlet,Ciudad del Este,"Centro Comercial Rio, CDE (fictício)",Centro Comercial Rio,-25.511085,-54.609658,False,07:30,16:30,15,ficticio (gerado para teste da Fase 1),sintetico
+L042,Super Games (fictícia),super-games,Ciudad del Este,"Torre Fronteira, CDE (fictício)",Torre Fronteira,-25.50687,-54.612878,False,07:00,15:00,15,ficticio (gerado para teste da Fase 1),sintetico
+L009,Gold Bazar (fictícia),gold-bazar,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512512,-54.614294,False,08:00,16:30,25,ficticio (gerado para teste da Fase 1),sintetico
+L011,Gold Digital (fictícia),gold-digital,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508657,-54.610794,False,07:30,16:30,30,ficticio (gerado para teste da Fase 1),sintetico
+L020,Max Perfumes (fictícia),max-perfumes,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508273,-54.610713,False,07:00,17:00,15,ficticio (gerado para teste da Fase 1),sintetico
+L025,Mega Tech (fictícia),mega-tech,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508359,-54.610641,False,07:00,16:00,20,ficticio (gerado para teste da Fase 1),sintetico
+L005,Delta Perfumes (fictícia),delta-perfumes,Ciudad del Este,"Shopping Monte Azul, CDE (fictício)",Shopping Monte Azul,-25.509462,-54.612287,False,07:00,16:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L030,Royal Eletrônicos (fictícia),royal-eletronicos,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512434,-54.613887,False,07:00,16:30,25,ficticio (gerado para teste da Fase 1),sintetico

@@ -207,6 +207,12 @@ def recriar_banco(
     con = conectar(caminho)
     gravar(con, resultado.lojas, resultado.produtos, resultado.ofertas)
     gravar_tabela_simples(con, "pontos_partida", FonteCSV(config.DIR_RAW).carregar_pontos_partida())
+    # Cotações guardadas em data/raw/cotacoes.csv servem de fallback quando a API PTAX
+    # não responde (na base fictícia, é uma cotação fictícia).
+    cot = FonteCSV(config.DIR_RAW).carregar_cotacoes()
+    with con:
+        con.executemany("INSERT OR REPLACE INTO cotacoes VALUES (?, ?, ?, ?)",
+                        [(r.data, r.valor_brl_por_usd, r.fonte, r.data) for r in cot.itertuples()])
     if config.CAMINHO_CATALOGO.exists():
         cat = pd.read_csv(config.CAMINHO_CATALOGO, dtype=str, keep_default_na=False, na_values=[""])
         gravar_tabela_simples(con, "catalogo_modelos", cat.drop_duplicates("modelo_id"))

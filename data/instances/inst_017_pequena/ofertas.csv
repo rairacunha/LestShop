@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L029,P001,Celular Modelo A 128GB - Royal Center (fictícia),139492,216.99,1115.33,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L036,P001,Celular Modelo A 128GB - Smart Games (fictícia),367514,208.99,1074.21,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P008,Smartwatch Premium S3 - Max Tech (fictícia),617993,320.99,1649.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P008,Smartwatch Premium S3 - Royal Center (fictícia),582331,287.9,1479.81,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L028,P013,Caixa de Som Portátil Grande - Rapid Perfumes (fictícia),417969,194.0,997.16,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L036,P013,Caixa de Som Portátil Grande - Smart Games (fictícia),952073,189.99,976.55,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L028,P015,Câmera de Ação 4K - Rapid Perfumes (fictícia),101700,234.0,1202.76,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P015,Câmera de Ação 4K - Royal Center (fictícia),929635,241.99,1243.83,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L017,P044,Kit Maquiagem Básico - Max Eletrônicos (fictícia),443766,41.99,215.83,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P044,Kit Maquiagem Básico - Royal Center (fictícia),629359,42.9,220.51,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L017,P045,Sérum Facial Vitamina C 30ml - Max Eletrônicos (fictícia),644115,23.99,123.31,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P045,Sérum Facial Vitamina C 30ml - Royal Center (fictícia),592990,19.9,102.29,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P047,Secador de Cabelo Profissional - Max Tech (fictícia),738725,58.9,302.75,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P047,Secador de Cabelo Profissional - Royal Center (fictícia),759506,59.0,303.26,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P050,Whisky 12 anos 1L - Max Tech (fictícia),634144,33.9,174.25,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L036,P050,Whisky 12 anos 1L - Smart Games (fictícia),244302,33.0,169.62,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P051,Whisky 18 anos 750ml - Max Tech (fictícia),125672,90.0,462.6,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L036,P051,Whisky 18 anos 750ml - Smart Games (fictícia),880086,88.0,452.32,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L028,P059,Vara de Pesca Telescópica - Rapid Perfumes (fictícia),519256,48.9,251.35,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P059,Vara de Pesca Telescópica - Royal Center (fictícia),82976,42.0,215.88,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

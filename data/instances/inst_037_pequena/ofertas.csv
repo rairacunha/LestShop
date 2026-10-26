@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L031,P003,Celular Modelo B Pro 256GB - Royal Games (fictícia),403636,681.0,3500.34,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L038,P003,Celular Modelo B Pro 256GB - Sol Digital (fictícia),255128,847.0,4353.58,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P004,Celular Modelo B Pro Max 512GB - Royal Games (fictícia),77277,1264.0,6496.96,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P004,Celular Modelo B Pro Max 512GB - Ultra Games (fictícia),928531,900.0,4626.0,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P006,Celular Modelo D 5G 128GB - Royal Games (fictícia),320379,305.99,1572.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P006,Celular Modelo D 5G 128GB - Ultra Games (fictícia),552400,309.9,1592.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P039,Perfume Feminino Floral 100ml - Max Tech (fictícia),162510,83.99,431.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P039,Perfume Feminino Floral 100ml - Royal Games (fictícia),270612,88.0,452.32,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P050,Whisky 12 anos 1L - Max Tech (fictícia),634144,33.9,174.25,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P050,Whisky 12 anos 1L - Royal Games (fictícia),79512,35.9,184.53,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L021,P052,Vodka Premium 1L - Max Tech (fictícia),147462,22.99,118.17,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P052,Vodka Premium 1L - Ultra Games (fictícia),97176,23.9,122.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P057,Copo Térmico 473ml - Royal Games (fictícia),24757,23.99,123.31,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P057,Copo Térmico 473ml - Ultra Games (fictícia),382785,28.0,143.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P069,Óculos de Sol Polarizado - Royal Games (fictícia),28514,61.0,313.54,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L038,P069,Óculos de Sol Polarizado - Sol Digital (fictícia),732222,76.99,395.73,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L017,P070,Relógio Analógico Aço - Max Eletrônicos (fictícia),837855,105.99,544.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P070,Relógio Analógico Aço - Royal Games (fictícia),671566,111.0,570.54,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P073,Mala de Bordo 10kg - Royal Games (fictícia),845541,59.0,303.26,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L038,P073,Mala de Bordo 10kg - Sol Digital (fictícia),895437,73.9,379.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

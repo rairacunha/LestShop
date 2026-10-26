@@ -1,0 +1,6 @@
+loja_id,nome,slug,cidade,endereco,predio,latitude,longitude,coordenada_pendente,abre,fecha,tempo_permanencia_min,fonte,tipo_dado
+L038,Sol Digital (fictícia),sol-digital,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512591,-54.61399,False,08:00,15:00,15,ficticio (gerado para teste da Fase 1),sintetico
+L029,Royal Center (fictícia),royal-center,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.50583,-54.608705,False,07:30,16:00,20,ficticio (gerado para teste da Fase 1),sintetico
+L020,Max Perfumes (fictícia),max-perfumes,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508273,-54.610713,False,07:00,17:00,15,ficticio (gerado para teste da Fase 1),sintetico
+L037,Smart Mix (fictícia),smart-mix,Ciudad del Este,"Torre Fronteira, CDE (fictício)",Torre Fronteira,-25.507045,-54.61297,False,07:30,16:30,10,ficticio (gerado para teste da Fase 1),sintetico
+L049,Ultra Games (fictícia),ultra-games,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508774,-54.610401,False,07:30,17:00,30,ficticio (gerado para teste da Fase 1),sintetico

@@ -7,6 +7,8 @@ import pandas as pd
 from lesteshop.data import coletar, config, database, resumo
 from lesteshop.data.sources import FonteComprasParaguai
 
+from conftest import SEMENTE
+
 
 def test_comando_coletar_grava_csv_e_banco(monkeypatch, tmp_path, cliente_falso, capsys):
     monkeypatch.setattr(config, "DIR_COLETAS", tmp_path / "coletas")
@@ -33,7 +35,7 @@ def test_comando_coletar_grava_csv_e_banco(monkeypatch, tmp_path, cliente_falso,
 
 
 def test_resumo_imprime_e_exporta(tmp_path, capsys):
-    con = database.recriar_banco(tmp_path / "r.db", fontes=[database.FonteCSV()])
+    con = database.recriar_banco(tmp_path / "r.db", fontes=[database.FonteCSV(SEMENTE)])
     con.close()
     assert resumo.main(["--banco", str(tmp_path / "r.db"), "--sem-cotacao", "--export", str(tmp_path / "exp")]) == 0
     saida = capsys.readouterr().out

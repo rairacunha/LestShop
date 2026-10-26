@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L032,P001,Celular Modelo A 128GB - Royal Outlet (fictícia),321797,234.99,1207.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P001,Celular Modelo A 128GB - Royal Center (fictícia),139492,216.99,1115.33,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P008,Smartwatch Premium S3 - Royal Center (fictícia),582331,287.9,1479.81,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L007,P008,Smartwatch Premium S3 - Flash Games (fictícia),981562,272.9,1402.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P042,Perfume Masculino Cítrico 200ml - Royal Outlet (fictícia),559497,98.99,508.81,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P042,Perfume Masculino Cítrico 200ml - Royal Center (fictícia),188228,100.99,519.09,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L033,P044,Kit Maquiagem Básico - Royal Shop (fictícia),185871,32.0,164.48,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P044,Kit Maquiagem Básico - Royal Center (fictícia),629359,42.9,220.51,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P049,Barbeador Elétrico - Royal Outlet (fictícia),169410,83.99,431.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L007,P049,Barbeador Elétrico - Flash Games (fictícia),311609,79.9,410.69,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P051,Whisky 18 anos 750ml - Royal Outlet (fictícia),795382,112.0,575.68,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L030,P051,Whisky 18 anos 750ml - Royal Eletrônicos (fictícia),385193,108.99,560.21,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P054,Vinho Tinto Reserva 750ml - Royal Outlet (fictícia),379745,14.0,71.96,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L030,P054,Vinho Tinto Reserva 750ml - Royal Eletrônicos (fictícia),354526,15.0,77.1,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L030,P055,Espumante Brut 750ml - Royal Eletrônicos (fictícia),301713,18.0,92.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L007,P055,Espumante Brut 750ml - Flash Games (fictícia),949305,20.99,107.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L033,P069,Óculos de Sol Polarizado - Royal Shop (fictícia),367088,60.99,313.49,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L030,P069,Óculos de Sol Polarizado - Royal Eletrônicos (fictícia),746885,67.9,349.01,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L033,P073,Mala de Bordo 10kg - Royal Shop (fictícia),944496,62.9,323.31,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L030,P073,Mala de Bordo 10kg - Royal Eletrônicos (fictícia),584736,61.99,318.63,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

@@ -1,0 +1,22 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L003,P003,Celular Modelo B Pro 256GB - Delta Imports (fictícia),912951,780.99,4014.29,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P003,Celular Modelo B Pro 256GB - Smart Mix (fictícia),333516,826.9,4250.27,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L005,P003,Celular Modelo B Pro 256GB - Delta Perfumes (fictícia),238679,907.99,4667.07,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P004,Celular Modelo B Pro Max 512GB - Smart Mix (fictícia),335876,1177.0,6049.78,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L005,P004,Celular Modelo B Pro Max 512GB - Delta Perfumes (fictícia),786408,1072.99,5515.17,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P006,Celular Modelo D 5G 128GB - Smart Mix (fictícia),256198,293.99,1511.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L003,P006,Celular Modelo D 5G 128GB - Delta Imports (fictícia),945169,326.9,1680.27,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L041,P032,Teclado Mecânico RGB - Super Eletrônicos (fictícia),505235,62.99,323.77,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P032,Teclado Mecânico RGB - Luna Perfumes (fictícia),615457,55.99,287.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L041,P034,Pendrive 128GB - Super Eletrônicos (fictícia),577568,13.9,71.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P034,Pendrive 128GB - Smart Mix (fictícia),211242,10.0,51.4,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P035,"Monitor 27"" QHD - Luna Perfumes (fictícia)",391725,240.99,1238.69,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P035,"Monitor 27"" QHD - Smart Mix (fictícia)",535442,232.9,1197.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P036,Roteador Wi-Fi 6 - Smart Mix (fictícia),34207,59.9,307.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L005,P036,Roteador Wi-Fi 6 - Delta Perfumes (fictícia),70628,74.9,384.99,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L003,P064,Air Fryer 5L - Delta Imports (fictícia),980712,72.0,370.08,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L005,P064,Air Fryer 5L - Delta Perfumes (fictícia),192641,84.9,436.39,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L005,P069,Óculos de Sol Polarizado - Delta Perfumes (fictícia),457351,83.0,426.62,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L003,P069,Óculos de Sol Polarizado - Delta Imports (fictícia),514012,72.0,370.08,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L005,P071,Tênis Esportivo Corrida - Delta Perfumes (fictícia),17237,92.0,472.88,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L003,P071,Tênis Esportivo Corrida - Delta Imports (fictícia),638133,77.0,395.78,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

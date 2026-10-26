@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L022,P015,Câmera de Ação 4K - Mega Bazar (fictícia),780008,272.0,1398.08,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P015,Câmera de Ação 4K - Max Games (fictícia),158900,221.9,1140.57,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L022,P016,Drone Compacto com Câmera - Mega Bazar (fictícia),133504,423.0,2174.22,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P016,Drone Compacto com Câmera - Delta Games (fictícia),617123,357.99,1840.07,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L040,P019,"Smart TV 50"" 4K - Super Bazar (fictícia)",139071,365.99,1881.19,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L022,P019,"Smart TV 50"" 4K - Mega Bazar (fictícia)",973973,342.9,1762.51,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L040,P021,Console de Mesa Geração Atual 1TB - Super Bazar (fictícia),325463,526.99,2708.73,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L022,P021,Console de Mesa Geração Atual 1TB - Mega Bazar (fictícia),408619,606.9,3119.47,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L040,P023,Console Portátil Híbrido - Super Bazar (fictícia),619813,294.9,1515.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L022,P023,Console Portátil Híbrido - Mega Bazar (fictícia),448824,392.0,2014.88,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L040,P025,Jogo Mídia Física Lançamento - Super Bazar (fictícia),127309,63.9,328.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L022,P025,Jogo Mídia Física Lançamento - Mega Bazar (fictícia),205950,55.9,287.33,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L040,P027,Headset Gamer 7.1 - Super Bazar (fictícia),715538,67.99,349.47,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P027,Headset Gamer 7.1 - Delta Games (fictícia),500979,68.0,349.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P029,Notebook Gamer RTX 16GB/1TB - Max Games (fictícia),161110,868.99,4466.61,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P029,Notebook Gamer RTX 16GB/1TB - Delta Games (fictícia),605389,1012.0,5201.68,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L040,P037,Placa de Vídeo Intermediária 8GB - Super Bazar (fictícia),661513,340.9,1752.23,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P037,Placa de Vídeo Intermediária 8GB - Delta Games (fictícia),142226,274.99,1413.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L040,P045,Sérum Facial Vitamina C 30ml - Super Bazar (fictícia),468952,18.99,97.61,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L011,P045,Sérum Facial Vitamina C 30ml - Gold Digital (fictícia),882788,20.99,107.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

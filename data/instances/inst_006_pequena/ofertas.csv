@@ -1,0 +1,13 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L025,P005,Celular Modelo C Lite 64GB - Mega Tech (fictícia),931761,112.9,580.31,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P005,Celular Modelo C Lite 64GB - Ultra Games (fictícia),924600,113.9,585.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L034,P014,Soundbar 2.1 Canais - Smart Center (fictícia),652662,237.0,1218.18,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P026,Jogo Mídia Física Catálogo - Delta Outlet (fictícia),34721,32.99,169.57,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P028,Notebook Ultrafino 16GB/512GB - Delta Outlet (fictícia),814516,816.9,4198.87,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L025,P028,Notebook Ultrafino 16GB/512GB - Mega Tech (fictícia),809143,666.99,3428.33,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P032,Teclado Mecânico RGB - Delta Outlet (fictícia),93659,44.99,231.25,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P038,Memória RAM 16GB DDR5 - Delta Outlet (fictícia),841635,55.9,287.33,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L025,P040,Perfume Feminino Oriental 50ml - Mega Tech (fictícia),113357,68.0,349.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P049,Barbeador Elétrico - Delta Outlet (fictícia),41468,79.9,410.69,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P056,Garrafa Térmica 1L - Ultra Games (fictícia),778806,27.9,143.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P060,Barraca Camping 4 Pessoas - Ultra Games (fictícia),795161,90.0,462.6,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

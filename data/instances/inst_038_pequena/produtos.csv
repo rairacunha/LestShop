@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P001,Celular Modelo A 128GB,Celulares,,0.45,1.2,210,sintetico
+P004,Celular Modelo B Pro Max 512GB,Celulares,,0.55,1.4,1150,sintetico
+P005,Celular Modelo C Lite 64GB,Celulares,,0.4,1.1,120,sintetico
+P006,Celular Modelo D 5G 128GB,Celulares,,0.45,1.2,330,sintetico
+P015,Câmera de Ação 4K,Eletrônicos,,0.5,1.5,260,sintetico
+P050,Whisky 12 anos 1L,Bebidas,,1.6,1.5,38,sintetico
+P052,Vodka Premium 1L,Bebidas,,1.5,1.4,22,sintetico
+P057,Copo Térmico 473ml,Lazer,,0.4,1.0,28,sintetico
+P061,Brinquedo Blocos de Montar 500pç,Brinquedos,,1.0,4.0,45,sintetico
+P062,Boneca Articulada Colecionável,Brinquedos,,0.5,2.0,30,sintetico

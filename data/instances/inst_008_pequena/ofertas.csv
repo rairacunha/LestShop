@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L050,P021,Console de Mesa Geração Atual 1TB - Ultra Outlet (fictícia),506873,553.9,2847.05,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L040,P021,Console de Mesa Geração Atual 1TB - Super Bazar (fictícia),325463,526.99,2708.73,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P023,Console Portátil Híbrido - Ultra Outlet (fictícia),371535,359.9,1849.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L040,P023,Console Portátil Híbrido - Super Bazar (fictícia),619813,294.9,1515.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P025,Jogo Mídia Física Lançamento - Ultra Outlet (fictícia),774297,59.99,308.35,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L040,P025,Jogo Mídia Física Lançamento - Super Bazar (fictícia),127309,63.9,328.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P027,Headset Gamer 7.1 - Ultra Outlet (fictícia),447845,77.0,395.78,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L040,P027,Headset Gamer 7.1 - Super Bazar (fictícia),715538,67.99,349.47,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P041,Perfume Masculino Amadeirado 100ml - Star Games (fictícia),480759,65.0,334.1,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L010,P041,Perfume Masculino Amadeirado 100ml - Gold Center (fictícia),494766,85.9,441.53,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P043,Perfume Árabe Unissex 100ml - Star Games (fictícia),359344,36.99,190.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L010,P043,Perfume Árabe Unissex 100ml - Gold Center (fictícia),241390,37.9,194.81,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L040,P045,Sérum Facial Vitamina C 30ml - Super Bazar (fictícia),468952,18.99,97.61,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L010,P045,Sérum Facial Vitamina C 30ml - Gold Center (fictícia),649166,23.9,122.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L040,P047,Secador de Cabelo Profissional - Super Bazar (fictícia),920467,71.9,369.57,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P047,Secador de Cabelo Profissional - Star Games (fictícia),952565,68.0,349.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L040,P057,Copo Térmico 473ml - Super Bazar (fictícia),489240,24.99,128.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P057,Copo Térmico 473ml - Star Games (fictícia),800247,28.99,149.01,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P061,Brinquedo Blocos de Montar 500pç - Ultra Outlet (fictícia),115804,40.9,210.23,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L010,P061,Brinquedo Blocos de Montar 500pç - Gold Center (fictícia),846494,47.99,246.67,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

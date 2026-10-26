@@ -1,0 +1,89 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L029,P001,Celular Modelo A 128GB - Royal Center (fictícia),139492,216.99,1115.33,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L026,P001,Celular Modelo A 128GB - Nova Tech (fictícia),608593,194.9,1001.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P001,Celular Modelo A 128GB - Royal Outlet (fictícia),321797,234.99,1207.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P002,Celular Modelo A 256GB - Royal Outlet (fictícia),691723,239.99,1233.55,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L026,P002,Celular Modelo A 256GB - Nova Tech (fictícia),939713,241.0,1238.74,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P002,Celular Modelo A 256GB - Smart Mix (fictícia),260584,239.9,1233.09,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L030,P003,Celular Modelo B Pro 256GB - Royal Eletrônicos (fictícia),397702,890.0,4574.6,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L026,P003,Celular Modelo B Pro 256GB - Nova Tech (fictícia),112938,918.9,4723.15,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P003,Celular Modelo B Pro 256GB - Smart Mix (fictícia),333516,826.9,4250.27,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P005,Celular Modelo C Lite 64GB - Ultra Games (fictícia),924600,113.9,585.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P005,Celular Modelo C Lite 64GB - Royal Center (fictícia),991192,110.9,570.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L026,P007,Smartwatch Esportivo S1 - Nova Tech (fictícia),391615,92.9,477.51,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L007,P007,Smartwatch Esportivo S1 - Flash Games (fictícia),459662,101.99,524.23,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P008,Smartwatch Premium S3 - Royal Center (fictícia),582331,287.9,1479.81,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L007,P008,Smartwatch Premium S3 - Flash Games (fictícia),981562,272.9,1402.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L034,P011,Headphone Over-Ear Wireless - Smart Center (fictícia),138336,188.0,966.32,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P011,Headphone Over-Ear Wireless - Royal Outlet (fictícia),471622,221.99,1141.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P012,Caixa de Som Portátil Mini - Smart Digital (fictícia),82217,46.99,241.53,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L003,P012,Caixa de Som Portátil Mini - Delta Imports (fictícia),755981,48.0,246.72,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P015,Câmera de Ação 4K - Top Mix (fictícia),576592,246.9,1269.07,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P015,Câmera de Ação 4K - Royal Center (fictícia),929635,241.99,1243.83,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P016,Drone Compacto com Câmera - Smart Mix (fictícia),362757,410.9,2112.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P016,Drone Compacto com Câmera - Delta Outlet (fictícia),72491,351.99,1809.23,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P019,"Smart TV 50"" 4K - Smart Mix (fictícia)",987028,401.9,2065.77,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P019,"Smart TV 50"" 4K - Prime Eletrônicos (fictícia)",704223,415.99,2138.19,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P022,Console de Mesa Pro 2TB - Royal Outlet (fictícia),516712,801.99,4122.23,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P022,Console de Mesa Pro 2TB - Delta Outlet (fictícia),918324,841.99,4327.83,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P023,Console Portátil Híbrido - Smart Mix (fictícia),818959,356.9,1834.47,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P023,Console Portátil Híbrido - Royal Outlet (fictícia),355805,395.0,2030.3,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P026,Jogo Mídia Física Catálogo - Smart Digital (fictícia),208647,33.99,174.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P026,Jogo Mídia Física Catálogo - Smart Mix (fictícia),386982,25.9,133.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P028,Notebook Ultrafino 16GB/512GB - Smart Mix (fictícia),546242,771.0,3962.94,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P028,Notebook Ultrafino 16GB/512GB - Top Mix (fictícia),852210,778.0,3998.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P029,Notebook Gamer RTX 16GB/1TB - Royal Center (fictícia),792566,919.0,4723.66,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P029,Notebook Gamer RTX 16GB/1TB - Prime Eletrônicos (fictícia),918878,1146.0,5890.44,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P031,Mouse Sem Fio - Royal Center (fictícia),228640,18.0,92.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L026,P031,Mouse Sem Fio - Nova Tech (fictícia),998742,18.0,92.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P033,SSD Externo 1TB - Smart Mix (fictícia),979453,92.9,477.51,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P033,SSD Externo 1TB - Royal Center (fictícia),830584,72.0,370.08,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P035,"Monitor 27"" QHD - Smart Mix (fictícia)",535442,232.9,1197.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P035,"Monitor 27"" QHD - Delta Outlet (fictícia)",849520,236.9,1217.67,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P036,Roteador Wi-Fi 6 - Royal Center (fictícia),303591,75.99,390.59,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L026,P036,Roteador Wi-Fi 6 - Nova Tech (fictícia),752058,64.99,334.05,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P036,Roteador Wi-Fi 6 - Smart Mix (fictícia),34207,59.9,307.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P037,Placa de Vídeo Intermediária 8GB - Royal Outlet (fictícia),654801,366.0,1881.24,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P037,Placa de Vídeo Intermediária 8GB - Royal Center (fictícia),148969,295.0,1516.3,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P040,Perfume Feminino Oriental 50ml - Smart Digital (fictícia),306665,72.9,374.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L011,P040,Perfume Feminino Oriental 50ml - Gold Digital (fictícia),646841,68.0,349.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P043,Perfume Árabe Unissex 100ml - Top Mix (fictícia),351824,38.9,199.95,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L034,P043,Perfume Árabe Unissex 100ml - Smart Center (fictícia),821469,29.0,149.06,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P045,Sérum Facial Vitamina C 30ml - Royal Center (fictícia),592990,19.9,102.29,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L011,P045,Sérum Facial Vitamina C 30ml - Gold Digital (fictícia),882788,20.99,107.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P048,Prancha Alisadora Titânio - Smart Mix (fictícia),124548,42.0,215.88,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P048,Prancha Alisadora Titânio - Prime Eletrônicos (fictícia),362607,44.9,230.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P049,Barbeador Elétrico - Royal Outlet (fictícia),169410,83.99,431.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L007,P049,Barbeador Elétrico - Flash Games (fictícia),311609,79.9,410.69,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P054,Vinho Tinto Reserva 750ml - Royal Outlet (fictícia),379745,14.0,71.96,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L030,P054,Vinho Tinto Reserva 750ml - Royal Eletrônicos (fictícia),354526,15.0,77.1,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L030,P055,Espumante Brut 750ml - Royal Eletrônicos (fictícia),301713,18.0,92.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L007,P055,Espumante Brut 750ml - Flash Games (fictícia),949305,20.99,107.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P056,Garrafa Térmica 1L - Ultra Games (fictícia),778806,27.9,143.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P056,Garrafa Térmica 1L - Smart Digital (fictícia),268832,31.99,164.43,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P057,Copo Térmico 473ml - Top Mix (fictícia),302358,29.9,153.69,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L030,P057,Copo Térmico 473ml - Royal Eletrônicos (fictícia),89649,26.0,133.64,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P057,Copo Térmico 473ml - Ultra Games (fictícia),382785,28.0,143.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P058,Molinete de Pesca - Top Mix (fictícia),24277,54.9,282.19,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P058,Molinete de Pesca - Ultra Games (fictícia),106256,52.99,272.37,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P059,Vara de Pesca Telescópica - Top Mix (fictícia),95725,53.99,277.51,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P059,Vara de Pesca Telescópica - Smart Digital (fictícia),588711,43.99,226.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P059,Vara de Pesca Telescópica - Ultra Games (fictícia),262974,38.99,200.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P060,Barraca Camping 4 Pessoas - Smart Digital (fictícia),144651,96.9,498.07,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P060,Barraca Camping 4 Pessoas - Ultra Games (fictícia),795161,90.0,462.6,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P063,Carrinho Controle Remoto - Prime Eletrônicos (fictícia),777176,59.99,308.35,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L007,P063,Carrinho Controle Remoto - Flash Games (fictícia),704114,62.99,323.77,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L007,P064,Air Fryer 5L - Flash Games (fictícia),64443,76.99,395.73,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P064,Air Fryer 5L - Smart Digital (fictícia),555392,81.99,421.43,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P066,Liquidificador Potente 1200W - Top Mix (fictícia),313756,57.9,297.61,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L005,P066,Liquidificador Potente 1200W - Delta Perfumes (fictícia),355481,59.9,307.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P068,Jogo de Panelas Antiaderente 5pç - Prime Eletrônicos (fictícia),451680,85.9,441.53,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L007,P068,Jogo de Panelas Antiaderente 5pç - Flash Games (fictícia),661629,83.9,431.25,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P068,Jogo de Panelas Antiaderente 5pç - Smart Digital (fictícia),179492,99.99,513.95,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L030,P069,Óculos de Sol Polarizado - Royal Eletrônicos (fictícia),746885,67.9,349.01,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P069,Óculos de Sol Polarizado - Prime Eletrônicos (fictícia),336285,72.99,375.17,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P069,Óculos de Sol Polarizado - Top Mix (fictícia),825948,77.99,400.87,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P070,Relógio Analógico Aço - Prime Eletrônicos (fictícia),427229,136.0,699.04,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L005,P070,Relógio Analógico Aço - Delta Perfumes (fictícia),65094,116.9,600.87,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L005,P071,Tênis Esportivo Corrida - Delta Perfumes (fictícia),17237,92.0,472.88,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L003,P071,Tênis Esportivo Corrida - Delta Imports (fictícia),638133,77.0,395.78,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

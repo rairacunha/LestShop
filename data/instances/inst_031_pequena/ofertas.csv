@@ -1,0 +1,22 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L037,P016,Drone Compacto com Câmera - Smart Mix (fictícia),362757,410.9,2112.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L009,P016,Drone Compacto com Câmera - Gold Bazar (fictícia),312980,402.9,2070.91,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L009,P022,Console de Mesa Pro 2TB - Gold Bazar (fictícia),533701,811.9,4173.17,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L024,P022,Console de Mesa Pro 2TB - Mega Shop (fictícia),755918,819.99,4214.75,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L024,P026,Jogo Mídia Física Catálogo - Mega Shop (fictícia),986856,24.99,128.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P026,Jogo Mídia Física Catálogo - Smart Mix (fictícia),386982,25.9,133.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L009,P027,Headset Gamer 7.1 - Gold Bazar (fictícia),300058,60.9,313.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L024,P027,Headset Gamer 7.1 - Mega Shop (fictícia),520236,55.99,287.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L009,P045,Sérum Facial Vitamina C 30ml - Gold Bazar (fictícia),465374,21.0,107.94,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P045,Sérum Facial Vitamina C 30ml - Mega Eletrônicos (fictícia),118242,18.0,92.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P047,Secador de Cabelo Profissional - Mega Eletrônicos (fictícia),746266,59.9,307.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L042,P047,Secador de Cabelo Profissional - Super Games (fictícia),433009,78.99,406.01,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P048,Prancha Alisadora Titânio - Smart Mix (fictícia),124548,42.0,215.88,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L042,P048,Prancha Alisadora Titânio - Super Games (fictícia),111534,58.9,302.75,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L009,P048,Prancha Alisadora Titânio - Gold Bazar (fictícia),22661,50.99,262.09,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P064,Air Fryer 5L - Mega Eletrônicos (fictícia),605071,77.0,395.78,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L042,P064,Air Fryer 5L - Super Games (fictícia),75375,76.9,395.27,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L009,P065,Robô Aspirador - Gold Bazar (fictícia),564508,209.99,1079.35,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P065,Robô Aspirador - Mega Eletrônicos (fictícia),495405,210.0,1079.4,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L009,P067,Cafeteira de Cápsulas - Gold Bazar (fictícia),106106,91.99,472.83,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L042,P067,Cafeteira de Cápsulas - Super Games (fictícia),187377,101.9,523.77,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

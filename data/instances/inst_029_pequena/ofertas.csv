@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L008,P001,Celular Modelo A 128GB - Flash Tech (fictícia),895473,231.0,1187.34,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P001,Celular Modelo A 128GB - Royal Games (fictícia),949489,226.99,1166.73,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L008,P004,Celular Modelo B Pro Max 512GB - Flash Tech (fictícia),668058,1071.9,5509.57,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P004,Celular Modelo B Pro Max 512GB - Royal Games (fictícia),77277,1264.0,6496.96,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L008,P006,Celular Modelo D 5G 128GB - Flash Tech (fictícia),836411,316.99,1629.33,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P006,Celular Modelo D 5G 128GB - Royal Games (fictícia),320379,305.99,1572.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P015,Câmera de Ação 4K - Mega Eletrônicos (fictícia),724385,257.0,1320.98,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P015,Câmera de Ação 4K - Royal Games (fictícia),831839,218.99,1125.61,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L010,P038,Memória RAM 16GB DDR5 - Gold Center (fictícia),947759,58.0,298.12,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L033,P038,Memória RAM 16GB DDR5 - Royal Shop (fictícia),117297,50.9,261.63,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L008,P039,Perfume Feminino Floral 100ml - Flash Tech (fictícia),64491,91.9,472.37,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P039,Perfume Feminino Floral 100ml - Royal Games (fictícia),270612,88.0,452.32,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L010,P044,Kit Maquiagem Básico - Gold Center (fictícia),443543,38.99,200.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L033,P044,Kit Maquiagem Básico - Royal Shop (fictícia),185871,32.0,164.48,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L010,P045,Sérum Facial Vitamina C 30ml - Gold Center (fictícia),649166,23.9,122.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P045,Sérum Facial Vitamina C 30ml - Mega Eletrônicos (fictícia),118242,18.0,92.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P057,Copo Térmico 473ml - Mega Eletrônicos (fictícia),207211,30.9,158.83,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P057,Copo Térmico 473ml - Royal Games (fictícia),24757,23.99,123.31,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P073,Mala de Bordo 10kg - Royal Games (fictícia),845541,59.0,303.26,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L033,P073,Mala de Bordo 10kg - Royal Shop (fictícia),944496,62.9,323.31,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

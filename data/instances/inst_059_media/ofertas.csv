@@ -1,0 +1,111 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L032,P001,Celular Modelo A 128GB - Royal Outlet (fictícia),321797,234.99,1207.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P001,Celular Modelo A 128GB - Luna Perfumes (fictícia),804375,214.0,1099.96,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L026,P001,Celular Modelo A 128GB - Nova Tech (fictícia),608593,194.9,1001.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P002,Celular Modelo A 256GB - Royal Outlet (fictícia),691723,239.99,1233.55,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L014,P002,Celular Modelo A 256GB - Luna Eletrônicos (fictícia),451178,265.9,1366.73,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L026,P002,Celular Modelo A 256GB - Nova Tech (fictícia),939713,241.0,1238.74,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L026,P003,Celular Modelo B Pro 256GB - Nova Tech (fictícia),112938,918.9,4723.15,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P003,Celular Modelo B Pro 256GB - Delta Games (fictícia),666054,587.9,3021.81,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P003,Celular Modelo B Pro 256GB - Luna Perfumes (fictícia),638193,796.9,4096.07,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P004,Celular Modelo B Pro Max 512GB - Royal Outlet (fictícia),744692,1145.99,5890.39,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L014,P004,Celular Modelo B Pro Max 512GB - Luna Eletrônicos (fictícia),697601,1302.99,6697.37,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L026,P004,Celular Modelo B Pro Max 512GB - Nova Tech (fictícia),743866,1177.9,6054.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P011,Headphone Over-Ear Wireless - Royal Outlet (fictícia),471622,221.99,1141.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L034,P011,Headphone Over-Ear Wireless - Smart Center (fictícia),138336,188.0,966.32,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L034,P014,Soundbar 2.1 Canais - Smart Center (fictícia),652662,237.0,1218.18,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P014,Soundbar 2.1 Canais - Smart Digital (fictícia),426934,218.0,1120.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P019,"Smart TV 50"" 4K - Prime Eletrônicos (fictícia)",704223,415.99,2138.19,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P019,"Smart TV 50"" 4K - Smart Mix (fictícia)",987028,401.9,2065.77,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P021,Console de Mesa Geração Atual 1TB - Ultra Outlet (fictícia),506873,553.9,2847.05,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P021,Console de Mesa Geração Atual 1TB - Delta Games (fictícia),881827,528.0,2713.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P021,Console de Mesa Geração Atual 1TB - Royal Outlet (fictícia),212767,565.9,2908.73,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P023,Console Portátil Híbrido - Royal Outlet (fictícia),355805,395.0,2030.3,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P023,Console Portátil Híbrido - Delta Games (fictícia),932760,259.0,1331.26,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L017,P023,Console Portátil Híbrido - Max Eletrônicos (fictícia),691120,360.0,1850.4,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P023,Console Portátil Híbrido - Ultra Outlet (fictícia),371535,359.9,1849.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P024,Controle Sem Fio Console - Delta Games (fictícia),787614,50.99,262.09,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P024,Controle Sem Fio Console - Ultra Outlet (fictícia),238114,68.9,354.15,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P027,Headset Gamer 7.1 - Delta Games (fictícia),500979,68.0,349.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P027,Headset Gamer 7.1 - Ultra Outlet (fictícia),447845,77.0,395.78,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P028,Notebook Ultrafino 16GB/512GB - Smart Mix (fictícia),546242,771.0,3962.94,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P028,Notebook Ultrafino 16GB/512GB - Top Mix (fictícia),852210,778.0,3998.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P028,Notebook Ultrafino 16GB/512GB - Delta Games (fictícia),757462,596.0,3063.44,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L025,P028,Notebook Ultrafino 16GB/512GB - Mega Tech (fictícia),809143,666.99,3428.33,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P028,Notebook Ultrafino 16GB/512GB - Luna Perfumes (fictícia),261799,610.0,3135.4,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P029,Notebook Gamer RTX 16GB/1TB - Max Games (fictícia),161110,868.99,4466.61,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P029,Notebook Gamer RTX 16GB/1TB - Delta Games (fictícia),605389,1012.0,5201.68,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L014,P029,Notebook Gamer RTX 16GB/1TB - Luna Eletrônicos (fictícia),540480,999.0,5134.86,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P029,Notebook Gamer RTX 16GB/1TB - Prime Eletrônicos (fictícia),918878,1146.0,5890.44,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L026,P031,Mouse Sem Fio - Nova Tech (fictícia),998742,18.0,92.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P031,Mouse Sem Fio - Delta Games (fictícia),664936,14.0,71.96,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P031,Mouse Sem Fio - Luna Perfumes (fictícia),289897,17.0,87.38,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P032,Teclado Mecânico RGB - Luna Perfumes (fictícia),615457,55.99,287.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P032,Teclado Mecânico RGB - Delta Games (fictícia),896414,42.9,220.51,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L014,P032,Teclado Mecânico RGB - Luna Eletrônicos (fictícia),339178,49.0,251.86,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P034,Pendrive 128GB - Smart Mix (fictícia),211242,10.0,51.4,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P034,Pendrive 128GB - Delta Games (fictícia),843987,9.99,51.35,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L026,P034,Pendrive 128GB - Nova Tech (fictícia),102838,10.0,51.4,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P037,Placa de Vídeo Intermediária 8GB - Royal Outlet (fictícia),654801,366.0,1881.24,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P037,Placa de Vídeo Intermediária 8GB - Delta Games (fictícia),142226,274.99,1413.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L014,P037,Placa de Vídeo Intermediária 8GB - Luna Eletrônicos (fictícia),52711,329.0,1691.06,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L026,P038,Memória RAM 16GB DDR5 - Nova Tech (fictícia),475068,57.9,297.61,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P038,Memória RAM 16GB DDR5 - Delta Games (fictícia),14257,51.9,266.77,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P038,Memória RAM 16GB DDR5 - Luna Perfumes (fictícia),770524,52.0,267.28,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P039,Perfume Feminino Floral 100ml - Smart Digital (fictícia),41537,97.9,503.21,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L014,P039,Perfume Feminino Floral 100ml - Luna Eletrônicos (fictícia),263203,86.99,447.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P039,Perfume Feminino Floral 100ml - Max Games (fictícia),573421,79.99,411.15,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L025,P040,Perfume Feminino Oriental 50ml - Mega Tech (fictícia),113357,68.0,349.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P040,Perfume Feminino Oriental 50ml - Smart Digital (fictícia),306665,72.9,374.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L034,P041,Perfume Masculino Amadeirado 100ml - Smart Center (fictícia),982923,70.0,359.8,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P041,Perfume Masculino Amadeirado 100ml - Smart Digital (fictícia),550730,77.9,400.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L034,P042,Perfume Masculino Cítrico 200ml - Smart Center (fictícia),446027,92.0,472.88,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L014,P042,Perfume Masculino Cítrico 200ml - Luna Eletrônicos (fictícia),530245,91.9,472.37,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P042,Perfume Masculino Cítrico 200ml - Royal Outlet (fictícia),559497,98.99,508.81,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P042,Perfume Masculino Cítrico 200ml - Top Mix (fictícia),132904,110.0,565.4,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P043,Perfume Árabe Unissex 100ml - Top Mix (fictícia),351824,38.9,199.95,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L014,P043,Perfume Árabe Unissex 100ml - Luna Eletrônicos (fictícia),999396,35.99,184.99,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L034,P043,Perfume Árabe Unissex 100ml - Smart Center (fictícia),821469,29.0,149.06,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L025,P045,Sérum Facial Vitamina C 30ml - Mega Tech (fictícia),543257,19.9,102.29,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L017,P045,Sérum Facial Vitamina C 30ml - Max Eletrônicos (fictícia),644115,23.99,123.31,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P045,Sérum Facial Vitamina C 30ml - Mega Eletrônicos (fictícia),118242,18.0,92.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P046,Protetor Solar FPS 50 200ml - Luna Perfumes (fictícia),454912,17.9,92.01,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L017,P046,Protetor Solar FPS 50 200ml - Max Eletrônicos (fictícia),835731,16.9,86.87,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P048,Prancha Alisadora Titânio - Smart Mix (fictícia),124548,42.0,215.88,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P048,Prancha Alisadora Titânio - Mega Eletrônicos (fictícia),434084,41.0,210.74,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P048,Prancha Alisadora Titânio - Prime Eletrônicos (fictícia),362607,44.9,230.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P049,Barbeador Elétrico - Mega Eletrônicos (fictícia),304859,73.0,375.22,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L014,P049,Barbeador Elétrico - Luna Eletrônicos (fictícia),576366,63.9,328.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P049,Barbeador Elétrico - Luna Perfumes (fictícia),894175,76.99,395.73,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P050,Whisky 12 anos 1L - Royal Outlet (fictícia),747601,40.99,210.69,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P050,Whisky 12 anos 1L - Ultra Outlet (fictícia),385550,42.99,220.97,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P051,Whisky 18 anos 750ml - Royal Outlet (fictícia),795382,112.0,575.68,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L014,P051,Whisky 18 anos 750ml - Luna Eletrônicos (fictícia),652237,90.9,467.23,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P051,Whisky 18 anos 750ml - Prime Eletrônicos (fictícia),431077,92.99,477.97,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L050,P051,Whisky 18 anos 750ml - Ultra Outlet (fictícia),88482,87.0,447.18,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L037,P052,Vodka Premium 1L - Smart Mix (fictícia),622120,23.99,123.31,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P052,Vodka Premium 1L - Prime Eletrônicos (fictícia),136439,25.9,133.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P052,Vodka Premium 1L - Royal Outlet (fictícia),166543,24.9,127.99,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P054,Vinho Tinto Reserva 750ml - Prime Eletrônicos (fictícia),935982,16.0,82.24,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L032,P054,Vinho Tinto Reserva 750ml - Royal Outlet (fictícia),379745,14.0,71.96,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P056,Garrafa Térmica 1L - Mega Eletrônicos (fictícia),285817,33.9,174.25,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P056,Garrafa Térmica 1L - Delta Games (fictícia),839713,31.9,163.97,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P056,Garrafa Térmica 1L - Max Games (fictícia),249103,36.99,190.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P059,Vara de Pesca Telescópica - Top Mix (fictícia),95725,53.99,277.51,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P059,Vara de Pesca Telescópica - Max Games (fictícia),781357,46.0,236.44,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P059,Vara de Pesca Telescópica - Smart Digital (fictícia),588711,43.99,226.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P060,Barraca Camping 4 Pessoas - Mega Eletrônicos (fictícia),562695,74.0,380.36,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P060,Barraca Camping 4 Pessoas - Smart Digital (fictícia),144651,96.9,498.07,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P063,Carrinho Controle Remoto - Max Games (fictícia),332717,56.99,292.93,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P063,Carrinho Controle Remoto - Prime Eletrônicos (fictícia),777176,59.99,308.35,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P065,Robô Aspirador - Mega Eletrônicos (fictícia),495405,210.0,1079.4,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P065,Robô Aspirador - Top Mix (fictícia),20734,204.9,1053.19,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P068,Jogo de Panelas Antiaderente 5pç - Prime Eletrônicos (fictícia),451680,85.9,441.53,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P068,Jogo de Panelas Antiaderente 5pç - Smart Digital (fictícia),179492,99.99,513.95,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P069,Óculos de Sol Polarizado - Prime Eletrônicos (fictícia),336285,72.99,375.17,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P069,Óculos de Sol Polarizado - Top Mix (fictícia),825948,77.99,400.87,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P072,"Mochila Notebook 15"" - Top Mix (fictícia)",472562,42.9,220.51,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L017,P072,"Mochila Notebook 15"" - Max Eletrônicos (fictícia)",319800,43.99,226.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P072,"Mochila Notebook 15"" - Max Games (fictícia)",88798,39.99,205.55,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P073,Mala de Bordo 10kg - Prime Eletrônicos (fictícia),721091,64.0,328.96,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L047,P073,Mala de Bordo 10kg - Top Mix (fictícia),96689,77.0,395.78,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

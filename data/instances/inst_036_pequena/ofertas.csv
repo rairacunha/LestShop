@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L035,P010,Fone Bluetooth Intra com Cancelamento - Smart Digital (fictícia),58615,149.0,765.86,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P010,Fone Bluetooth Intra com Cancelamento - Delta Center (fictícia),538022,124.99,642.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P011,Headphone Over-Ear Wireless - Delta Center (fictícia),570784,193.0,992.02,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L012,P011,Headphone Over-Ear Wireless - Gold Shop (fictícia),901568,177.9,914.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P012,Caixa de Som Portátil Mini - Smart Digital (fictícia),82217,46.99,241.53,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P012,Caixa de Som Portátil Mini - Delta Center (fictícia),59954,43.0,221.02,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L019,P014,Soundbar 2.1 Canais - Max Mix (fictícia),514931,242.0,1243.88,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P014,Soundbar 2.1 Canais - Smart Digital (fictícia),426934,218.0,1120.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L024,P026,Jogo Mídia Física Catálogo - Mega Shop (fictícia),986856,24.99,128.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P026,Jogo Mídia Física Catálogo - Smart Digital (fictícia),208647,33.99,174.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P039,Perfume Feminino Floral 100ml - Smart Digital (fictícia),41537,97.9,503.21,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P039,Perfume Feminino Floral 100ml - Delta Center (fictícia),169178,75.9,390.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P041,Perfume Masculino Amadeirado 100ml - Smart Digital (fictícia),550730,77.9,400.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P041,Perfume Masculino Amadeirado 100ml - Delta Center (fictícia),86297,81.0,416.34,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L012,P050,Whisky 12 anos 1L - Gold Shop (fictícia),45887,36.99,190.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L019,P050,Whisky 12 anos 1L - Max Mix (fictícia),411276,43.99,226.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L035,P068,Jogo de Panelas Antiaderente 5pç - Smart Digital (fictícia),179492,99.99,513.95,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P068,Jogo de Panelas Antiaderente 5pç - Delta Center (fictícia),375870,99.0,508.86,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L012,P073,Mala de Bordo 10kg - Gold Shop (fictícia),288900,69.99,359.75,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L019,P073,Mala de Bordo 10kg - Max Mix (fictícia),929713,72.9,374.71,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

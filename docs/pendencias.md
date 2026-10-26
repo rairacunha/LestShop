@@ -5,6 +5,19 @@ outras fases do modelo cascata.
 
 ## Fase 2 — Modelo de otimização (TPP)
 
+* **Instâncias de teste prontas** em `data/instances/inst_001…inst_100`, com lista de compras,
+  prioridade, cota, orçamento e janela de tempo. Observações encontradas na validação:
+  * em **52 das 100** instâncias o orçamento é menor que o custo mínimo da lista (o gerador
+    sorteia orçamento entre 60% e 140% do custo): o modelo precisa decidir se o orçamento é
+    restrição rígida (instância inviável) ou se pode deixar itens de fora usando a prioridade;
+  * em **64 das 100** a lista excede a cota disponível (vai haver imposto);
+  * **10** instâncias têm menos lojas que o tamanho nominal (ex.: 33 em vez de 40), porque
+    lojas sem ofertas são descartadas;
+  * as grandes têm **70 produtos** (a base tem 73), não 150 como na especificação; para
+    150 produtos use `python -m lesteshop.data.generator --size grande`, que cria variantes.
+* `lista_compras.csv` e os parâmetros de cenário (`metadata.json`) foram definidos pela base
+  fictícia, não pela Fase 1: validar com o professor antes de formular o modelo.
+
 * Formular e resolver o Traveling Purchaser Problem (Laporte, Riera-Ledesma e
   Salazar-González, 2003) sobre `lojas`, `produtos`, `ofertas` e `pontos_partida`.
 * Matriz de distâncias/tempos entre lojas e a Ponte da Amizade (nó 0). Lojas com o mesmo

@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L041,P005,Celular Modelo C Lite 64GB - Super Eletrônicos (fictícia),750223,138.99,714.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L013,P005,Celular Modelo C Lite 64GB - Luna Center (fictícia),706553,117.0,601.38,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L041,P008,Smartwatch Premium S3 - Super Eletrônicos (fictícia),65578,367.9,1891.01,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L013,P008,Smartwatch Premium S3 - Luna Center (fictícia),94220,346.99,1783.53,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L048,P010,Fone Bluetooth Intra com Cancelamento - Top Shop (fictícia),972012,139.9,719.09,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L013,P010,Fone Bluetooth Intra com Cancelamento - Luna Center (fictícia),354627,162.0,832.68,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L041,P029,Notebook Gamer RTX 16GB/1TB - Super Eletrônicos (fictícia),776771,1220.9,6275.43,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P029,Notebook Gamer RTX 16GB/1TB - Prime Eletrônicos (fictícia),918878,1146.0,5890.44,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L048,P032,Teclado Mecânico RGB - Top Shop (fictícia),322703,60.99,313.49,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L041,P032,Teclado Mecânico RGB - Super Eletrônicos (fictícia),505235,62.99,323.77,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L048,P033,SSD Externo 1TB - Top Shop (fictícia),311010,71.99,370.03,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L041,P033,SSD Externo 1TB - Super Eletrônicos (fictícia),453979,91.0,467.74,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L041,P044,Kit Maquiagem Básico - Super Eletrônicos (fictícia),506793,43.0,221.02,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L017,P044,Kit Maquiagem Básico - Max Eletrônicos (fictícia),443766,41.99,215.83,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L048,P062,Boneca Articulada Colecionável - Top Shop (fictícia),283352,28.0,143.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L013,P062,Boneca Articulada Colecionável - Luna Center (fictícia),998268,31.0,159.34,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P070,Relógio Analógico Aço - Prime Eletrônicos (fictícia),427229,136.0,699.04,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L017,P070,Relógio Analógico Aço - Max Eletrônicos (fictícia),837855,105.99,544.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L048,P072,"Mochila Notebook 15"" - Top Shop (fictícia)",339490,37.0,190.18,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L017,P072,"Mochila Notebook 15"" - Max Eletrônicos (fictícia)",319800,43.99,226.11,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

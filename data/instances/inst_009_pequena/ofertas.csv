@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L001,P011,Headphone Over-Ear Wireless - Delta Center (fictícia),570784,193.0,992.02,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P011,Headphone Over-Ear Wireless - Delta Tech (fictícia),638676,200.0,1028.0,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P019,"Smart TV 50"" 4K - Delta Center (fictícia)",843070,323.9,1664.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P019,"Smart TV 50"" 4K - Super Shop (fictícia)",708269,399.9,2055.49,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P021,Console de Mesa Geração Atual 1TB - Delta Center (fictícia),522753,539.99,2775.55,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P021,Console de Mesa Geração Atual 1TB - Super Shop (fictícia),236524,560.0,2878.4,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P023,Console Portátil Híbrido - Delta Center (fictícia),894025,328.0,1685.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L017,P023,Console Portátil Híbrido - Max Eletrônicos (fictícia),691120,360.0,1850.4,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P025,Jogo Mídia Física Lançamento - Delta Center (fictícia),404731,65.0,334.1,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P025,Jogo Mídia Física Lançamento - Super Shop (fictícia),308189,52.99,272.37,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P041,Perfume Masculino Amadeirado 100ml - Delta Center (fictícia),86297,81.0,416.34,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P041,Perfume Masculino Amadeirado 100ml - Delta Tech (fictícia),94882,74.0,380.36,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P042,Perfume Masculino Cítrico 200ml - Delta Center (fictícia),663768,79.0,406.06,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P042,Perfume Masculino Cítrico 200ml - Super Shop (fictícia),304339,93.0,478.02,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L001,P043,Perfume Árabe Unissex 100ml - Delta Center (fictícia),293583,33.9,174.25,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P043,Perfume Árabe Unissex 100ml - Super Shop (fictícia),955541,36.0,185.04,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P045,Sérum Facial Vitamina C 30ml - Delta Tech (fictícia),792646,20.9,107.43,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L044,P045,Sérum Facial Vitamina C 30ml - Super Shop (fictícia),625941,20.0,102.8,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P070,Relógio Analógico Aço - Delta Tech (fictícia),221174,101.0,519.14,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L033,P070,Relógio Analógico Aço - Royal Shop (fictícia),562286,113.99,585.91,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

@@ -1,6 +1,6 @@
 loja_id,nome,slug,cidade,endereco,predio,latitude,longitude,coordenada_pendente,abre,fecha,tempo_permanencia_min,fonte,tipo_dado
-S03,Loja Semente Gama,loja-semente-gama,Ciudad del Este,"Calle Curupayty, Shopping Semente Central, Piso 2",Shopping Semente Central,-25.5131,-54.6105,False,07:30,17:00,20.0,semente_manual,sintetico
-S04,Loja Semente Delta,loja-semente-delta,Ciudad del Este,"Calle Curupayty, Shopping Semente Central, Piso 1",Shopping Semente Central,-25.51318,-54.61041,False,07:30,17:00,20.0,semente_manual,sintetico
-S05,Loja Semente Épsilon,loja-semente-epsilon,Ciudad del Este,"Av. San Blas, Edificio Semente Sul",Edificio Semente Sul,-25.5154,-54.6128,False,08:00,16:30,15.0,semente_manual,sintetico
-S07,Loja Semente Eta,loja-semente-eta,Ciudad del Este,"Av. Adrián Jara, Galería Semente Oeste, Box 7",Galería Semente Oeste,-25.50986,-54.61222,False,07:00,15:30,10.0,semente_manual,sintetico
-S08,Loja Semente Teta,loja-semente-teta,Ciudad del Este,Calle Pampliega (endereço sem coordenada),,-25.515776,-54.604805,False,07:00,16:00,15.0,semente_manual,sintetico
+L006,Delta Tech (fictícia),delta-tech,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.506098,-54.608607,False,07:00,16:00,10.0,ficticio (gerado para teste da Fase 1),sintetico
+L021,Max Tech (fictícia),max-tech,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.513624,-54.610353,False,07:00,15:00,25.0,ficticio (gerado para teste da Fase 1),sintetico
+L026,Nova Tech (fictícia),nova-tech,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.501274,-54.623153,False,07:30,17:00,30.0,ficticio (gerado para teste da Fase 1),sintetico
+L040,Super Bazar (fictícia),super-bazar,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.506081,-54.608744,False,07:00,16:30,25.0,ficticio (gerado para teste da Fase 1),sintetico
+L050,Ultra Outlet (fictícia),ultra-outlet,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.50869,-54.610476,False,07:00,17:00,30.0,ficticio (gerado para teste da Fase 1),sintetico

@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P016,Drone Compacto com Câmera,Eletrônicos,,1.2,5.0,410,sintetico
+P022,Console de Mesa Pro 2TB,Games,,5.0,32.0,790,sintetico
+P026,Jogo Mídia Física Catálogo,Games,,0.12,0.3,30,sintetico
+P027,Headset Gamer 7.1,Games,,0.7,3.0,70,sintetico
+P045,Sérum Facial Vitamina C 30ml,Cosméticos,,0.12,0.2,22,sintetico
+P047,Secador de Cabelo Profissional,Beleza,,0.9,4.0,65,sintetico
+P048,Prancha Alisadora Titânio,Beleza,,0.6,2.0,48,sintetico
+P064,Air Fryer 5L,Casa,,4.8,22.0,75,sintetico
+P065,Robô Aspirador,Casa,,3.5,14.0,210,sintetico
+P067,Cafeteira de Cápsulas,Casa,,3.2,11.0,85,sintetico

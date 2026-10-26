@@ -1,0 +1,6 @@
+loja_id,nome,slug,cidade,endereco,predio,latitude,longitude,coordenada_pendente,abre,fecha,tempo_permanencia_min,fonte,tipo_dado
+L023,Mega Eletrônicos (fictícia),mega-eletronicos,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.506128,-54.608673,False,07:00,15:00,20,ficticio (gerado para teste da Fase 1),sintetico
+L028,Rapid Perfumes (fictícia),rapid-perfumes,Ciudad del Este,"Plaza Comercial Este, CDE (fictício)",Plaza Comercial Este,-25.513786,-54.611564,False,08:00,17:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L041,Super Eletrônicos (fictícia),super-eletronicos,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.500127,-54.612877,False,07:30,15:00,15,ficticio (gerado para teste da Fase 1),sintetico
+L006,Delta Tech (fictícia),delta-tech,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.506098,-54.608607,False,07:00,16:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L034,Smart Center (fictícia),smart-center,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.515889,-54.611216,False,08:00,15:00,15,ficticio (gerado para teste da Fase 1),sintetico

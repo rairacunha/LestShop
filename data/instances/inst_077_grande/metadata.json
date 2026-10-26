@@ -1,0 +1,19 @@
+{
+  "nome": "inst_077_grande",
+  "tamanho": "grande",
+  "seed": 2026077,
+  "densidade": 0.59,
+  "n_lojas": 40,
+  "n_produtos": 70,
+  "n_ofertas": 466,
+  "n_itens_lista": 9,
+  "cota_disponivel_usd": 300.0,
+  "aliquota_excedente": 0.5,
+  "orcamento_usd": 1926.63,
+  "custo_minimo_lista_usd": 2653.77,
+  "lista_excede_cota": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "16:00",
+  "data_geracao": "2026-10-26",
+  "tipo_dado": "sintetico"
+}

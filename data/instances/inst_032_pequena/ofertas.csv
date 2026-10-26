@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L012,P006,Celular Modelo D 5G 128GB - Gold Shop (fictícia),661021,356.9,1834.47,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P006,Celular Modelo D 5G 128GB - Ultra Games (fictícia),552400,309.9,1592.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P007,Smartwatch Esportivo S1 - Delta Outlet (fictícia),964548,96.0,493.44,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P007,Smartwatch Esportivo S1 - Max Games (fictícia),509437,88.0,452.32,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P017,Carregador Portátil 20000mAh - Delta Outlet (fictícia),924894,28.0,143.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P017,Carregador Portátil 20000mAh - Max Games (fictícia),993895,27.0,138.78,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P028,Notebook Ultrafino 16GB/512GB - Delta Outlet (fictícia),814516,816.9,4198.87,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L033,P028,Notebook Ultrafino 16GB/512GB - Royal Shop (fictícia),148177,818.9,4209.15,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L012,P029,Notebook Gamer RTX 16GB/1TB - Gold Shop (fictícia),397876,1138.99,5854.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P029,Notebook Gamer RTX 16GB/1TB - Max Games (fictícia),161110,868.99,4466.61,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P031,Mouse Sem Fio - Delta Outlet (fictícia),371924,14.9,76.59,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L012,P031,Mouse Sem Fio - Gold Shop (fictícia),131778,14.0,71.96,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L004,P037,Placa de Vídeo Intermediária 8GB - Delta Outlet (fictícia),778746,330.9,1700.83,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L012,P037,Placa de Vídeo Intermediária 8GB - Gold Shop (fictícia),13263,323.9,1664.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P056,Garrafa Térmica 1L - Max Games (fictícia),249103,36.99,190.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L049,P056,Garrafa Térmica 1L - Ultra Games (fictícia),778806,27.9,143.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P072,"Mochila Notebook 15"" - Max Games (fictícia)",88798,39.99,205.55,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L012,P072,"Mochila Notebook 15"" - Gold Shop (fictícia)",747258,43.0,221.02,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L012,P073,Mala de Bordo 10kg - Gold Shop (fictícia),288900,69.99,359.75,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L033,P073,Mala de Bordo 10kg - Royal Shop (fictícia),944496,62.9,323.31,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

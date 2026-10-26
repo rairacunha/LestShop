@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L034,P011,Headphone Over-Ear Wireless - Smart Center (fictícia),138336,188.0,966.32,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P011,Headphone Over-Ear Wireless - Delta Tech (fictícia),638676,200.0,1028.0,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L028,P013,Caixa de Som Portátil Grande - Rapid Perfumes (fictícia),417969,194.0,997.16,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P013,Caixa de Som Portátil Grande - Delta Tech (fictícia),749543,182.0,935.48,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L034,P014,Soundbar 2.1 Canais - Smart Center (fictícia),652662,237.0,1218.18,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P014,Soundbar 2.1 Canais - Delta Tech (fictícia),157094,246.99,1269.53,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L028,P015,Câmera de Ação 4K - Rapid Perfumes (fictícia),101700,234.0,1202.76,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P015,Câmera de Ação 4K - Mega Eletrônicos (fictícia),724385,257.0,1320.98,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L041,P029,Notebook Gamer RTX 16GB/1TB - Super Eletrônicos (fictícia),776771,1220.9,6275.43,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P029,Notebook Gamer RTX 16GB/1TB - Delta Tech (fictícia),434220,998.0,5129.72,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L034,P041,Perfume Masculino Amadeirado 100ml - Smart Center (fictícia),982923,70.0,359.8,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P041,Perfume Masculino Amadeirado 100ml - Delta Tech (fictícia),94882,74.0,380.36,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L034,P043,Perfume Árabe Unissex 100ml - Smart Center (fictícia),821469,29.0,149.06,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P043,Perfume Árabe Unissex 100ml - Delta Tech (fictícia),361067,38.99,200.41,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P045,Sérum Facial Vitamina C 30ml - Mega Eletrônicos (fictícia),118242,18.0,92.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L006,P045,Sérum Facial Vitamina C 30ml - Delta Tech (fictícia),792646,20.9,107.43,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L028,P065,Robô Aspirador - Rapid Perfumes (fictícia),23307,185.99,955.99,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P065,Robô Aspirador - Mega Eletrônicos (fictícia),495405,210.0,1079.4,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L028,P066,Liquidificador Potente 1200W - Rapid Perfumes (fictícia),387870,44.0,226.16,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P066,Liquidificador Potente 1200W - Mega Eletrônicos (fictícia),453852,55.9,287.33,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

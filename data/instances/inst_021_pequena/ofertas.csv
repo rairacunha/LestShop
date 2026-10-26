@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L002,P003,Celular Modelo B Pro 256GB - Delta Games (fictícia),666054,587.9,3021.81,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P003,Celular Modelo B Pro 256GB - Royal Games (fictícia),403636,681.0,3500.34,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P017,Carregador Portátil 20000mAh - Max Games (fictícia),993895,27.0,138.78,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P017,Carregador Portátil 20000mAh - Royal Center (fictícia),596789,26.9,138.27,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P029,Notebook Gamer RTX 16GB/1TB - Delta Games (fictícia),605389,1012.0,5201.68,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P029,Notebook Gamer RTX 16GB/1TB - Royal Center (fictícia),792566,919.0,4723.66,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P037,Placa de Vídeo Intermediária 8GB - Delta Games (fictícia),142226,274.99,1413.45,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P037,Placa de Vídeo Intermediária 8GB - Royal Center (fictícia),148969,295.0,1516.3,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L002,P038,Memória RAM 16GB DDR5 - Delta Games (fictícia),14257,51.9,266.77,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L033,P038,Memória RAM 16GB DDR5 - Royal Shop (fictícia),117297,50.9,261.63,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P039,Perfume Feminino Floral 100ml - Max Games (fictícia),573421,79.99,411.15,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P039,Perfume Feminino Floral 100ml - Royal Games (fictícia),270612,88.0,452.32,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P044,Kit Maquiagem Básico - Royal Center (fictícia),629359,42.9,220.51,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L033,P044,Kit Maquiagem Básico - Royal Shop (fictícia),185871,32.0,164.48,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L018,P059,Vara de Pesca Telescópica - Max Games (fictícia),781357,46.0,236.44,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L029,P059,Vara de Pesca Telescópica - Royal Center (fictícia),82976,42.0,215.88,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P069,Óculos de Sol Polarizado - Royal Games (fictícia),28514,61.0,313.54,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L033,P069,Óculos de Sol Polarizado - Royal Shop (fictícia),367088,60.99,313.49,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L031,P070,Relógio Analógico Aço - Royal Games (fictícia),671566,111.0,570.54,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L033,P070,Relógio Analógico Aço - Royal Shop (fictícia),562286,113.99,585.91,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

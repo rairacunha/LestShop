@@ -1,0 +1,16 @@
+loja_id,nome,slug,cidade,endereco,predio,latitude,longitude,coordenada_pendente,abre,fecha,tempo_permanencia_min,fonte,tipo_dado
+L022,Mega Bazar (fictícia),mega-bazar,Ciudad del Este,"Galeria Aurora, CDE (fictício)",Galeria Aurora,-25.508471,-54.610664,False,08:00,15:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L031,Royal Games (fictícia),royal-games,Ciudad del Este,"Torre Fronteira, CDE (fictício)",Torre Fronteira,-25.507037,-54.613066,False,08:00,16:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L021,Max Tech (fictícia),max-tech,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.513624,-54.610353,False,07:00,15:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L007,Flash Games (fictícia),flash-games,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512708,-54.613991,False,07:00,17:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L017,Max Eletrônicos (fictícia),max-eletronicos,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.505968,-54.608556,False,07:30,16:30,25,ficticio (gerado para teste da Fase 1),sintetico
+L047,Top Mix (fictícia),top-mix,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.509151,-54.623845,False,07:00,17:00,20,ficticio (gerado para teste da Fase 1),sintetico
+L036,Smart Games (fictícia),smart-games,Ciudad del Este,"Shopping Monte Azul, CDE (fictício)",Shopping Monte Azul,-25.509682,-54.612105,False,07:30,15:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L041,Super Eletrônicos (fictícia),super-eletronicos,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.500127,-54.612877,False,07:30,15:00,15,ficticio (gerado para teste da Fase 1),sintetico
+L046,Top Center (fictícia),top-center,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.51246,-54.614016,False,08:00,15:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L012,Gold Shop (fictícia),gold-shop,Ciudad del Este,"Paseo Las Palmas, CDE (fictício)",Paseo Las Palmas,-25.512391,-54.61397,False,07:00,17:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L029,Royal Center (fictícia),royal-center,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.50583,-54.608705,False,07:30,16:00,20,ficticio (gerado para teste da Fase 1),sintetico
+L048,Top Shop (fictícia),top-shop,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.505878,-54.609017,False,08:00,15:00,10,ficticio (gerado para teste da Fase 1),sintetico
+L044,Super Shop (fictícia),super-shop,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.505853,-54.608702,False,07:30,16:00,30,ficticio (gerado para teste da Fase 1),sintetico
+L024,Mega Shop (fictícia),mega-shop,Ciudad del Este,"Centro Comercial Rio, CDE (fictício)",Centro Comercial Rio,-25.511125,-54.609689,False,08:00,16:30,10,ficticio (gerado para teste da Fase 1),sintetico
+L006,Delta Tech (fictícia),delta-tech,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.506098,-54.608607,False,07:00,16:00,10,ficticio (gerado para teste da Fase 1),sintetico

@@ -1,0 +1,19 @@
+{
+  "nome": "inst_062_media",
+  "tamanho": "media",
+  "seed": 2026062,
+  "densidade": 0.6,
+  "n_lojas": 15,
+  "n_produtos": 40,
+  "n_ofertas": 124,
+  "n_itens_lista": 7,
+  "cota_disponivel_usd": 500.0,
+  "aliquota_excedente": 0.5,
+  "orcamento_usd": 431.79,
+  "custo_minimo_lista_usd": 327.77,
+  "lista_excede_cota": false,
+  "horario_chegada": "07:30",
+  "horario_saida": "16:00",
+  "data_geracao": "2026-10-26",
+  "tipo_dado": "sintetico"
+}

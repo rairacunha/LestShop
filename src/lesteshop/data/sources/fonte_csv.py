@@ -38,6 +38,12 @@ class FonteCSV(FonteDeOfertas):
     def carregar_ofertas(self) -> pd.DataFrame:
         return self._ler("ofertas")
 
+    def carregar_cotacoes(self) -> pd.DataFrame:
+        caminho = self.pasta / "cotacoes.csv"
+        if not caminho.exists():
+            return esquema.vazio("cotacoes")
+        return esquema.padronizar(pd.read_csv(caminho, dtype={"data": str}), "cotacoes")
+
     def carregar_pontos_partida(self) -> pd.DataFrame:
         caminho = self.pasta / "pontos_partida.csv"
         if not caminho.exists():

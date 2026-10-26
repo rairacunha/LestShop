@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L013,P005,Celular Modelo C Lite 64GB - Luna Center (fictícia),706553,117.0,601.38,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L025,P005,Celular Modelo C Lite 64GB - Mega Tech (fictícia),931761,112.9,580.31,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P007,Smartwatch Esportivo S1 - Star Games (fictícia),44170,99.9,513.49,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L013,P007,Smartwatch Esportivo S1 - Luna Center (fictícia),139780,106.9,549.47,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L013,P014,Soundbar 2.1 Canais - Luna Center (fictícia),722188,238.9,1227.95,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L019,P014,Soundbar 2.1 Canais - Max Mix (fictícia),514931,242.0,1243.88,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L013,P015,Câmera de Ação 4K - Luna Center (fictícia),39529,278.0,1428.92,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P015,Câmera de Ação 4K - Mega Eletrônicos (fictícia),724385,257.0,1320.98,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P045,Sérum Facial Vitamina C 30ml - Mega Eletrônicos (fictícia),118242,18.0,92.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L025,P045,Sérum Facial Vitamina C 30ml - Mega Tech (fictícia),543257,19.9,102.29,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P047,Secador de Cabelo Profissional - Mega Eletrônicos (fictícia),746266,59.9,307.89,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P047,Secador de Cabelo Profissional - Star Games (fictícia),952565,68.0,349.52,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L019,P048,Prancha Alisadora Titânio - Max Mix (fictícia),842456,56.99,292.93,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P048,Prancha Alisadora Titânio - Mega Eletrônicos (fictícia),434084,41.0,210.74,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P065,Robô Aspirador - Mega Eletrônicos (fictícia),495405,210.0,1079.4,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P065,Robô Aspirador - Star Games (fictícia),100879,188.9,970.95,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L023,P066,Liquidificador Potente 1200W - Mega Eletrônicos (fictícia),453852,55.9,287.33,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P066,Liquidificador Potente 1200W - Star Games (fictícia),854824,48.99,251.81,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L019,P071,Tênis Esportivo Corrida - Max Mix (fictícia),238242,84.0,431.76,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L039,P071,Tênis Esportivo Corrida - Star Games (fictícia),665989,77.0,395.78,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

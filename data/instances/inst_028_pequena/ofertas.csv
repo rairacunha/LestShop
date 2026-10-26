@@ -1,0 +1,21 @@
+loja_id,produto_id,titulo_oferta,codigo_loja,preco_usd,preco_brl,data_coleta,fonte,tipo_dado
+L016,P001,Celular Modelo A 128GB - Luna Perfumes (fictícia),804375,214.0,1099.96,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L036,P001,Celular Modelo A 128GB - Smart Games (fictícia),367514,208.99,1074.21,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P003,Celular Modelo B Pro 256GB - Luna Perfumes (fictícia),638193,796.9,4096.07,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L038,P003,Celular Modelo B Pro 256GB - Sol Digital (fictícia),255128,847.0,4353.58,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L024,P021,Console de Mesa Geração Atual 1TB - Mega Shop (fictícia),321193,419.9,2158.29,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L036,P021,Console de Mesa Geração Atual 1TB - Smart Games (fictícia),66917,509.0,2616.26,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L024,P027,Headset Gamer 7.1 - Mega Shop (fictícia),520236,55.99,287.79,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L036,P027,Headset Gamer 7.1 - Smart Games (fictícia),195253,70.9,364.43,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L024,P041,Perfume Masculino Amadeirado 100ml - Mega Shop (fictícia),144768,61.9,318.17,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L036,P041,Perfume Masculino Amadeirado 100ml - Smart Games (fictícia),419999,63.0,323.82,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L024,P043,Perfume Árabe Unissex 100ml - Mega Shop (fictícia),73597,36.99,190.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L038,P043,Perfume Árabe Unissex 100ml - Sol Digital (fictícia),842666,36.99,190.13,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P051,Whisky 18 anos 750ml - Prime Eletrônicos (fictícia),431077,92.99,477.97,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L036,P051,Whisky 18 anos 750ml - Smart Games (fictícia),880086,88.0,452.32,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L016,P053,Gin Importado 750ml - Luna Perfumes (fictícia),447280,25.0,128.5,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L038,P053,Gin Importado 750ml - Sol Digital (fictícia),431355,30.99,159.29,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L038,P069,Óculos de Sol Polarizado - Sol Digital (fictícia),732222,76.99,395.73,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L024,P069,Óculos de Sol Polarizado - Mega Shop (fictícia),894214,73.9,379.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L027,P073,Mala de Bordo 10kg - Prime Eletrônicos (fictícia),721091,64.0,328.96,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico
+L038,P073,Mala de Bordo 10kg - Sol Digital (fictícia),895437,73.9,379.85,2026-10-26,ficticio (gerado para teste da Fase 1),sintetico

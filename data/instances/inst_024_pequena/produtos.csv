@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P005,Celular Modelo C Lite 64GB,Celulares,,0.4,1.1,120,sintetico
+P007,Smartwatch Esportivo S1,Eletrônicos,,0.25,0.6,95,sintetico
+P014,Soundbar 2.1 Canais,Áudio,,6.5,25.0,230,sintetico
+P015,Câmera de Ação 4K,Eletrônicos,,0.5,1.5,260,sintetico
+P045,Sérum Facial Vitamina C 30ml,Cosméticos,,0.12,0.2,22,sintetico
+P047,Secador de Cabelo Profissional,Beleza,,0.9,4.0,65,sintetico
+P048,Prancha Alisadora Titânio,Beleza,,0.6,2.0,48,sintetico
+P065,Robô Aspirador,Casa,,3.5,14.0,210,sintetico
+P066,Liquidificador Potente 1200W,Casa,,3.8,12.0,55,sintetico
+P071,Tênis Esportivo Corrida,Moda,,0.9,7.0,80,sintetico

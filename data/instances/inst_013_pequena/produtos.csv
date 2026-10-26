@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P008,Smartwatch Premium S3,Eletrônicos,,0.3,0.7,320,sintetico
+P015,Câmera de Ação 4K,Eletrônicos,,0.5,1.5,260,sintetico
+P025,Jogo Mídia Física Lançamento,Games,,0.12,0.3,60,sintetico
+P026,Jogo Mídia Física Catálogo,Games,,0.12,0.3,30,sintetico
+P036,Roteador Wi-Fi 6,Informática,,0.9,3.0,70,sintetico
+P040,Perfume Feminino Oriental 50ml,Perfumes,,0.3,0.4,65,sintetico
+P042,Perfume Masculino Cítrico 200ml,Perfumes,,0.7,0.9,95,sintetico
+P045,Sérum Facial Vitamina C 30ml,Cosméticos,,0.12,0.2,22,sintetico
+P046,Protetor Solar FPS 50 200ml,Cosméticos,,0.25,0.3,18,sintetico
+P068,Jogo de Panelas Antiaderente 5pç,Casa,,6.0,28.0,95,sintetico

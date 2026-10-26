@@ -1,0 +1,5 @@
+loja_id,nome,slug,cidade,endereco,predio,latitude,longitude,coordenada_pendente,abre,fecha,tempo_permanencia_min,fonte,tipo_dado
+L016,Luna Perfumes (fictícia),luna-perfumes,Ciudad del Este,"Torre Fronteira, CDE (fictício)",Torre Fronteira,-25.507202,-54.612944,False,08:00,17:00,25,ficticio (gerado para teste da Fase 1),sintetico
+L029,Royal Center (fictícia),royal-center,Ciudad del Este,"Galeria Puente, CDE (fictício)",Galeria Puente,-25.50583,-54.608705,False,07:30,16:00,20,ficticio (gerado para teste da Fase 1),sintetico
+L014,Luna Eletrônicos (fictícia),luna-eletronicos,Ciudad del Este,"Torre Fronteira, CDE (fictício)",Torre Fronteira,-25.507192,-54.613104,False,07:00,16:30,15,ficticio (gerado para teste da Fase 1),sintetico
+L047,Top Mix (fictícia),top-mix,Ciudad del Este,"Rua (loja de rua), CDE (fictício)",Rua (loja de rua),-25.509151,-54.623845,False,07:00,17:00,20,ficticio (gerado para teste da Fase 1),sintetico

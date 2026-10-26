@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P006,Celular Modelo D 5G 128GB,Celulares,,0.45,1.2,330,sintetico
+P007,Smartwatch Esportivo S1,Eletrônicos,,0.25,0.6,95,sintetico
+P017,Carregador Portátil 20000mAh,Eletrônicos,,0.45,0.6,30,sintetico
+P028,Notebook Ultrafino 16GB/512GB,Informática,,2.2,8.0,750,sintetico
+P029,Notebook Gamer RTX 16GB/1TB,Informática,,3.5,12.0,1100,sintetico
+P031,Mouse Sem Fio,Informática,,0.15,0.5,18,sintetico
+P037,Placa de Vídeo Intermediária 8GB,Informática,,1.4,6.0,340,sintetico
+P056,Garrafa Térmica 1L,Lazer,,0.6,1.8,35,sintetico
+P072,"Mochila Notebook 15""",Moda,,0.8,20.0,40,sintetico
+P073,Mala de Bordo 10kg,Moda,,2.8,40.0,70,sintetico

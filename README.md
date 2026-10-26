@@ -15,9 +15,9 @@ estão em [`docs/pendencias.md`](docs/pendencias.md).
 LestShop/
 ├── .github/workflows/      atualização semanal do catálogo
 ├── data/
-│   ├── raw/                  base-semente (fictícia, sintetico/estimado) — fallback e testes
+│   ├── raw/                  base fictícia: 50 lojas, 73 produtos, 613 ofertas (sintetico)
 │   ├── coletas/<data>/       coletas reais salvas em CSV (criada na primeira coleta)
-│   ├── instances/            instâncias sintéticas geradas
+│   ├── instances/            100 instâncias de teste (inst_001…inst_100) + geradas pelo generator
 │   ├── catalogo_modelos.csv  catálogo versionado (atualizado pelo GitHub Actions)
 │   ├── lojas_complemento.csv coordenadas/prédios preenchidos à mão
 │   ├── lesteshop.db          SQLite (não versionado; recriado a partir dos CSVs)
@@ -121,8 +121,22 @@ e em quantas lojas ele aparece; as lojas com coordenada pendente; as ofertas des
 cidade; e a cotação usada. Ele também exporta `lojas.csv`, `produtos.csv` e `ofertas.csv`
 para `data/export/`.
 
-Sem nenhuma coleta, o banco é criado a partir da base-semente (`data/raw/`). Com coletas, a
-semente só entra se você passar `--incluir-semente`.
+Sem nenhuma coleta, o banco é criado a partir da base fictícia (`data/raw/`). Com coletas, a
+base fictícia só entra se você passar `--incluir-semente`.
+
+## Base fictícia (usada para concluir a Fase 1)
+
+Como a coleta real depende da verificação anti-robô do site, a Fase 1 foi concluída com uma
+base **fictícia** (todo `tipo_dado = "sintetico"`), gerada por
+[`scripts/gerar_base_ficticia.py`](scripts/gerar_base_ficticia.py) com seed fixa 2026:
+
+* `data/raw/`: 50 lojas em 8 prédios fictícios, 73 produtos genéricos em 14 categorias,
+  613 ofertas (todo produto em pelo menos 2 lojas) e uma cotação fictícia (US$ 1 = R$ 5,14);
+* `data/instances/inst_001…inst_100`: 40 pequenas, 35 médias e 25 grandes, cada uma com
+  `lista_compras.csv` e parâmetros de cenário no `metadata.json` (cota, orçamento, horários).
+
+Detalhes em [`data/LEIA-ME_base_ficticia.md`](data/LEIA-ME_base_ficticia.md). Para regerar
+(resultado idêntico): `python scripts/gerar_base_ficticia.py`.
 
 ## Instâncias sintéticas
 

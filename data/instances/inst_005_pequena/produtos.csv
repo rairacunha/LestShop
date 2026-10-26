@@ -1,0 +1,11 @@
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,preco_base_usd,tipo_dado
+P004,Celular Modelo B Pro Max 512GB,Celulares,,0.55,1.4,1150,sintetico
+P007,Smartwatch Esportivo S1,Eletrônicos,,0.25,0.6,95,sintetico
+P013,Caixa de Som Portátil Grande,Áudio,,2.8,9.0,180,sintetico
+P025,Jogo Mídia Física Lançamento,Games,,0.12,0.3,60,sintetico
+P030,"Tablet 10"" 128GB",Informática,,0.9,2.5,290,sintetico
+P031,Mouse Sem Fio,Informática,,0.15,0.5,18,sintetico
+P055,Espumante Brut 750ml,Bebidas,,1.5,1.2,20,sintetico
+P057,Copo Térmico 473ml,Lazer,,0.4,1.0,28,sintetico
+P059,Vara de Pesca Telescópica,Lazer,,0.7,3.0,45,sintetico
+P071,Tênis Esportivo Corrida,Moda,,0.9,7.0,80,sintetico
