@@ -36,6 +36,13 @@ LestShop/
 └── docs/                     dicionário de dados, origem dos dados, pendências
 ```
 
+## Testar pelo navegador, sem instalar nada
+
+No GitHub, clique em **Code → Codespaces → Create codespace on main**. O ambiente
+sobe com tudo instalado e roda os testes sozinho. Os comandos estão em
+[`docs/testar_no_navegador.md`](docs/testar_no_navegador.md). A coleta real não roda lá
+(precisa de uma tela para a verificação do site).
+
 ## Instalação
 
 Python 3.11 ou mais novo.

@@ -1,0 +1,13 @@
+{
+  "name": "LesteShop - Fase 1",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "postCreateCommand": "pip install -e '.[dev]' && python -m pytest -q",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "mechatronics3d.vscode-sqlite"]
+    },
+    "codespaces": {
+      "openFiles": ["docs/testar_no_navegador.md"]
+    }
+  }
+}

@@ -191,51 +191,53 @@ class IndiceCatalogo:
         self.catalogo = catalogo.reset_index(drop=True)
         self._tokens: list[list[str]] = [tokens(n) for n in self.catalogo["nome"]]
         self._norm: list[str] = [" ".join(t) for t in self._tokens]
-        indice: dict[str, set[int]] = {}
+        indice: dict[str, list[int]] = {}
         for i, toks in enumerate(self._tokens):
-            for t in toks:
-                indice.setdefault(t, set()).add(i)
-        self._indice = indice
+            for t in dict.fromkeys(toks):
+                indice.setdefault(t, []).append(i)
+        # Vocabulário ordenado + linhas de cada palavra num único array (formato CSR):
+        # as linhas das palavras com um prefixo são uma fatia contígua de _linhas.
         self._vocab = sorted(indice)
+        tamanhos = np.fromiter((len(indice[p]) for p in self._vocab), dtype=np.int64, count=len(self._vocab))
+        self._inicio = np.concatenate([[0], np.cumsum(tamanhos)]).astype(np.int64)
+        self._linhas = np.fromiter((i for p in self._vocab for i in indice[p]), dtype=np.int64,
+                                   count=int(self._inicio[-1]))
         # Ordem "estática": nomes mais curtos primeiro, depois alfabética.
         ordem = sorted(range(len(self._tokens)), key=lambda i: (len(self._tokens[i]), self._norm[i]))
         self._rank = np.empty(len(ordem), dtype=np.int64)
         self._rank[ordem] = np.arange(len(ordem))
-        self._cache_prefixo: dict[str, set[int]] = {}
+        if self._vocab:
+            self.sugerir(self._vocab[0])  # aquece numpy, para a 1ª consulta já ser rápida
 
-    def _com_prefixo(self, prefixo: str) -> set[int]:
-        if prefixo in self._cache_prefixo:
-            return self._cache_prefixo[prefixo]
-        ini = bisect.bisect_left(self._vocab, prefixo)
-        fim = bisect.bisect_left(self._vocab, prefixo + "\uffff")
-        linhas: set[int] = set()
-        for palavra in self._vocab[ini:fim]:
-            linhas |= self._indice[palavra]
-        if len(self._cache_prefixo) > 256:
-            self._cache_prefixo.clear()
-        self._cache_prefixo[prefixo] = linhas
-        return linhas
+    def _faixa(self, palavra: str, prefixo: bool) -> np.ndarray:
+        ini = bisect.bisect_left(self._vocab, palavra)
+        if prefixo:
+            fim = bisect.bisect_left(self._vocab, palavra + "\uffff")
+        else:
+            fim = ini + 1 if ini < len(self._vocab) and self._vocab[ini] == palavra else ini
+        return self._linhas[self._inicio[ini]:self._inicio[fim]]
 
     def sugerir(self, texto: str, limite: int = 10) -> pd.DataFrame:
         consulta = tokens(texto)
         if not consulta or limite <= 0:
             return self.catalogo.iloc[0:0]
-        candidatos: set[int] | None = None
-        for t in sorted(set(consulta), key=len, reverse=True):
-            achados = self._com_prefixo(t)
-            candidatos = achados if candidatos is None else candidatos & achados
-            if not candidatos:
-                return self.catalogo.iloc[0:0]
+        n = len(self._rank)
+        mascara = np.ones(n, dtype=bool)
+        for t in set(consulta):
+            achados = np.zeros(n, dtype=bool)
+            achados[self._faixa(t, prefixo=True)] = True
+            mascara &= achados
+        cand = np.flatnonzero(mascara)
+        if cand.size == 0:
+            return self.catalogo.iloc[0:0]
 
         # Pré-seleção vetorizada: mais palavras exatas e nome mais curto.
-        cand = np.fromiter(candidatos, dtype=np.int64, count=len(candidatos))
-        exatas = np.zeros(len(cand), dtype=np.int64)
+        exatas = np.zeros(n, dtype=np.int64)
         for t in consulta:
-            if t in self._indice:
-                exatas += np.isin(cand, np.fromiter(self._indice[t], dtype=np.int64))
-        chave = -exatas * len(self._rank) + self._rank[cand]
+            exatas[self._faixa(t, prefixo=False)] += 1
+        chave = -exatas[cand] * n + self._rank[cand]
         reserva = limite * 20
-        if len(cand) > reserva:
+        if cand.size > reserva:
             cand = cand[np.argpartition(chave, reserva)[:reserva]]
 
         consulta_norm = " ".join(consulta)
