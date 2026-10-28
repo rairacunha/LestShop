@@ -109,3 +109,23 @@ def test_loja_de_outra_cidade(ler_fixture):
 def test_loja_sem_h1_gera_erro():
     with pytest.raises(ErroEstruturaHTML):
         parser_cp.parse_loja("<html><body></body></html>", "x")
+
+
+def test_modelo_extrai_desconto_em_relacao_ao_brasil(ler_fixture):
+    modelo = parser_cp.parse_modelo(ler_fixture("modelo_ps5pro.html"), URL_MODELO)
+    assert modelo["desconto_brasil_pct"] == 0.28
+
+
+def test_modelo_sem_aviso_de_desconto_fica_vazio():
+    html = """<main><h1>Produto X</h1><div class='o'><a href='/lojas/a/'>A</a> US$ 10,00</div></main>"""
+    assert parser_cp.parse_modelo(html, "u")["desconto_brasil_pct"] is None
+
+
+@pytest.mark.parametrize("texto,esperado", [
+    ("~28% mais barato que no Brasil", 0.28),
+    ("Até 31,5 % mais barato do que no Brasil", 0.315),
+    ("Economize no Paraguai", None),
+    ("150% mais barato que no Brasil", None),
+])
+def test_extrair_desconto_brasil(texto, esperado):
+    assert parser_cp.extrair_desconto_brasil(texto) == esperado

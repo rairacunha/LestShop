@@ -140,10 +140,15 @@ Detalhes em [`data/LEIA-ME_base_ficticia.md`](data/LEIA-ME_base_ficticia.md). Pa
 
 ## Instâncias sintéticas
 
+Tamanhos: pequena = 5 lojas × 10 produtos, média = 15 × 40, grande = 40 × 70. O gerador só
+sorteia lojas e produtos que existem na base (não cria lojas nem produtos artificiais); se a base
+for menor que o tamanho pedido, ele para com erro. Nos experimentos, use sempre o número real de
+lojas registrado no `metadata.json` de cada instância.
+
 ```bash
 python -m lesteshop.data.generator --size pequena --seed 42     # 5 lojas x 10 produtos
 python -m lesteshop.data.generator --size media --seed 42       # 15 x 40
-python -m lesteshop.data.generator --size grande --seed 42 --densidade 0.3 --variacao 0.15
+python -m lesteshop.data.generator --size grande --seed 42 --densidade 0.3 --variacao 0.15   # 40 x 70
 python -m lesteshop.data.generator --size media --seed 1 --base banco   # parte da base coletada
 ```
 

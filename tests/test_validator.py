@@ -110,3 +110,10 @@ def test_levantar_se_invalido(base):
 def test_coluna_faltando(base):
     res = validar(base["lojas"].drop(columns=["cidade"]), base["produtos"], base["ofertas"], hoje=HOJE)
     assert not res.ok and "sem as colunas obrigatórias: cidade" in res.erros[0]
+
+
+def test_desconto_brasil_fora_de_0_a_1(base):
+    base["produtos"].loc[0, "desconto_brasil_pct"] = 28  # deveria ser 0.28
+    assert any("desconto_brasil_pct deve estar entre 0 e 1" in e for e in _v(base).erros)
+    base["produtos"].loc[0, "desconto_brasil_pct"] = 0.28
+    assert _v(base).ok

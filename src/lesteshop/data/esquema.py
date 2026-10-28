@@ -12,7 +12,7 @@ COLUNAS: dict[str, list[str]] = {
     ],
     "produtos": [
         "produto_id", "nome", "categoria", "url_modelo", "peso_kg", "volume_l",
-        "tipo_dado",
+        "desconto_brasil_pct", "tipo_dado",
     ],
     "ofertas": [
         "loja_id", "produto_id", "titulo_oferta", "codigo_loja", "preco_usd",
@@ -25,7 +25,7 @@ COLUNAS: dict[str, list[str]] = {
 
 _NUMERICAS = {
     "lojas": ["latitude", "longitude", "tempo_permanencia_min"],
-    "produtos": ["peso_kg", "volume_l"],
+    "produtos": ["peso_kg", "volume_l", "desconto_brasil_pct"],
     "ofertas": ["preco_usd", "preco_brl"],
     "pontos_partida": ["latitude", "longitude"],
     "cotacoes": ["valor_brl_por_usd"],

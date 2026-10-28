@@ -29,6 +29,9 @@ RE_USD = re.compile(r"US\$\s*([\d.,]+)")
 RE_BRL = re.compile(r"R\$\s*([\d.,]+)")
 RE_CODIGO = re.compile(r"C[óo]d(?:igo)?\.?(?:\s+(?:da\s+)?loja)?\s*[:#]?\s*([A-Za-z0-9][A-Za-z0-9\-./]*)", re.IGNORECASE)
 RE_SEM_RESULTADO = re.compile(r"nenhum (?:produto|resultado)|n[ãa]o (?:encontramos|foram encontrad)", re.IGNORECASE)
+RE_DESCONTO_BRASIL = re.compile(
+    r"(?<![\d.,])(\d{1,2}(?:[.,]\d+)?)\s*%\s*mais\s+barato\s+(?:do\s+)?que\s+no\s+Brasil", re.IGNORECASE
+)
 RE_SEM_OFERTA = re.compile(r"(?:sem|nenhuma) ofertas?|indispon[íi]vel no momento", re.IGNORECASE)
 
 
@@ -180,6 +183,17 @@ def converter_volume_l(texto: str | None) -> float | None:
     return round(a * b * c / 1000, 3)
 
 
+def extrair_desconto_brasil(texto: str) -> float | None:
+    """'~28% mais barato que no Brasil' -> 0.28. Sem o aviso na página -> None (nunca estimado)."""
+    m = RE_DESCONTO_BRASIL.search(texto or "")
+    if not m:
+        return None
+    valor = parse_preco(m.group(1))
+    if valor is None or not 0 <= valor < 100:
+        return None
+    return round(valor / 100, 4)
+
+
 def _valor_spec(specs: dict[str, str], *chaves: str, preferir: str | None = None) -> str | None:
     candidatos = [(k, v) for k, v in specs.items() if all(c in k.lower() for c in chaves)]
     if preferir:
@@ -232,6 +246,7 @@ def parse_modelo(html: str, url_modelo: str) -> dict:
     specs = _especificacoes(principal)
     peso_kg = converter_peso_kg(_valor_spec(specs, "peso", "bruto"))
     volume_l = converter_volume_l(_valor_spec(specs, "dimens", preferir="embalagem"))
+    desconto_brasil_pct = extrair_desconto_brasil(_texto(principal))
 
     ofertas = []
     vistos: set[int] = set()
@@ -278,6 +293,7 @@ def parse_modelo(html: str, url_modelo: str) -> dict:
         "url_modelo": url_modelo,
         "peso_kg": peso_kg,
         "volume_l": volume_l,
+        "desconto_brasil_pct": desconto_brasil_pct,
         "ofertas": ofertas,
     }
 

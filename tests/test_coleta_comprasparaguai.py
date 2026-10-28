@@ -45,6 +45,7 @@ def test_dados_gravados_com_fonte_data_e_tipo_real(fonte):
     assert (res.lojas["tipo_dado"] == "real").all()
     produto = res.produtos.iloc[0]
     assert produto["produto_id"] == "CP-51234" and produto["peso_kg"] == 4.6
+    assert produto["desconto_brasil_pct"] == 0.28
 
 
 def test_coordenadas_e_predio(fonte):

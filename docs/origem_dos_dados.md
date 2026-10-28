@@ -18,6 +18,7 @@ Nenhum dado inventado é marcado como `real`.
 | Lojas (nome, endereço, cidade, mapa, horário) | Página da loja (`/lojas/<slug>/`) | Cache permanente em `data/cache/lojas/` |
 | Prédio/shopping | Extraído do endereço por expressão regular (`predio.py`) | Pode errar; corrigir em `data/lojas_complemento.csv` |
 | Coordenadas ausentes | Google Maps, preenchidas à mão em `data/lojas_complemento.csv` | Campo `observacao` registra a origem |
+| Desconto em relação ao Brasil (`desconto_brasil_pct`) | Aviso "~X% mais barato que no Brasil" da página do modelo | **Estimativa do próprio Compras Paraguai, sem metodologia divulgada** (não se sabe com quais preços brasileiros, de quando, nem se inclui impostos). Vazio quando a página não mostra; não estimamos nem completamos valores. Vazio em toda a base fictícia |
 | Peso e volume | Tabela de especificações da página do modelo ("Peso Bruto", "Dimensões" da embalagem) | Vazio quando não existe; nunca estimado automaticamente |
 | Catálogo de modelos | Sitemap indicado no `robots.txt` | Nome derivado do slug da URL |
 | Cotação do dólar | PTAX de venda do Banco Central (API Olinda) | Só para exibir R$ |

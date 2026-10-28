@@ -160,6 +160,7 @@ class FonteComprasParaguai(FonteDeOfertas):
                 "url_modelo": url,
                 "peso_kg": modelo["peso_kg"],
                 "volume_l": modelo["volume_l"],
+                "desconto_brasil_pct": modelo.get("desconto_brasil_pct"),
                 "tipo_dado": "real",
             })
 

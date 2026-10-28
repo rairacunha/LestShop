@@ -5,18 +5,30 @@ outras fases do modelo cascata.
 
 ## Fase 2 — Modelo de otimização (TPP)
 
-* **Instâncias de teste prontas** em `data/instances/inst_001…inst_100`, com lista de compras,
-  prioridade, cota, orçamento e janela de tempo. Observações encontradas na validação:
-  * em **52 das 100** instâncias o orçamento é menor que o custo mínimo da lista (o gerador
-    sorteia orçamento entre 60% e 140% do custo): o modelo precisa decidir se o orçamento é
-    restrição rígida (instância inviável) ou se pode deixar itens de fora usando a prioridade;
-  * em **64 das 100** a lista excede a cota disponível (vai haver imposto);
-  * **10** instâncias têm menos lojas que o tamanho nominal (ex.: 33 em vez de 40), porque
-    lojas sem ofertas são descartadas;
-  * as grandes têm **70 produtos** (a base tem 73), não 150 como na especificação; para
-    150 produtos use `python -m lesteshop.data.generator --size grande`, que cria variantes.
-* `lista_compras.csv` e os parâmetros de cenário (`metadata.json`) foram definidos pela base
-  fictícia, não pela Fase 1: validar com o professor antes de formular o modelo.
+### Decisões já tomadas (validadas com o professor em 28/10/2026)
+
+* **Orçamento é OPCIONAL.** Se o usuário informar, é limite rígido de gasto total
+  (preço + imposto). Se não informar, o teto é a própria cota (US$ 500).
+* **Lista que não cabe no orçamento não torna o problema inviável:** o modelo pode deixar
+  itens de fora (estrutura de mochila).
+* **Prioridade 1 a 5 é o valor v_i de cada item** na função objetivo da mochila,
+  max Σ v_i · x_i. A coluna `prioridade` das instâncias fica como está.
+* **Imposto em 64 das 100 instâncias é intencional**, para testar cenários dentro e fora da cota.
+* **Instâncias com menos lojas que o nominal são aceitas** (consequência de "loja sem oferta
+  é descartada"). Nos experimentos, usar sempre o número real de lojas do `metadata.json`.
+* **Tamanho grande = 40 lojas e 70 produtos**, sem variantes artificiais. O tamanho do
+  problema é dado pela lista de compras e pelo número de lojas, não pelo catálogo.
+
+### Dados já preparados
+
+* `data/instances/inst_001…inst_100`: lista de compras com prioridade, cota disponível,
+  orçamento e janela de tempo, guardados e validados na Fase 1, sem uso ainda. Em 52
+  instâncias o orçamento é menor que o custo mínimo da lista: pela decisão acima, o modelo
+  escolhe quais itens deixar de fora.
+* `produtos.desconto_brasil_pct`: desconto anunciado pelo Compras Paraguai em relação ao
+  Brasil (vazio na base fictícia).
+
+### A fazer
 
 * Formular e resolver o Traveling Purchaser Problem (Laporte, Riera-Ledesma e
   Salazar-González, 2003) sobre `lojas`, `produtos`, `ofertas` e `pontos_partida`.
@@ -62,3 +74,15 @@ outras fases do modelo cascata.
   `python -m lesteshop.data.catalogo atualizar --navegador`, ou desativar o agendamento.
 * Pedir autorização ao Compras Paraguai (e-mail explicando o projeto acadêmico) ou acesso a
   uma API.
+
+## Melhorias futuras (depois que o app estiver funcionando)
+
+Registradas para não se perderem; **não implementar antes disso**.
+
+* **"Favorito" no lugar da prioridade 1 a 5.** O usuário marcaria itens com estrela
+  (sim/não), e o modelo usaria pesos lexicográficos: primeiro maximizar os favoritos
+  comprados, depois o número de itens comuns. Avaliado com o professor e adiado por
+  aumentar a complexidade do modelo.
+* **Desempate pela economia em relação ao Brasil.** Entre itens de mesma prioridade,
+  preferir o de maior economia em US$: preço × desconto ÷ (1 − desconto), usando
+  `produtos.desconto_brasil_pct`. Ex.: preço US$ 700 com desconto 0,28 → economia ≈ US$ 272.

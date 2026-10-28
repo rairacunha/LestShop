@@ -27,7 +27,7 @@ from .validator import validar
 TAMANHOS: dict[str, tuple[int, int]] = {
     "pequena": (5, 10),
     "media": (15, 40),
-    "grande": (40, 150),
+    "grande": (40, 70),
 }
 _ALIASES = {"média": "media", "p": "pequena", "m": "media", "g": "grande"}
 
@@ -81,20 +81,18 @@ def gerar_instancia(
     precos = _preco_base(base)
     produtos_base = base["produtos"][base["produtos"]["produto_id"].isin(precos.index)]
     produtos_base = produtos_base.sort_values("produto_id").reset_index(drop=True)
+    # Sem lojas ou produtos artificiais: a base precisa ter o tamanho pedido.
+    if len(lojas_base) < n_lojas or len(produtos_base) < n_produtos:
+        raise ValueError(
+            f"A base tem {len(lojas_base)} lojas e {len(produtos_base)} produtos com oferta; a instância "
+            f"'{tamanho}' precisa de {n_lojas} lojas e {n_produtos} produtos. Use uma base maior."
+        )
     if data_referencia is None:
         data_referencia = str(base["ofertas"]["data_coleta"].max())
 
     # --- lojas ------------------------------------------------------------------
     escolhidas = rng.permutation(len(lojas_base))[:n_lojas]
-    lojas = lojas_base.iloc[sorted(escolhidas)].copy()
-    predios = sorted(p for p in lojas_base["predio"].dropna().unique())
-    extras = []
-    for k in range(n_lojas - len(lojas)):
-        predio = predios[rng.integers(len(predios))] if predios and rng.random() < 0.6 else f"Galería Sintética {k // 4 + 1:02d}"
-        extras.append({"loja_id": f"SIN-L{k + 1:03d}", "nome": f"Loja Sintética {k + 1:03d}",
-                       "slug": f"loja-sintetica-{k + 1:03d}", "cidade": config.CIDADE_ALVO,
-                       "endereco": None, "predio": predio, "fonte": "gerador"})
-    lojas = pd.concat([lojas, pd.DataFrame(extras)], ignore_index=True)
+    lojas = lojas_base.iloc[sorted(escolhidas)].reset_index(drop=True)
 
     # Coordenadas: lojas do mesmo prédio ficam juntas (±20 m); sem coordenada -> sorteio no microcentro.
     centro_predio: dict[str, tuple[float, float]] = {}
@@ -126,17 +124,6 @@ def gerar_instancia(
     escolhidos = rng.permutation(len(produtos_base))[:n_produtos]
     produtos = produtos_base.iloc[sorted(escolhidos)].copy()
     produtos["preco_base_usd"] = produtos["produto_id"].map(precos)
-    variantes = []
-    for k in range(n_produtos - len(produtos)):
-        origem = produtos_base.iloc[rng.integers(len(produtos_base))]
-        variantes.append({
-            "produto_id": f"SIN-P{k + 1:03d}",
-            "nome": f"{origem['nome']} (variante sintética {k + 1})",
-            "categoria": origem["categoria"], "url_modelo": None,
-            "peso_kg": origem["peso_kg"], "volume_l": origem["volume_l"],
-            "preco_base_usd": round(float(precos[origem["produto_id"]]) * rng.uniform(0.7, 1.3), 2),
-        })
-    produtos = pd.concat([produtos, pd.DataFrame(variantes)], ignore_index=True)
     produtos["tipo_dado"] = "sintetico"
 
     # --- ofertas: matriz loja x produto esparsa ----------------------------------------
@@ -205,7 +192,7 @@ def salvar_instancia(instancia: dict, pasta: str | Path | None = None) -> Path:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Gera instâncias sintéticas do LesteShop.")
     parser.add_argument("--size", "--tamanho", dest="tamanho", required=True,
-                        help="pequena (5x10), media (15x40) ou grande (40x150)")
+                        help="pequena (5x10), media (15x40) ou grande (40x70)")
     parser.add_argument("--seed", type=int, required=True)
     parser.add_argument("--densidade", type=float, default=0.5, help="fração de lojas que vende cada produto")
     parser.add_argument("--variacao", type=float, default=0.15, help="variação de preço em torno do preço-base")

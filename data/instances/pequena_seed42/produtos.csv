@@ -1,11 +1,11 @@
-produto_id,nome,categoria,url_modelo,peso_kg,volume_l,tipo_dado
-P003,Celular Modelo B Pro 256GB,Celulares,,0.5,1.3,sintetico
-P004,Celular Modelo B Pro Max 512GB,Celulares,,0.55,1.4,sintetico
-P005,Celular Modelo C Lite 64GB,Celulares,,0.4,1.1,sintetico
-P007,Smartwatch Esportivo S1,Eletrônicos,,0.25,0.6,sintetico
-P012,Caixa de Som Portátil Mini,Áudio,,0.4,1.0,sintetico
-P017,Carregador Portátil 20000mAh,Eletrônicos,,0.45,0.6,sintetico
-P035,"Monitor 27"" QHD",Informática,,6.8,35.0,sintetico
-P051,Whisky 18 anos 750ml,Bebidas,,1.4,1.3,sintetico
-P068,Jogo de Panelas Antiaderente 5pç,Casa,,6.0,28.0,sintetico
-P073,Mala de Bordo 10kg,Moda,,2.8,40.0,sintetico
+produto_id,nome,categoria,url_modelo,peso_kg,volume_l,desconto_brasil_pct,tipo_dado
+P003,Celular Modelo B Pro 256GB,Celulares,,0.5,1.3,,sintetico
+P004,Celular Modelo B Pro Max 512GB,Celulares,,0.55,1.4,,sintetico
+P005,Celular Modelo C Lite 64GB,Celulares,,0.4,1.1,,sintetico
+P007,Smartwatch Esportivo S1,Eletrônicos,,0.25,0.6,,sintetico
+P012,Caixa de Som Portátil Mini,Áudio,,0.4,1.0,,sintetico
+P017,Carregador Portátil 20000mAh,Eletrônicos,,0.45,0.6,,sintetico
+P035,"Monitor 27"" QHD",Informática,,6.8,35.0,,sintetico
+P051,Whisky 18 anos 750ml,Bebidas,,1.4,1.3,,sintetico
+P068,Jogo de Panelas Antiaderente 5pç,Casa,,6.0,28.0,,sintetico
+P073,Mala de Bordo 10kg,Moda,,2.8,40.0,,sintetico

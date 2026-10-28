@@ -117,6 +117,12 @@ def validar(
             erros.append(f"{col} deve ser maior que zero quando preenchido ({unidade}): "
                          f"{_lista(ruins['produto_id'])}.")
 
+    desc = produtos["desconto_brasil_pct"]
+    ruins = produtos[desc.notna() & ((desc < 0) | (desc >= 1))]
+    if len(ruins):
+        erros.append("desconto_brasil_pct deve estar entre 0 e 1 (ex.: 0.28 para 28%): "
+                     + _lista(f"{r.produto_id}={r.desconto_brasil_pct}" for r in ruins.itertuples()) + ".")
+
     # --- cidade e coordenadas ---------------------------------------------------
     fora = lojas[~lojas["cidade"].map(eh_ciudad_del_este)]
     if len(fora):

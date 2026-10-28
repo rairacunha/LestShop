@@ -53,6 +53,7 @@ CREATE TABLE IF NOT EXISTS produtos (
     url_modelo TEXT,
     peso_kg REAL CHECK (peso_kg IS NULL OR peso_kg > 0),
     volume_l REAL CHECK (volume_l IS NULL OR volume_l > 0),
+    desconto_brasil_pct REAL CHECK (desconto_brasil_pct IS NULL OR (desconto_brasil_pct >= 0 AND desconto_brasil_pct < 1)),
     tipo_dado TEXT NOT NULL CHECK (tipo_dado IN ('real', 'estimado', 'sintetico'))
 );
 CREATE TABLE IF NOT EXISTS ofertas (

@@ -36,6 +36,7 @@ Convenções: `texto` = string UTF-8; `real` = número decimal; vazio = desconhe
 | url_modelo | texto | URL | Página do modelo `/<slug>_<id>/` |
 | peso_kg | real | kg | "Peso Bruto" da tabela de especificações (vazio se não houver) |
 | volume_l | real | litros | Produto das "Dimensões" da embalagem ÷ 1000 (cm³ → L); vazio se não houver |
+| desconto_brasil_pct | real | fração (0 a 1) | Percentual exibido na página do modelo como "~X% mais barato que no Brasil" (0,28 = 28%). Vazio se a página não mostrar; nunca estimado |
 | tipo_dado | texto | — | Ver convenções |
 
 ## ofertas
