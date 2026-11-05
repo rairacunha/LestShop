@@ -1,0 +1,127 @@
+{
+  "instancia": "inst_095_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 18,
+    "itens_comprados": 5,
+    "gasto_produtos": 329.78,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 329.78,
+    "tempo_andando": 41.5993,
+    "retorno": 575.1515,
+    "peso_kg": 5.75,
+    "volume_l": 19.8,
+    "lambda_": 0.0017,
+    "objetivo": 17.4365
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 505.23,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "14:00",
+  "horario_retorno": "09:35",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L024",
+      "nome": "Mega Shop (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "07:41",
+      "inicio_atendimento": "08:00",
+      "saida": "08:10",
+      "compras": [
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 55.99
+        },
+        {
+          "produto_id": "P041",
+          "nome": "Perfume Masculino Amadeirado 100ml",
+          "quantidade": 1,
+          "preco_usd": 61.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "08:17",
+      "inicio_atendimento": "08:17",
+      "saida": "08:37",
+      "compras": [
+        {
+          "produto_id": "P067",
+          "nome": "Cafeteira de Cápsulas",
+          "quantidade": 1,
+          "preco_usd": 88.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L014",
+      "nome": "Luna Eletrônicos (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "08:40",
+      "inicio_atendimento": "08:40",
+      "saida": "08:55",
+      "compras": [
+        {
+          "produto_id": "P049",
+          "nome": "Barbeador Elétrico",
+          "quantidade": 1,
+          "preco_usd": 63.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L029",
+      "nome": "Royal Center (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "09:03",
+      "inicio_atendimento": "09:03",
+      "saida": "09:23",
+      "compras": [
+        {
+          "produto_id": "P047",
+          "nome": "Secador de Cabelo Profissional",
+          "quantidade": 1,
+          "preco_usd": 59.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P019",
+      "nome": "Smart TV 50\" 4K",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.35410734599986426,
+    "big_m": 455.6519480577015,
+    "objetivo_modelo": 17.436536478481496,
+    "limitante": 17.436536478481496,
+    "n_variaveis": 453,
+    "n_restricoes": 493,
+    "tempo_andando_antes_polimento": 41.599327385468044,
+    "tempo_andando_depois_polimento": 41.599327385468044,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.020750086000134615
+  }
+}

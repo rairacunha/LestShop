@@ -1,0 +1,126 @@
+{
+  "instancia": "inst_071_media",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 15,
+    "itens_comprados": 4,
+    "gasto_produtos": 314.89,
+    "excedente": 164.89,
+    "imposto": 82.44,
+    "custo_total": 397.33,
+    "tempo_andando": 49.7931,
+    "retorno": 669.7931,
+    "peso_kg": 6.32,
+    "volume_l": 19.8,
+    "lambda_": 0.0012,
+    "objetivo": 14.4685
+  },
+  "situacao_cota": "excede a cota em US$ 164.89 (imposto US$ 82.44)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 420.26,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "16:00",
+  "horario_retorno": "11:10",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:19",
+      "inicio_atendimento": "09:19",
+      "saida": "09:49",
+      "compras": [
+        {
+          "produto_id": "P065",
+          "nome": "Robô Aspirador",
+          "quantidade": 1,
+          "preco_usd": 206.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L036",
+      "nome": "Smart Games (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "09:56",
+      "inicio_atendimento": "09:56",
+      "saida": "10:21",
+      "compras": [
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 33.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L014",
+      "nome": "Luna Eletrônicos (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:26",
+      "inicio_atendimento": "10:26",
+      "saida": "10:41",
+      "compras": [
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 49.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:42",
+      "inicio_atendimento": "10:42",
+      "saida": "10:52",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 25.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P015",
+      "nome": "Câmera de Ação 4K",
+      "prioridade": 1
+    },
+    {
+      "produto_id": "P036",
+      "nome": "Roteador Wi-Fi 6",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.6548149820000617,
+    "big_m": 485.7534247889471,
+    "objetivo_modelo": 14.468501859311955,
+    "limitante": 14.468501859311955,
+    "n_variaveis": 179,
+    "n_restricoes": 203,
+    "tempo_andando_antes_polimento": 49.79312583522598,
+    "tempo_andando_depois_polimento": 49.79312583522598,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.01597690799985685
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "instancia": "inst_021_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 10,
+    "itens_comprados": 4,
+    "gasto_produtos": 199.79,
+    "excedente": 49.79,
+    "imposto": 24.89,
+    "custo_total": 224.69,
+    "tempo_andando": 46.0192,
+    "retorno": 601.0192,
+    "peso_kg": 1.7,
+    "volume_l": 4.4,
+    "lambda_": 0.0014,
+    "objetivo": 9.6745
+  },
+  "situacao_cota": "excede a cota em US$ 49.79 (imposto US$ 24.89)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 689.37,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "13:00",
+  "horario_retorno": "10:01",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L018",
+      "nome": "Max Games (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:16",
+      "inicio_atendimento": "08:16",
+      "saida": "08:41",
+      "compras": [
+        {
+          "produto_id": "P039",
+          "nome": "Perfume Feminino Floral 100ml",
+          "quantidade": 1,
+          "preco_usd": 79.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L033",
+      "nome": "Royal Shop (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:42",
+      "inicio_atendimento": "08:42",
+      "saida": "09:12",
+      "compras": [
+        {
+          "produto_id": "P038",
+          "nome": "Memória RAM 16GB DDR5",
+          "quantidade": 1,
+          "preco_usd": 50.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L029",
+      "nome": "Royal Center (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "09:29",
+      "inicio_atendimento": "09:29",
+      "saida": "09:49",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 26.9
+        },
+        {
+          "produto_id": "P059",
+          "nome": "Vara de Pesca Telescópica",
+          "quantidade": 1,
+          "preco_usd": 42.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P029",
+      "nome": "Notebook Gamer RTX 16GB/1TB",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.015509233999864591,
+    "big_m": 347.746413216518,
+    "objetivo_modelo": 9.67454408505584,
+    "limitante": 9.67454408505584,
+    "n_variaveis": 58,
+    "n_restricoes": 70,
+    "tempo_andando_antes_polimento": 46.01920511048408,
+    "tempo_andando_depois_polimento": 46.01920511048408,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.012176685999975234
+  }
+}

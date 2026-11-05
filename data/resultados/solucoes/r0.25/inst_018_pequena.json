@@ -1,0 +1,93 @@
+{
+  "instancia": "inst_018_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 9,
+    "itens_comprados": 4,
+    "gasto_produtos": 255.89,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 255.89,
+    "tempo_andando": 39.5493,
+    "retorno": 624.5493,
+    "peso_kg": 3.7,
+    "volume_l": 5.2,
+    "lambda_": 0.0024,
+    "objetivo": 8.3707
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 331.36,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "15:00",
+  "horario_retorno": "10:25",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L030",
+      "nome": "Royal Eletrônicos (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:19",
+      "inicio_atendimento": "09:19",
+      "saida": "09:44",
+      "compras": [
+        {
+          "produto_id": "P051",
+          "nome": "Whisky 18 anos 750ml",
+          "quantidade": 1,
+          "preco_usd": 108.99
+        },
+        {
+          "produto_id": "P055",
+          "nome": "Espumante Brut 750ml",
+          "quantidade": 1,
+          "preco_usd": 18.0
+        },
+        {
+          "produto_id": "P058",
+          "nome": "Molinete de Pesca",
+          "quantidade": 1,
+          "preco_usd": 64.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L045",
+      "nome": "Top Bazar (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:45",
+      "inicio_atendimento": "09:45",
+      "saida": "10:05",
+      "compras": [
+        {
+          "produto_id": "P024",
+          "nome": "Controle Sem Fio Console",
+          "quantidade": 1,
+          "preco_usd": 64.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.009269271999983175,
+    "big_m": 404.4793351288936,
+    "objetivo_modelo": 8.370732717159271,
+    "limitante": 8.370732717159271,
+    "n_variaveis": 30,
+    "n_restricoes": 38,
+    "tempo_andando_antes_polimento": 39.54931832244216,
+    "tempo_andando_depois_polimento": 39.54931832244216,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.1340999890308012e-05
+  }
+}

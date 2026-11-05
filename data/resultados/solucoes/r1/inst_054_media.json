@@ -1,0 +1,138 @@
+{
+  "instancia": "inst_054_media",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 17,
+    "itens_comprados": 5,
+    "gasto_produtos": 221.69,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 221.69,
+    "tempo_andando": 46.3614,
+    "retorno": 626.3614,
+    "peso_kg": 4.89,
+    "volume_l": 13.9,
+    "lambda_": 0.0017,
+    "objetivo": 16.5427
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 225.1,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "14:00",
+  "horario_retorno": "10:26",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L006",
+      "nome": "Delta Tech (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "08:12",
+      "inicio_atendimento": "08:12",
+      "saida": "08:22",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 20.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L020",
+      "nome": "Max Perfumes (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "08:27",
+      "inicio_atendimento": "08:27",
+      "saida": "08:42",
+      "compras": [
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 87.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L036",
+      "nome": "Smart Games (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "08:46",
+      "inicio_atendimento": "08:46",
+      "saida": "09:11",
+      "compras": [
+        {
+          "produto_id": "P025",
+          "nome": "Jogo Mídia Física Lançamento",
+          "quantidade": 1,
+          "preco_usd": 53.99
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L028",
+      "nome": "Rapid Perfumes (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:19",
+      "inicio_atendimento": "09:19",
+      "saida": "09:44",
+      "compras": [
+        {
+          "produto_id": "P066",
+          "nome": "Liquidificador Potente 1200W",
+          "quantidade": 1,
+          "preco_usd": 44.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:45",
+      "inicio_atendimento": "09:45",
+      "saida": "10:10",
+      "compras": [
+        {
+          "produto_id": "P031",
+          "nome": "Mouse Sem Fio",
+          "quantidade": 1,
+          "preco_usd": 14.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P007",
+      "nome": "Smartwatch Esportivo S1",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.2469308679999358,
+    "big_m": 409.87682718165115,
+    "objetivo_modelo": 16.54265249092148,
+    "limitante": 16.54265249092148,
+    "n_variaveis": 153,
+    "n_restricoes": 175,
+    "tempo_andando_antes_polimento": 46.361375070920104,
+    "tempo_andando_depois_polimento": 46.361375070920104,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.033810366999887265
+  }
+}

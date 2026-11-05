@@ -1,0 +1,93 @@
+{
+  "instancia": "inst_024_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 16,
+    "itens_comprados": 4,
+    "gasto_produtos": 195.9,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 195.9,
+    "tempo_andando": 36.929,
+    "retorno": 526.929,
+    "peso_kg": 2.52,
+    "volume_l": 13.2,
+    "lambda_": 0.0043,
+    "objetivo": 15.1578
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 231.61,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "14:00",
+  "horario_retorno": "08:47",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L023",
+      "nome": "Mega Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "07:42",
+      "inicio_atendimento": "07:42",
+      "saida": "08:02",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 18.0
+        },
+        {
+          "produto_id": "P047",
+          "nome": "Secador de Cabelo Profissional",
+          "quantidade": 1,
+          "preco_usd": 59.9
+        },
+        {
+          "produto_id": "P048",
+          "nome": "Prancha Alisadora Titânio",
+          "quantidade": 1,
+          "preco_usd": 41.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "08:10",
+      "inicio_atendimento": "08:10",
+      "saida": "08:30",
+      "compras": [
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 77.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.00951883200013981,
+    "big_m": 426.67690896446004,
+    "objetivo_modelo": 15.15781780662912,
+    "limitante": 15.15781780662912,
+    "n_variaveis": 43,
+    "n_restricoes": 53,
+    "tempo_andando_antes_polimento": 36.92902880852549,
+    "tempo_andando_depois_polimento": 36.92902880852549,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.170899986391305e-05
+  }
+}

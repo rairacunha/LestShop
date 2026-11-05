@@ -1,0 +1,110 @@
+{
+  "instancia": "inst_027_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 11,
+    "itens_comprados": 4,
+    "gasto_produtos": 311.87,
+    "excedente": 161.87,
+    "imposto": 80.94,
+    "custo_total": 392.81,
+    "tempo_andando": 41.592,
+    "retorno": 706.592,
+    "peso_kg": 4.85,
+    "volume_l": 43.0,
+    "lambda_": 0.002,
+    "objetivo": 10.1959
+  },
+  "situacao_cota": "excede a cota em US$ 161.87 (imposto US$ 80.94)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 470.45,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "11:47",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L030",
+      "nome": "Royal Eletrônicos (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:19",
+      "inicio_atendimento": "10:19",
+      "saida": "10:44",
+      "compras": [
+        {
+          "produto_id": "P051",
+          "nome": "Whisky 18 anos 750ml",
+          "quantidade": 1,
+          "preco_usd": 108.99
+        },
+        {
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
+          "quantidade": 1,
+          "preco_usd": 61.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L007",
+      "nome": "Flash Games (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:45",
+      "inicio_atendimento": "10:45",
+      "saida": "10:55",
+      "compras": [
+        {
+          "produto_id": "P049",
+          "nome": "Barbeador Elétrico",
+          "quantidade": 1,
+          "preco_usd": 79.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L033",
+      "nome": "Royal Shop (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "11:00",
+      "inicio_atendimento": "11:00",
+      "saida": "11:30",
+      "compras": [
+        {
+          "produto_id": "P069",
+          "nome": "Óculos de Sol Polarizado",
+          "quantidade": 1,
+          "preco_usd": 60.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P008",
+      "nome": "Smartwatch Premium S3",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.018934646999923643,
+    "big_m": 169.47933512889358,
+    "objetivo_modelo": 10.195925798193521,
+    "limitante": 10.195925798193521,
+    "n_variaveis": 58,
+    "n_restricoes": 70,
+    "tempo_andando_antes_polimento": 41.59203398343483,
+    "tempo_andando_depois_polimento": 41.59203398343483,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.010306076000006215
+  }
+}

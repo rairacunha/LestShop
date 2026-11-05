@@ -1,0 +1,236 @@
+{
+  "instancia": "inst_078_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 54,
+    "itens_comprados": 15,
+    "gasto_produtos": 729.56,
+    "excedente": 229.56,
+    "imposto": 114.78,
+    "custo_total": 844.34,
+    "tempo_andando": 56.5537,
+    "retorno": 786.5537,
+    "peso_kg": 18.97,
+    "volume_l": 97.8,
+    "lambda_": 0.001,
+    "objetivo": 53.1375
+  },
+  "situacao_cota": "excede a cota em US$ 229.56 (imposto US$ 114.78)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 919.39,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "14:00",
+  "horario_retorno": "13:07",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L033",
+      "nome": "Royal Shop (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:17",
+      "inicio_atendimento": "09:17",
+      "saida": "09:47",
+      "compras": [
+        {
+          "produto_id": "P044",
+          "nome": "Kit Maquiagem Básico",
+          "quantidade": 1,
+          "preco_usd": 32.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L045",
+      "nome": "Top Bazar (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:52",
+      "inicio_atendimento": "09:52",
+      "saida": "10:12",
+      "compras": [
+        {
+          "produto_id": "P012",
+          "nome": "Caixa de Som Portátil Mini",
+          "quantidade": 1,
+          "preco_usd": 38.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L009",
+      "nome": "Gold Bazar (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:13",
+      "inicio_atendimento": "10:13",
+      "saida": "10:38",
+      "compras": [
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 60.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L036",
+      "nome": "Smart Games (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "10:44",
+      "inicio_atendimento": "10:44",
+      "saida": "11:09",
+      "compras": [
+        {
+          "produto_id": "P060",
+          "nome": "Barraca Camping 4 Pessoas",
+          "quantidade": 1,
+          "preco_usd": 88.99
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "11:15",
+      "inicio_atendimento": "11:15",
+      "saida": "11:45",
+      "compras": [
+        {
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
+          "quantidade": 1,
+          "preco_usd": 59.0
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "11:46",
+      "inicio_atendimento": "11:46",
+      "saida": "11:56",
+      "compras": [
+        {
+          "produto_id": "P034",
+          "nome": "Pendrive 128GB",
+          "quantidade": 1,
+          "preco_usd": 10.0
+        },
+        {
+          "produto_id": "P036",
+          "nome": "Roteador Wi-Fi 6",
+          "quantidade": 1,
+          "preco_usd": 59.9
+        },
+        {
+          "produto_id": "P052",
+          "nome": "Vodka Premium 1L",
+          "quantidade": 1,
+          "preco_usd": 23.99
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L048",
+      "nome": "Top Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "12:03",
+      "inicio_atendimento": "12:03",
+      "saida": "12:13",
+      "compras": [
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 60.99
+        },
+        {
+          "produto_id": "P033",
+          "nome": "SSD Externo 1TB",
+          "quantidade": 1,
+          "preco_usd": 71.99
+        },
+        {
+          "produto_id": "P062",
+          "nome": "Boneca Articulada Colecionável",
+          "quantidade": 1,
+          "preco_usd": 28.0
+        }
+      ]
+    },
+    {
+      "ordem": 8,
+      "loja_id": "L029",
+      "nome": "Royal Center (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "12:14",
+      "inicio_atendimento": "12:14",
+      "saida": "12:34",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 26.9
+        }
+      ]
+    },
+    {
+      "ordem": 9,
+      "loja_id": "L023",
+      "nome": "Mega Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "12:35",
+      "inicio_atendimento": "12:35",
+      "saida": "12:55",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 18.0
+        },
+        {
+          "produto_id": "P049",
+          "nome": "Barbeador Elétrico",
+          "quantidade": 1,
+          "preco_usd": 73.0
+        },
+        {
+          "produto_id": "P064",
+          "nome": "Air Fryer 5L",
+          "quantidade": 1,
+          "preco_usd": 77.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 4.4508477570000196,
+    "big_m": 365.7534247889471,
+    "objetivo_modelo": 53.13754566407367,
+    "limitante": 53.13754566407367,
+    "n_variaveis": 609,
+    "n_restricoes": 655,
+    "tempo_andando_antes_polimento": 56.5536857507955,
+    "tempo_andando_depois_polimento": 56.5536857507955,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.4633147370000188
+  }
+}

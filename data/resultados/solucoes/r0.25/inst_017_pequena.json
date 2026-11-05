@@ -1,0 +1,87 @@
+{
+  "instancia": "inst_017_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 3,
+    "itens_comprados": 2,
+    "gasto_produtos": 75.0,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 75.0,
+    "tempo_andando": 36.8097,
+    "retorno": 531.8097,
+    "peso_kg": 2.3,
+    "volume_l": 4.5,
+    "lambda_": 0.0031,
+    "objetivo": 2.7402
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 210.56,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "15:00",
+  "horario_retorno": "08:52",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L036",
+      "nome": "Smart Games (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "07:45",
+      "inicio_atendimento": "07:45",
+      "saida": "08:10",
+      "compras": [
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 33.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L029",
+      "nome": "Royal Center (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "08:20",
+      "inicio_atendimento": "08:20",
+      "saida": "08:40",
+      "compras": [
+        {
+          "produto_id": "P059",
+          "nome": "Vara de Pesca Telescópica",
+          "quantidade": 1,
+          "preco_usd": 42.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P015",
+      "nome": "Câmera de Ação 4K",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.013630857999942236,
+    "big_m": 491.3907296998236,
+    "objetivo_modelo": 2.7401640979140174,
+    "limitante": 2.7401640979140174,
+    "n_variaveis": 40,
+    "n_restricoes": 50,
+    "tempo_andando_antes_polimento": 36.80968971993398,
+    "tempo_andando_depois_polimento": 36.80968971993398,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.2066999943272094e-05
+  }
+}

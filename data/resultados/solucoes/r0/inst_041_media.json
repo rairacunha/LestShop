@@ -1,0 +1,195 @@
+{
+  "instancia": "inst_041_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 33,
+    "itens_comprados": 9,
+    "gasto_produtos": 539.58,
+    "excedente": 39.58,
+    "imposto": 19.79,
+    "custo_total": 559.37,
+    "tempo_andando": 51.8181,
+    "retorno": 666.8181,
+    "peso_kg": 9.12,
+    "volume_l": 30.1,
+    "lambda_": 0.0015,
+    "objetivo": 32.1887
+  },
+  "situacao_cota": "excede a cota em US$ 39.58 (imposto US$ 19.79)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 688.51,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "14:00",
+  "horario_retorno": "11:07",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L011",
+      "nome": "Gold Digital (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "07:43",
+      "inicio_atendimento": "07:43",
+      "saida": "08:13",
+      "compras": [
+        {
+          "produto_id": "P046",
+          "nome": "Protetor Solar FPS 50 200ml",
+          "quantidade": 1,
+          "preco_usd": 18.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L025",
+      "nome": "Mega Tech (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "08:14",
+      "inicio_atendimento": "08:14",
+      "saida": "08:34",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 19.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L042",
+      "nome": "Super Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "08:39",
+      "inicio_atendimento": "08:39",
+      "saida": "08:54",
+      "compras": [
+        {
+          "produto_id": "P049",
+          "nome": "Barbeador Elétrico",
+          "quantidade": 1,
+          "preco_usd": 74.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L016",
+      "nome": "Luna Perfumes (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "08:55",
+      "inicio_atendimento": "08:55",
+      "saida": "09:20",
+      "compras": [
+        {
+          "produto_id": "P001",
+          "nome": "Celular Modelo A 128GB",
+          "quantidade": 1,
+          "preco_usd": 214.0
+        },
+        {
+          "produto_id": "P064",
+          "nome": "Air Fryer 5L",
+          "quantidade": 1,
+          "preco_usd": 69.99
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L013",
+      "nome": "Luna Center (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "09:25",
+      "inicio_atendimento": "09:25",
+      "saida": "09:45",
+      "compras": [
+        {
+          "produto_id": "P062",
+          "nome": "Boneca Articulada Colecionável",
+          "quantidade": 1,
+          "preco_usd": 31.0
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:51",
+      "inicio_atendimento": "09:51",
+      "saida": "10:01",
+      "compras": [
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 36.99
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:02",
+      "inicio_atendimento": "10:02",
+      "saida": "10:32",
+      "compras": [
+        {
+          "produto_id": "P043",
+          "nome": "Perfume Árabe Unissex 100ml",
+          "quantidade": 1,
+          "preco_usd": 33.9
+        }
+      ]
+    },
+    {
+      "ordem": 8,
+      "loja_id": "L015",
+      "nome": "Luna Outlet (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "10:40",
+      "inicio_atendimento": "10:40",
+      "saida": "10:55",
+      "compras": [
+        {
+          "produto_id": "P012",
+          "nome": "Caixa de Som Portátil Mini",
+          "quantidade": 1,
+          "preco_usd": 40.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P021",
+      "nome": "Console de Mesa Geração Atual 1TB",
+      "prioridade": 5
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.15715370600014467,
+    "big_m": 439.4753520292039,
+    "objetivo_modelo": 32.18874273034473,
+    "limitante": 32.18874273034473,
+    "n_variaveis": 241,
+    "n_restricoes": 269,
+    "tempo_andando_antes_polimento": 61.81213991705405,
+    "tempo_andando_depois_polimento": 51.81812906331329,
+    "polimento": "exato",
+    "polimento_aceito": true,
+    "tempo_polimento_s": 0.4208180870000433
+  }
+}

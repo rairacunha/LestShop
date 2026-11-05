@@ -1,0 +1,93 @@
+{
+  "instancia": "inst_016_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 11,
+    "itens_comprados": 3,
+    "gasto_produtos": 128.9,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 128.9,
+    "tempo_andando": 40.783,
+    "retorno": 525.783,
+    "peso_kg": 1.67,
+    "volume_l": 2.0,
+    "lambda_": 0.0069,
+    "objetivo": 10.1078
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 300.0,
+  "orcamento_usd": 143.47,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "14:00",
+  "horario_retorno": "08:46",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L021",
+      "nome": "Max Tech (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "07:44",
+      "inicio_atendimento": "07:44",
+      "saida": "08:09",
+      "compras": [
+        {
+          "produto_id": "P051",
+          "nome": "Whisky 18 anos 750ml",
+          "quantidade": 1,
+          "preco_usd": 90.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L006",
+      "nome": "Delta Tech (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "08:24",
+      "inicio_atendimento": "08:24",
+      "saida": "08:34",
+      "compras": [
+        {
+          "produto_id": "P031",
+          "nome": "Mouse Sem Fio",
+          "quantidade": 1,
+          "preco_usd": 18.0
+        },
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 20.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P043",
+      "nome": "Perfume Árabe Unissex 100ml",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.01855278899984114,
+    "big_m": 450.7534247889471,
+    "objetivo_modelo": 10.107773240119055,
+    "limitante": 10.107773240119055,
+    "n_variaveis": 55,
+    "n_restricoes": 67,
+    "tempo_andando_antes_polimento": 40.78295291940576,
+    "tempo_andando_depois_polimento": 40.78295291940576,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.0571000075287884e-05
+  }
+}

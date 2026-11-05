@@ -1,0 +1,161 @@
+{
+  "instancia": "inst_075_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 25,
+    "itens_comprados": 8,
+    "gasto_produtos": 1412.76,
+    "excedente": 912.76,
+    "imposto": 456.38,
+    "custo_total": 1869.14,
+    "tempo_andando": 48.3398,
+    "retorno": 713.3398,
+    "peso_kg": 10.91,
+    "volume_l": 44.6,
+    "lambda_": 0.0005,
+    "objetivo": 24.0935
+  },
+  "situacao_cota": "excede a cota em US$ 912.76 (imposto US$ 456.38)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 2061.01,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "11:53",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L024",
+      "nome": "Mega Shop (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "10:11",
+      "inicio_atendimento": "10:11",
+      "saida": "10:21",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 24.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "10:22",
+      "inicio_atendimento": "10:22",
+      "saida": "10:32",
+      "compras": [
+        {
+          "produto_id": "P016",
+          "nome": "Drone Compacto com Câmera",
+          "quantidade": 1,
+          "preco_usd": 357.99
+        },
+        {
+          "produto_id": "P025",
+          "nome": "Jogo Mídia Física Lançamento",
+          "quantidade": 1,
+          "preco_usd": 51.0
+        },
+        {
+          "produto_id": "P028",
+          "nome": "Notebook Ultrafino 16GB/512GB",
+          "quantidade": 1,
+          "preco_usd": 596.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L007",
+      "nome": "Flash Games (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:40",
+      "inicio_atendimento": "10:40",
+      "saida": "10:50",
+      "compras": [
+        {
+          "produto_id": "P068",
+          "nome": "Jogo de Panelas Antiaderente 5pç",
+          "quantidade": 1,
+          "preco_usd": 83.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L046",
+      "nome": "Top Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:51",
+      "inicio_atendimento": "10:51",
+      "saida": "11:01",
+      "compras": [
+        {
+          "produto_id": "P030",
+          "nome": "Tablet 10\" 128GB",
+          "quantidade": 1,
+          "preco_usd": 257.99
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L017",
+      "nome": "Max Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "11:17",
+      "inicio_atendimento": "11:17",
+      "saida": "11:42",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 23.99
+        },
+        {
+          "produto_id": "P046",
+          "nome": "Protetor Solar FPS 50 200ml",
+          "quantidade": 1,
+          "preco_usd": 16.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P008",
+      "nome": "Smartwatch Premium S3",
+      "prioridade": 2
+    },
+    {
+      "produto_id": "P019",
+      "nome": "Smart TV 50\" 4K",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "viavel (limite de tempo)",
+    "gap": 0.03924620444269443,
+    "tempo_s": 60.0975101439999,
+    "big_m": 174.85914944574824,
+    "objetivo_modelo": 24.093534948909074,
+    "limitante": 25.039114747261163,
+    "n_variaveis": 163,
+    "n_restricoes": 185,
+    "tempo_andando_antes_polimento": 48.33977135040592,
+    "tempo_andando_depois_polimento": 48.33977135040592,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.03205600400019648
+  }
+}

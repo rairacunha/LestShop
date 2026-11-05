@@ -1,0 +1,143 @@
+{
+  "instancia": "inst_094_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 16,
+    "itens_comprados": 5,
+    "gasto_produtos": 188.8,
+    "excedente": 38.8,
+    "imposto": 19.4,
+    "custo_total": 208.2,
+    "tempo_andando": 46.7412,
+    "retorno": 621.7412,
+    "peso_kg": 2.9,
+    "volume_l": 5.0,
+    "lambda_": 0.0032,
+    "objetivo": 15.2865
+  },
+  "situacao_cota": "excede a cota em US$ 38.80 (imposto US$ 19.40)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 232.17,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "13:00",
+  "horario_retorno": "10:22",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L019",
+      "nome": "Max Mix (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:11",
+      "inicio_atendimento": "08:11",
+      "saida": "08:26",
+      "compras": [
+        {
+          "produto_id": "P069",
+          "nome": "Óculos de Sol Polarizado",
+          "quantidade": 1,
+          "preco_usd": 69.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L018",
+      "nome": "Max Games (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:33",
+      "inicio_atendimento": "08:33",
+      "saida": "08:58",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 27.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:04",
+      "inicio_atendimento": "09:04",
+      "saida": "09:14",
+      "compras": [
+        {
+          "produto_id": "P062",
+          "nome": "Boneca Articulada Colecionável",
+          "quantidade": 1,
+          "preco_usd": 27.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L036",
+      "nome": "Smart Games (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "09:20",
+      "inicio_atendimento": "09:20",
+      "saida": "09:45",
+      "compras": [
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 33.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L025",
+      "nome": "Mega Tech (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:49",
+      "inicio_atendimento": "09:49",
+      "saida": "10:09",
+      "compras": [
+        {
+          "produto_id": "P020",
+          "nome": "Streaming Stick HD",
+          "quantidade": 1,
+          "preco_usd": 31.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P007",
+      "nome": "Smartwatch Esportivo S1",
+      "prioridade": 5
+    },
+    {
+      "produto_id": "P042",
+      "nome": "Perfume Masculino Cítrico 200ml",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.1458746590001283,
+    "big_m": 349.4793351288936,
+    "objetivo_modelo": 15.286480475344902,
+    "limitante": 15.286480475344902,
+    "n_variaveis": 268,
+    "n_restricoes": 298,
+    "tempo_andando_antes_polimento": 46.74124765184515,
+    "tempo_andando_depois_polimento": 46.74124765184515,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.028723060999936934
+  }
+}

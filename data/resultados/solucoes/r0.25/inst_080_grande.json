@@ -1,0 +1,133 @@
+{
+  "instancia": "inst_080_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 18,
+    "itens_comprados": 6,
+    "gasto_produtos": 189.88,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 189.88,
+    "tempo_andando": 36.5173,
+    "retorno": 686.5173,
+    "peso_kg": 7.44,
+    "volume_l": 16.7,
+    "lambda_": 0.0043,
+    "objetivo": 17.1513
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 203.49,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "11:27",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "10:17",
+      "inicio_atendimento": "10:17",
+      "saida": "10:37",
+      "compras": [
+        {
+          "produto_id": "P055",
+          "nome": "Espumante Brut 750ml",
+          "quantidade": 1,
+          "preco_usd": 17.0
+        },
+        {
+          "produto_id": "P066",
+          "nome": "Liquidificador Potente 1200W",
+          "quantidade": 1,
+          "preco_usd": 48.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L027",
+      "nome": "Prime Eletrônicos (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "10:39",
+      "inicio_atendimento": "10:39",
+      "saida": "10:49",
+      "compras": [
+        {
+          "produto_id": "P054",
+          "nome": "Vinho Tinto Reserva 750ml",
+          "quantidade": 1,
+          "preco_usd": 16.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "10:54",
+      "inicio_atendimento": "10:54",
+      "saida": "11:04",
+      "compras": [
+        {
+          "produto_id": "P025",
+          "nome": "Jogo Mídia Física Lançamento",
+          "quantidade": 1,
+          "preco_usd": 51.0
+        },
+        {
+          "produto_id": "P056",
+          "nome": "Garrafa Térmica 1L",
+          "quantidade": 1,
+          "preco_usd": 31.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L024",
+      "nome": "Mega Shop (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "11:05",
+      "inicio_atendimento": "11:05",
+      "saida": "11:15",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 24.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P069",
+      "nome": "Óculos de Sol Polarizado",
+      "prioridade": 3
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.5244010650001201,
+    "big_m": 185.7534247889471,
+    "objetivo_modelo": 17.151309999948293,
+    "limitante": 17.151309999948293,
+    "n_variaveis": 691,
+    "n_restricoes": 741,
+    "tempo_andando_antes_polimento": 36.51727244849721,
+    "tempo_andando_depois_polimento": 36.51727244849721,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.019260190000068178
+  }
+}

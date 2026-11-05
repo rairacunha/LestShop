@@ -1,0 +1,110 @@
+{
+  "instancia": "inst_031_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 11,
+    "itens_comprados": 4,
+    "gasto_produtos": 596.78,
+    "excedente": 446.78,
+    "imposto": 223.39,
+    "custo_total": 820.17,
+    "tempo_andando": 48.5732,
+    "retorno": 638.5732,
+    "peso_kg": 9.32,
+    "volume_l": 38.3,
+    "lambda_": 0.0005,
+    "objetivo": 10.5645
+  },
+  "situacao_cota": "excede a cota em US$ 446.78 (imposto US$ 223.39)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 1882.18,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "13:00",
+  "horario_retorno": "10:39",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L042",
+      "nome": "Super Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:18",
+      "inicio_atendimento": "09:18",
+      "saida": "09:33",
+      "compras": [
+        {
+          "produto_id": "P064",
+          "nome": "Air Fryer 5L",
+          "quantidade": 1,
+          "preco_usd": 76.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L009",
+      "nome": "Gold Bazar (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:44",
+      "inicio_atendimento": "09:44",
+      "saida": "10:09",
+      "compras": [
+        {
+          "produto_id": "P016",
+          "nome": "Drone Compacto com Câmera",
+          "quantidade": 1,
+          "preco_usd": 402.9
+        },
+        {
+          "produto_id": "P067",
+          "nome": "Cafeteira de Cápsulas",
+          "quantidade": 1,
+          "preco_usd": 91.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L024",
+      "nome": "Mega Shop (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "10:17",
+      "inicio_atendimento": "10:17",
+      "saida": "10:27",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 24.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P022",
+      "nome": "Console de Mesa Pro 2TB",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.022019363000026715,
+    "big_m": 284.87682718165115,
+    "objetivo_modelo": 10.564476045837361,
+    "limitante": 10.564476045837361,
+    "n_variaveis": 58,
+    "n_restricoes": 70,
+    "tempo_andando_antes_polimento": 48.573157104540975,
+    "tempo_andando_depois_polimento": 48.573157104540975,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.011335964999943826
+  }
+}

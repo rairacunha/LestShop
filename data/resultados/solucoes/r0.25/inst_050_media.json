@@ -1,0 +1,173 @@
+{
+  "instancia": "inst_050_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 27,
+    "itens_comprados": 10,
+    "gasto_produtos": 481.46,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 481.46,
+    "tempo_andando": 50.7755,
+    "retorno": 610.7755,
+    "peso_kg": 7.94,
+    "volume_l": 14.5,
+    "lambda_": 0.0016,
+    "objetivo": 26.1976
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 509.83,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "15:00",
+  "horario_retorno": "10:11",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L023",
+      "nome": "Mega Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "08:12",
+      "inicio_atendimento": "08:12",
+      "saida": "08:32",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 18.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L014",
+      "nome": "Luna Eletrônicos (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "08:40",
+      "inicio_atendimento": "08:40",
+      "saida": "08:55",
+      "compras": [
+        {
+          "produto_id": "P039",
+          "nome": "Perfume Feminino Floral 100ml",
+          "quantidade": 1,
+          "preco_usd": 86.99
+        },
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 91.9
+        },
+        {
+          "produto_id": "P051",
+          "nome": "Whisky 18 anos 750ml",
+          "quantidade": 1,
+          "preco_usd": 90.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L027",
+      "nome": "Prime Eletrônicos (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "09:00",
+      "inicio_atendimento": "09:00",
+      "saida": "09:10",
+      "compras": [
+        {
+          "produto_id": "P048",
+          "nome": "Prancha Alisadora Titânio",
+          "quantidade": 1,
+          "preco_usd": 44.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:16",
+      "inicio_atendimento": "09:16",
+      "saida": "09:26",
+      "compras": [
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 36.99
+        },
+        {
+          "produto_id": "P052",
+          "nome": "Vodka Premium 1L",
+          "quantidade": 1,
+          "preco_usd": 21.9
+        },
+        {
+          "produto_id": "P063",
+          "nome": "Carrinho Controle Remoto",
+          "quantidade": 1,
+          "preco_usd": 45.9
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L024",
+      "nome": "Mega Shop (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "09:33",
+      "inicio_atendimento": "09:33",
+      "saida": "09:43",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 24.99
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L015",
+      "nome": "Luna Outlet (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "09:44",
+      "inicio_atendimento": "09:44",
+      "saida": "09:59",
+      "compras": [
+        {
+          "produto_id": "P046",
+          "nome": "Protetor Solar FPS 50 200ml",
+          "quantidade": 1,
+          "preco_usd": 18.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.11450992300001417,
+    "big_m": 485.7534247889471,
+    "objetivo_modelo": 26.197580712475034,
+    "limitante": 26.197580712475034,
+    "n_variaveis": 243,
+    "n_restricoes": 271,
+    "tempo_andando_antes_polimento": 50.775479346002626,
+    "tempo_andando_depois_polimento": 50.775479346002626,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.03600317699988409
+  }
+}

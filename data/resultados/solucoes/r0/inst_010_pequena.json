@@ -1,0 +1,116 @@
+{
+  "instancia": "inst_010_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 14,
+    "itens_comprados": 5,
+    "gasto_produtos": 554.0,
+    "excedente": 404.0,
+    "imposto": 202.0,
+    "custo_total": 756.0,
+    "tempo_andando": 49.5173,
+    "retorno": 709.5173,
+    "peso_kg": 5.47,
+    "volume_l": 17.8,
+    "lambda_": 0.0008,
+    "objetivo": 13.432
+  },
+  "situacao_cota": "excede a cota em US$ 404.00 (imposto US$ 202.00)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 1330.07,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "13:00",
+  "horario_retorno": "11:50",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L023",
+      "nome": "Mega Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "10:12",
+      "inicio_atendimento": "10:12",
+      "saida": "10:32",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 18.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L028",
+      "nome": "Rapid Perfumes (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "10:47",
+      "inicio_atendimento": "10:47",
+      "saida": "11:12",
+      "compras": [
+        {
+          "produto_id": "P015",
+          "nome": "Câmera de Ação 4K",
+          "quantidade": 1,
+          "preco_usd": 234.0
+        },
+        {
+          "produto_id": "P066",
+          "nome": "Liquidificador Potente 1200W",
+          "quantidade": 1,
+          "preco_usd": 44.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L034",
+      "nome": "Smart Center (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "11:16",
+      "inicio_atendimento": "11:16",
+      "saida": "11:31",
+      "compras": [
+        {
+          "produto_id": "P011",
+          "nome": "Headphone Over-Ear Wireless",
+          "quantidade": 1,
+          "preco_usd": 188.0
+        },
+        {
+          "produto_id": "P041",
+          "nome": "Perfume Masculino Amadeirado 100ml",
+          "quantidade": 1,
+          "preco_usd": 70.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P029",
+      "nome": "Notebook Gamer RTX 16GB/1TB",
+      "prioridade": 5
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.012536133999901722,
+    "big_m": 235.51643320778476,
+    "objetivo_modelo": 13.432035880907842,
+    "limitante": 13.432035880907842,
+    "n_variaveis": 61,
+    "n_restricoes": 73,
+    "tempo_andando_antes_polimento": 69.52770161151422,
+    "tempo_andando_depois_polimento": 49.51731148492094,
+    "polimento": "exato",
+    "polimento_aceito": true,
+    "tempo_polimento_s": 0.009209648000023662
+  }
+}

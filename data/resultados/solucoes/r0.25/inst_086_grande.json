@@ -1,0 +1,178 @@
+{
+  "instancia": "inst_086_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 29,
+    "itens_comprados": 9,
+    "gasto_produtos": 501.48,
+    "excedente": 1.48,
+    "imposto": 0.74,
+    "custo_total": 502.22,
+    "tempo_andando": 54.3007,
+    "retorno": 654.3007,
+    "peso_kg": 9.07,
+    "volume_l": 39.5,
+    "lambda_": 0.0014,
+    "objetivo": 28.2524
+  },
+  "situacao_cota": "excede a cota em US$ 1.48 (imposto US$ 0.74)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 576.43,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "15:00",
+  "horario_retorno": "10:54",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L049",
+      "nome": "Ultra Games (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "07:42",
+      "inicio_atendimento": "07:42",
+      "saida": "08:12",
+      "compras": [
+        {
+          "produto_id": "P058",
+          "nome": "Molinete de Pesca",
+          "quantidade": 1,
+          "preco_usd": 52.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L036",
+      "nome": "Smart Games (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "08:16",
+      "inicio_atendimento": "08:16",
+      "saida": "08:41",
+      "compras": [
+        {
+          "produto_id": "P060",
+          "nome": "Barraca Camping 4 Pessoas",
+          "quantidade": 1,
+          "preco_usd": 88.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L046",
+      "nome": "Top Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:47",
+      "inicio_atendimento": "08:47",
+      "saida": "08:57",
+      "compras": [
+        {
+          "produto_id": "P063",
+          "nome": "Carrinho Controle Remoto",
+          "quantidade": 1,
+          "preco_usd": 53.9
+        },
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 70.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:08",
+      "inicio_atendimento": "09:08",
+      "saida": "09:38",
+      "compras": [
+        {
+          "produto_id": "P069",
+          "nome": "Óculos de Sol Polarizado",
+          "quantidade": 1,
+          "preco_usd": 61.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:39",
+      "inicio_atendimento": "09:39",
+      "saida": "09:49",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 25.9
+        },
+        {
+          "produto_id": "P036",
+          "nome": "Roteador Wi-Fi 6",
+          "quantidade": 1,
+          "preco_usd": 59.9
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L042",
+      "nome": "Super Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:50",
+      "inicio_atendimento": "09:50",
+      "saida": "10:05",
+      "compras": [
+        {
+          "produto_id": "P062",
+          "nome": "Boneca Articulada Colecionável",
+          "quantidade": 1,
+          "preco_usd": 27.9
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L044",
+      "nome": "Super Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "10:12",
+      "inicio_atendimento": "10:12",
+      "saida": "10:42",
+      "compras": [
+        {
+          "produto_id": "P024",
+          "nome": "Controle Sem Fio Console",
+          "quantidade": 1,
+          "preco_usd": 60.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 3.342953682000143,
+    "big_m": 518.1630536769763,
+    "objetivo_modelo": 28.252394912642902,
+    "limitante": 28.252394912642902,
+    "n_variaveis": 459,
+    "n_restricoes": 499,
+    "tempo_andando_antes_polimento": 54.30071168114399,
+    "tempo_andando_depois_polimento": 54.30071168114399,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.3358335499999612
+  }
+}

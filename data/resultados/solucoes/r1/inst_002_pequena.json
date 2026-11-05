@@ -1,0 +1,104 @@
+{
+  "instancia": "inst_002_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 13,
+    "itens_comprados": 3,
+    "gasto_produtos": 61.9,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 61.9,
+    "tempo_andando": 31.8507,
+    "retorno": 536.8507,
+    "peso_kg": 0.77,
+    "volume_l": 1.5,
+    "lambda_": 0.0025,
+    "objetivo": 12.7623
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 63.49,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "13:00",
+  "horario_retorno": "08:57",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L025",
+      "nome": "Mega Tech (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "07:43",
+      "inicio_atendimento": "07:43",
+      "saida": "08:03",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 19.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L022",
+      "nome": "Mega Bazar (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "08:04",
+      "inicio_atendimento": "08:04",
+      "saida": "08:14",
+      "compras": [
+        {
+          "produto_id": "P046",
+          "nome": "Protetor Solar FPS 50 200ml",
+          "quantidade": 1,
+          "preco_usd": 19.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L003",
+      "nome": "Delta Imports (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:20",
+      "inicio_atendimento": "08:20",
+      "saida": "08:45",
+      "compras": [
+        {
+          "produto_id": "P057",
+          "nome": "Copo Térmico 473ml",
+          "quantidade": 1,
+          "preco_usd": 23.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P017",
+      "nome": "Carregador Portátil 20000mAh",
+      "prioridade": 5
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.02578664300017408,
+    "big_m": 368.02855940929294,
+    "objetivo_modelo": 12.762349562288573,
+    "limitante": 12.762349562288573,
+    "n_variaveis": 56,
+    "n_restricoes": 68,
+    "tempo_andando_antes_polimento": 31.85072117278137,
+    "tempo_andando_depois_polimento": 31.85072117278137,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.012761022999939087
+  }
+}

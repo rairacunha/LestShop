@@ -1,0 +1,99 @@
+{
+  "instancia": "inst_007_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 11,
+    "itens_comprados": 4,
+    "gasto_produtos": 870.87,
+    "excedente": 570.87,
+    "imposto": 285.44,
+    "custo_total": 1156.31,
+    "tempo_andando": 24.4076,
+    "retorno": 524.4076,
+    "peso_kg": 6.9,
+    "volume_l": 38.7,
+    "lambda_": 0.0007,
+    "objetivo": 10.2028
+  },
+  "situacao_cota": "excede a cota em US$ 570.87 (imposto US$ 285.44)",
+  "cota_disponivel_usd": 300.0,
+  "orcamento_usd": 1240.16,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "08:44",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:12",
+      "inicio_atendimento": "08:12",
+      "saida": "08:22",
+      "compras": [
+        {
+          "produto_id": "P016",
+          "nome": "Drone Compacto com Câmera",
+          "quantidade": 1,
+          "preco_usd": 357.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L024",
+      "nome": "Mega Shop (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:23",
+      "inicio_atendimento": "08:23",
+      "saida": "08:33",
+      "compras": [
+        {
+          "produto_id": "P021",
+          "nome": "Console de Mesa Geração Atual 1TB",
+          "quantidade": 1,
+          "preco_usd": 419.9
+        },
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 55.99
+        },
+        {
+          "produto_id": "P043",
+          "nome": "Perfume Árabe Unissex 100ml",
+          "quantidade": 1,
+          "preco_usd": 36.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P029",
+      "nome": "Notebook Gamer RTX 16GB/1TB",
+      "prioridade": 5
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.008497940999859566,
+    "big_m": 279.85914944574824,
+    "objetivo_modelo": 10.202846032990182,
+    "limitante": 10.202846032990182,
+    "n_variaveis": 46,
+    "n_restricoes": 56,
+    "tempo_andando_antes_polimento": 24.4075697762634,
+    "tempo_andando_depois_polimento": 24.4075697762634,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.0800999916682485e-05
+  }
+}

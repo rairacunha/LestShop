@@ -1,0 +1,87 @@
+{
+  "instancia": "inst_028_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 5,
+    "itens_comprados": 2,
+    "gasto_produtos": 89.0,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 89.0,
+    "tempo_andando": 38.0792,
+    "retorno": 613.0792,
+    "peso_kg": 4.1,
+    "volume_l": 41.2,
+    "lambda_": 0.0041,
+    "objetivo": 4.5973
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 138.64,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "16:00",
+  "horario_retorno": "10:13",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L016",
+      "nome": "Luna Perfumes (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:17",
+      "inicio_atendimento": "09:17",
+      "saida": "09:42",
+      "compras": [
+        {
+          "produto_id": "P053",
+          "nome": "Gin Importado 750ml",
+          "quantidade": 1,
+          "preco_usd": 25.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L027",
+      "nome": "Prime Eletrônicos (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "09:47",
+      "inicio_atendimento": "09:47",
+      "saida": "09:57",
+      "compras": [
+        {
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
+          "quantidade": 1,
+          "preco_usd": 64.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P051",
+      "nome": "Whisky 18 anos 750ml",
+      "prioridade": 4
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.0187764419999894,
+    "big_m": 464.41175563732327,
+    "objetivo_modelo": 4.597286653660758,
+    "limitante": 4.597286653660758,
+    "n_variaveis": 40,
+    "n_restricoes": 50,
+    "tempo_andando_antes_polimento": 38.079172193728795,
+    "tempo_andando_depois_polimento": 38.079172193728795,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.2835999996241299e-05
+  }
+}

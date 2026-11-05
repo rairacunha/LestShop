@@ -1,0 +1,144 @@
+{
+  "instancia": "inst_077_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 21,
+    "itens_comprados": 7,
+    "gasto_produtos": 1333.87,
+    "excedente": 1033.87,
+    "imposto": 516.94,
+    "custo_total": 1850.81,
+    "tempo_andando": 50.1766,
+    "retorno": 595.1766,
+    "peso_kg": 10.6,
+    "volume_l": 99.6,
+    "lambda_": 0.0005,
+    "objetivo": 20.0933
+  },
+  "situacao_cota": "excede a cota em US$ 1033.87 (imposto US$ 516.94)",
+  "cota_disponivel_usd": 300.0,
+  "orcamento_usd": 1926.63,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "16:00",
+  "horario_retorno": "09:55",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "07:42",
+      "inicio_atendimento": "07:42",
+      "saida": "07:52",
+      "compras": [
+        {
+          "produto_id": "P023",
+          "nome": "Console Portátil Híbrido",
+          "quantidade": 1,
+          "preco_usd": 259.0
+        },
+        {
+          "produto_id": "P031",
+          "nome": "Mouse Sem Fio",
+          "quantidade": 1,
+          "preco_usd": 14.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L032",
+      "nome": "Royal Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "07:58",
+      "inicio_atendimento": "07:58",
+      "saida": "08:23",
+      "compras": [
+        {
+          "produto_id": "P022",
+          "nome": "Console de Mesa Pro 2TB",
+          "quantidade": 1,
+          "preco_usd": 801.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L033",
+      "nome": "Royal Shop (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:24",
+      "inicio_atendimento": "08:24",
+      "saida": "08:54",
+      "compras": [
+        {
+          "produto_id": "P069",
+          "nome": "Óculos de Sol Polarizado",
+          "quantidade": 1,
+          "preco_usd": 60.99
+        },
+        {
+          "produto_id": "P072",
+          "nome": "Mochila Notebook 15\"",
+          "quantidade": 1,
+          "preco_usd": 38.99
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:07",
+      "inicio_atendimento": "09:07",
+      "saida": "09:37",
+      "compras": [
+        {
+          "produto_id": "P005",
+          "nome": "Celular Modelo C Lite 64GB",
+          "quantidade": 1,
+          "preco_usd": 99.9
+        },
+        {
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
+          "quantidade": 1,
+          "preco_usd": 59.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P004",
+      "nome": "Celular Modelo B Pro Max 512GB",
+      "prioridade": 3
+    },
+    {
+      "produto_id": "P021",
+      "nome": "Console de Mesa Geração Atual 1TB",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 1.5731512439999733,
+    "big_m": 578.1630536769762,
+    "objetivo_modelo": 20.093318113865607,
+    "limitante": 20.093318113865607,
+    "n_variaveis": 1133,
+    "n_restricoes": 1197,
+    "tempo_andando_antes_polimento": 50.17657860552017,
+    "tempo_andando_depois_polimento": 50.17657860552017,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.018090002999997523
+  }
+}

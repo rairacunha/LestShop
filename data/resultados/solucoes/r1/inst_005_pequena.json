@@ -1,0 +1,110 @@
+{
+  "instancia": "inst_005_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 12,
+    "itens_comprados": 4,
+    "gasto_produtos": 592.88,
+    "excedente": 442.88,
+    "imposto": 221.44,
+    "custo_total": 814.32,
+    "tempo_andando": 37.2143,
+    "retorno": 622.2143,
+    "peso_kg": 5.0,
+    "volume_l": 19.5,
+    "lambda_": 0.001,
+    "objetivo": 11.1606
+  },
+  "situacao_cota": "excede a cota em US$ 442.88 (imposto US$ 221.44)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 833.41,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "10:22",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L020",
+      "nome": "Max Perfumes (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:13",
+      "inicio_atendimento": "09:13",
+      "saida": "09:28",
+      "compras": [
+        {
+          "produto_id": "P013",
+          "nome": "Caixa de Som Portátil Grande",
+          "quantidade": 1,
+          "preco_usd": 179.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "09:32",
+      "inicio_atendimento": "09:32",
+      "saida": "09:52",
+      "compras": [
+        {
+          "produto_id": "P057",
+          "nome": "Copo Térmico 473ml",
+          "quantidade": 1,
+          "preco_usd": 28.99
+        },
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 77.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L006",
+      "nome": "Delta Tech (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "10:01",
+      "inicio_atendimento": "10:01",
+      "saida": "10:11",
+      "compras": [
+        {
+          "produto_id": "P030",
+          "nome": "Tablet 10\" 128GB",
+          "quantidade": 1,
+          "preco_usd": 306.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P059",
+      "nome": "Vara de Pesca Telescópica",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.018848618999982136,
+    "big_m": 235.65194805770147,
+    "objetivo_modelo": 11.16056204116098,
+    "limitante": 11.16056204116098,
+    "n_variaveis": 59,
+    "n_restricoes": 71,
+    "tempo_andando_antes_polimento": 37.21425982589015,
+    "tempo_andando_depois_polimento": 37.21425982589015,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.012143989999913174
+  }
+}

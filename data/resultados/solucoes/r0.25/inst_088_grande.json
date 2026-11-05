@@ -1,0 +1,138 @@
+{
+  "instancia": "inst_088_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 19,
+    "itens_comprados": 5,
+    "gasto_produtos": 157.97,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 157.97,
+    "tempo_andando": 50.9507,
+    "retorno": 620.9507,
+    "peso_kg": 4.3,
+    "volume_l": 28.2,
+    "lambda_": 0.0035,
+    "objetivo": 18.4043
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 180.58,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "15:00",
+  "horario_retorno": "10:21",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:17",
+      "inicio_atendimento": "08:17",
+      "saida": "08:42",
+      "compras": [
+        {
+          "produto_id": "P048",
+          "nome": "Prancha Alisadora Titânio",
+          "quantidade": 1,
+          "preco_usd": 38.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:47",
+      "inicio_atendimento": "08:47",
+      "saida": "08:57",
+      "compras": [
+        {
+          "produto_id": "P061",
+          "nome": "Brinquedo Blocos de Montar 500pç",
+          "quantidade": 1,
+          "preco_usd": 39.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "09:05",
+      "inicio_atendimento": "09:05",
+      "saida": "09:25",
+      "compras": [
+        {
+          "produto_id": "P055",
+          "nome": "Espumante Brut 750ml",
+          "quantidade": 1,
+          "preco_usd": 17.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L048",
+      "nome": "Top Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "09:33",
+      "inicio_atendimento": "09:33",
+      "saida": "09:43",
+      "compras": [
+        {
+          "produto_id": "P072",
+          "nome": "Mochila Notebook 15\"",
+          "quantidade": 1,
+          "preco_usd": 37.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L040",
+      "nome": "Super Bazar (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "09:44",
+      "inicio_atendimento": "09:44",
+      "saida": "10:09",
+      "compras": [
+        {
+          "produto_id": "P057",
+          "nome": "Copo Térmico 473ml",
+          "quantidade": 1,
+          "preco_usd": 24.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P025",
+      "nome": "Jogo Mídia Física Lançamento",
+      "prioridade": 4
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 2.8528385130000515,
+    "big_m": 488.16305367697635,
+    "objetivo_modelo": 18.40432804783669,
+    "limitante": 18.40432804783669,
+    "n_variaveis": 858,
+    "n_restricoes": 914,
+    "tempo_andando_antes_polimento": 50.950672203847006,
+    "tempo_andando_depois_polimento": 50.950672203847006,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.02936178300001302
+  }
+}

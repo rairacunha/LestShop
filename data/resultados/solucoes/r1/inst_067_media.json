@@ -1,0 +1,161 @@
+{
+  "instancia": "inst_067_media",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 23,
+    "itens_comprados": 8,
+    "gasto_produtos": 1388.4,
+    "excedente": 888.4,
+    "imposto": 444.2,
+    "custo_total": 1832.6,
+    "tempo_andando": 52.1788,
+    "retorno": 687.1788,
+    "peso_kg": 18.3,
+    "volume_l": 91.8,
+    "lambda_": 0.0004,
+    "objetivo": 22.2404
+  },
+  "situacao_cota": "excede a cota em US$ 888.40 (imposto US$ 444.20)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 2060.22,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "16:00",
+  "horario_retorno": "11:27",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L014",
+      "nome": "Luna Eletrônicos (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:18",
+      "inicio_atendimento": "09:18",
+      "saida": "09:33",
+      "compras": [
+        {
+          "produto_id": "P006",
+          "nome": "Celular Modelo D 5G 128GB",
+          "quantidade": 1,
+          "preco_usd": 305.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:43",
+      "inicio_atendimento": "09:43",
+      "saida": "10:13",
+      "compras": [
+        {
+          "produto_id": "P039",
+          "nome": "Perfume Feminino Floral 100ml",
+          "quantidade": 1,
+          "preco_usd": 75.9
+        },
+        {
+          "produto_id": "P067",
+          "nome": "Cafeteira de Cápsulas",
+          "quantidade": 1,
+          "preco_usd": 93.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "10:19",
+      "inicio_atendimento": "10:19",
+      "saida": "10:44",
+      "compras": [
+        {
+          "produto_id": "P021",
+          "nome": "Console de Mesa Geração Atual 1TB",
+          "quantidade": 1,
+          "preco_usd": 481.9
+        },
+        {
+          "produto_id": "P035",
+          "nome": "Monitor 27\" QHD",
+          "quantidade": 1,
+          "preco_usd": 236.9
+        },
+        {
+          "produto_id": "P036",
+          "nome": "Roteador Wi-Fi 6",
+          "quantidade": 1,
+          "preco_usd": 67.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "10:50",
+      "inicio_atendimento": "10:50",
+      "saida": "11:00",
+      "compras": [
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 42.9
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L019",
+      "nome": "Max Mix (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "11:01",
+      "inicio_atendimento": "11:01",
+      "saida": "11:16",
+      "compras": [
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 84.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P004",
+      "nome": "Celular Modelo B Pro Max 512GB",
+      "prioridade": 2
+    },
+    {
+      "produto_id": "P016",
+      "nome": "Drone Compacto com Câmera",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.12303384500000902,
+    "big_m": 485.6519480577015,
+    "objetivo_modelo": 22.240382244553842,
+    "limitante": 22.240382244553842,
+    "n_variaveis": 219,
+    "n_restricoes": 245,
+    "tempo_andando_antes_polimento": 52.1787671681214,
+    "tempo_andando_depois_polimento": 52.1787671681214,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.021386591000009503
+  }
+}

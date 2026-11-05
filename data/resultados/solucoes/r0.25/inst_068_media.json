@@ -1,0 +1,144 @@
+{
+  "instancia": "inst_068_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 23,
+    "itens_comprados": 6,
+    "gasto_produtos": 234.6,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 234.6,
+    "tempo_andando": 50.0266,
+    "retorno": 725.0266,
+    "peso_kg": 6.57,
+    "volume_l": 15.2,
+    "lambda_": 0.0033,
+    "objetivo": 22.1723
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 237.56,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "14:00",
+  "horario_retorno": "12:05",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L006",
+      "nome": "Delta Tech (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "10:12",
+      "inicio_atendimento": "10:12",
+      "saida": "10:22",
+      "compras": [
+        {
+          "produto_id": "P046",
+          "nome": "Protetor Solar FPS 50 200ml",
+          "quantidade": 1,
+          "preco_usd": 17.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L022",
+      "nome": "Mega Bazar (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "10:27",
+      "inicio_atendimento": "10:27",
+      "saida": "10:37",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 29.9
+        },
+        {
+          "produto_id": "P025",
+          "nome": "Jogo Mídia Física Lançamento",
+          "quantidade": 1,
+          "preco_usd": 55.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "10:41",
+      "inicio_atendimento": "10:41",
+      "saida": "11:01",
+      "compras": [
+        {
+          "produto_id": "P041",
+          "nome": "Perfume Masculino Amadeirado 100ml",
+          "quantidade": 1,
+          "preco_usd": 65.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "11:09",
+      "inicio_atendimento": "11:09",
+      "saida": "11:19",
+      "compras": [
+        {
+          "produto_id": "P052",
+          "nome": "Vodka Premium 1L",
+          "quantidade": 1,
+          "preco_usd": 21.9
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L028",
+      "nome": "Rapid Perfumes (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "11:24",
+      "inicio_atendimento": "11:24",
+      "saida": "11:49",
+      "compras": [
+        {
+          "produto_id": "P066",
+          "nome": "Liquidificador Potente 1200W",
+          "quantidade": 1,
+          "preco_usd": 44.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P051",
+      "nome": "Whisky 18 anos 750ml",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.06254488500007938,
+    "big_m": 289.27114550871397,
+    "objetivo_modelo": 22.17233842023688,
+    "limitante": 22.17233842023688,
+    "n_variaveis": 113,
+    "n_restricoes": 131,
+    "tempo_andando_antes_polimento": 50.02656501630945,
+    "tempo_andando_depois_polimento": 50.02656501630945,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.02306819499995072
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "instancia": "inst_034_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 13,
+    "itens_comprados": 4,
+    "gasto_produtos": 201.78,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 201.78,
+    "tempo_andando": 35.973,
+    "retorno": 635.973,
+    "peso_kg": 4.7,
+    "volume_l": 10.8,
+    "lambda_": 0.0036,
+    "objetivo": 12.274
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 276.95,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "10:36",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L011",
+      "nome": "Gold Digital (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:13",
+      "inicio_atendimento": "09:13",
+      "saida": "09:43",
+      "compras": [
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 77.9
+        },
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 33.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:48",
+      "inicio_atendimento": "09:48",
+      "saida": "10:18",
+      "compras": [
+        {
+          "produto_id": "P052",
+          "nome": "Vodka Premium 1L",
+          "quantidade": 1,
+          "preco_usd": 18.9
+        },
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 70.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.017901398000049085,
+    "big_m": 227.74641321651802,
+    "objetivo_modelo": 12.27404209390178,
+    "limitante": 12.27404209390178,
+    "n_variaveis": 57,
+    "n_restricoes": 69,
+    "tempo_andando_antes_polimento": 35.97298432448538,
+    "tempo_andando_depois_polimento": 35.97298432448538,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.558000008117233e-05
+  }
+}

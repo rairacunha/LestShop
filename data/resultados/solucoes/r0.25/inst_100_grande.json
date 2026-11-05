@@ -1,0 +1,222 @@
+{
+  "instancia": "inst_100_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 39,
+    "itens_comprados": 10,
+    "gasto_produtos": 342.55,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 342.55,
+    "tempo_andando": 56.2518,
+    "retorno": 786.2518,
+    "peso_kg": 5.34,
+    "volume_l": 16.9,
+    "lambda_": 0.0021,
+    "objetivo": 38.2417
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 379.28,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "15:00",
+  "horario_retorno": "13:06",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L017",
+      "nome": "Max Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "09:12",
+      "inicio_atendimento": "09:12",
+      "saida": "09:37",
+      "compras": [
+        {
+          "produto_id": "P046",
+          "nome": "Protetor Solar FPS 50 200ml",
+          "quantidade": 1,
+          "preco_usd": 16.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L044",
+      "nome": "Super Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "09:38",
+      "inicio_atendimento": "09:38",
+      "saida": "10:08",
+      "compras": [
+        {
+          "produto_id": "P025",
+          "nome": "Jogo Mídia Física Lançamento",
+          "quantidade": 1,
+          "preco_usd": 52.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:16",
+      "inicio_atendimento": "10:16",
+      "saida": "10:46",
+      "compras": [
+        {
+          "produto_id": "P057",
+          "nome": "Copo Térmico 473ml",
+          "quantidade": 1,
+          "preco_usd": 23.99
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "10:49",
+      "inicio_atendimento": "10:49",
+      "saida": "11:09",
+      "compras": [
+        {
+          "produto_id": "P053",
+          "nome": "Gin Importado 750ml",
+          "quantidade": 1,
+          "preco_usd": 27.9
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L046",
+      "nome": "Top Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "11:16",
+      "inicio_atendimento": "11:16",
+      "saida": "11:26",
+      "compras": [
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 70.0
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "11:27",
+      "inicio_atendimento": "11:27",
+      "saida": "11:57",
+      "compras": [
+        {
+          "produto_id": "P043",
+          "nome": "Perfume Árabe Unissex 100ml",
+          "quantidade": 1,
+          "preco_usd": 33.9
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "12:03",
+      "inicio_atendimento": "12:03",
+      "saida": "12:28",
+      "compras": [
+        {
+          "produto_id": "P048",
+          "nome": "Prancha Alisadora Titânio",
+          "quantidade": 1,
+          "preco_usd": 38.99
+        }
+      ]
+    },
+    {
+      "ordem": 8,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "12:34",
+      "inicio_atendimento": "12:34",
+      "saida": "12:44",
+      "compras": [
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 42.9
+        },
+        {
+          "produto_id": "P034",
+          "nome": "Pendrive 128GB",
+          "quantidade": 1,
+          "preco_usd": 9.99
+        }
+      ]
+    },
+    {
+      "ordem": 9,
+      "loja_id": "L024",
+      "nome": "Mega Shop (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "12:45",
+      "inicio_atendimento": "12:45",
+      "saida": "12:55",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 24.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P007",
+      "nome": "Smartwatch Esportivo S1",
+      "prioridade": 2
+    },
+    {
+      "produto_id": "P024",
+      "nome": "Controle Sem Fio Console",
+      "prioridade": 1
+    },
+    {
+      "produto_id": "P038",
+      "nome": "Memória RAM 16GB DDR5",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 6.133359539999901,
+    "big_m": 428.16305367697635,
+    "objetivo_modelo": 38.241700798919396,
+    "limitante": 38.241700798919396,
+    "n_variaveis": 1268,
+    "n_restricoes": 1336,
+    "tempo_andando_antes_polimento": 56.25179313672697,
+    "tempo_andando_depois_polimento": 56.25179313672697,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.06896404600001915
+  }
+}

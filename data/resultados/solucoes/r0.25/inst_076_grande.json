@@ -1,0 +1,228 @@
+{
+  "instancia": "inst_076_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 37,
+    "itens_comprados": 11,
+    "gasto_produtos": 444.48,
+    "excedente": 294.48,
+    "imposto": 147.24,
+    "custo_total": 591.72,
+    "tempo_andando": 56.543,
+    "retorno": 761.543,
+    "peso_kg": 6.37,
+    "volume_l": 31.2,
+    "lambda_": 0.0014,
+    "objetivo": 36.1469
+  },
+  "situacao_cota": "excede a cota em US$ 294.48 (imposto US$ 147.24)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 634.22,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "14:00",
+  "horario_retorno": "12:42",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "09:12",
+      "inicio_atendimento": "09:12",
+      "saida": "09:22",
+      "compras": [
+        {
+          "produto_id": "P024",
+          "nome": "Controle Sem Fio Console",
+          "quantidade": 1,
+          "preco_usd": 50.99
+        },
+        {
+          "produto_id": "P034",
+          "nome": "Pendrive 128GB",
+          "quantidade": 1,
+          "preco_usd": 9.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L032",
+      "nome": "Royal Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:28",
+      "inicio_atendimento": "09:28",
+      "saida": "09:53",
+      "compras": [
+        {
+          "produto_id": "P054",
+          "nome": "Vinho Tinto Reserva 750ml",
+          "quantidade": 1,
+          "preco_usd": 14.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L033",
+      "nome": "Royal Shop (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:54",
+      "inicio_atendimento": "09:54",
+      "saida": "10:24",
+      "compras": [
+        {
+          "produto_id": "P044",
+          "nome": "Kit Maquiagem Básico",
+          "quantidade": 1,
+          "preco_usd": 32.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L009",
+      "nome": "Gold Bazar (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:29",
+      "inicio_atendimento": "10:29",
+      "saida": "10:54",
+      "compras": [
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 60.9
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:55",
+      "inicio_atendimento": "10:55",
+      "saida": "11:05",
+      "compras": [
+        {
+          "produto_id": "P051",
+          "nome": "Whisky 18 anos 750ml",
+          "quantidade": 1,
+          "preco_usd": 88.0
+        },
+        {
+          "produto_id": "P062",
+          "nome": "Boneca Articulada Colecionável",
+          "quantidade": 1,
+          "preco_usd": 27.9
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L016",
+      "nome": "Luna Perfumes (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "11:15",
+      "inicio_atendimento": "11:15",
+      "saida": "11:40",
+      "compras": [
+        {
+          "produto_id": "P033",
+          "nome": "SSD Externo 1TB",
+          "quantidade": 1,
+          "preco_usd": 70.9
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "11:41",
+      "inicio_atendimento": "11:41",
+      "saida": "11:51",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 25.9
+        }
+      ]
+    },
+    {
+      "ordem": 8,
+      "loja_id": "L048",
+      "nome": "Top Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "11:59",
+      "inicio_atendimento": "11:59",
+      "saida": "12:09",
+      "compras": [
+        {
+          "produto_id": "P072",
+          "nome": "Mochila Notebook 15\"",
+          "quantidade": 1,
+          "preco_usd": 37.0
+        }
+      ]
+    },
+    {
+      "ordem": 9,
+      "loja_id": "L029",
+      "nome": "Royal Center (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "12:10",
+      "inicio_atendimento": "12:10",
+      "saida": "12:30",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 26.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P032",
+      "nome": "Teclado Mecânico RGB",
+      "prioridade": 1
+    },
+    {
+      "produto_id": "P040",
+      "nome": "Perfume Feminino Oriental 50ml",
+      "prioridade": 1
+    },
+    {
+      "produto_id": "P060",
+      "nome": "Barraca Camping 4 Pessoas",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 8.272462274999953,
+    "big_m": 368.16305367697635,
+    "objetivo_modelo": 36.146946357728424,
+    "limitante": 36.146946357728424,
+    "n_variaveis": 1354,
+    "n_restricoes": 1424,
+    "tempo_andando_antes_polimento": 56.54303125648686,
+    "tempo_andando_depois_polimento": 56.54303125648686,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.1871471649999421
+  }
+}

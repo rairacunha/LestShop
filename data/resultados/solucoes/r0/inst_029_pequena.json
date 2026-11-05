@@ -1,0 +1,98 @@
+{
+  "instancia": "inst_029_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 12,
+    "itens_comprados": 3,
+    "gasto_produtos": 127.9,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 127.9,
+    "tempo_andando": 49.8153,
+    "retorno": 729.8153,
+    "peso_kg": 3.02,
+    "volume_l": 40.4,
+    "lambda_": 0.0064,
+    "objetivo": 11.1802
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 155.01,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "15:00",
+  "horario_retorno": "12:10",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L023",
+      "nome": "Mega Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "10:12",
+      "inicio_atendimento": "10:12",
+      "saida": "10:32",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 18.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:39",
+      "inicio_atendimento": "10:39",
+      "saida": "11:09",
+      "compras": [
+        {
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
+          "quantidade": 1,
+          "preco_usd": 59.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L033",
+      "nome": "Royal Shop (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "11:23",
+      "inicio_atendimento": "11:23",
+      "saida": "11:53",
+      "compras": [
+        {
+          "produto_id": "P038",
+          "nome": "Memória RAM 16GB DDR5",
+          "quantidade": 1,
+          "preco_usd": 50.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.01170644499984519,
+    "big_m": 347.746413216518,
+    "objetivo_modelo": 11.18018075764374,
+    "limitante": 11.18018075764374,
+    "n_variaveis": 40,
+    "n_restricoes": 50,
+    "tempo_andando_antes_polimento": 58.40687788058489,
+    "tempo_andando_depois_polimento": 49.81526494555001,
+    "polimento": "exato",
+    "polimento_aceito": true,
+    "tempo_polimento_s": 0.010872955999957412
+  }
+}

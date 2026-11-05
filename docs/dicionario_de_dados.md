@@ -20,9 +20,9 @@ Convenções: `texto` = string UTF-8; `real` = número decimal; vazio = desconhe
 | latitude | real | graus decimais (WGS84) | Vazio se a fonte não tiver mapa |
 | longitude | real | graus decimais (WGS84) | Vazio se a fonte não tiver mapa |
 | coordenada_pendente | booleano | `true`/`false` | `true` quando falta latitude/longitude (completar em `data/lojas_complemento.csv`) |
-| abre | texto | `HH:MM` | Horário de abertura (vazio se a fonte não informar) |
-| fecha | texto | `HH:MM` | Horário de fechamento; deve ser maior que `abre` |
-| tempo_permanencia_min | real | minutos | Tempo médio gasto dentro da loja (a fonte não informa; definido na Fase 2) |
+| abre | texto | `HH:MM` | Horário de abertura (vazio se a fonte não informar; a Fase 2 usa 07:00) |
+| fecha | texto | `HH:MM` | Horário de fechamento; deve ser maior que `abre` (vazio: a Fase 2 usa 16:00) |
+| tempo_permanencia_min | real | minutos | Tempo médio gasto dentro da loja (a fonte não informa; a Fase 2 usa 20 min quando vazio) |
 | fonte | texto | — | `comprasparaguai.com.br`, `ficticio (gerado para teste da Fase 1)`, `semente_manual` ou `gerador` |
 | tipo_dado | texto | — | Ver convenções |
 
@@ -127,3 +127,32 @@ apenas os guarda e valida.
 
 **Coluna extra em produtos.csv:** `preco_base_usd` (preço de referência usado só para gerar
 as ofertas fictícias; não é dado de mercado).
+
+## Resultados da Fase 2 (`data/resultados/resultados_fase2.csv`)
+
+Uma linha por (instância, r). Valores em US$ e minutos. Formulação em
+[`modelo_matematico.md`](modelo_matematico.md).
+
+| Campo | Significado |
+|---|---|
+| instancia, tamanho, r | Instância e valor do minuto andando (US$/min) |
+| n_lojas | Lojas reais da instância (`metadata.json`) |
+| n_lojas_modelo, n_lojas_excluidas | Lojas candidatas após o pré-processamento / excluídas (coordenada pendente ou fora da janela) |
+| n_itens | Itens da lista |
+| cota, orcamento, custo_minimo_lista | Cota disponível, orçamento B, soma dos menores preços da lista |
+| lambda, big_m | λ = 1/(B + r·T_max + 1) e o big-M usado |
+| n_variaveis, n_restricoes | Tamanho do modelo exato |
+| status | `otimo` ou `viavel (limite de tempo)` |
+| gap, limitante, tempo_exato_s, limite_s | Gap relativo, limitante superior do objetivo, tempo do CBC e limite usado |
+| origem_final | `exato`, ou `heuristica (...)` se a heurística ficou melhor no limite de tempo |
+| objetivo | Σ v·y − λ·(G + α·E + r·tempo andando) da solução final |
+| prioridade, prioridade_lista | Prioridade atendida / soma das prioridades da lista |
+| itens_comprados | Itens comprados |
+| gasto_produtos, imposto, custo_total | G, α·max(0, G − c) recalculado, G + imposto |
+| tempo_andando, tempo_andando_antes_polimento | Minutos andando depois / antes do polimento da rota |
+| polimento, polimento_aceito | Método (`exato`, `2-opt`, `nenhum`) e se encurtou a rota |
+| lojas_visitadas, retorno_min | Paradas e horário de volta à Ponte (minutos desde 00:00) |
+| peso_kg, volume_l | Totais da bagagem |
+| heur_* | Os mesmos indicadores para a solução da heurística (`heur_tempo_s` = tempo da heurística) |
+| tempo_total_s | Tempo total da rodada (heurística + exato + polimentos) |
+| viavel | Verificação independente de viabilidade das duas soluções |

@@ -1,0 +1,116 @@
+{
+  "instancia": "inst_009_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 15,
+    "itens_comprados": 5,
+    "gasto_produtos": 530.8,
+    "excedente": 230.8,
+    "imposto": 115.4,
+    "custo_total": 646.2,
+    "tempo_andando": 48.0715,
+    "retorno": 718.0715,
+    "peso_kg": 15.77,
+    "volume_l": 97.4,
+    "lambda_": 0.0011,
+    "objetivo": 14.3043
+  },
+  "situacao_cota": "excede a cota em US$ 230.80 (imposto US$ 115.40)",
+  "cota_disponivel_usd": 300.0,
+  "orcamento_usd": 927.84,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "16:00",
+  "horario_retorno": "11:58",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:19",
+      "inicio_atendimento": "10:19",
+      "saida": "10:49",
+      "compras": [
+        {
+          "produto_id": "P019",
+          "nome": "Smart TV 50\" 4K",
+          "quantidade": 1,
+          "preco_usd": 323.9
+        },
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 79.0
+        },
+        {
+          "produto_id": "P043",
+          "nome": "Perfume Árabe Unissex 100ml",
+          "quantidade": 1,
+          "preco_usd": 33.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L044",
+      "nome": "Super Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "11:06",
+      "inicio_atendimento": "11:06",
+      "saida": "11:36",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 20.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L006",
+      "nome": "Delta Tech (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "11:37",
+      "inicio_atendimento": "11:37",
+      "saida": "11:47",
+      "compras": [
+        {
+          "produto_id": "P041",
+          "nome": "Perfume Masculino Amadeirado 100ml",
+          "quantidade": 1,
+          "preco_usd": 74.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P023",
+      "nome": "Console Portátil Híbrido",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.029078561999995145,
+    "big_m": 409.4753520292039,
+    "objetivo_modelo": 14.304293527410534,
+    "limitante": 14.304293527410534,
+    "n_variaveis": 49,
+    "n_restricoes": 59,
+    "tempo_andando_antes_polimento": 55.32524763110318,
+    "tempo_andando_depois_polimento": 48.07153068013325,
+    "polimento": "exato",
+    "polimento_aceito": true,
+    "tempo_polimento_s": 0.012055514999929073
+  }
+}

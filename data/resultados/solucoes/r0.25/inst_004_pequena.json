@@ -1,0 +1,105 @@
+{
+  "instancia": "inst_004_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 25,
+    "itens_comprados": 5,
+    "gasto_produtos": 1382.78,
+    "excedente": 1232.78,
+    "imposto": 616.39,
+    "custo_total": 1999.17,
+    "tempo_andando": 38.7919,
+    "retorno": 543.7919,
+    "peso_kg": 6.5,
+    "volume_l": 23.5,
+    "lambda_": 0.0004,
+    "objetivo": 24.1772
+  },
+  "situacao_cota": "excede a cota em US$ 1232.78 (imposto US$ 616.39)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 2380.57,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "09:04",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L046",
+      "nome": "Top Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:19",
+      "inicio_atendimento": "08:19",
+      "saida": "08:29",
+      "compras": [
+        {
+          "produto_id": "P029",
+          "nome": "Notebook Gamer RTX 16GB/1TB",
+          "quantidade": 1,
+          "preco_usd": 997.0
+        },
+        {
+          "produto_id": "P030",
+          "nome": "Tablet 10\" 128GB",
+          "quantidade": 1,
+          "preco_usd": 257.99
+        },
+        {
+          "produto_id": "P063",
+          "nome": "Carrinho Controle Remoto",
+          "quantidade": 1,
+          "preco_usd": 53.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L015",
+      "nome": "Luna Outlet (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:37",
+      "inicio_atendimento": "08:37",
+      "saida": "08:52",
+      "compras": [
+        {
+          "produto_id": "P012",
+          "nome": "Caixa de Som Portátil Mini",
+          "quantidade": 1,
+          "preco_usd": 40.9
+        },
+        {
+          "produto_id": "P062",
+          "nome": "Boneca Articulada Colecionável",
+          "quantidade": 1,
+          "preco_usd": 32.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P006",
+      "nome": "Celular Modelo D 5G 128GB",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.018191011999988405,
+    "big_m": 284.3842883813327,
+    "objetivo_modelo": 24.177222864365152,
+    "limitante": 24.177222864365152,
+    "n_variaveis": 61,
+    "n_restricoes": 73,
+    "tempo_andando_antes_polimento": 38.79188420789471,
+    "tempo_andando_depois_polimento": 38.79188420789471,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.3854000144419842e-05
+  }
+}

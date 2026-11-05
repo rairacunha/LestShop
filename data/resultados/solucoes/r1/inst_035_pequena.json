@@ -1,0 +1,105 @@
+{
+  "instancia": "inst_035_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 18,
+    "itens_comprados": 5,
+    "gasto_produtos": 1167.89,
+    "excedente": 667.89,
+    "imposto": 333.95,
+    "custo_total": 1501.84,
+    "tempo_andando": 39.5295,
+    "retorno": 524.5295,
+    "peso_kg": 12.3,
+    "volume_l": 58.9,
+    "lambda_": 0.0003,
+    "objetivo": 17.563
+  },
+  "situacao_cota": "excede a cota em US$ 667.89 (imposto US$ 333.95)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 3016.2,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "16:00",
+  "horario_retorno": "08:45",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "07:48",
+      "inicio_atendimento": "07:48",
+      "saida": "07:58",
+      "compras": [
+        {
+          "produto_id": "P034",
+          "nome": "Pendrive 128GB",
+          "quantidade": 1,
+          "preco_usd": 10.0
+        },
+        {
+          "produto_id": "P035",
+          "nome": "Monitor 27\" QHD",
+          "quantidade": 1,
+          "preco_usd": 232.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L003",
+      "nome": "Delta Imports (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:08",
+      "inicio_atendimento": "08:08",
+      "saida": "08:33",
+      "compras": [
+        {
+          "produto_id": "P003",
+          "nome": "Celular Modelo B Pro 256GB",
+          "quantidade": 1,
+          "preco_usd": 780.99
+        },
+        {
+          "produto_id": "P064",
+          "nome": "Air Fryer 5L",
+          "quantidade": 1,
+          "preco_usd": 72.0
+        },
+        {
+          "produto_id": "P069",
+          "nome": "Óculos de Sol Polarizado",
+          "quantidade": 1,
+          "preco_usd": 72.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P004",
+      "nome": "Celular Modelo B Pro Max 512GB",
+      "prioridade": 3
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.020049526000093465,
+    "big_m": 564.8591494457482,
+    "objetivo_modelo": 17.56300621538827,
+    "limitante": 17.56300621538827,
+    "n_variaveis": 62,
+    "n_restricoes": 74,
+    "tempo_andando_antes_polimento": 39.5294770824983,
+    "tempo_andando_depois_polimento": 39.5294770824983,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.5629000017725048e-05
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "instancia": "inst_025_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 4,
+    "itens_comprados": 2,
+    "gasto_produtos": 82.0,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 82.0,
+    "tempo_andando": 23.9195,
+    "retorno": 633.9195,
+    "peso_kg": 0.85,
+    "volume_l": 3.5,
+    "lambda_": 0.0012,
+    "objetivo": 3.8702
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 694.81,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "10:34",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "10:12",
+      "inicio_atendimento": "10:12",
+      "saida": "10:22",
+      "compras": [
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 68.0
+        },
+        {
+          "produto_id": "P031",
+          "nome": "Mouse Sem Fio",
+          "quantidade": 1,
+          "preco_usd": 14.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P003",
+      "nome": "Celular Modelo B Pro 256GB",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.00999856099997487,
+    "big_m": 162.63346167078896,
+    "objetivo_modelo": 3.8701665107903938,
+    "limitante": 3.8701665107903938,
+    "n_variaveis": 30,
+    "n_restricoes": 38,
+    "tempo_andando_antes_polimento": 23.91945883208872,
+    "tempo_andando_depois_polimento": 23.91945883208872,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.2960000049133669e-05
+  }
+}

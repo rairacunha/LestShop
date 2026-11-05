@@ -1,0 +1,184 @@
+{
+  "instancia": "inst_041_media",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 33,
+    "itens_comprados": 9,
+    "gasto_produtos": 539.67,
+    "excedente": 39.67,
+    "imposto": 19.83,
+    "custo_total": 559.5,
+    "tempo_andando": 50.6569,
+    "retorno": 635.6569,
+    "peso_kg": 9.12,
+    "volume_l": 30.1,
+    "lambda_": 0.0009,
+    "objetivo": 32.4348
+  },
+  "situacao_cota": "excede a cota em US$ 39.67 (imposto US$ 19.83)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 688.51,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "14:00",
+  "horario_retorno": "10:36",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L025",
+      "nome": "Mega Tech (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "07:43",
+      "inicio_atendimento": "07:43",
+      "saida": "08:03",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 19.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L042",
+      "nome": "Super Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "08:08",
+      "inicio_atendimento": "08:08",
+      "saida": "08:23",
+      "compras": [
+        {
+          "produto_id": "P049",
+          "nome": "Barbeador Elétrico",
+          "quantidade": 1,
+          "preco_usd": 74.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L016",
+      "nome": "Luna Perfumes (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "08:24",
+      "inicio_atendimento": "08:24",
+      "saida": "08:49",
+      "compras": [
+        {
+          "produto_id": "P001",
+          "nome": "Celular Modelo A 128GB",
+          "quantidade": 1,
+          "preco_usd": 214.0
+        },
+        {
+          "produto_id": "P064",
+          "nome": "Air Fryer 5L",
+          "quantidade": 1,
+          "preco_usd": 69.99
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L013",
+      "nome": "Luna Center (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "08:54",
+      "inicio_atendimento": "08:54",
+      "saida": "09:14",
+      "compras": [
+        {
+          "produto_id": "P062",
+          "nome": "Boneca Articulada Colecionável",
+          "quantidade": 1,
+          "preco_usd": 31.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:20",
+      "inicio_atendimento": "09:20",
+      "saida": "09:30",
+      "compras": [
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 36.99
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:31",
+      "inicio_atendimento": "09:31",
+      "saida": "10:01",
+      "compras": [
+        {
+          "produto_id": "P043",
+          "nome": "Perfume Árabe Unissex 100ml",
+          "quantidade": 1,
+          "preco_usd": 33.9
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L015",
+      "nome": "Luna Outlet (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "10:09",
+      "inicio_atendimento": "10:09",
+      "saida": "10:24",
+      "compras": [
+        {
+          "produto_id": "P012",
+          "nome": "Caixa de Som Portátil Mini",
+          "quantidade": 1,
+          "preco_usd": 40.9
+        },
+        {
+          "produto_id": "P046",
+          "nome": "Protetor Solar FPS 50 200ml",
+          "quantidade": 1,
+          "preco_usd": 18.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P021",
+      "nome": "Console de Mesa Geração Atual 1TB",
+      "prioridade": 5
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 1.608724919999986,
+    "big_m": 439.4753520292039,
+    "objetivo_modelo": 32.4347788776509,
+    "limitante": 32.4347788776509,
+    "n_variaveis": 241,
+    "n_restricoes": 269,
+    "tempo_andando_antes_polimento": 50.656853787080294,
+    "tempo_andando_depois_polimento": 50.656853787080294,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.17482478300007642
+  }
+}

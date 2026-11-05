@@ -1,0 +1,143 @@
+{
+  "instancia": "inst_065_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 20,
+    "itens_comprados": 6,
+    "gasto_produtos": 740.7,
+    "excedente": 440.7,
+    "imposto": 220.35,
+    "custo_total": 961.05,
+    "tempo_andando": 49.7506,
+    "retorno": 639.7506,
+    "peso_kg": 3.45,
+    "volume_l": 5.7,
+    "lambda_": 0.0009,
+    "objetivo": 19.0951
+  },
+  "situacao_cota": "excede a cota em US$ 440.70 (imposto US$ 220.35)",
+  "cota_disponivel_usd": 300.0,
+  "orcamento_usd": 1061.08,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "16:00",
+  "horario_retorno": "10:40",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L018",
+      "nome": "Max Games (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:16",
+      "inicio_atendimento": "08:16",
+      "saida": "08:41",
+      "compras": [
+        {
+          "produto_id": "P015",
+          "nome": "Câmera de Ação 4K",
+          "quantidade": 1,
+          "preco_usd": 221.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:42",
+      "inicio_atendimento": "08:42",
+      "saida": "09:07",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 28.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:22",
+      "inicio_atendimento": "09:22",
+      "saida": "09:52",
+      "compras": [
+        {
+          "produto_id": "P052",
+          "nome": "Vodka Premium 1L",
+          "quantidade": 1,
+          "preco_usd": 18.9
+        },
+        {
+          "produto_id": "P070",
+          "nome": "Relógio Analógico Aço",
+          "quantidade": 1,
+          "preco_usd": 111.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L011",
+      "nome": "Gold Digital (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:57",
+      "inicio_atendimento": "09:57",
+      "saida": "10:27",
+      "compras": [
+        {
+          "produto_id": "P006",
+          "nome": "Celular Modelo D 5G 128GB",
+          "quantidade": 1,
+          "preco_usd": 292.9
+        },
+        {
+          "produto_id": "P040",
+          "nome": "Perfume Feminino Oriental 50ml",
+          "quantidade": 1,
+          "preco_usd": 68.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P018",
+      "nome": "Kindle-like Leitor Digital 6\"",
+      "prioridade": 1
+    },
+    {
+      "produto_id": "P042",
+      "nome": "Perfume Masculino Cítrico 200ml",
+      "prioridade": 2
+    },
+    {
+      "produto_id": "P068",
+      "nome": "Jogo de Panelas Antiaderente 5pç",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.06866267600003084,
+    "big_m": 529.3842883813327,
+    "objetivo_modelo": 19.095124661042483,
+    "limitante": 19.095124661042483,
+    "n_variaveis": 163,
+    "n_restricoes": 185,
+    "tempo_andando_antes_polimento": 68.4792263582565,
+    "tempo_andando_depois_polimento": 49.75060875182202,
+    "polimento": "exato",
+    "polimento_aceito": true,
+    "tempo_polimento_s": 0.020719063999877108
+  }
+}

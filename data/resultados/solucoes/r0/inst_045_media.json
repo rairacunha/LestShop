@@ -1,0 +1,133 @@
+{
+  "instancia": "inst_045_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 16,
+    "itens_comprados": 6,
+    "gasto_produtos": 1117.8,
+    "excedente": 617.8,
+    "imposto": 308.9,
+    "custo_total": 1426.7,
+    "tempo_andando": 46.3358,
+    "retorno": 626.3358,
+    "peso_kg": 11.95,
+    "volume_l": 69.9,
+    "lambda_": 0.0005,
+    "objetivo": 15.284
+  },
+  "situacao_cota": "excede a cota em US$ 617.80 (imposto US$ 308.90)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 1991.58,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "13:00",
+  "horario_retorno": "10:26",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "08:18",
+      "inicio_atendimento": "08:18",
+      "saida": "08:48",
+      "compras": [
+        {
+          "produto_id": "P003",
+          "nome": "Celular Modelo B Pro 256GB",
+          "quantidade": 1,
+          "preco_usd": 681.0
+        },
+        {
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
+          "quantidade": 1,
+          "preco_usd": 59.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L016",
+      "nome": "Luna Perfumes (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "08:49",
+      "inicio_atendimento": "08:49",
+      "saida": "09:14",
+      "compras": [
+        {
+          "produto_id": "P046",
+          "nome": "Protetor Solar FPS 50 200ml",
+          "quantidade": 1,
+          "preco_usd": 17.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L013",
+      "nome": "Luna Center (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "09:19",
+      "inicio_atendimento": "09:19",
+      "saida": "09:39",
+      "compras": [
+        {
+          "produto_id": "P014",
+          "nome": "Soundbar 2.1 Canais",
+          "quantidade": 1,
+          "preco_usd": 238.9
+        },
+        {
+          "produto_id": "P062",
+          "nome": "Boneca Articulada Colecionável",
+          "quantidade": 1,
+          "preco_usd": 31.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L021",
+      "nome": "Max Tech (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "09:47",
+      "inicio_atendimento": "09:47",
+      "saida": "10:12",
+      "compras": [
+        {
+          "produto_id": "P051",
+          "nome": "Whisky 18 anos 750ml",
+          "quantidade": 1,
+          "preco_usd": 90.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P004",
+      "nome": "Celular Modelo B Pro Max 512GB",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.05012229599992679,
+    "big_m": 349.3842883813327,
+    "objetivo_modelo": 15.283993616316534,
+    "limitante": 15.283993616316534,
+    "n_variaveis": 134,
+    "n_restricoes": 154,
+    "tempo_andando_antes_polimento": 64.76656384573126,
+    "tempo_andando_depois_polimento": 46.335787960808275,
+    "polimento": "exato",
+    "polimento_aceito": true,
+    "tempo_polimento_s": 0.022780458999932307
+  }
+}

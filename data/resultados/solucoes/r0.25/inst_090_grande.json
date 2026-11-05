@@ -1,0 +1,161 @@
+{
+  "instancia": "inst_090_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 24,
+    "itens_comprados": 8,
+    "gasto_produtos": 329.67,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 329.67,
+    "tempo_andando": 43.4717,
+    "retorno": 618.4717,
+    "peso_kg": 10.87,
+    "volume_l": 45.9,
+    "lambda_": 0.0021,
+    "objetivo": 23.2814
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 367.9,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "15:00",
+  "horario_retorno": "10:18",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L024",
+      "nome": "Mega Shop (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:11",
+      "inicio_atendimento": "08:11",
+      "saida": "08:21",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 24.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L046",
+      "nome": "Top Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:29",
+      "inicio_atendimento": "08:29",
+      "saida": "08:39",
+      "compras": [
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 70.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L007",
+      "nome": "Flash Games (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:40",
+      "inicio_atendimento": "08:40",
+      "saida": "08:50",
+      "compras": [
+        {
+          "produto_id": "P068",
+          "nome": "Jogo de Panelas Antiaderente 5pç",
+          "quantidade": 1,
+          "preco_usd": 83.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:51",
+      "inicio_atendimento": "08:51",
+      "saida": "09:01",
+      "compras": [
+        {
+          "produto_id": "P034",
+          "nome": "Pendrive 128GB",
+          "quantidade": 1,
+          "preco_usd": 10.9
+        },
+        {
+          "produto_id": "P061",
+          "nome": "Brinquedo Blocos de Montar 500pç",
+          "quantidade": 1,
+          "preco_usd": 39.99
+        },
+        {
+          "produto_id": "P062",
+          "nome": "Boneca Articulada Colecionável",
+          "quantidade": 1,
+          "preco_usd": 27.9
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L036",
+      "nome": "Smart Games (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "09:08",
+      "inicio_atendimento": "09:08",
+      "saida": "09:33",
+      "compras": [
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 33.0
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L049",
+      "nome": "Ultra Games (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:36",
+      "inicio_atendimento": "09:36",
+      "saida": "10:06",
+      "compras": [
+        {
+          "produto_id": "P059",
+          "nome": "Vara de Pesca Telescópica",
+          "quantidade": 1,
+          "preco_usd": 38.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 1.1441780069999368,
+    "big_m": 488.16305367697635,
+    "objetivo_modelo": 23.281413960918986,
+    "limitante": 23.281413960918986,
+    "n_variaveis": 753,
+    "n_restricoes": 805,
+    "tempo_andando_antes_polimento": 43.471695681955495,
+    "tempo_andando_depois_polimento": 43.471695681955495,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.07680685199989057
+  }
+}

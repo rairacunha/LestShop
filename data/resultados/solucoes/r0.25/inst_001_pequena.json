@@ -1,0 +1,93 @@
+{
+  "instancia": "inst_001_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 12,
+    "itens_comprados": 3,
+    "gasto_produtos": 584.79,
+    "excedente": 84.79,
+    "imposto": 42.39,
+    "custo_total": 627.18,
+    "tempo_andando": 44.4773,
+    "retorno": 558.0016,
+    "peso_kg": 2.5,
+    "volume_l": 10.0,
+    "lambda_": 0.0009,
+    "objetivo": 11.4566
+  },
+  "situacao_cota": "excede a cota em US$ 84.79 (imposto US$ 42.39)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 1061.24,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "15:00",
+  "horario_retorno": "09:18",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L018",
+      "nome": "Max Games (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "07:46",
+      "inicio_atendimento": "08:00",
+      "saida": "08:25",
+      "compras": [
+        {
+          "produto_id": "P015",
+          "nome": "Câmera de Ação 4K",
+          "quantidade": 1,
+          "preco_usd": 221.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L040",
+      "nome": "Super Bazar (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "08:41",
+      "inicio_atendimento": "08:41",
+      "saida": "09:06",
+      "compras": [
+        {
+          "produto_id": "P023",
+          "nome": "Console Portátil Híbrido",
+          "quantidade": 1,
+          "preco_usd": 294.9
+        },
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 67.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P021",
+      "nome": "Console de Mesa Geração Atual 1TB",
+      "prioridade": 3
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.015374774000065372,
+    "big_m": 491.47569609186996,
+    "objetivo_modelo": 11.456642044517212,
+    "limitante": 11.456642044517212,
+    "n_variaveis": 43,
+    "n_restricoes": 53,
+    "tempo_andando_antes_polimento": 44.477298495410714,
+    "tempo_andando_depois_polimento": 44.477298495410714,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.8421000049784197e-05
+  }
+}

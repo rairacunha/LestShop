@@ -1,0 +1,184 @@
+{
+  "instancia": "inst_074_media",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 32,
+    "itens_comprados": 9,
+    "gasto_produtos": 481.79,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 481.79,
+    "tempo_andando": 56.6141,
+    "retorno": 651.6141,
+    "peso_kg": 13.47,
+    "volume_l": 52.3,
+    "lambda_": 0.0011,
+    "objetivo": 31.4063
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 575.88,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "13:00",
+  "horario_retorno": "10:52",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L023",
+      "nome": "Mega Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "07:42",
+      "inicio_atendimento": "07:42",
+      "saida": "08:02",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 18.0
+        },
+        {
+          "produto_id": "P060",
+          "nome": "Barraca Camping 4 Pessoas",
+          "quantidade": 1,
+          "preco_usd": 74.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L049",
+      "nome": "Ultra Games (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "08:08",
+      "inicio_atendimento": "08:08",
+      "saida": "08:38",
+      "compras": [
+        {
+          "produto_id": "P056",
+          "nome": "Garrafa Térmica 1L",
+          "quantidade": 1,
+          "preco_usd": 27.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L025",
+      "nome": "Mega Tech (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "08:39",
+      "inicio_atendimento": "08:39",
+      "saida": "08:59",
+      "compras": [
+        {
+          "produto_id": "P040",
+          "nome": "Perfume Feminino Oriental 50ml",
+          "quantidade": 1,
+          "preco_usd": 68.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L014",
+      "nome": "Luna Eletrônicos (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:03",
+      "inicio_atendimento": "09:03",
+      "saida": "09:18",
+      "compras": [
+        {
+          "produto_id": "P049",
+          "nome": "Barbeador Elétrico",
+          "quantidade": 1,
+          "preco_usd": 63.9
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L046",
+      "nome": "Top Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:29",
+      "inicio_atendimento": "09:29",
+      "saida": "09:39",
+      "compras": [
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 70.0
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L030",
+      "nome": "Royal Eletrônicos (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:40",
+      "inicio_atendimento": "09:40",
+      "saida": "10:05",
+      "compras": [
+        {
+          "produto_id": "P054",
+          "nome": "Vinho Tinto Reserva 750ml",
+          "quantidade": 1,
+          "preco_usd": 15.0
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L018",
+      "nome": "Max Games (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "10:10",
+      "inicio_atendimento": "10:10",
+      "saida": "10:35",
+      "compras": [
+        {
+          "produto_id": "P039",
+          "nome": "Perfume Feminino Floral 100ml",
+          "quantidade": 1,
+          "preco_usd": 79.99
+        },
+        {
+          "produto_id": "P064",
+          "nome": "Air Fryer 5L",
+          "quantidade": 1,
+          "preco_usd": 65.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P042",
+      "nome": "Perfume Masculino Cítrico 200ml",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 1.0151503409999805,
+    "big_m": 379.5527954024751,
+    "objetivo_modelo": 31.406311639145244,
+    "limitante": 31.406311639145244,
+    "n_variaveis": 223,
+    "n_restricoes": 249,
+    "tempo_andando_antes_polimento": 56.614100691956594,
+    "tempo_andando_depois_polimento": 56.614100691956594,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.11272466899981737
+  }
+}

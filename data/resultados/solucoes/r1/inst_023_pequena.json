@@ -1,0 +1,110 @@
+{
+  "instancia": "inst_023_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 14,
+    "itens_comprados": 4,
+    "gasto_produtos": 463.79,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 463.79,
+    "tempo_andando": 41.9395,
+    "retorno": 551.9395,
+    "peso_kg": 3.3,
+    "volume_l": 41.1,
+    "lambda_": 0.0006,
+    "objetivo": 13.6948
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 1356.29,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "13:00",
+  "horario_retorno": "09:12",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L022",
+      "nome": "Mega Bazar (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "08:13",
+      "inicio_atendimento": "08:13",
+      "saida": "08:23",
+      "compras": [
+        {
+          "produto_id": "P008",
+          "nome": "Smartwatch Premium S3",
+          "quantidade": 1,
+          "preco_usd": 303.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L027",
+      "nome": "Prime Eletrônicos (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "08:27",
+      "inicio_atendimento": "08:27",
+      "saida": "08:37",
+      "compras": [
+        {
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
+          "quantidade": 1,
+          "preco_usd": 64.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:43",
+      "inicio_atendimento": "08:43",
+      "saida": "08:53",
+      "compras": [
+        {
+          "produto_id": "P033",
+          "nome": "SSD Externo 1TB",
+          "quantidade": 1,
+          "preco_usd": 84.9
+        },
+        {
+          "produto_id": "P034",
+          "nome": "Pendrive 128GB",
+          "quantidade": 1,
+          "preco_usd": 10.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P029",
+      "nome": "Notebook Gamer RTX 16GB/1TB",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.025952906000156872,
+    "big_m": 349.85914944574824,
+    "objetivo_modelo": 13.694845488305253,
+    "limitante": 13.694845488305253,
+    "n_variaveis": 58,
+    "n_restricoes": 70,
+    "tempo_andando_antes_polimento": 41.93952068658661,
+    "tempo_andando_depois_polimento": 41.93952068658661,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.0120837429999483
+  }
+}

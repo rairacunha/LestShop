@@ -1,0 +1,105 @@
+{
+  "instancia": "inst_014_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 19,
+    "itens_comprados": 5,
+    "gasto_produtos": 608.78,
+    "excedente": 108.78,
+    "imposto": 54.39,
+    "custo_total": 663.17,
+    "tempo_andando": 35.3514,
+    "retorno": 600.3514,
+    "peso_kg": 7.09,
+    "volume_l": 30.9,
+    "lambda_": 0.0005,
+    "objetivo": 18.6648
+  },
+  "situacao_cota": "excede a cota em US$ 108.78 (imposto US$ 54.39)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 1928.97,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "14:00",
+  "horario_retorno": "10:00",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L020",
+      "nome": "Max Perfumes (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:13",
+      "inicio_atendimento": "09:13",
+      "saida": "09:28",
+      "compras": [
+        {
+          "produto_id": "P005",
+          "nome": "Celular Modelo C Lite 64GB",
+          "quantidade": 1,
+          "preco_usd": 132.9
+        },
+        {
+          "produto_id": "P025",
+          "nome": "Jogo Mídia Física Lançamento",
+          "quantidade": 1,
+          "preco_usd": 59.0
+        },
+        {
+          "produto_id": "P068",
+          "nome": "Jogo de Panelas Antiaderente 5pç",
+          "quantidade": 1,
+          "preco_usd": 96.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:33",
+      "inicio_atendimento": "09:33",
+      "saida": "09:43",
+      "compras": [
+        {
+          "produto_id": "P006",
+          "nome": "Celular Modelo D 5G 128GB",
+          "quantidade": 1,
+          "preco_usd": 293.99
+        },
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 25.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P004",
+      "nome": "Celular Modelo B Pro Max 512GB",
+      "prioridade": 5
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.01895852100005868,
+    "big_m": 349.85914944574824,
+    "objetivo_modelo": 18.664828979476006,
+    "limitante": 18.664828979476006,
+    "n_variaveis": 61,
+    "n_restricoes": 73,
+    "tempo_andando_antes_polimento": 35.35136407999015,
+    "tempo_andando_depois_polimento": 35.35136407999015,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.036000003296067e-05
+  }
+}

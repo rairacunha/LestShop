@@ -1,0 +1,178 @@
+{
+  "instancia": "inst_052_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 23,
+    "itens_comprados": 8,
+    "gasto_produtos": 370.97,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 370.97,
+    "tempo_andando": 85.3463,
+    "retorno": 685.3463,
+    "peso_kg": 5.82,
+    "volume_l": 16.2,
+    "lambda_": 0.0023,
+    "objetivo": 22.1627
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 442.05,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "12:00",
+  "horario_retorno": "11:25",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L036",
+      "nome": "Smart Games (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "07:45",
+      "inicio_atendimento": "07:45",
+      "saida": "08:10",
+      "compras": [
+        {
+          "produto_id": "P025",
+          "nome": "Jogo Mídia Física Lançamento",
+          "quantidade": 1,
+          "preco_usd": 53.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "08:13",
+      "inicio_atendimento": "08:13",
+      "saida": "08:33",
+      "compras": [
+        {
+          "produto_id": "P066",
+          "nome": "Liquidificador Potente 1200W",
+          "quantidade": 1,
+          "preco_usd": 48.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "08:36",
+      "inicio_atendimento": "08:36",
+      "saida": "09:06",
+      "compras": [
+        {
+          "produto_id": "P007",
+          "nome": "Smartwatch Esportivo S1",
+          "quantidade": 1,
+          "preco_usd": 92.0
+        },
+        {
+          "produto_id": "P069",
+          "nome": "Óculos de Sol Polarizado",
+          "quantidade": 1,
+          "preco_usd": 61.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L047",
+      "nome": "Top Mix (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "09:25",
+      "inicio_atendimento": "09:25",
+      "saida": "09:45",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 28.99
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:03",
+      "inicio_atendimento": "10:03",
+      "saida": "10:13",
+      "compras": [
+        {
+          "produto_id": "P031",
+          "nome": "Mouse Sem Fio",
+          "quantidade": 1,
+          "preco_usd": 14.0
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:14",
+      "inicio_atendimento": "10:14",
+      "saida": "10:44",
+      "compras": [
+        {
+          "produto_id": "P012",
+          "nome": "Caixa de Som Portátil Mini",
+          "quantidade": 1,
+          "preco_usd": 43.0
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L034",
+      "nome": "Smart Center (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "10:52",
+      "inicio_atendimento": "10:52",
+      "saida": "11:07",
+      "compras": [
+        {
+          "produto_id": "P043",
+          "nome": "Perfume Árabe Unissex 100ml",
+          "quantidade": 1,
+          "preco_usd": 29.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P071",
+      "nome": "Tênis Esportivo Corrida",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.25704859899997246,
+    "big_m": 335.7534247889471,
+    "objetivo_modelo": 22.16269044125945,
+    "limitante": 22.16269044125945,
+    "n_variaveis": 275,
+    "n_restricoes": 305,
+    "tempo_andando_antes_polimento": 107.4476609264781,
+    "tempo_andando_depois_polimento": 85.34634054936332,
+    "polimento": "exato",
+    "polimento_aceito": true,
+    "tempo_polimento_s": 0.09765480499982004
+  }
+}

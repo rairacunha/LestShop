@@ -1,0 +1,99 @@
+{
+  "instancia": "inst_021_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 10,
+    "itens_comprados": 4,
+    "gasto_produtos": 203.89,
+    "excedente": 53.89,
+    "imposto": 26.94,
+    "custo_total": 230.83,
+    "tempo_andando": 34.2794,
+    "retorno": 569.2794,
+    "peso_kg": 1.7,
+    "volume_l": 4.4,
+    "lambda_": 0.001,
+    "objetivo": 9.7323
+  },
+  "situacao_cota": "excede a cota em US$ 53.89 (imposto US$ 26.94)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 689.37,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "13:00",
+  "horario_retorno": "09:29",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L033",
+      "nome": "Royal Shop (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:17",
+      "inicio_atendimento": "08:17",
+      "saida": "08:47",
+      "compras": [
+        {
+          "produto_id": "P038",
+          "nome": "Memória RAM 16GB DDR5",
+          "quantidade": 1,
+          "preco_usd": 50.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L018",
+      "nome": "Max Games (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:48",
+      "inicio_atendimento": "08:48",
+      "saida": "09:13",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 27.0
+        },
+        {
+          "produto_id": "P039",
+          "nome": "Perfume Feminino Floral 100ml",
+          "quantidade": 1,
+          "preco_usd": 79.99
+        },
+        {
+          "produto_id": "P059",
+          "nome": "Vara de Pesca Telescópica",
+          "quantidade": 1,
+          "preco_usd": 46.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P029",
+      "nome": "Notebook Gamer RTX 16GB/1TB",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.022066179000148622,
+    "big_m": 347.746413216518,
+    "objetivo_modelo": 9.732307756617065,
+    "limitante": 9.732307756617065,
+    "n_variaveis": 58,
+    "n_restricoes": 70,
+    "tempo_andando_antes_polimento": 34.279367079159925,
+    "tempo_andando_depois_polimento": 34.279367079159925,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.4369999917107634e-05
+  }
+}

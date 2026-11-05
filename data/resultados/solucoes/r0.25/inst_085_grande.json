@@ -1,0 +1,138 @@
+{
+  "instancia": "inst_085_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 15,
+    "itens_comprados": 5,
+    "gasto_produtos": 390.87,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 390.87,
+    "tempo_andando": 57.0184,
+    "retorno": 707.0184,
+    "peso_kg": 5.3,
+    "volume_l": 18.1,
+    "lambda_": 0.0014,
+    "objetivo": 14.4415
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 664.42,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "13:00",
+  "horario_retorno": "11:47",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L034",
+      "nome": "Smart Center (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "09:18",
+      "inicio_atendimento": "09:18",
+      "saida": "09:33",
+      "compras": [
+        {
+          "produto_id": "P013",
+          "nome": "Caixa de Som Portátil Grande",
+          "quantidade": 1,
+          "preco_usd": 139.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L018",
+      "nome": "Max Games (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:37",
+      "inicio_atendimento": "09:37",
+      "saida": "10:02",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 27.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L011",
+      "nome": "Gold Digital (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "10:12",
+      "inicio_atendimento": "10:12",
+      "saida": "10:42",
+      "compras": [
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 77.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:47",
+      "inicio_atendimento": "10:47",
+      "saida": "11:17",
+      "compras": [
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 70.99
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L048",
+      "nome": "Top Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "11:25",
+      "inicio_atendimento": "11:25",
+      "saida": "11:35",
+      "compras": [
+        {
+          "produto_id": "P039",
+          "nome": "Perfume Feminino Floral 100ml",
+          "quantidade": 1,
+          "preco_usd": 74.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P028",
+      "nome": "Notebook Ultrafino 16GB/512GB",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.7533318919997782,
+    "big_m": 308.16305367697635,
+    "objetivo_modelo": 14.441530970172847,
+    "limitante": 14.441530970172847,
+    "n_variaveis": 923,
+    "n_restricoes": 981,
+    "tempo_andando_antes_polimento": 57.01841446884005,
+    "tempo_andando_depois_polimento": 57.01841446884005,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.03613866599994253
+  }
+}

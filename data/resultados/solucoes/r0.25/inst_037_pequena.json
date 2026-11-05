@@ -1,0 +1,88 @@
+{
+  "instancia": "inst_037_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 12,
+    "itens_comprados": 4,
+    "gasto_produtos": 461.89,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 461.89,
+    "tempo_andando": 35.4928,
+    "retorno": 665.4928,
+    "peso_kg": 5.0,
+    "volume_l": 43.2,
+    "lambda_": 0.0008,
+    "objetivo": 11.6251
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 1164.56,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "16:00",
+  "horario_retorno": "11:05",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:18",
+      "inicio_atendimento": "10:18",
+      "saida": "10:48",
+      "compras": [
+        {
+          "produto_id": "P006",
+          "nome": "Celular Modelo D 5G 128GB",
+          "quantidade": 1,
+          "preco_usd": 305.99
+        },
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 35.9
+        },
+        {
+          "produto_id": "P069",
+          "nome": "Óculos de Sol Polarizado",
+          "quantidade": 1,
+          "preco_usd": 61.0
+        },
+        {
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
+          "quantidade": 1,
+          "preco_usd": 59.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P003",
+      "nome": "Celular Modelo B Pro 256GB",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 10.015550200000007,
+    "big_m": 409.41175563732327,
+    "objetivo_modelo": 11.625057180375084,
+    "limitante": 11.625057180375084,
+    "n_variaveis": 46,
+    "n_restricoes": 56,
+    "tempo_andando_antes_polimento": 35.49282643303599,
+    "tempo_andando_depois_polimento": 35.49282643303599,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 2.335499993932899e-05
+  }
+}

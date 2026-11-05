@@ -1,0 +1,144 @@
+{
+  "instancia": "inst_047_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 13,
+    "itens_comprados": 6,
+    "gasto_produtos": 1031.7,
+    "excedente": 531.7,
+    "imposto": 265.85,
+    "custo_total": 1297.55,
+    "tempo_andando": 78.5578,
+    "retorno": 708.5578,
+    "peso_kg": 6.65,
+    "volume_l": 25.1,
+    "lambda_": 0.0006,
+    "objetivo": 12.1925
+  },
+  "situacao_cota": "excede a cota em US$ 531.70 (imposto US$ 265.85)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 1605.83,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "11:49",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L022",
+      "nome": "Mega Bazar (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:13",
+      "inicio_atendimento": "09:13",
+      "saida": "09:23",
+      "compras": [
+        {
+          "produto_id": "P046",
+          "nome": "Protetor Solar FPS 50 200ml",
+          "quantidade": 1,
+          "preco_usd": 19.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L047",
+      "nome": "Top Mix (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "09:46",
+      "inicio_atendimento": "09:46",
+      "saida": "10:06",
+      "compras": [
+        {
+          "produto_id": "P066",
+          "nome": "Liquidificador Potente 1200W",
+          "quantidade": 1,
+          "preco_usd": 57.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L018",
+      "nome": "Max Games (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "10:30",
+      "inicio_atendimento": "10:30",
+      "saida": "10:55",
+      "compras": [
+        {
+          "produto_id": "P015",
+          "nome": "Câmera de Ação 4K",
+          "quantidade": 1,
+          "preco_usd": 221.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L003",
+      "nome": "Delta Imports (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "11:01",
+      "inicio_atendimento": "11:01",
+      "saida": "11:26",
+      "compras": [
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 77.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "11:27",
+      "inicio_atendimento": "11:27",
+      "saida": "11:37",
+      "compras": [
+        {
+          "produto_id": "P003",
+          "nome": "Celular Modelo B Pro 256GB",
+          "quantidade": 1,
+          "preco_usd": 587.9
+        },
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 68.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P023",
+      "nome": "Console Portátil Híbrido",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 1.0163032460000068,
+    "big_m": 245.7534247889471,
+    "objetivo_modelo": 12.192478358009247,
+    "limitante": 12.192478358009247,
+    "n_variaveis": 155,
+    "n_restricoes": 177,
+    "tempo_andando_antes_polimento": 88.02849457238227,
+    "tempo_andando_depois_polimento": 78.55778250303953,
+    "polimento": "exato",
+    "polimento_aceito": true,
+    "tempo_polimento_s": 0.02911548700012645
+  }
+}

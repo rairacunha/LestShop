@@ -1,0 +1,92 @@
+{
+  "instancia": "inst_026_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 10,
+    "itens_comprados": 2,
+    "gasto_produtos": 142.89,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 142.89,
+    "tempo_andando": 30.0038,
+    "retorno": 605.0038,
+    "peso_kg": 2.95,
+    "volume_l": 40.3,
+    "lambda_": 0.0021,
+    "objetivo": 9.6327
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 300.0,
+  "orcamento_usd": 169.72,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "14:00",
+  "horario_retorno": "10:05",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L048",
+      "nome": "Top Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "09:12",
+      "inicio_atendimento": "09:12",
+      "saida": "09:22",
+      "compras": [
+        {
+          "produto_id": "P033",
+          "nome": "SSD Externo 1TB",
+          "quantidade": 1,
+          "preco_usd": 71.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L008",
+      "nome": "Flash Tech (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "09:26",
+      "inicio_atendimento": "09:26",
+      "saida": "09:51",
+      "compras": [
+        {
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
+          "quantidade": 1,
+          "preco_usd": 70.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P041",
+      "nome": "Perfume Masculino Amadeirado 100ml",
+      "prioridade": 4
+    },
+    {
+      "produto_id": "P044",
+      "nome": "Kit Maquiagem Básico",
+      "prioridade": 4
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.016419888000200444,
+    "big_m": 339.4804511668864,
+    "objetivo_modelo": 9.632703527560075,
+    "limitante": 9.632703527560075,
+    "n_variaveis": 39,
+    "n_restricoes": 49,
+    "tempo_andando_antes_polimento": 30.003795506920824,
+    "tempo_andando_depois_polimento": 30.003795506920824,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.334500007033057e-05
+  }
+}

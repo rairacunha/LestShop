@@ -1,0 +1,104 @@
+{
+  "instancia": "inst_069_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 6,
+    "itens_comprados": 3,
+    "gasto_produtos": 441.97,
+    "excedente": 141.97,
+    "imposto": 70.99,
+    "custo_total": 512.96,
+    "tempo_andando": 34.2137,
+    "retorno": 574.2137,
+    "peso_kg": 4.65,
+    "volume_l": 18.2,
+    "lambda_": 0.0012,
+    "objetivo": 5.3959
+  },
+  "situacao_cota": "excede a cota em US$ 141.97 (imposto US$ 70.99)",
+  "cota_disponivel_usd": 300.0,
+  "orcamento_usd": 757.33,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "15:00",
+  "horario_retorno": "09:34",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L024",
+      "nome": "Mega Shop (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:11",
+      "inicio_atendimento": "08:11",
+      "saida": "08:21",
+      "compras": [
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 55.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L003",
+      "nome": "Delta Imports (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:22",
+      "inicio_atendimento": "08:22",
+      "saida": "08:47",
+      "compras": [
+        {
+          "produto_id": "P001",
+          "nome": "Celular Modelo A 128GB",
+          "quantidade": 1,
+          "preco_usd": 199.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L028",
+      "nome": "Rapid Perfumes (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:53",
+      "inicio_atendimento": "08:53",
+      "saida": "09:18",
+      "compras": [
+        {
+          "produto_id": "P065",
+          "nome": "Robô Aspirador",
+          "quantidade": 1,
+          "preco_usd": 185.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P002",
+      "nome": "Celular Modelo A 256GB",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.0447368650000044,
+    "big_m": 480.7534247889471,
+    "objetivo_modelo": 5.395933841826831,
+    "limitante": 5.395933841826831,
+    "n_variaveis": 104,
+    "n_restricoes": 122,
+    "tempo_andando_antes_polimento": 34.21374534257265,
+    "tempo_andando_depois_polimento": 34.21374534257265,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.011734563999880265
+  }
+}

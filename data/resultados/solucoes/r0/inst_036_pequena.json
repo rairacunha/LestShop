@@ -1,0 +1,87 @@
+{
+  "instancia": "inst_036_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 9,
+    "itens_comprados": 2,
+    "gasto_produtos": 120.9,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 120.9,
+    "tempo_andando": 38.9832,
+    "retorno": 628.9832,
+    "peso_kg": 0.85,
+    "volume_l": 1.6,
+    "lambda_": 0.0066,
+    "objetivo": 8.2026
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 150.61,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "15:00",
+  "horario_retorno": "10:29",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:19",
+      "inicio_atendimento": "09:19",
+      "saida": "09:49",
+      "compras": [
+        {
+          "produto_id": "P012",
+          "nome": "Caixa de Som Portátil Mini",
+          "quantidade": 1,
+          "preco_usd": 43.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L035",
+      "nome": "Smart Digital (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "09:57",
+      "inicio_atendimento": "09:57",
+      "saida": "10:17",
+      "compras": [
+        {
+          "produto_id": "P041",
+          "nome": "Perfume Masculino Amadeirado 100ml",
+          "quantidade": 1,
+          "preco_usd": 77.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P073",
+      "nome": "Mala de Bordo 10kg",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.019006590000117285,
+    "big_m": 409.4753520292039,
+    "objetivo_modelo": 8.202559197942088,
+    "limitante": 8.202559197942088,
+    "n_variaveis": 40,
+    "n_restricoes": 50,
+    "tempo_andando_antes_polimento": 38.983200264690254,
+    "tempo_andando_depois_polimento": 38.983200264690254,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.4201999874785542e-05
+  }
+}

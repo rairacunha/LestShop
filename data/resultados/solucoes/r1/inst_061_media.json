@@ -1,0 +1,172 @@
+{
+  "instancia": "inst_061_media",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 23,
+    "itens_comprados": 7,
+    "gasto_produtos": 447.79,
+    "excedente": 147.79,
+    "imposto": 73.9,
+    "custo_total": 521.69,
+    "tempo_andando": 53.5897,
+    "retorno": 753.5897,
+    "peso_kg": 8.62,
+    "volume_l": 30.4,
+    "lambda_": 0.0006,
+    "objetivo": 22.6289
+  },
+  "situacao_cota": "excede a cota em US$ 147.79 (imposto US$ 73.90)",
+  "cota_disponivel_usd": 300.0,
+  "orcamento_usd": 1129.3,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "16:00",
+  "horario_retorno": "12:34",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L029",
+      "nome": "Royal Center (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "09:12",
+      "inicio_atendimento": "09:12",
+      "saida": "09:32",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 19.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L016",
+      "nome": "Luna Perfumes (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:40",
+      "inicio_atendimento": "09:40",
+      "saida": "10:05",
+      "compras": [
+        {
+          "produto_id": "P031",
+          "nome": "Mouse Sem Fio",
+          "quantidade": 1,
+          "preco_usd": 17.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L014",
+      "nome": "Luna Eletrônicos (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:06",
+      "inicio_atendimento": "10:06",
+      "saida": "10:21",
+      "compras": [
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 49.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L032",
+      "nome": "Royal Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "10:34",
+      "inicio_atendimento": "10:34",
+      "saida": "10:59",
+      "compras": [
+        {
+          "produto_id": "P002",
+          "nome": "Celular Modelo A 256GB",
+          "quantidade": 1,
+          "preco_usd": 239.99
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L018",
+      "nome": "Max Games (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "11:00",
+      "inicio_atendimento": "11:00",
+      "saida": "11:25",
+      "compras": [
+        {
+          "produto_id": "P064",
+          "nome": "Air Fryer 5L",
+          "quantidade": 1,
+          "preco_usd": 65.0
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L021",
+      "nome": "Max Tech (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "11:27",
+      "inicio_atendimento": "11:27",
+      "saida": "11:52",
+      "compras": [
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 33.9
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L003",
+      "nome": "Delta Imports (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "11:57",
+      "inicio_atendimento": "11:57",
+      "saida": "12:22",
+      "compras": [
+        {
+          "produto_id": "P057",
+          "nome": "Copo Térmico 473ml",
+          "quantidade": 1,
+          "preco_usd": 23.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P029",
+      "nome": "Notebook Gamer RTX 16GB/1TB",
+      "prioridade": 5
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 2.8630859959998816,
+    "big_m": 485.6519480577015,
+    "objetivo_modelo": 22.62892683748978,
+    "limitante": 22.62892683748978,
+    "n_variaveis": 275,
+    "n_restricoes": 305,
+    "tempo_andando_antes_polimento": 53.58972383958791,
+    "tempo_andando_depois_polimento": 53.58972383958791,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.2829216179998184
+  }
+}

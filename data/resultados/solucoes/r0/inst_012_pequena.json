@@ -1,0 +1,87 @@
+{
+  "instancia": "inst_012_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 8,
+    "itens_comprados": 2,
+    "gasto_produtos": 160.0,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 160.0,
+    "tempo_andando": 48.1927,
+    "retorno": 588.1927,
+    "peso_kg": 6.15,
+    "volume_l": 28.5,
+    "lambda_": 0.0062,
+    "objetivo": 7.0155
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 161.52,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "16:00",
+  "horario_retorno": "09:48",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:19",
+      "inicio_atendimento": "08:19",
+      "saida": "08:49",
+      "compras": [
+        {
+          "produto_id": "P068",
+          "nome": "Jogo de Panelas Antiaderente 5pç",
+          "quantidade": 1,
+          "preco_usd": 99.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:00",
+      "inicio_atendimento": "09:00",
+      "saida": "09:30",
+      "compras": [
+        {
+          "produto_id": "P069",
+          "nome": "Óculos de Sol Polarizado",
+          "quantidade": 1,
+          "preco_usd": 61.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P012",
+      "nome": "Caixa de Som Portátil Mini",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.015653221000093254,
+    "big_m": 529.4753520292039,
+    "objetivo_modelo": 7.01550578390352,
+    "limitante": 7.01550578390352,
+    "n_variaveis": 40,
+    "n_restricoes": 50,
+    "tempo_andando_antes_polimento": 48.1927276713578,
+    "tempo_andando_depois_polimento": 48.1927276713578,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.1505999964356306e-05
+  }
+}

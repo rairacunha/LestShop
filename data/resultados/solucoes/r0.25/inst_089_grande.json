@@ -1,0 +1,207 @@
+{
+  "instancia": "inst_089_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 35,
+    "itens_comprados": 11,
+    "gasto_produtos": 906.47,
+    "excedente": 606.47,
+    "imposto": 303.24,
+    "custo_total": 1209.7,
+    "tempo_andando": 56.0299,
+    "retorno": 701.0299,
+    "peso_kg": 29.2,
+    "volume_l": 152.6,
+    "lambda_": 0.0004,
+    "objetivo": 34.4775
+  },
+  "situacao_cota": "excede a cota em US$ 606.47 (imposto US$ 303.24)",
+  "cota_disponivel_usd": 300.0,
+  "orcamento_usd": 2281.17,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "11:41",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:12",
+      "inicio_atendimento": "08:12",
+      "saida": "08:22",
+      "compras": [
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 42.9
+        },
+        {
+          "produto_id": "P034",
+          "nome": "Pendrive 128GB",
+          "quantidade": 1,
+          "preco_usd": 9.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:28",
+      "inicio_atendimento": "08:28",
+      "saida": "08:53",
+      "compras": [
+        {
+          "produto_id": "P048",
+          "nome": "Prancha Alisadora Titânio",
+          "quantidade": 1,
+          "preco_usd": 38.99
+        },
+        {
+          "produto_id": "P068",
+          "nome": "Jogo de Panelas Antiaderente 5pç",
+          "quantidade": 1,
+          "preco_usd": 79.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:58",
+      "inicio_atendimento": "08:58",
+      "saida": "09:28",
+      "compras": [
+        {
+          "produto_id": "P019",
+          "nome": "Smart TV 50\" 4K",
+          "quantidade": 1,
+          "preco_usd": 323.9
+        },
+        {
+          "produto_id": "P039",
+          "nome": "Perfume Feminino Floral 100ml",
+          "quantidade": 1,
+          "preco_usd": 75.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L030",
+      "nome": "Royal Eletrônicos (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:29",
+      "inicio_atendimento": "09:29",
+      "saida": "09:54",
+      "compras": [
+        {
+          "produto_id": "P055",
+          "nome": "Espumante Brut 750ml",
+          "quantidade": 1,
+          "preco_usd": 18.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:55",
+      "inicio_atendimento": "09:55",
+      "saida": "10:05",
+      "compras": [
+        {
+          "produto_id": "P010",
+          "nome": "Fone Bluetooth Intra com Cancelamento",
+          "quantidade": 1,
+          "preco_usd": 129.9
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L016",
+      "nome": "Luna Perfumes (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:16",
+      "inicio_atendimento": "10:16",
+      "saida": "10:41",
+      "compras": [
+        {
+          "produto_id": "P033",
+          "nome": "SSD Externo 1TB",
+          "quantidade": 1,
+          "preco_usd": 70.9
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L029",
+      "nome": "Royal Center (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "10:48",
+      "inicio_atendimento": "10:48",
+      "saida": "11:08",
+      "compras": [
+        {
+          "produto_id": "P059",
+          "nome": "Vara de Pesca Telescópica",
+          "quantidade": 1,
+          "preco_usd": 42.0
+        }
+      ]
+    },
+    {
+      "ordem": 8,
+      "loja_id": "L023",
+      "nome": "Mega Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "11:09",
+      "inicio_atendimento": "11:09",
+      "saida": "11:29",
+      "compras": [
+        {
+          "produto_id": "P060",
+          "nome": "Barraca Camping 4 Pessoas",
+          "quantidade": 1,
+          "preco_usd": 74.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P004",
+      "nome": "Celular Modelo B Pro Max 512GB",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 4.1095423120000305,
+    "big_m": 308.16305367697635,
+    "objetivo_modelo": 34.47753046508685,
+    "limitante": 34.47753046508685,
+    "n_variaveis": 995,
+    "n_restricoes": 1055,
+    "tempo_andando_antes_polimento": 56.02988235009651,
+    "tempo_andando_depois_polimento": 56.02988235009651,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.1521409050001239
+  }
+}

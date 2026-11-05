@@ -1,0 +1,138 @@
+{
+  "instancia": "inst_051_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 21,
+    "itens_comprados": 6,
+    "gasto_produtos": 940.58,
+    "excedente": 440.58,
+    "imposto": 220.29,
+    "custo_total": 1160.87,
+    "tempo_andando": 71.7685,
+    "retorno": 596.7685,
+    "peso_kg": 8.05,
+    "volume_l": 34.6,
+    "lambda_": 0.0009,
+    "objetivo": 20.0026
+  },
+  "situacao_cota": "excede a cota em US$ 440.58 (imposto US$ 220.29)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 1162.88,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "15:00",
+  "horario_retorno": "09:57",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L007",
+      "nome": "Flash Games (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "07:49",
+      "inicio_atendimento": "07:49",
+      "saida": "07:59",
+      "compras": [
+        {
+          "produto_id": "P008",
+          "nome": "Smartwatch Premium S3",
+          "quantidade": 1,
+          "preco_usd": 272.9
+        },
+        {
+          "produto_id": "P068",
+          "nome": "Jogo de Panelas Antiaderente 5pç",
+          "quantidade": 1,
+          "preco_usd": 83.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L043",
+      "nome": "Super Perfumes (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "08:16",
+      "inicio_atendimento": "08:16",
+      "saida": "08:31",
+      "compras": [
+        {
+          "produto_id": "P069",
+          "nome": "Óculos de Sol Polarizado",
+          "quantidade": 1,
+          "preco_usd": 71.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L009",
+      "nome": "Gold Bazar (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:47",
+      "inicio_atendimento": "08:47",
+      "saida": "09:12",
+      "compras": [
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 60.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L003",
+      "nome": "Delta Imports (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "09:20",
+      "inicio_atendimento": "09:20",
+      "saida": "09:45",
+      "compras": [
+        {
+          "produto_id": "P001",
+          "nome": "Celular Modelo A 128GB",
+          "quantidade": 1,
+          "preco_usd": 199.99
+        },
+        {
+          "produto_id": "P002",
+          "nome": "Celular Modelo A 256GB",
+          "quantidade": 1,
+          "preco_usd": 250.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P006",
+      "nome": "Celular Modelo D 5G 128GB",
+      "prioridade": 1
+    },
+    {
+      "produto_id": "P047",
+      "nome": "Secador de Cabelo Profissional",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.06147072900012063,
+    "big_m": 515.7534247889471,
+    "objetivo_modelo": 20.002586177269134,
+    "limitante": 20.002586177269134,
+    "n_variaveis": 159,
+    "n_restricoes": 181,
+    "tempo_andando_antes_polimento": 71.776891993141,
+    "tempo_andando_depois_polimento": 71.76845745571686,
+    "polimento": "exato",
+    "polimento_aceito": true,
+    "tempo_polimento_s": 0.023086396000053355
+  }
+}

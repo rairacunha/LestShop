@@ -1,0 +1,93 @@
+{
+  "instancia": "inst_011_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 11,
+    "itens_comprados": 4,
+    "gasto_produtos": 166.6,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 166.6,
+    "tempo_andando": 42.7166,
+    "retorno": 552.7166,
+    "peso_kg": 6.77,
+    "volume_l": 29.2,
+    "lambda_": 0.0023,
+    "objetivo": 10.517
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 192.35,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "09:13",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L007",
+      "nome": "Flash Games (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:19",
+      "inicio_atendimento": "08:19",
+      "saida": "08:29",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 30.9
+        },
+        {
+          "produto_id": "P068",
+          "nome": "Jogo de Panelas Antiaderente 5pç",
+          "quantidade": 1,
+          "preco_usd": 83.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L025",
+      "nome": "Mega Tech (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "08:40",
+      "inicio_atendimento": "08:40",
+      "saida": "09:00",
+      "compras": [
+        {
+          "produto_id": "P020",
+          "nome": "Streaming Stick HD",
+          "quantidade": 1,
+          "preco_usd": 31.9
+        },
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 19.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.009820120000085808,
+    "big_m": 289.4793351288936,
+    "objetivo_modelo": 10.516980304281617,
+    "limitante": 10.516980304281617,
+    "n_variaveis": 31,
+    "n_restricoes": 39,
+    "tempo_andando_antes_polimento": 42.71658513956076,
+    "tempo_andando_depois_polimento": 42.71658513956076,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.2026000149489846e-05
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "instancia": "inst_044_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 35,
+    "itens_comprados": 10,
+    "gasto_produtos": 578.68,
+    "excedente": 78.68,
+    "imposto": 39.34,
+    "custo_total": 618.02,
+    "tempo_andando": 58.625,
+    "retorno": 718.625,
+    "peso_kg": 12.67,
+    "volume_l": 44.5,
+    "lambda_": 0.0014,
+    "objetivo": 34.1436
+  },
+  "situacao_cota": "excede a cota em US$ 78.68 (imposto US$ 39.34)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 647.75,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "14:00",
+  "horario_retorno": "11:59",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L029",
+      "nome": "Royal Center (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "08:12",
+      "inicio_atendimento": "08:12",
+      "saida": "08:32",
+      "compras": [
+        {
+          "produto_id": "P033",
+          "nome": "SSD Externo 1TB",
+          "quantidade": 1,
+          "preco_usd": 72.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L049",
+      "nome": "Ultra Games (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "08:38",
+      "inicio_atendimento": "08:38",
+      "saida": "09:08",
+      "compras": [
+        {
+          "produto_id": "P058",
+          "nome": "Molinete de Pesca",
+          "quantidade": 1,
+          "preco_usd": 52.99
+        },
+        {
+          "produto_id": "P059",
+          "nome": "Vara de Pesca Telescópica",
+          "quantidade": 1,
+          "preco_usd": 38.99
+        },
+        {
+          "produto_id": "P060",
+          "nome": "Barraca Camping 4 Pessoas",
+          "quantidade": 1,
+          "preco_usd": 90.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L011",
+      "nome": "Gold Digital (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:09",
+      "inicio_atendimento": "09:09",
+      "saida": "09:39",
+      "compras": [
+        {
+          "produto_id": "P040",
+          "nome": "Perfume Feminino Oriental 50ml",
+          "quantidade": 1,
+          "preco_usd": 68.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:44",
+      "inicio_atendimento": "09:44",
+      "saida": "09:54",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 25.9
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L005",
+      "nome": "Delta Perfumes (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "09:59",
+      "inicio_atendimento": "09:59",
+      "saida": "10:29",
+      "compras": [
+        {
+          "produto_id": "P066",
+          "nome": "Liquidificador Potente 1200W",
+          "quantidade": 1,
+          "preco_usd": 59.9
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L007",
+      "nome": "Flash Games (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:36",
+      "inicio_atendimento": "10:36",
+      "saida": "10:46",
+      "compras": [
+        {
+          "produto_id": "P049",
+          "nome": "Barbeador Elétrico",
+          "quantidade": 1,
+          "preco_usd": 79.9
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L032",
+      "nome": "Royal Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "10:51",
+      "inicio_atendimento": "10:51",
+      "saida": "11:16",
+      "compras": [
+        {
+          "produto_id": "P054",
+          "nome": "Vinho Tinto Reserva 750ml",
+          "quantidade": 1,
+          "preco_usd": 14.0
+        }
+      ]
+    },
+    {
+      "ordem": 8,
+      "loja_id": "L003",
+      "nome": "Delta Imports (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "11:22",
+      "inicio_atendimento": "11:22",
+      "saida": "11:47",
+      "compras": [
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 77.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.2177253039999414,
+    "big_m": 425.7534247889471,
+    "objetivo_modelo": 34.14358543855808,
+    "limitante": 34.14358543855808,
+    "n_variaveis": 188,
+    "n_restricoes": 212,
+    "tempo_andando_antes_polimento": 58.6250290608857,
+    "tempo_andando_depois_polimento": 58.6250290608857,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.33371464800006834
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "instancia": "inst_093_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 36,
+    "itens_comprados": 10,
+    "gasto_produtos": 852.87,
+    "excedente": 352.87,
+    "imposto": 176.44,
+    "custo_total": 1029.31,
+    "tempo_andando": 55.6813,
+    "retorno": 835.6813,
+    "peso_kg": 21.7,
+    "volume_l": 127.5,
+    "lambda_": 0.0009,
+    "objetivo": 35.0883
+  },
+  "situacao_cota": "excede a cota em US$ 352.87 (imposto US$ 176.44)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 1083.3,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "14:00",
+  "horario_retorno": "13:56",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L028",
+      "nome": "Rapid Perfumes (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "10:16",
+      "inicio_atendimento": "10:16",
+      "saida": "10:41",
+      "compras": [
+        {
+          "produto_id": "P065",
+          "nome": "Robô Aspirador",
+          "quantidade": 1,
+          "preco_usd": 185.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L035",
+      "nome": "Smart Digital (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "10:47",
+      "inicio_atendimento": "10:47",
+      "saida": "11:07",
+      "compras": [
+        {
+          "produto_id": "P014",
+          "nome": "Soundbar 2.1 Canais",
+          "quantidade": 1,
+          "preco_usd": 218.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L049",
+      "nome": "Ultra Games (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "11:12",
+      "inicio_atendimento": "11:12",
+      "saida": "11:42",
+      "compras": [
+        {
+          "produto_id": "P058",
+          "nome": "Molinete de Pesca",
+          "quantidade": 1,
+          "preco_usd": 52.99
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L020",
+      "nome": "Max Perfumes (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "11:43",
+      "inicio_atendimento": "11:43",
+      "saida": "11:58",
+      "compras": [
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 87.9
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "12:02",
+      "inicio_atendimento": "12:02",
+      "saida": "12:22",
+      "compras": [
+        {
+          "produto_id": "P055",
+          "nome": "Espumante Brut 750ml",
+          "quantidade": 1,
+          "preco_usd": 17.0
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "12:25",
+      "inicio_atendimento": "12:25",
+      "saida": "12:55",
+      "compras": [
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 70.99
+        },
+        {
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
+          "quantidade": 1,
+          "preco_usd": 59.0
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "12:56",
+      "inicio_atendimento": "12:56",
+      "saida": "13:06",
+      "compras": [
+        {
+          "produto_id": "P038",
+          "nome": "Memória RAM 16GB DDR5",
+          "quantidade": 1,
+          "preco_usd": 50.0
+        }
+      ]
+    },
+    {
+      "ordem": 8,
+      "loja_id": "L048",
+      "nome": "Top Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "13:13",
+      "inicio_atendimento": "13:13",
+      "saida": "13:23",
+      "compras": [
+        {
+          "produto_id": "P072",
+          "nome": "Mochila Notebook 15\"",
+          "quantidade": 1,
+          "preco_usd": 37.0
+        }
+      ]
+    },
+    {
+      "ordem": 9,
+      "loja_id": "L023",
+      "nome": "Mega Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "13:24",
+      "inicio_atendimento": "13:24",
+      "saida": "13:44",
+      "compras": [
+        {
+          "produto_id": "P060",
+          "nome": "Barraca Camping 4 Pessoas",
+          "quantidade": 1,
+          "preco_usd": 74.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P003",
+      "nome": "Celular Modelo B Pro 256GB",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 8.735182905000102,
+    "big_m": 308.16305367697635,
+    "objetivo_modelo": 35.08832882193694,
+    "limitante": 35.08832882193694,
+    "n_variaveis": 1134,
+    "n_restricoes": 1198,
+    "tempo_andando_antes_polimento": 55.681316230239844,
+    "tempo_andando_depois_polimento": 55.681316230239844,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.5204430960000082
+  }
+}

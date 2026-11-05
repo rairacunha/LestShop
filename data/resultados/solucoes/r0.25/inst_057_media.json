@@ -1,0 +1,121 @@
+{
+  "instancia": "inst_057_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 19,
+    "itens_comprados": 4,
+    "gasto_produtos": 162.7,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 162.7,
+    "tempo_andando": 49.9289,
+    "retorno": 729.9289,
+    "peso_kg": 5.3,
+    "volume_l": 17.0,
+    "lambda_": 0.0038,
+    "objetivo": 18.3256
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 168.77,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "16:00",
+  "horario_retorno": "12:10",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L023",
+      "nome": "Mega Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "10:12",
+      "inicio_atendimento": "10:12",
+      "saida": "10:32",
+      "compras": [
+        {
+          "produto_id": "P048",
+          "nome": "Prancha Alisadora Titânio",
+          "quantidade": 1,
+          "preco_usd": 41.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L042",
+      "nome": "Super Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:39",
+      "inicio_atendimento": "10:39",
+      "saida": "10:54",
+      "compras": [
+        {
+          "produto_id": "P062",
+          "nome": "Boneca Articulada Colecionável",
+          "quantidade": 1,
+          "preco_usd": 27.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "11:05",
+      "inicio_atendimento": "11:05",
+      "saida": "11:35",
+      "compras": [
+        {
+          "produto_id": "P066",
+          "nome": "Liquidificador Potente 1200W",
+          "quantidade": 1,
+          "preco_usd": 52.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L015",
+      "nome": "Luna Outlet (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "11:44",
+      "inicio_atendimento": "11:44",
+      "saida": "11:59",
+      "compras": [
+        {
+          "produto_id": "P012",
+          "nome": "Caixa de Som Portátil Mini",
+          "quantidade": 1,
+          "preco_usd": 40.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P046",
+      "nome": "Protetor Solar FPS 50 200ml",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.01777285599996503,
+    "big_m": 409.4753520292039,
+    "objetivo_modelo": 18.32562560459483,
+    "limitante": 18.32562560459483,
+    "n_variaveis": 58,
+    "n_restricoes": 70,
+    "tempo_andando_antes_polimento": 49.928946777598966,
+    "tempo_andando_depois_polimento": 49.928946777598966,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.008843481999974756
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "instancia": "inst_043_media",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 8,
+    "itens_comprados": 3,
+    "gasto_produtos": 407.88,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 407.88,
+    "tempo_andando": 41.3952,
+    "retorno": 636.3952,
+    "peso_kg": 15.7,
+    "volume_l": 101.0,
+    "lambda_": 0.0011,
+    "objetivo": 7.524
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 642.85,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "14:00",
+  "horario_retorno": "10:36",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:17",
+      "inicio_atendimento": "09:17",
+      "saida": "09:42",
+      "compras": [
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 44.99
+        },
+        {
+          "produto_id": "P048",
+          "nome": "Prancha Alisadora Titânio",
+          "quantidade": 1,
+          "preco_usd": 38.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:47",
+      "inicio_atendimento": "09:47",
+      "saida": "10:17",
+      "compras": [
+        {
+          "produto_id": "P019",
+          "nome": "Smart TV 50\" 4K",
+          "quantidade": 1,
+          "preco_usd": 323.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P006",
+      "nome": "Celular Modelo D 5G 128GB",
+      "prioridade": 5
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.035392853000075775,
+    "big_m": 368.16305367697635,
+    "objetivo_modelo": 7.5239971933636,
+    "limitante": 7.5239971933636,
+    "n_variaveis": 69,
+    "n_restricoes": 83,
+    "tempo_andando_antes_polimento": 41.39524904376553,
+    "tempo_andando_depois_polimento": 41.39524904376553,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.4969000176279224e-05
+  }
+}

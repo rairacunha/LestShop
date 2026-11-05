@@ -1,0 +1,143 @@
+{
+  "instancia": "inst_055_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 18,
+    "itens_comprados": 5,
+    "gasto_produtos": 2311.79,
+    "excedente": 2161.79,
+    "imposto": 1080.89,
+    "custo_total": 3392.68,
+    "tempo_andando": 92.7535,
+    "retorno": 687.7535,
+    "peso_kg": 2.65,
+    "volume_l": 24.2,
+    "lambda_": 0.0002,
+    "objetivo": 17.2049
+  },
+  "situacao_cota": "excede a cota em US$ 2161.79 (imposto US$ 1080.89)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 4266.22,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "15:00",
+  "horario_retorno": "11:28",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L043",
+      "nome": "Super Perfumes (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "08:36",
+      "inicio_atendimento": "08:36",
+      "saida": "08:51",
+      "compras": [
+        {
+          "produto_id": "P018",
+          "nome": "Kindle-like Leitor Digital 6\"",
+          "quantidade": 1,
+          "preco_usd": 102.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L047",
+      "nome": "Top Mix (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "09:06",
+      "inicio_atendimento": "09:06",
+      "saida": "09:26",
+      "compras": [
+        {
+          "produto_id": "P072",
+          "nome": "Mochila Notebook 15\"",
+          "quantidade": 1,
+          "preco_usd": 42.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "09:45",
+      "inicio_atendimento": "09:45",
+      "saida": "10:05",
+      "compras": [
+        {
+          "produto_id": "P041",
+          "nome": "Perfume Masculino Amadeirado 100ml",
+          "quantidade": 1,
+          "preco_usd": 65.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:08",
+      "inicio_atendimento": "10:08",
+      "saida": "10:38",
+      "compras": [
+        {
+          "produto_id": "P004",
+          "nome": "Celular Modelo B Pro Max 512GB",
+          "quantidade": 1,
+          "preco_usd": 1264.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L044",
+      "nome": "Super Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "10:46",
+      "inicio_atendimento": "10:46",
+      "saida": "11:16",
+      "compras": [
+        {
+          "produto_id": "P003",
+          "nome": "Celular Modelo B Pro 256GB",
+          "quantidade": 1,
+          "preco_usd": 836.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P028",
+      "nome": "Notebook Ultrafino 16GB/512GB",
+      "prioridade": 1
+    },
+    {
+      "produto_id": "P029",
+      "nome": "Notebook Gamer RTX 16GB/1TB",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.10720498399996359,
+    "big_m": 485.7534247889471,
+    "objetivo_modelo": 17.204942562136473,
+    "limitante": 17.204942562136473,
+    "n_variaveis": 178,
+    "n_restricoes": 202,
+    "tempo_andando_antes_polimento": 130.13844687300212,
+    "tempo_andando_depois_polimento": 92.75347453871795,
+    "polimento": "exato",
+    "polimento_aceito": true,
+    "tempo_polimento_s": 0.051575508000041737
+  }
+}

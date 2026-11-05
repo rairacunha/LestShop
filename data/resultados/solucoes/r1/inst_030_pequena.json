@@ -1,0 +1,126 @@
+{
+  "instancia": "inst_030_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 10,
+    "itens_comprados": 4,
+    "gasto_produtos": 400.87,
+    "excedente": 250.87,
+    "imposto": 125.44,
+    "custo_total": 526.31,
+    "tempo_andando": 49.8498,
+    "retorno": 734.8498,
+    "peso_kg": 8.6,
+    "volume_l": 27.0,
+    "lambda_": 0.001,
+    "objetivo": 9.4149
+  },
+  "situacao_cota": "excede a cota em US$ 250.87 (imposto US$ 125.44)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 683.75,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "15:00",
+  "horario_retorno": "12:15",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:18",
+      "inicio_atendimento": "10:18",
+      "saida": "10:28",
+      "compras": [
+        {
+          "produto_id": "P051",
+          "nome": "Whisky 18 anos 750ml",
+          "quantidade": 1,
+          "preco_usd": 91.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "10:31",
+      "inicio_atendimento": "10:31",
+      "saida": "10:51",
+      "compras": [
+        {
+          "produto_id": "P067",
+          "nome": "Cafeteira de Cápsulas",
+          "quantidade": 1,
+          "preco_usd": 88.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:59",
+      "inicio_atendimento": "10:59",
+      "saida": "11:29",
+      "compras": [
+        {
+          "produto_id": "P043",
+          "nome": "Perfume Árabe Unissex 100ml",
+          "quantidade": 1,
+          "preco_usd": 33.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L028",
+      "nome": "Rapid Perfumes (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "11:33",
+      "inicio_atendimento": "11:33",
+      "saida": "11:58",
+      "compras": [
+        {
+          "produto_id": "P065",
+          "nome": "Robô Aspirador",
+          "quantidade": 1,
+          "preco_usd": 185.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P006",
+      "nome": "Celular Modelo D 5G 128GB",
+      "prioridade": 2
+    },
+    {
+      "produto_id": "P023",
+      "nome": "Console Portátil Híbrido",
+      "prioridade": 3
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.03200427900014802,
+    "big_m": 349.4753520292039,
+    "objetivo_modelo": 9.414922820152762,
+    "limitante": 9.414922820152762,
+    "n_variaveis": 61,
+    "n_restricoes": 73,
+    "tempo_andando_antes_polimento": 49.84975285456801,
+    "tempo_andando_depois_polimento": 49.84975285456801,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.018793462999838084
+  }
+}

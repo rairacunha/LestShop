@@ -1,0 +1,121 @@
+{
+  "instancia": "inst_032_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 18,
+    "itens_comprados": 5,
+    "gasto_produtos": 232.79,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 232.79,
+    "tempo_andando": 44.2434,
+    "retorno": 739.2434,
+    "peso_kg": 4.6,
+    "volume_l": 62.9,
+    "lambda_": 0.0037,
+    "objetivo": 17.1426
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 270.52,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "13:00",
+  "horario_retorno": "12:19",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L049",
+      "nome": "Ultra Games (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "10:12",
+      "inicio_atendimento": "10:12",
+      "saida": "10:42",
+      "compras": [
+        {
+          "produto_id": "P056",
+          "nome": "Garrafa Térmica 1L",
+          "quantidade": 1,
+          "preco_usd": 27.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:52",
+      "inicio_atendimento": "10:52",
+      "saida": "11:02",
+      "compras": [
+        {
+          "produto_id": "P031",
+          "nome": "Mouse Sem Fio",
+          "quantidade": 1,
+          "preco_usd": 14.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L033",
+      "nome": "Royal Shop (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "11:07",
+      "inicio_atendimento": "11:07",
+      "saida": "11:37",
+      "compras": [
+        {
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
+          "quantidade": 1,
+          "preco_usd": 62.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L018",
+      "nome": "Max Games (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "11:38",
+      "inicio_atendimento": "11:38",
+      "saida": "12:03",
+      "compras": [
+        {
+          "produto_id": "P007",
+          "nome": "Smartwatch Esportivo S1",
+          "quantidade": 1,
+          "preco_usd": 88.0
+        },
+        {
+          "produto_id": "P072",
+          "nome": "Mochila Notebook 15\"",
+          "quantidade": 1,
+          "preco_usd": 39.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.015355997999904503,
+    "big_m": 229.27114550871397,
+    "objetivo_modelo": 17.142641426045962,
+    "limitante": 17.142641426045962,
+    "n_variaveis": 58,
+    "n_restricoes": 70,
+    "tempo_andando_antes_polimento": 48.23224525528913,
+    "tempo_andando_depois_polimento": 44.24343919837723,
+    "polimento": "exato",
+    "polimento_aceito": true,
+    "tempo_polimento_s": 0.024331751999852713
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "instancia": "inst_092_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 44,
+    "itens_comprados": 11,
+    "gasto_produtos": 543.47,
+    "excedente": 43.47,
+    "imposto": 21.74,
+    "custo_total": 565.21,
+    "tempo_andando": 62.9248,
+    "retorno": 727.9248,
+    "peso_kg": 17.17,
+    "volume_l": 66.3,
+    "lambda_": 0.0016,
+    "objetivo": 43.0941
+  },
+  "situacao_cota": "excede a cota em US$ 43.47 (imposto US$ 21.74)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 565.27,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "13:00",
+  "horario_retorno": "12:08",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L021",
+      "nome": "Max Tech (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "08:14",
+      "inicio_atendimento": "08:14",
+      "saida": "08:39",
+      "compras": [
+        {
+          "produto_id": "P040",
+          "nome": "Perfume Feminino Oriental 50ml",
+          "quantidade": 1,
+          "preco_usd": 60.99
+        },
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 33.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L034",
+      "nome": "Smart Center (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "08:44",
+      "inicio_atendimento": "08:44",
+      "saida": "08:59",
+      "compras": [
+        {
+          "produto_id": "P043",
+          "nome": "Perfume Árabe Unissex 100ml",
+          "quantidade": 1,
+          "preco_usd": 29.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:02",
+      "inicio_atendimento": "09:02",
+      "saida": "09:27",
+      "compras": [
+        {
+          "produto_id": "P068",
+          "nome": "Jogo de Panelas Antiaderente 5pç",
+          "quantidade": 1,
+          "preco_usd": 79.99
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L046",
+      "nome": "Top Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:33",
+      "inicio_atendimento": "09:33",
+      "saida": "09:43",
+      "compras": [
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 70.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L009",
+      "nome": "Gold Bazar (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:44",
+      "inicio_atendimento": "09:44",
+      "saida": "10:09",
+      "compras": [
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 60.9
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:10",
+      "inicio_atendimento": "10:10",
+      "saida": "10:20",
+      "compras": [
+        {
+          "produto_id": "P052",
+          "nome": "Vodka Premium 1L",
+          "quantidade": 1,
+          "preco_usd": 21.9
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L016",
+      "nome": "Luna Perfumes (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:30",
+      "inicio_atendimento": "10:30",
+      "saida": "10:55",
+      "compras": [
+        {
+          "produto_id": "P033",
+          "nome": "SSD Externo 1TB",
+          "quantidade": 1,
+          "preco_usd": 70.9
+        },
+        {
+          "produto_id": "P064",
+          "nome": "Air Fryer 5L",
+          "quantidade": 1,
+          "preco_usd": 69.99
+        }
+      ]
+    },
+    {
+      "ordem": 8,
+      "loja_id": "L049",
+      "nome": "Ultra Games (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "11:00",
+      "inicio_atendimento": "11:00",
+      "saida": "11:30",
+      "compras": [
+        {
+          "produto_id": "P056",
+          "nome": "Garrafa Térmica 1L",
+          "quantidade": 1,
+          "preco_usd": 27.9
+        }
+      ]
+    },
+    {
+      "ordem": 9,
+      "loja_id": "L023",
+      "nome": "Mega Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "11:36",
+      "inicio_atendimento": "11:36",
+      "saida": "11:56",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 18.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P007",
+      "nome": "Smartwatch Esportivo S1",
+      "prioridade": 3
+    },
+    {
+      "produto_id": "P032",
+      "nome": "Teclado Mecânico RGB",
+      "prioridade": 1
+    },
+    {
+      "produto_id": "P051",
+      "nome": "Whisky 18 anos 750ml",
+      "prioridade": 2
+    },
+    {
+      "produto_id": "P073",
+      "nome": "Mala de Bordo 10kg",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 3.3407451329999276,
+    "big_m": 368.16305367697635,
+    "objetivo_modelo": 43.0940848520966,
+    "limitante": 43.0940848520966,
+    "n_variaveis": 1263,
+    "n_restricoes": 1331,
+    "tempo_andando_antes_polimento": 62.92482758405419,
+    "tempo_andando_depois_polimento": 62.92482758405419,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.055130201999873
+  }
+}

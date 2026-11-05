@@ -1,0 +1,121 @@
+{
+  "instancia": "inst_064_media",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 18,
+    "itens_comprados": 5,
+    "gasto_produtos": 339.7,
+    "excedente": 39.7,
+    "imposto": 19.85,
+    "custo_total": 359.55,
+    "tempo_andando": 35.4131,
+    "retorno": 590.4131,
+    "peso_kg": 9.35,
+    "volume_l": 35.5,
+    "lambda_": 0.0014,
+    "objetivo": 17.4603
+  },
+  "situacao_cota": "excede a cota em US$ 39.70 (imposto US$ 19.85)",
+  "cota_disponivel_usd": 300.0,
+  "orcamento_usd": 430.78,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "13:00",
+  "horario_retorno": "09:50",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L023",
+      "nome": "Mega Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "08:12",
+      "inicio_atendimento": "08:12",
+      "saida": "08:32",
+      "compras": [
+        {
+          "produto_id": "P047",
+          "nome": "Secador de Cabelo Profissional",
+          "quantidade": 1,
+          "preco_usd": 59.9
+        },
+        {
+          "produto_id": "P060",
+          "nome": "Barraca Camping 4 Pessoas",
+          "quantidade": 1,
+          "preco_usd": 74.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L020",
+      "nome": "Max Perfumes (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "08:37",
+      "inicio_atendimento": "08:37",
+      "saida": "08:52",
+      "compras": [
+        {
+          "produto_id": "P048",
+          "nome": "Prancha Alisadora Titânio",
+          "quantidade": 1,
+          "preco_usd": 45.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L019",
+      "nome": "Max Mix (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:57",
+      "inicio_atendimento": "08:57",
+      "saida": "09:12",
+      "compras": [
+        {
+          "produto_id": "P069",
+          "nome": "Óculos de Sol Polarizado",
+          "quantidade": 1,
+          "preco_usd": 69.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L003",
+      "nome": "Delta Imports (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "09:13",
+      "inicio_atendimento": "09:13",
+      "saida": "09:38",
+      "compras": [
+        {
+          "produto_id": "P067",
+          "nome": "Cafeteira de Cápsulas",
+          "quantidade": 1,
+          "preco_usd": 90.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.03178817200000594,
+    "big_m": 342.53109142492985,
+    "objetivo_modelo": 17.460270752880614,
+    "limitante": 17.460270752880614,
+    "n_variaveis": 72,
+    "n_restricoes": 86,
+    "tempo_andando_antes_polimento": 35.41306845702159,
+    "tempo_andando_depois_polimento": 35.41306845702159,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.021883287000036944
+  }
+}

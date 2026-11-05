@@ -1,0 +1,201 @@
+{
+  "instancia": "inst_097_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 23,
+    "itens_comprados": 10,
+    "gasto_produtos": 2610.87,
+    "excedente": 2310.87,
+    "imposto": 1155.43,
+    "custo_total": 3766.3,
+    "tempo_andando": 51.4778,
+    "retorno": 680.0299,
+    "peso_kg": 14.12,
+    "volume_l": 58.1,
+    "lambda_": 0.0002,
+    "objetivo": 22.0571
+  },
+  "situacao_cota": "excede a cota em US$ 2310.87 (imposto US$ 1155.43)",
+  "cota_disponivel_usd": 300.0,
+  "orcamento_usd": 3879.53,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "16:00",
+  "horario_retorno": "11:20",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L024",
+      "nome": "Mega Shop (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "07:41",
+      "inicio_atendimento": "08:00",
+      "saida": "08:10",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 24.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:11",
+      "inicio_atendimento": "08:11",
+      "saida": "08:21",
+      "compras": [
+        {
+          "produto_id": "P023",
+          "nome": "Console Portátil Híbrido",
+          "quantidade": 1,
+          "preco_usd": 259.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L021",
+      "nome": "Max Tech (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "08:26",
+      "inicio_atendimento": "08:26",
+      "saida": "08:51",
+      "compras": [
+        {
+          "produto_id": "P041",
+          "nome": "Perfume Masculino Amadeirado 100ml",
+          "quantidade": 1,
+          "preco_usd": 73.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L032",
+      "nome": "Royal Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:53",
+      "inicio_atendimento": "08:53",
+      "saida": "09:18",
+      "compras": [
+        {
+          "produto_id": "P022",
+          "nome": "Console de Mesa Pro 2TB",
+          "quantidade": 1,
+          "preco_usd": 801.99
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L033",
+      "nome": "Royal Shop (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:19",
+      "inicio_atendimento": "09:19",
+      "saida": "09:49",
+      "compras": [
+        {
+          "produto_id": "P044",
+          "nome": "Kit Maquiagem Básico",
+          "quantidade": 1,
+          "preco_usd": 32.0
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L036",
+      "nome": "Smart Games (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "09:57",
+      "inicio_atendimento": "09:57",
+      "saida": "10:22",
+      "compras": [
+        {
+          "produto_id": "P001",
+          "nome": "Celular Modelo A 128GB",
+          "quantidade": 1,
+          "preco_usd": 208.99
+        },
+        {
+          "produto_id": "P051",
+          "nome": "Whisky 18 anos 750ml",
+          "quantidade": 1,
+          "preco_usd": 88.0
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L014",
+      "nome": "Luna Eletrônicos (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:27",
+      "inicio_atendimento": "10:27",
+      "saida": "10:42",
+      "compras": [
+        {
+          "produto_id": "P029",
+          "nome": "Notebook Gamer RTX 16GB/1TB",
+          "quantidade": 1,
+          "preco_usd": 999.0
+        },
+        {
+          "produto_id": "P049",
+          "nome": "Barbeador Elétrico",
+          "quantidade": 1,
+          "preco_usd": 63.9
+        }
+      ]
+    },
+    {
+      "ordem": 8,
+      "loja_id": "L025",
+      "nome": "Mega Tech (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "10:47",
+      "inicio_atendimento": "10:47",
+      "saida": "11:07",
+      "compras": [
+        {
+          "produto_id": "P036",
+          "nome": "Roteador Wi-Fi 6",
+          "quantidade": 1,
+          "preco_usd": 60.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P035",
+      "nome": "Monitor 27\" QHD",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.5159499660001075,
+    "big_m": 559.4793351288936,
+    "objetivo_modelo": 22.057099263360197,
+    "limitante": 22.057099263360197,
+    "n_variaveis": 601,
+    "n_restricoes": 647,
+    "tempo_andando_antes_polimento": 51.477757897627804,
+    "tempo_andando_depois_polimento": 51.477757897627804,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.12041819299997769
+  }
+}

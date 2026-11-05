@@ -1,0 +1,178 @@
+{
+  "instancia": "inst_053_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 32,
+    "itens_comprados": 8,
+    "gasto_produtos": 430.68,
+    "excedente": 280.68,
+    "imposto": 140.34,
+    "custo_total": 571.02,
+    "tempo_andando": 55.4318,
+    "retorno": 775.4318,
+    "peso_kg": 11.1,
+    "volume_l": 45.3,
+    "lambda_": 0.0017,
+    "objetivo": 31.0122
+  },
+  "situacao_cota": "excede a cota em US$ 280.68 (imposto US$ 140.34)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 577.09,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "16:00",
+  "horario_retorno": "12:55",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L019",
+      "nome": "Max Mix (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "10:11",
+      "inicio_atendimento": "10:11",
+      "saida": "10:26",
+      "compras": [
+        {
+          "produto_id": "P048",
+          "nome": "Prancha Alisadora Titânio",
+          "quantidade": 1,
+          "preco_usd": 56.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L007",
+      "nome": "Flash Games (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:35",
+      "inicio_atendimento": "10:35",
+      "saida": "10:45",
+      "compras": [
+        {
+          "produto_id": "P047",
+          "nome": "Secador de Cabelo Profissional",
+          "quantidade": 1,
+          "preco_usd": 73.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L046",
+      "nome": "Top Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:46",
+      "inicio_atendimento": "10:46",
+      "saida": "10:56",
+      "compras": [
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 70.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "11:06",
+      "inicio_atendimento": "11:06",
+      "saida": "11:36",
+      "compras": [
+        {
+          "produto_id": "P052",
+          "nome": "Vodka Premium 1L",
+          "quantidade": 1,
+          "preco_usd": 18.9
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L042",
+      "nome": "Super Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "11:37",
+      "inicio_atendimento": "11:37",
+      "saida": "11:52",
+      "compras": [
+        {
+          "produto_id": "P068",
+          "nome": "Jogo de Panelas Antiaderente 5pç",
+          "quantidade": 1,
+          "preco_usd": 90.9
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L049",
+      "nome": "Ultra Games (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "11:58",
+      "inicio_atendimento": "11:58",
+      "saida": "12:28",
+      "compras": [
+        {
+          "produto_id": "P056",
+          "nome": "Garrafa Térmica 1L",
+          "quantidade": 1,
+          "preco_usd": 27.9
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L006",
+      "nome": "Delta Tech (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "12:34",
+      "inicio_atendimento": "12:34",
+      "saida": "12:44",
+      "compras": [
+        {
+          "produto_id": "P031",
+          "nome": "Mouse Sem Fio",
+          "quantidade": 1,
+          "preco_usd": 18.0
+        },
+        {
+          "produto_id": "P041",
+          "nome": "Perfume Masculino Amadeirado 100ml",
+          "quantidade": 1,
+          "preco_usd": 74.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P010",
+      "nome": "Fone Bluetooth Intra com Cancelamento",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.04446314799997708,
+    "big_m": 409.4793351288936,
+    "objetivo_modelo": 31.012229929595737,
+    "limitante": 31.012229929595737,
+    "n_variaveis": 138,
+    "n_restricoes": 158,
+    "tempo_andando_antes_polimento": 87.64006481743131,
+    "tempo_andando_depois_polimento": 55.43181687876465,
+    "polimento": "exato",
+    "polimento_aceito": true,
+    "tempo_polimento_s": 0.25655303899998216
+  }
+}

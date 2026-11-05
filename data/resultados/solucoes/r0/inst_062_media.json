@@ -1,0 +1,144 @@
+{
+  "instancia": "inst_062_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 18,
+    "itens_comprados": 7,
+    "gasto_produtos": 327.77,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 327.77,
+    "tempo_andando": 50.7189,
+    "retorno": 570.7189,
+    "peso_kg": 6.42,
+    "volume_l": 19.1,
+    "lambda_": 0.0023,
+    "objetivo": 17.2427
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 431.79,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "16:00",
+  "horario_retorno": "09:31",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L020",
+      "nome": "Max Perfumes (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "07:43",
+      "inicio_atendimento": "07:43",
+      "saida": "07:58",
+      "compras": [
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 87.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "08:03",
+      "inicio_atendimento": "08:03",
+      "saida": "08:13",
+      "compras": [
+        {
+          "produto_id": "P038",
+          "nome": "Memória RAM 16GB DDR5",
+          "quantidade": 1,
+          "preco_usd": 50.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:23",
+      "inicio_atendimento": "08:23",
+      "saida": "08:33",
+      "compras": [
+        {
+          "produto_id": "P062",
+          "nome": "Boneca Articulada Colecionável",
+          "quantidade": 1,
+          "preco_usd": 27.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L028",
+      "nome": "Rapid Perfumes (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:38",
+      "inicio_atendimento": "08:38",
+      "saida": "09:03",
+      "compras": [
+        {
+          "produto_id": "P066",
+          "nome": "Liquidificador Potente 1200W",
+          "quantidade": 1,
+          "preco_usd": 44.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L024",
+      "nome": "Mega Shop (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "09:09",
+      "inicio_atendimento": "09:09",
+      "saida": "09:19",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 24.99
+        },
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 55.99
+        },
+        {
+          "produto_id": "P043",
+          "nome": "Perfume Árabe Unissex 100ml",
+          "quantidade": 1,
+          "preco_usd": 36.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.11061791600013748,
+    "big_m": 578.1630536769762,
+    "objetivo_modelo": 17.24265810208184,
+    "limitante": 17.24265810208184,
+    "n_variaveis": 271,
+    "n_restricoes": 301,
+    "tempo_andando_antes_polimento": 58.523640166930036,
+    "tempo_andando_depois_polimento": 50.71889818433665,
+    "polimento": "exato",
+    "polimento_aceito": true,
+    "tempo_polimento_s": 0.024966435000123965
+  }
+}

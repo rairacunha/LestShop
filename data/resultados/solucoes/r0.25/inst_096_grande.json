@@ -1,0 +1,189 @@
+{
+  "instancia": "inst_096_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 29,
+    "itens_comprados": 9,
+    "gasto_produtos": 464.79,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 464.79,
+    "tempo_andando": 54.3774,
+    "retorno": 824.3774,
+    "peso_kg": 10.45,
+    "volume_l": 39.8,
+    "lambda_": 0.0017,
+    "objetivo": 28.1817
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 523.62,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "14:00",
+  "horario_retorno": "13:44",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L018",
+      "nome": "Max Games (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "10:16",
+      "inicio_atendimento": "10:16",
+      "saida": "10:41",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 27.0
+        },
+        {
+          "produto_id": "P064",
+          "nome": "Air Fryer 5L",
+          "quantidade": 1,
+          "preco_usd": 65.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "10:42",
+      "inicio_atendimento": "10:42",
+      "saida": "11:07",
+      "compras": [
+        {
+          "produto_id": "P048",
+          "nome": "Prancha Alisadora Titânio",
+          "quantidade": 1,
+          "preco_usd": 38.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L030",
+      "nome": "Royal Eletrônicos (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "11:13",
+      "inicio_atendimento": "11:13",
+      "saida": "11:38",
+      "compras": [
+        {
+          "produto_id": "P054",
+          "nome": "Vinho Tinto Reserva 750ml",
+          "quantidade": 1,
+          "preco_usd": 15.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L009",
+      "nome": "Gold Bazar (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "11:39",
+      "inicio_atendimento": "11:39",
+      "saida": "12:04",
+      "compras": [
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 60.9
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L046",
+      "nome": "Top Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "12:05",
+      "inicio_atendimento": "12:05",
+      "saida": "12:15",
+      "compras": [
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 70.0
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "12:25",
+      "inicio_atendimento": "12:25",
+      "saida": "12:35",
+      "compras": [
+        {
+          "produto_id": "P038",
+          "nome": "Memória RAM 16GB DDR5",
+          "quantidade": 1,
+          "preco_usd": 50.0
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L011",
+      "nome": "Gold Digital (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "12:40",
+      "inicio_atendimento": "12:40",
+      "saida": "13:10",
+      "compras": [
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 77.9
+        }
+      ]
+    },
+    {
+      "ordem": 8,
+      "loja_id": "L025",
+      "nome": "Mega Tech (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "13:11",
+      "inicio_atendimento": "13:11",
+      "saida": "13:31",
+      "compras": [
+        {
+          "produto_id": "P036",
+          "nome": "Roteador Wi-Fi 6",
+          "quantidade": 1,
+          "preco_usd": 60.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 3.1749831619999895,
+    "big_m": 308.16305367697635,
+    "objetivo_modelo": 28.181717434448615,
+    "limitante": 28.181717434448615,
+    "n_variaveis": 599,
+    "n_restricoes": 645,
+    "tempo_andando_antes_polimento": 54.37741389059648,
+    "tempo_andando_depois_polimento": 54.37741389059648,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.29390208399991025
+  }
+}

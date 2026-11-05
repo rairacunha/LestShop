@@ -1,0 +1,99 @@
+{
+  "instancia": "inst_056_media",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 12,
+    "itens_comprados": 5,
+    "gasto_produtos": 320.88,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 320.88,
+    "tempo_andando": 40.5455,
+    "retorno": 635.5455,
+    "peso_kg": 3.95,
+    "volume_l": 7.4,
+    "lambda_": 0.0019,
+    "objetivo": 11.3014
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 336.36,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "10:36",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:17",
+      "inicio_atendimento": "09:17",
+      "saida": "09:42",
+      "compras": [
+        {
+          "produto_id": "P007",
+          "nome": "Smartwatch Esportivo S1",
+          "quantidade": 1,
+          "preco_usd": 96.0
+        },
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 44.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L011",
+      "nome": "Gold Digital (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:52",
+      "inicio_atendimento": "09:52",
+      "saida": "10:22",
+      "compras": [
+        {
+          "produto_id": "P040",
+          "nome": "Perfume Feminino Oriental 50ml",
+          "quantidade": 1,
+          "preco_usd": 68.0
+        },
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 77.9
+        },
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 33.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.06545000999994954,
+    "big_m": 248.16305367697635,
+    "objetivo_modelo": 11.301404268678494,
+    "limitante": 11.301404268678494,
+    "n_variaveis": 131,
+    "n_restricoes": 151,
+    "tempo_andando_antes_polimento": 40.54548755649352,
+    "tempo_andando_depois_polimento": 40.54548755649352,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 2.1458999981405213e-05
+  }
+}

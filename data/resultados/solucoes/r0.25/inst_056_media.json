@@ -1,0 +1,110 @@
+{
+  "instancia": "inst_056_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 12,
+    "itens_comprados": 5,
+    "gasto_produtos": 316.88,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 316.88,
+    "tempo_andando": 48.9142,
+    "retorno": 673.9142,
+    "peso_kg": 3.95,
+    "volume_l": 7.4,
+    "lambda_": 0.0026,
+    "objetivo": 11.1393
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 336.36,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "11:14",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L011",
+      "nome": "Gold Digital (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:13",
+      "inicio_atendimento": "09:13",
+      "saida": "09:43",
+      "compras": [
+        {
+          "produto_id": "P040",
+          "nome": "Perfume Feminino Oriental 50ml",
+          "quantidade": 1,
+          "preco_usd": 68.0
+        },
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 77.9
+        },
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 33.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:48",
+      "inicio_atendimento": "09:48",
+      "saida": "10:18",
+      "compras": [
+        {
+          "produto_id": "P007",
+          "nome": "Smartwatch Esportivo S1",
+          "quantidade": 1,
+          "preco_usd": 92.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "10:32",
+      "inicio_atendimento": "10:32",
+      "saida": "10:57",
+      "compras": [
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 44.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.0536427699998967,
+    "big_m": 248.16305367697635,
+    "objetivo_modelo": 11.139270452518975,
+    "limitante": 11.139270452518975,
+    "n_variaveis": 131,
+    "n_restricoes": 151,
+    "tempo_andando_antes_polimento": 48.91419909937923,
+    "tempo_andando_depois_polimento": 48.91419909937923,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.009449505000020508
+  }
+}

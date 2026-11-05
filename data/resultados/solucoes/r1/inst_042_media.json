@@ -1,0 +1,110 @@
+{
+  "instancia": "inst_042_media",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 15,
+    "itens_comprados": 4,
+    "gasto_produtos": 145.89,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 145.89,
+    "tempo_andando": 35.314,
+    "retorno": 625.314,
+    "peso_kg": 1.77,
+    "volume_l": 23.8,
+    "lambda_": 0.0018,
+    "objetivo": 14.6708
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 189.36,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "15:00",
+  "horario_retorno": "10:25",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "09:12",
+      "inicio_atendimento": "09:12",
+      "saida": "09:22",
+      "compras": [
+        {
+          "produto_id": "P025",
+          "nome": "Jogo Mídia Física Lançamento",
+          "quantidade": 1,
+          "preco_usd": 51.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L049",
+      "nome": "Ultra Games (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:27",
+      "inicio_atendimento": "09:27",
+      "saida": "09:57",
+      "compras": [
+        {
+          "produto_id": "P059",
+          "nome": "Vara de Pesca Telescópica",
+          "quantidade": 1,
+          "preco_usd": 38.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L048",
+      "nome": "Top Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "10:03",
+      "inicio_atendimento": "10:03",
+      "saida": "10:13",
+      "compras": [
+        {
+          "produto_id": "P031",
+          "nome": "Mouse Sem Fio",
+          "quantidade": 1,
+          "preco_usd": 18.9
+        },
+        {
+          "produto_id": "P072",
+          "nome": "Mochila Notebook 15\"",
+          "quantidade": 1,
+          "preco_usd": 37.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P058",
+      "nome": "Molinete de Pesca",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.032225867000079234,
+    "big_m": 425.6519480577015,
+    "objetivo_modelo": 14.670753744492277,
+    "limitante": 14.670753744492277,
+    "n_variaveis": 72,
+    "n_restricoes": 86,
+    "tempo_andando_antes_polimento": 35.3139691812288,
+    "tempo_andando_depois_polimento": 35.3139691812288,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.01272893300006217
+  }
+}

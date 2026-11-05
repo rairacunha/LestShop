@@ -1,0 +1,138 @@
+{
+  "instancia": "inst_060_media",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 17,
+    "itens_comprados": 5,
+    "gasto_produtos": 232.97,
+    "excedente": 82.97,
+    "imposto": 41.48,
+    "custo_total": 274.45,
+    "tempo_andando": 52.3397,
+    "retorno": 597.3397,
+    "peso_kg": 6.1,
+    "volume_l": 63.3,
+    "lambda_": 0.0011,
+    "objetivo": 16.6249
+  },
+  "situacao_cota": "excede a cota em US$ 82.97 (imposto US$ 41.48)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 360.3,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "16:00",
+  "horario_retorno": "09:57",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L023",
+      "nome": "Mega Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "07:42",
+      "inicio_atendimento": "07:42",
+      "saida": "08:02",
+      "compras": [
+        {
+          "produto_id": "P049",
+          "nome": "Barbeador Elétrico",
+          "quantidade": 1,
+          "preco_usd": 73.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "08:09",
+      "inicio_atendimento": "08:09",
+      "saida": "08:19",
+      "compras": [
+        {
+          "produto_id": "P052",
+          "nome": "Vodka Premium 1L",
+          "quantidade": 1,
+          "preco_usd": 23.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "08:20",
+      "inicio_atendimento": "08:20",
+      "saida": "08:50",
+      "compras": [
+        {
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
+          "quantidade": 1,
+          "preco_usd": 59.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L018",
+      "nome": "Max Games (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:04",
+      "inicio_atendimento": "09:04",
+      "saida": "09:29",
+      "compras": [
+        {
+          "produto_id": "P072",
+          "nome": "Mochila Notebook 15\"",
+          "quantidade": 1,
+          "preco_usd": 39.99
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L024",
+      "nome": "Mega Shop (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "09:36",
+      "inicio_atendimento": "09:36",
+      "saida": "09:46",
+      "compras": [
+        {
+          "produto_id": "P043",
+          "nome": "Perfume Árabe Unissex 100ml",
+          "quantidade": 1,
+          "preco_usd": 36.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P007",
+      "nome": "Smartwatch Esportivo S1",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.20898846800014326,
+    "big_m": 575.7534247889471,
+    "objetivo_modelo": 16.624934301657294,
+    "limitante": 16.624934301657294,
+    "n_variaveis": 110,
+    "n_restricoes": 128,
+    "tempo_andando_antes_polimento": 52.3397429659995,
+    "tempo_andando_depois_polimento": 52.3397429659995,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.03343053699995835
+  }
+}

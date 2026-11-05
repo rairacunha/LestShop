@@ -1,0 +1,110 @@
+{
+  "instancia": "inst_013_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 14,
+    "itens_comprados": 4,
+    "gasto_produtos": 256.88,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 256.88,
+    "tempo_andando": 41.3824,
+    "retorno": 586.3824,
+    "peso_kg": 7.12,
+    "volume_l": 29.6,
+    "lambda_": 0.0026,
+    "objetivo": 13.3294
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 382.08,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "14:00",
+  "horario_retorno": "09:46",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:17",
+      "inicio_atendimento": "08:17",
+      "saida": "08:42",
+      "compras": [
+        {
+          "produto_id": "P068",
+          "nome": "Jogo de Panelas Antiaderente 5pç",
+          "quantidade": 1,
+          "preco_usd": 79.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L011",
+      "nome": "Gold Digital (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "08:52",
+      "inicio_atendimento": "08:52",
+      "saida": "09:22",
+      "compras": [
+        {
+          "produto_id": "P040",
+          "nome": "Perfume Feminino Oriental 50ml",
+          "quantidade": 1,
+          "preco_usd": 68.0
+        },
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 77.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L022",
+      "nome": "Mega Bazar (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:23",
+      "inicio_atendimento": "09:23",
+      "saida": "09:33",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 30.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P008",
+      "nome": "Smartwatch Premium S3",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.016333359999862296,
+    "big_m": 406.6392864394271,
+    "objetivo_modelo": 13.329435104938916,
+    "limitante": 13.329435104938916,
+    "n_variaveis": 60,
+    "n_restricoes": 72,
+    "tempo_andando_antes_polimento": 41.38244546899736,
+    "tempo_andando_depois_polimento": 41.38244546899736,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.010788529999899765
+  }
+}

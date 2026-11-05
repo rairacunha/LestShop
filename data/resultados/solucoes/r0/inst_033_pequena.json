@@ -1,0 +1,99 @@
+{
+  "instancia": "inst_033_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 13,
+    "itens_comprados": 4,
+    "gasto_produtos": 262.69,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 262.69,
+    "tempo_andando": 36.1789,
+    "retorno": 676.1789,
+    "peso_kg": 1.85,
+    "volume_l": 3.1,
+    "lambda_": 0.0027,
+    "objetivo": 12.2905
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 369.26,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "15:00",
+  "horario_retorno": "11:16",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L014",
+      "nome": "Luna Eletrônicos (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:18",
+      "inicio_atendimento": "10:18",
+      "saida": "10:33",
+      "compras": [
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 91.9
+        },
+        {
+          "produto_id": "P043",
+          "nome": "Perfume Árabe Unissex 100ml",
+          "quantidade": 1,
+          "preco_usd": 35.99
+        },
+        {
+          "produto_id": "P049",
+          "nome": "Barbeador Elétrico",
+          "quantidade": 1,
+          "preco_usd": 63.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L016",
+      "nome": "Luna Perfumes (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:34",
+      "inicio_atendimento": "10:34",
+      "saida": "10:59",
+      "compras": [
+        {
+          "produto_id": "P033",
+          "nome": "SSD Externo 1TB",
+          "quantidade": 1,
+          "preco_usd": 70.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P002",
+      "nome": "Celular Modelo A 256GB",
+      "prioridade": 3
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.02329234099988753,
+    "big_m": 368.16305367697635,
+    "objetivo_modelo": 12.290525576621835,
+    "limitante": 12.290525576621835,
+    "n_variaveis": 59,
+    "n_restricoes": 71,
+    "tempo_andando_antes_polimento": 36.17887006021817,
+    "tempo_andando_depois_polimento": 36.17887006021817,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.1115000006611808e-05
+  }
+}

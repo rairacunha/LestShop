@@ -1,0 +1,138 @@
+{
+  "instancia": "inst_099_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 22,
+    "itens_comprados": 5,
+    "gasto_produtos": 301.79,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 301.79,
+    "tempo_andando": 38.7112,
+    "retorno": 598.7112,
+    "peso_kg": 1.45,
+    "volume_l": 2.3,
+    "lambda_": 0.0024,
+    "objetivo": 21.2392
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 333.39,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "13:00",
+  "horario_retorno": "09:59",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L025",
+      "nome": "Mega Tech (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "08:13",
+      "inicio_atendimento": "08:13",
+      "saida": "08:33",
+      "compras": [
+        {
+          "produto_id": "P007",
+          "nome": "Smartwatch Esportivo S1",
+          "quantidade": 1,
+          "preco_usd": 84.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L011",
+      "nome": "Gold Digital (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "08:34",
+      "inicio_atendimento": "08:34",
+      "saida": "09:04",
+      "compras": [
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 77.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:09",
+      "inicio_atendimento": "09:09",
+      "saida": "09:19",
+      "compras": [
+        {
+          "produto_id": "P038",
+          "nome": "Memória RAM 16GB DDR5",
+          "quantidade": 1,
+          "preco_usd": 50.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L048",
+      "nome": "Top Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "09:26",
+      "inicio_atendimento": "09:26",
+      "saida": "09:36",
+      "compras": [
+        {
+          "produto_id": "P033",
+          "nome": "SSD Externo 1TB",
+          "quantidade": 1,
+          "preco_usd": 71.99
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L006",
+      "nome": "Delta Tech (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "09:37",
+      "inicio_atendimento": "09:37",
+      "saida": "09:47",
+      "compras": [
+        {
+          "produto_id": "P046",
+          "nome": "Protetor Solar FPS 50 200ml",
+          "quantidade": 1,
+          "preco_usd": 17.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P001",
+      "nome": "Celular Modelo A 128GB",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 1.4401313510002183,
+    "big_m": 368.16305367697635,
+    "objetivo_modelo": 21.239190528625354,
+    "limitante": 21.239190528625354,
+    "n_variaveis": 805,
+    "n_restricoes": 859,
+    "tempo_andando_antes_polimento": 38.71115794426288,
+    "tempo_andando_depois_polimento": 38.71115794426288,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.02196281200008343
+  }
+}

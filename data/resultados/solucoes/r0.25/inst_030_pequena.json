@@ -1,0 +1,126 @@
+{
+  "instancia": "inst_030_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 10,
+    "itens_comprados": 4,
+    "gasto_produtos": 400.87,
+    "excedente": 250.87,
+    "imposto": 125.44,
+    "custo_total": 526.31,
+    "tempo_andando": 49.8498,
+    "retorno": 734.8498,
+    "peso_kg": 8.6,
+    "volume_l": 27.0,
+    "lambda_": 0.0013,
+    "objetivo": 9.2909
+  },
+  "situacao_cota": "excede a cota em US$ 250.87 (imposto US$ 125.44)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 683.75,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "15:00",
+  "horario_retorno": "12:15",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L028",
+      "nome": "Rapid Perfumes (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "10:16",
+      "inicio_atendimento": "10:16",
+      "saida": "10:41",
+      "compras": [
+        {
+          "produto_id": "P065",
+          "nome": "Robô Aspirador",
+          "quantidade": 1,
+          "preco_usd": 185.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:46",
+      "inicio_atendimento": "10:46",
+      "saida": "11:16",
+      "compras": [
+        {
+          "produto_id": "P043",
+          "nome": "Perfume Árabe Unissex 100ml",
+          "quantidade": 1,
+          "preco_usd": 33.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "11:24",
+      "inicio_atendimento": "11:24",
+      "saida": "11:44",
+      "compras": [
+        {
+          "produto_id": "P067",
+          "nome": "Cafeteira de Cápsulas",
+          "quantidade": 1,
+          "preco_usd": 88.99
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "11:47",
+      "inicio_atendimento": "11:47",
+      "saida": "11:57",
+      "compras": [
+        {
+          "produto_id": "P051",
+          "nome": "Whisky 18 anos 750ml",
+          "quantidade": 1,
+          "preco_usd": 91.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P006",
+      "nome": "Celular Modelo D 5G 128GB",
+      "prioridade": 2
+    },
+    {
+      "produto_id": "P023",
+      "nome": "Console Portátil Híbrido",
+      "prioridade": 3
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.022779819999868778,
+    "big_m": 349.4753520292039,
+    "objetivo_modelo": 9.290862207023835,
+    "limitante": 9.290862207023835,
+    "n_variaveis": 61,
+    "n_restricoes": 73,
+    "tempo_andando_antes_polimento": 49.84975285456801,
+    "tempo_andando_depois_polimento": 49.84975285456801,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.014972167999985686
+  }
+}

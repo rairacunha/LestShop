@@ -1,0 +1,126 @@
+{
+  "instancia": "inst_071_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 15,
+    "itens_comprados": 4,
+    "gasto_produtos": 312.8,
+    "excedente": 162.8,
+    "imposto": 81.4,
+    "custo_total": 394.2,
+    "tempo_andando": 73.4072,
+    "retorno": 683.4072,
+    "peso_kg": 6.32,
+    "volume_l": 19.8,
+    "lambda_": 0.0024,
+    "objetivo": 14.0642
+  },
+  "situacao_cota": "excede a cota em US$ 162.80 (imposto US$ 81.40)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 420.26,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "16:00",
+  "horario_retorno": "11:23",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L036",
+      "nome": "Smart Games (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "09:15",
+      "inicio_atendimento": "09:15",
+      "saida": "09:40",
+      "compras": [
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 33.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L047",
+      "nome": "Top Mix (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "10:01",
+      "inicio_atendimento": "10:01",
+      "saida": "10:21",
+      "compras": [
+        {
+          "produto_id": "P065",
+          "nome": "Robô Aspirador",
+          "quantidade": 1,
+          "preco_usd": 204.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L014",
+      "nome": "Luna Eletrônicos (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:40",
+      "inicio_atendimento": "10:40",
+      "saida": "10:55",
+      "compras": [
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 49.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:56",
+      "inicio_atendimento": "10:56",
+      "saida": "11:06",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 25.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P015",
+      "nome": "Câmera de Ação 4K",
+      "prioridade": 1
+    },
+    {
+      "produto_id": "P036",
+      "nome": "Roteador Wi-Fi 6",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.07676188099981118,
+    "big_m": 485.7534247889471,
+    "objetivo_modelo": 14.064235863837062,
+    "limitante": 14.064235863837062,
+    "n_variaveis": 179,
+    "n_restricoes": 203,
+    "tempo_andando_antes_polimento": 76.43187928023931,
+    "tempo_andando_depois_polimento": 73.4072454666659,
+    "polimento": "exato",
+    "polimento_aceito": true,
+    "tempo_polimento_s": 0.01782590499988146
+  }
+}

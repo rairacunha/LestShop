@@ -1,0 +1,138 @@
+{
+  "instancia": "inst_070_media",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 17,
+    "itens_comprados": 6,
+    "gasto_produtos": 356.78,
+    "excedente": 206.78,
+    "imposto": 103.39,
+    "custo_total": 460.17,
+    "tempo_andando": 50.1943,
+    "retorno": 735.1943,
+    "peso_kg": 6.6,
+    "volume_l": 49.4,
+    "lambda_": 0.0014,
+    "objetivo": 16.2729
+  },
+  "situacao_cota": "excede a cota em US$ 206.78 (imposto US$ 103.39)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 460.93,
+  "orcamento_informado": true,
+  "horario_chegada": "10:00",
+  "horario_saida": "14:00",
+  "horario_retorno": "12:15",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L040",
+      "nome": "Super Bazar (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "10:12",
+      "inicio_atendimento": "10:12",
+      "saida": "10:37",
+      "compras": [
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 67.99
+        },
+        {
+          "produto_id": "P053",
+          "nome": "Gin Importado 750ml",
+          "quantidade": 1,
+          "preco_usd": 30.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L014",
+      "nome": "Luna Eletrônicos (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:45",
+      "inicio_atendimento": "10:45",
+      "saida": "11:00",
+      "compras": [
+        {
+          "produto_id": "P039",
+          "nome": "Perfume Feminino Floral 100ml",
+          "quantidade": 1,
+          "preco_usd": 86.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "11:02",
+      "inicio_atendimento": "11:02",
+      "saida": "11:22",
+      "compras": [
+        {
+          "produto_id": "P047",
+          "nome": "Secador de Cabelo Profissional",
+          "quantidade": 1,
+          "preco_usd": 68.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L007",
+      "nome": "Flash Games (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "11:31",
+      "inicio_atendimento": "11:31",
+      "saida": "11:41",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 30.9
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L019",
+      "nome": "Max Mix (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "11:49",
+      "inicio_atendimento": "11:49",
+      "saida": "12:04",
+      "compras": [
+        {
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
+          "quantidade": 1,
+          "preco_usd": 72.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.09605544999999438,
+    "big_m": 289.4793351288936,
+    "objetivo_modelo": 16.27291282860215,
+    "limitante": 16.27291282860215,
+    "n_variaveis": 129,
+    "n_restricoes": 149,
+    "tempo_andando_antes_polimento": 50.194298219293756,
+    "tempo_andando_depois_polimento": 50.194298219293756,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.022272984999972323
+  }
+}

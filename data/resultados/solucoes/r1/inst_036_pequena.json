@@ -1,0 +1,76 @@
+{
+  "instancia": "inst_036_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 9,
+    "itens_comprados": 2,
+    "gasto_produtos": 124.89,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 124.89,
+    "tempo_andando": 23.255,
+    "retorno": 583.255,
+    "peso_kg": 0.85,
+    "volume_l": 1.6,
+    "lambda_": 0.002,
+    "objetivo": 8.7104
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 150.61,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "15:00",
+  "horario_retorno": "09:43",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L035",
+      "nome": "Smart Digital (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "09:12",
+      "inicio_atendimento": "09:12",
+      "saida": "09:32",
+      "compras": [
+        {
+          "produto_id": "P012",
+          "nome": "Caixa de Som Portátil Mini",
+          "quantidade": 1,
+          "preco_usd": 46.99
+        },
+        {
+          "produto_id": "P041",
+          "nome": "Perfume Masculino Amadeirado 100ml",
+          "quantidade": 1,
+          "preco_usd": 77.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P073",
+      "nome": "Mala de Bordo 10kg",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.019297269999924538,
+    "big_m": 409.4753520292039,
+    "objetivo_modelo": 8.710433707801123,
+    "limitante": 8.710433707801123,
+    "n_variaveis": 40,
+    "n_restricoes": 50,
+    "tempo_andando_antes_polimento": 23.25501075186686,
+    "tempo_andando_depois_polimento": 23.25501075186686,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.538300011816318e-05
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "instancia": "inst_008_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 6,
+    "itens_comprados": 3,
+    "gasto_produtos": 84.88,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 84.88,
+    "tempo_andando": 30.2569,
+    "retorno": 535.2569,
+    "peso_kg": 1.52,
+    "volume_l": 5.2,
+    "lambda_": 0.0043,
+    "objetivo": 5.6044
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 135.21,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "14:00",
+  "horario_retorno": "08:55",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L040",
+      "nome": "Super Bazar (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "07:42",
+      "inicio_atendimento": "07:42",
+      "saida": "08:07",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 18.99
+        },
+        {
+          "produto_id": "P057",
+          "nome": "Copo Térmico 473ml",
+          "quantidade": 1,
+          "preco_usd": 24.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L050",
+      "nome": "Ultra Outlet (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "08:13",
+      "inicio_atendimento": "08:13",
+      "saida": "08:43",
+      "compras": [
+        {
+          "produto_id": "P061",
+          "nome": "Brinquedo Blocos de Montar 500pç",
+          "quantidade": 1,
+          "preco_usd": 40.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P041",
+      "nome": "Perfume Masculino Amadeirado 100ml",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.01539022399992973,
+    "big_m": 436.67690896446004,
+    "objetivo_modelo": 5.604448943684929,
+    "limitante": 5.604448943684929,
+    "n_variaveis": 43,
+    "n_restricoes": 53,
+    "tempo_andando_antes_polimento": 30.256949485581295,
+    "tempo_andando_depois_polimento": 30.256949485581295,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.4401000044017565e-05
+  }
+}

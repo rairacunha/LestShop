@@ -1,0 +1,92 @@
+{
+  "instancia": "inst_022_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 9,
+    "itens_comprados": 2,
+    "gasto_produtos": 118.8,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 118.8,
+    "tempo_andando": 37.8173,
+    "retorno": 552.8173,
+    "peso_kg": 1.15,
+    "volume_l": 1.5,
+    "lambda_": 0.005,
+    "objetivo": 8.3549
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 122.82,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "13:00",
+  "horario_retorno": "09:13",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L029",
+      "nome": "Royal Center (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "08:12",
+      "inicio_atendimento": "08:12",
+      "saida": "08:32",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 26.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L014",
+      "nome": "Luna Eletrônicos (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "08:40",
+      "inicio_atendimento": "08:40",
+      "saida": "08:55",
+      "compras": [
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 91.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P057",
+      "nome": "Copo Térmico 473ml",
+      "prioridade": 1
+    },
+    {
+      "produto_id": "P059",
+      "nome": "Vara de Pesca Telescópica",
+      "prioridade": 3
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.010671859000012773,
+    "big_m": 355.7534247889471,
+    "objetivo_modelo": 8.354922433759876,
+    "limitante": 8.354922433759876,
+    "n_variaveis": 34,
+    "n_restricoes": 42,
+    "tempo_andando_antes_polimento": 37.817286879445746,
+    "tempo_andando_depois_polimento": 37.817286879445746,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 4.346900004748022e-05
+  }
+}

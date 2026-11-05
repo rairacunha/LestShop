@@ -1,0 +1,155 @@
+{
+  "instancia": "inst_073_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 29,
+    "itens_comprados": 7,
+    "gasto_produtos": 930.78,
+    "excedente": 630.78,
+    "imposto": 315.39,
+    "custo_total": 1246.17,
+    "tempo_andando": 48.6884,
+    "retorno": 698.6884,
+    "peso_kg": 18.8,
+    "volume_l": 140.9,
+    "lambda_": 0.0008,
+    "objetivo": 28.0239
+  },
+  "situacao_cota": "excede a cota em US$ 630.78 (imposto US$ 315.39)",
+  "cota_disponivel_usd": 300.0,
+  "orcamento_usd": 1275.68,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "16:00",
+  "horario_retorno": "11:39",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L035",
+      "nome": "Smart Digital (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "09:12",
+      "inicio_atendimento": "09:12",
+      "saida": "09:32",
+      "compras": [
+        {
+          "produto_id": "P041",
+          "nome": "Perfume Masculino Amadeirado 100ml",
+          "quantidade": 1,
+          "preco_usd": 77.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L030",
+      "nome": "Royal Eletrônicos (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:39",
+      "inicio_atendimento": "09:39",
+      "saida": "10:04",
+      "compras": [
+        {
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
+          "quantidade": 1,
+          "preco_usd": 61.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:05",
+      "inicio_atendimento": "10:05",
+      "saida": "10:15",
+      "compras": [
+        {
+          "produto_id": "P031",
+          "nome": "Mouse Sem Fio",
+          "quantidade": 1,
+          "preco_usd": 14.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L014",
+      "nome": "Luna Eletrônicos (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:25",
+      "inicio_atendimento": "10:25",
+      "saida": "10:40",
+      "compras": [
+        {
+          "produto_id": "P006",
+          "nome": "Celular Modelo D 5G 128GB",
+          "quantidade": 1,
+          "preco_usd": 305.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L022",
+      "nome": "Mega Bazar (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "10:45",
+      "inicio_atendimento": "10:45",
+      "saida": "10:55",
+      "compras": [
+        {
+          "produto_id": "P007",
+          "nome": "Smartwatch Esportivo S1",
+          "quantidade": 1,
+          "preco_usd": 90.0
+        },
+        {
+          "produto_id": "P019",
+          "nome": "Smart TV 50\" 4K",
+          "quantidade": 1,
+          "preco_usd": 342.9
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L049",
+      "nome": "Ultra Games (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "10:56",
+      "inicio_atendimento": "10:56",
+      "saida": "11:26",
+      "compras": [
+        {
+          "produto_id": "P059",
+          "nome": "Vara de Pesca Telescópica",
+          "quantidade": 1,
+          "preco_usd": 38.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.07231161599997904,
+    "big_m": 485.6519480577015,
+    "objetivo_modelo": 28.0238979227371,
+    "limitante": 28.0238979227371,
+    "n_variaveis": 180,
+    "n_restricoes": 204,
+    "tempo_andando_antes_polimento": 48.68836178550802,
+    "tempo_andando_depois_polimento": 48.68836178550802,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.03712563199997021
+  }
+}

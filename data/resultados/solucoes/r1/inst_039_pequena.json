@@ -1,0 +1,87 @@
+{
+  "instancia": "inst_039_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 7,
+    "itens_comprados": 2,
+    "gasto_produtos": 994.99,
+    "excedente": 494.99,
+    "imposto": 247.5,
+    "custo_total": 1242.49,
+    "tempo_andando": 42.6582,
+    "retorno": 572.6582,
+    "peso_kg": 3.5,
+    "volume_l": 13.5,
+    "lambda_": 0.0007,
+    "objetivo": 6.1351
+  },
+  "situacao_cota": "excede a cota em US$ 494.99 (imposto US$ 247.50)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 1244.82,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "09:33",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:19",
+      "inicio_atendimento": "08:19",
+      "saida": "08:49",
+      "compras": [
+        {
+          "produto_id": "P023",
+          "nome": "Console Portátil Híbrido",
+          "quantidade": 1,
+          "preco_usd": 328.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L025",
+      "nome": "Mega Tech (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:00",
+      "inicio_atendimento": "09:00",
+      "saida": "09:20",
+      "compras": [
+        {
+          "produto_id": "P028",
+          "nome": "Notebook Ultrafino 16GB/512GB",
+          "quantidade": 1,
+          "preco_usd": 666.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P043",
+      "nome": "Perfume Árabe Unissex 100ml",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.01406232599993018,
+    "big_m": 305.7534247889471,
+    "objetivo_modelo": 6.1350612802200875,
+    "limitante": 6.1350612802200875,
+    "n_variaveis": 41,
+    "n_restricoes": 51,
+    "tempo_andando_antes_polimento": 42.658248623390456,
+    "tempo_andando_depois_polimento": 42.658248623390456,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.3482999975167331e-05
+  }
+}

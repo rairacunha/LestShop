@@ -1,0 +1,133 @@
+{
+  "instancia": "inst_059_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 21,
+    "itens_comprados": 6,
+    "gasto_produtos": 1126.49,
+    "excedente": 826.49,
+    "imposto": 413.25,
+    "custo_total": 1539.74,
+    "tempo_andando": 90.5404,
+    "retorno": 650.5404,
+    "peso_kg": 6.35,
+    "volume_l": 23.7,
+    "lambda_": 0.0004,
+    "objetivo": 20.3374
+  },
+  "situacao_cota": "excede a cota em US$ 826.49 (imposto US$ 413.25)",
+  "cota_disponivel_usd": 300.0,
+  "orcamento_usd": 2322.61,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "13:00",
+  "horario_retorno": "10:51",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L035",
+      "nome": "Smart Digital (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:12",
+      "inicio_atendimento": "08:12",
+      "saida": "08:32",
+      "compras": [
+        {
+          "produto_id": "P059",
+          "nome": "Vara de Pesca Telescópica",
+          "quantidade": 1,
+          "preco_usd": 43.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:33",
+      "inicio_atendimento": "08:33",
+      "saida": "08:43",
+      "compras": [
+        {
+          "produto_id": "P003",
+          "nome": "Celular Modelo B Pro 256GB",
+          "quantidade": 1,
+          "preco_usd": 587.9
+        },
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 42.9
+        },
+        {
+          "produto_id": "P038",
+          "nome": "Memória RAM 16GB DDR5",
+          "quantidade": 1,
+          "preco_usd": 51.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L047",
+      "nome": "Top Mix (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "09:07",
+      "inicio_atendimento": "09:07",
+      "saida": "09:27",
+      "compras": [
+        {
+          "produto_id": "P065",
+          "nome": "Robô Aspirador",
+          "quantidade": 1,
+          "preco_usd": 204.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L026",
+      "nome": "Nova Tech (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "09:42",
+      "inicio_atendimento": "09:42",
+      "saida": "10:12",
+      "compras": [
+        {
+          "produto_id": "P001",
+          "nome": "Celular Modelo A 128GB",
+          "quantidade": 1,
+          "preco_usd": 194.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P029",
+      "nome": "Notebook Gamer RTX 16GB/1TB",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.05898255099987182,
+    "big_m": 368.16305367697635,
+    "objetivo_modelo": 20.337352223479844,
+    "limitante": 20.337352223479844,
+    "n_variaveis": 161,
+    "n_restricoes": 183,
+    "tempo_andando_antes_polimento": 90.54042810305123,
+    "tempo_andando_depois_polimento": 90.54042810305123,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.01658739999993486
+  }
+}

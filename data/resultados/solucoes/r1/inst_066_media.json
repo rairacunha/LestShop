@@ -1,0 +1,138 @@
+{
+  "instancia": "inst_066_media",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 17,
+    "itens_comprados": 6,
+    "gasto_produtos": 325.69,
+    "excedente": 25.69,
+    "imposto": 12.84,
+    "custo_total": 338.53,
+    "tempo_andando": 52.0187,
+    "retorno": 637.0187,
+    "peso_kg": 5.3,
+    "volume_l": 16.9,
+    "lambda_": 0.0012,
+    "objetivo": 16.5414
+  },
+  "situacao_cota": "excede a cota em US$ 25.69 (imposto US$ 12.84)",
+  "cota_disponivel_usd": 300.0,
+  "orcamento_usd": 370.55,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "16:00",
+  "horario_retorno": "10:37",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L006",
+      "nome": "Delta Tech (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "08:12",
+      "inicio_atendimento": "08:12",
+      "saida": "08:22",
+      "compras": [
+        {
+          "produto_id": "P055",
+          "nome": "Espumante Brut 750ml",
+          "quantidade": 1,
+          "preco_usd": 18.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L017",
+      "nome": "Max Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "08:23",
+      "inicio_atendimento": "08:23",
+      "saida": "08:48",
+      "compras": [
+        {
+          "produto_id": "P061",
+          "nome": "Brinquedo Blocos de Montar 500pç",
+          "quantidade": 1,
+          "preco_usd": 41.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L044",
+      "nome": "Super Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "08:49",
+      "inicio_atendimento": "08:49",
+      "saida": "09:19",
+      "compras": [
+        {
+          "produto_id": "P024",
+          "nome": "Controle Sem Fio Console",
+          "quantidade": 1,
+          "preco_usd": 60.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L042",
+      "nome": "Super Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:26",
+      "inicio_atendimento": "09:26",
+      "saida": "09:41",
+      "compras": [
+        {
+          "produto_id": "P049",
+          "nome": "Barbeador Elétrico",
+          "quantidade": 1,
+          "preco_usd": 74.0
+        },
+        {
+          "produto_id": "P063",
+          "nome": "Carrinho Controle Remoto",
+          "quantidade": 1,
+          "preco_usd": 55.9
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:55",
+      "inicio_atendimento": "09:55",
+      "saida": "10:20",
+      "compras": [
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 74.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.14622602500003268,
+    "big_m": 529.4793351288936,
+    "objetivo_modelo": 16.541361351693503,
+    "limitante": 16.541361351693503,
+    "n_variaveis": 131,
+    "n_restricoes": 151,
+    "tempo_andando_antes_polimento": 52.018740965400454,
+    "tempo_andando_depois_polimento": 52.018740965400454,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.04389438699990933
+  }
+}

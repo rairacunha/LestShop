@@ -1,0 +1,154 @@
+{
+  "instancia": "inst_072_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 21,
+    "itens_comprados": 6,
+    "gasto_produtos": 268.68,
+    "excedente": 118.68,
+    "imposto": 59.34,
+    "custo_total": 328.02,
+    "tempo_andando": 55.8019,
+    "retorno": 645.8019,
+    "peso_kg": 6.7,
+    "volume_l": 15.9,
+    "lambda_": 0.0028,
+    "objetivo": 20.0895
+  },
+  "situacao_cota": "excede a cota em US$ 118.68 (imposto US$ 59.34)",
+  "cota_disponivel_usd": 150.0,
+  "orcamento_usd": 359.28,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "16:00",
+  "horario_retorno": "10:46",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L040",
+      "nome": "Super Bazar (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "07:42",
+      "inicio_atendimento": "07:42",
+      "saida": "08:07",
+      "compras": [
+        {
+          "produto_id": "P057",
+          "nome": "Copo Térmico 473ml",
+          "quantidade": 1,
+          "preco_usd": 24.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L011",
+      "nome": "Gold Digital (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "08:13",
+      "inicio_atendimento": "08:13",
+      "saida": "08:43",
+      "compras": [
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 77.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "08:48",
+      "inicio_atendimento": "08:48",
+      "saida": "09:18",
+      "compras": [
+        {
+          "produto_id": "P055",
+          "nome": "Espumante Brut 750ml",
+          "quantidade": 1,
+          "preco_usd": 18.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:29",
+      "inicio_atendimento": "09:29",
+      "saida": "09:59",
+      "compras": [
+        {
+          "produto_id": "P066",
+          "nome": "Liquidificador Potente 1200W",
+          "quantidade": 1,
+          "preco_usd": 52.9
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "10:04",
+      "inicio_atendimento": "10:04",
+      "saida": "10:29",
+      "compras": [
+        {
+          "produto_id": "P031",
+          "nome": "Mouse Sem Fio",
+          "quantidade": 1,
+          "preco_usd": 14.9
+        },
+        {
+          "produto_id": "P033",
+          "nome": "SSD Externo 1TB",
+          "quantidade": 1,
+          "preco_usd": 79.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P027",
+      "nome": "Headset Gamer 7.1",
+      "prioridade": 2
+    },
+    {
+      "produto_id": "P041",
+      "nome": "Perfume Masculino Amadeirado 100ml",
+      "prioridade": 2
+    },
+    {
+      "produto_id": "P060",
+      "nome": "Barraca Camping 4 Pessoas",
+      "prioridade": 2
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.09070749800002886,
+    "big_m": 575.7534247889471,
+    "objetivo_modelo": 20.089541467747306,
+    "limitante": 20.089541467747306,
+    "n_variaveis": 185,
+    "n_restricoes": 209,
+    "tempo_andando_antes_polimento": 69.81201238639125,
+    "tempo_andando_depois_polimento": 55.80190749097123,
+    "polimento": "exato",
+    "polimento_aceito": true,
+    "tempo_polimento_s": 0.03899846800004525
+  }
+}

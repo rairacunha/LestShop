@@ -1,0 +1,167 @@
+{
+  "instancia": "inst_052_media",
+  "origem": "exato",
+  "r_usd_por_min": 1.0,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 23,
+    "itens_comprados": 8,
+    "gasto_produtos": 379.78,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 379.78,
+    "tempo_andando": 50.0469,
+    "retorno": 635.0469,
+    "peso_kg": 5.82,
+    "volume_l": 16.2,
+    "lambda_": 0.0014,
+    "objetivo": 22.3972
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 442.05,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "12:00",
+  "horario_retorno": "10:35",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L025",
+      "nome": "Mega Tech (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "07:43",
+      "inicio_atendimento": "07:43",
+      "saida": "08:03",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 32.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "08:08",
+      "inicio_atendimento": "08:08",
+      "saida": "08:38",
+      "compras": [
+        {
+          "produto_id": "P007",
+          "nome": "Smartwatch Esportivo S1",
+          "quantidade": 1,
+          "preco_usd": 92.0
+        },
+        {
+          "produto_id": "P069",
+          "nome": "Óculos de Sol Polarizado",
+          "quantidade": 1,
+          "preco_usd": 61.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "08:41",
+      "inicio_atendimento": "08:41",
+      "saida": "09:01",
+      "compras": [
+        {
+          "produto_id": "P066",
+          "nome": "Liquidificador Potente 1200W",
+          "quantidade": 1,
+          "preco_usd": 48.99
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L036",
+      "nome": "Smart Games (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "09:03",
+      "inicio_atendimento": "09:03",
+      "saida": "09:28",
+      "compras": [
+        {
+          "produto_id": "P025",
+          "nome": "Jogo Mídia Física Lançamento",
+          "quantidade": 1,
+          "preco_usd": 53.99
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:35",
+      "inicio_atendimento": "09:35",
+      "saida": "09:45",
+      "compras": [
+        {
+          "produto_id": "P031",
+          "nome": "Mouse Sem Fio",
+          "quantidade": 1,
+          "preco_usd": 14.0
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:46",
+      "inicio_atendimento": "09:46",
+      "saida": "10:16",
+      "compras": [
+        {
+          "produto_id": "P012",
+          "nome": "Caixa de Som Portátil Mini",
+          "quantidade": 1,
+          "preco_usd": 43.0
+        },
+        {
+          "produto_id": "P043",
+          "nome": "Perfume Árabe Unissex 100ml",
+          "quantidade": 1,
+          "preco_usd": 33.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P071",
+      "nome": "Tênis Esportivo Corrida",
+      "prioridade": 1
+    }
+  ],
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 1.2418961689998014,
+    "big_m": 335.7534247889471,
+    "objetivo_modelo": 22.39719945622003,
+    "limitante": 22.39719945622003,
+    "n_variaveis": 275,
+    "n_restricoes": 305,
+    "tempo_andando_antes_polimento": 50.046927742306934,
+    "tempo_andando_depois_polimento": 50.046927742306934,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.04875814300021375
+  }
+}

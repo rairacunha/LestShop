@@ -1,13 +1,18 @@
-# LesteShop — Fase 1: base de ofertas de Ciudad del Este
+# LesteShop — base de ofertas de Ciudad del Este e modelo de otimização
 
 Projeto da disciplina de **Pesquisa Operacional II**. Objetivo final: o turista informa o que
 quer comprar em Ciudad del Este e o app devolve onde comprar, o roteiro, o gasto total e a
 situação frente à cota de isenção. O problema por trás é o *Traveling Purchaser Problem*
 (Laporte, Riera-Ledesma e Salazar-González, 2003).
 
-Seguindo o modelo cascata, **este repositório contém apenas a Fase 1**: coleta, validação, banco de
-dados, catálogo de modelos e gerador de instâncias. Otimização, rotas, impostos e telas
-estão em [`docs/pendencias.md`](docs/pendencias.md).
+Seguindo o modelo cascata, o repositório contém:
+
+* **Fase 1** — coleta, validação, banco de dados, catálogo de modelos e gerador de instâncias;
+* **Fase 2** — modelo de otimização: TPP com mochila, cota de isenção, imposto sobre o
+  excedente e janelas de tempo (PuLP + CBC e heurística). Ver
+  [Fase 2](#fase-2--modelo-de-otimização) e [`docs/modelo_matematico.md`](docs/modelo_matematico.md).
+
+Regras fiscais detalhadas e telas do app estão em [`docs/pendencias.md`](docs/pendencias.md).
 
 ## Estrutura
 
@@ -18,6 +23,7 @@ LestShop/
 │   ├── raw/                  base fictícia: 50 lojas, 73 produtos, 613 ofertas (sintetico)
 │   ├── coletas/<data>/       coletas reais salvas em CSV (criada na primeira coleta)
 │   ├── instances/            100 instâncias de teste (inst_001…inst_100) + geradas pelo generator
+│   ├── resultados/           resultados dos experimentos da Fase 2 (CSV, soluções JSON, resumo)
 │   ├── catalogo_modelos.csv  catálogo versionado (atualizado pelo GitHub Actions)
 │   ├── lojas_complemento.csv coordenadas/prédios preenchidos à mão
 │   ├── lesteshop.db          SQLite (não versionado; recriado a partir dos CSVs)
@@ -32,6 +38,8 @@ LestShop/
 │   ├── validator.py          validação
 │   ├── generator.py          instâncias sintéticas
 │   └── resumo.py             resumo da base + exportação
+├── src/lesteshop/otimizacao/ Fase 2: distancias, instancia, rota, solucao, modelo,
+│                             heuristica, resolver (comando), experimentos
 ├── tests/                    pytest (fixtures HTML em tests/fixtures/)
 └── docs/                     dicionário de dados, origem dos dados, pendências
 ```
@@ -199,8 +207,59 @@ python -m lesteshop.data.cotacao              # PTAX de venda de hoje ou do últ
 
 Todos os cálculos são feitos em US$; a cotação serve apenas para exibir valores em R$.
 
+## Fase 2 — Modelo de otimização
+
+O turista sai da Ponte da Amizade, visita lojas e volta. O modelo escolhe quais itens
+comprar (pode deixar itens de fora se o orçamento ou o horário não comportarem), em qual
+loja e em que ordem visitar, com uma única função objetivo:
+
+```
+max  Σ prioridade·comprado  −  λ·( gasto + 50%·excedente da cota  +  r·minutos andando )
+λ = 1 / (orçamento + r·(saída − chegada) + 1)
+```
+
+λ garante que gasto e tempo valham menos que 1 ponto de prioridade; r (padrão
+US$ 0,25/min) é quanto o turista aceita pagar para andar 1 minuto a menos. Formulação
+completa, dedução de λ, big-M e hipóteses em [`docs/modelo_matematico.md`](docs/modelo_matematico.md).
+
+```bash
+# resolver uma instância (heurística → modelo exato com warm start → polimento da rota)
+python -m lesteshop.otimizacao.resolver data/instances/inst_001_pequena
+
+# variações
+python -m lesteshop.otimizacao.resolver data/instances/inst_081_grande --r 1 --json saida.json
+python -m lesteshop.otimizacao.resolver data/instances/inst_002_pequena --sem-orcamento
+python -m lesteshop.otimizacao.resolver data/instances/inst_010_pequena --peso-max 10 --volume-max 40
+
+# experimentos: 100 instâncias com r = 0,25 + sensibilidade r = 0 e r = 1 (pequenas e médias)
+python -m lesteshop.otimizacao.experimentos --processos 3
+python -m lesteshop.otimizacao.experimentos --so-resumo   # refaz só o resumo
+```
+
+A saída mostra os itens com loja e preço, o roteiro com horários, os itens deixados de
+fora, o gasto, o imposto, a situação da cota, o tempo andando (antes e depois do polimento),
+o peso e o volume da bagagem e o status do solver (gap, tempo, M). Os experimentos gravam
+`data/resultados/resultados_fase2.csv`, `data/resultados/solucoes/r<r>/<instância>.json` e
+`data/resultados/resumo_experimentos.md`.
+
+Em Python:
+
+```python
+from lesteshop.otimizacao.instancia import carregar_instancia
+from lesteshop.otimizacao.resolver import resolver
+from lesteshop.otimizacao.solucao import descrever
+
+inst = carregar_instancia("data/instances/inst_001_pequena")   # orcamento=None: sem orçamento
+solucao, solucao_heuristica = resolver(inst, r=0.25)
+descrever(solucao, inst)   # dicionário com itens, roteiro, gasto, imposto e cota
+```
+
+O solver é o CBC que vem com o PuLP (`pulp>=2.7,<4`; o PuLP 4 não traz mais o CBC).
+
 ## Documentação
 
 * [Dicionário de dados](docs/dicionario_de_dados.md)
+* [Modelo matemático da Fase 2](docs/modelo_matematico.md)
+* [Resultados dos experimentos da Fase 2](data/resultados/resumo_experimentos.md)
 * [Origem dos dados e limitações](docs/origem_dos_dados.md)
 * [Pendências para as próximas fases](docs/pendencias.md)
