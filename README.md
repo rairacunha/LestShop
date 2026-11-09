@@ -261,5 +261,6 @@ O solver é o CBC que vem com o PuLP (`pulp>=2.7,<4`; o PuLP 4 não traz mais o 
 * [Dicionário de dados](docs/dicionario_de_dados.md)
 * [Modelo matemático da Fase 2](docs/modelo_matematico.md)
 * [Resultados dos experimentos da Fase 2](data/resultados/resumo_experimentos.md)
+* [Handoff para a Fase 3](docs/handoff_fase3.md)
 * [Origem dos dados e limitações](docs/origem_dos_dados.md)
 * [Pendências para as próximas fases](docs/pendencias.md)

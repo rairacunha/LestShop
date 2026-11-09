@@ -1,7 +1,10 @@
 # Pendências para as próximas fases
 
-Itens percebidos durante a Fase 1 que **não** foram implementados por pertencerem a
+Itens percebidos durante as Fases 1 e 2 que **não** foram implementados por pertencerem a
 outras fases do modelo cascata.
+
+> **Regra:** nada desta lista é implementado sem autorização explícita da dona do projeto.
+> O objetivo é manter o app o mais simples possível.
 
 ## Fase 2 — Modelo de otimização (TPP) — concluída
 
@@ -14,18 +17,22 @@ Implementada em `src/lesteshop/otimizacao/`, formulação em
 * orçamento opcional (B = cota se não informado), limite rígido de preço + imposto;
   itens podem ficar de fora (mochila); prioridade 1–5 = v_k;
 * imposto de 50% sobre o excedente da cota, sempre reexibido como α·max(0, G − c);
-* tempos: haversine × 1,3 ÷ 75 m/min, 1 min no mesmo prédio (exceto "Rua");
+* tempos: haversine × 1,3 ÷ 75 m/min (média, sem considerar o relevo), 1 min no mesmo
+  prédio (exceto "Rua"); permanência fixa por loja, sem depender da quantidade de itens;
 * janelas de tempo completas (turista + lojas, com espera), padrões 07:00–16:00 e
   20 min; big-M por instância M = max(fecha) + max(s) + max(t) − min(abre);
 * PuLP + CBC com a heurística como solução inicial; 60 s (pequenas/médias) e 300 s
-  (grandes); polimento da ordem de visita (exato até 10 lojas, senão 2-opt);
+  (grandes), **mantidos** mesmo quando uma instância para no limite: o gap é reportado
+  (`status`, `gap` e `tempo_exato_s` em `resultados_fase2.csv`; distribuição dos gaps no
+  resumo); polimento da ordem de visita (exato até 10 lojas, senão 2-opt);
 * bagagem (peso/volume) opcional e desligada por padrão; totais sempre exibidos;
 * lojas com coordenada pendente excluídas com aviso dos itens afetados; oferta
   repetida na mesma loja usa o menor preço; quantidade comprada toda numa loja.
 
 ### Ficou para depois (percebido na Fase 2)
 
-* **Formulação mais forte para casos difíceis.** Em 1 das 100 instâncias
+* **Formulação mais forte para casos difíceis** (não implementar; o limite de 60 s foi
+  mantido e o gap é reportado). Em 1 das 100 instâncias
   (`inst_075_media`) o CBC para no limite de 60 s com gap de ~3,9% (a heurística acha
   a mesma incumbente, mas o limitante não descarta 1 ponto a mais de prioridade). Com
   600 s o CBC prova o ótimo em ~390 s (a incumbente já era ótima). Um big-M por arco
@@ -39,8 +46,8 @@ Implementada em `src/lesteshop/otimizacao/`, formulação em
   coordenadas reais de lojas.
 * **Fila da aduana / travessia da Ponte.** H⁰ e H¹ são horários no lado paraguaio; a
   espera não é modelada.
-* **Permanência por item** (hoje é por loja, independente do número de compras) e
-  **estoque** (hoje cada item é comprado inteiro numa única loja).
+* **Estoque** (hoje cada item é comprado inteiro numa única loja). Permanência por item:
+  ver "Melhorias futuras".
 * **Rodar os experimentos com dados reais** quando a coleta do Compras Paraguai
   for executada (a Fase 2 usou só a base fictícia).
 
@@ -82,7 +89,23 @@ Implementada em `src/lesteshop/otimizacao/`, formulação em
 
 ## Melhorias futuras (depois que o app estiver funcionando)
 
-Registradas para não se perderem; **não implementar antes disso**.
+Registradas para não se perderem. **Nenhuma delas deve ser implementada sem autorização
+explícita** (código, modelo e parâmetros continuam como aprovados na Fase 2).
+
+* **Calibrar o fator de circuidade** (hoje 1,3) comparando a distância em linha reta com
+  a rota a pé real (Google Maps) numa amostra de pares de lojas.
+* **Velocidade a pé menor nas subidas.** Ciudad del Este tem muitas ladeiras; a
+  velocidade poderia depender da declividade do trecho, pela função de caminhada de
+  Tobler (TOBLER, W. *Three presentations on geographical analysis and modeling*.
+  NCGIA Technical Report 93-1, 1993). Hoje 75 m/min é uma média única.
+* **Reotimização dinâmica da rota** a partir da localização e do horário atuais do
+  usuário, durante o passeio (PILLAC, V. et al. A review of dynamic vehicle routing
+  problems. *European Journal of Operational Research*, v. 225, n. 1, p. 1–11, 2013).
+* **Permanência por loja = tempo fixo + tempo por item comprado** (hoje é só o tempo
+  fixo da loja).
+* **Heurística como Iterated Local Search (ILS):** construção gulosa + 2-opt +
+  perturbação + critério de aceitação, conforme a aula de ILS (hoje é construção gulosa
+  + busca local até não haver melhora, sem perturbação).
 
 * **Objetivo lexicográfico em 3 níveis.** 1º maximizar a prioridade; 2º, com a
   prioridade fixada, minimizar gasto + imposto; 3º, com o gasto fixado (com tolerância

@@ -14,6 +14,20 @@ Tempos são de relógio (wall clock), com as instâncias rodando em paralelo; a 
 | media | 35 | 9.7 / 14 | 7.0 / 10 | 156 | 34 | 1 | 0.112 / 3.910 | 2.20 / 0.10 / 60.11 | 412 |
 | grande | 25 | 27.2 / 35 | 9.9 / 15 | 911 | 25 | 0 | 0.000 / 0.000 | 4.15 / 2.85 / 21.98 | 394 |
 
+### Distribuição dos gaps das instâncias que atingiram o limite de tempo
+
+| tamanho | r | rodadas | atingiram o limite | gap mín / mediana / méd / máx (%) | gap < 1% | 1% ≤ gap < 5% | gap ≥ 5% |
+|---|---|---|---|---|---|---|---|
+| pequena | 0.0 | 40 | 0 | — | 0 | 0 | 0 |
+| pequena | 0.25 | 40 | 0 | — | 0 | 0 | 0 |
+| pequena | 1.0 | 40 | 0 | — | 0 | 0 | 0 |
+| media | 0.0 | 35 | 1 | 3.92 / 3.92 / 3.92 / 3.92 | 0 | 1 | 0 |
+| media | 0.25 | 35 | 1 | 3.91 / 3.91 / 3.91 / 3.91 | 0 | 1 | 0 |
+| media | 1.0 | 35 | 1 | 3.89 / 3.89 / 3.89 / 3.89 | 0 | 1 | 0 |
+| grande | 0.25 | 25 | 0 | — | 0 | 0 | 0 |
+
+Status, gap e tempo de cada rodada estão nas colunas `status`, `gap` e `tempo_exato_s` de `resultados_fase2.csv`.
+
 Instâncias que pararam no limite de tempo (todas as rodadas de r). Como custo e tempo valem menos que 1 ponto, uma solução de prioridade P tem objetivo em (P − 1, P]; se o limitante for ≤ P, nenhuma solução com prioridade maior existe e a prioridade máxima está provada.
 
 | instância | r | lojas | itens | objetivo | limitante | gap (%) | prioridade | prioridade máxima provada | heurística = incumbente |

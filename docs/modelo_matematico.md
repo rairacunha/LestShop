@@ -128,9 +128,12 @@ t_ij = haversine(i, j) × 1,3 ÷ 75 m/min
 * **haversine**: distância geodésica entre as coordenadas (raio da Terra 6.371 km);
 * **1,3**: fator de circuidade, a razão entre a distância pela rede de ruas e a
   distância em linha reta. Ballou, Rahardja e Sakai (2002) estimam esse fator para
-  vários países. Adotamos 1,3 como valor típico de malha urbana; o valor fica em
-  `config.FATOR_CIRCUIDADE` e deve ser confirmado com o professor;
-* **75 m/min** = 4,5 km/h, velocidade de caminhada;
+  vários países. Adotamos 1,3 como valor típico de malha urbana (aprovado com o
+  professor; fica em `config.FATOR_CIRCUIDADE`);
+* **75 m/min** = 4,5 km/h, velocidade **média** de caminhada (aprovada). Ela **não
+  considera o relevo**: Ciudad del Este tem muitas ladeiras, e a velocidade real é menor
+  nas subidas. Ajustar pela declividade (função de Tobler, 1993) está registrado como
+  melhoria futura em `pendencias.md` e não deve ser implementado sem autorização;
 * lojas do **mesmo prédio** (mesmo `predio`, sem diferença de maiúsculas e acentos)
   levam **1 min** fixo. O valor `"Rua (loja de rua)"` não agrupa: lojas de rua usam a
   distância. Entre nós distintos o tempo mínimo é 1 min, o que mantém as
@@ -213,8 +216,8 @@ Nas 100 instâncias, M fica entre cerca de 160 e 580 min (coluna `big_m` de `dat
 * **A fila da aduana não é modelada.** O tempo de travessia e de fiscalização
   (que pode passar de uma hora em dias de movimento) deve ser descontado pelo
   turista ao informar H⁰ e H¹.
-* A permanência s_i é por loja visitada e não depende de quantos itens são
-  comprados nela.
+* A permanência s_i é fixa por loja visitada e não depende de quantos itens são
+  comprados nela (aprovado).
 
 ## 8. Método de solução
 
@@ -225,8 +228,10 @@ Nas 100 instâncias, M fica entre cerca de 160 e 580 min (coluna `big_m` de `dat
    mochila), e 2-opt/realocação na rota. Usa a mesma função objetivo do modelo.
 2. **Modelo exato** (`modelo.py`): PuLP + CBC (1 thread), com a solução da heurística
    como solução inicial (*warm start*). Limite de 60 s nas instâncias pequenas e
-   médias e 300 s nas grandes. São registrados status, gap, limitante, tempo, M e
-   o tamanho do modelo.
+   médias e 300 s nas grandes (aprovado: o limite é mantido mesmo quando a instância
+   não fecha, e o gap é reportado). São registrados status, gap, limitante, tempo, M e
+   o tamanho do modelo; o resumo dos experimentos traz a distribuição dos gaps das
+   instâncias que atingiram o limite.
 3. **Polimento da rota** (`rota.py`), aplicado à solução do modelo e à da
    heurística: mantém as lojas e as compras e reotimiza só a **ordem de visita**,
    de forma exata (PuLP, TSP com janelas) quando há até 10 lojas, ou por
@@ -246,6 +251,9 @@ totais da bagagem (sempre exibidos, mesmo com a restrição desligada) e avisos 
 pré-processamento.
 
 ## Referências
+
+Referências das melhorias futuras (não implementadas): Tobler (1993) e Pillac et al.
+(2013), em `pendencias.md`.
 
 * BALLOU, R. H.; RAHARDJA, H.; SAKAI, N. Selected country circuity factors for road
   travel distance estimation. *Transportation Research Part A: Policy and Practice*,

@@ -184,6 +184,22 @@ def resumo(df: pd.DataFrame, processos: int | None = None) -> str:
         })
     partes += [_md(pd.DataFrame(t1)), ""]
     parou = df[df["status"] != "otimo"]
+    partes += ["### Distribuição dos gaps das instâncias que atingiram o limite de tempo", ""]
+    dist = []
+    for (tam, r), d in df.groupby(["tamanho", "r"], sort=False):
+        g = 100 * d.loc[d["status"] != "otimo", "gap"].dropna()
+        dist.append({
+            "tamanho": tam, "r": r, "rodadas": len(d), "atingiram o limite": len(g),
+            "gap mín / mediana / méd / máx (%)":
+                f"{g.min():.2f} / {g.median():.2f} / {g.mean():.2f} / {g.max():.2f}" if len(g) else "—",
+            "gap < 1%": int((g < 1).sum()), "1% ≤ gap < 5%": int(((g >= 1) & (g < 5)).sum()),
+            "gap ≥ 5%": int((g >= 5).sum()),
+        })
+    dist = pd.DataFrame(dist)
+    dist["ordem"] = dist["tamanho"].map({t: n for n, t in enumerate(TAMANHOS)})
+    partes += [_md(dist.sort_values(["ordem", "r"]).drop(columns="ordem")), "",
+               "Status, gap e tempo de cada rodada estão nas colunas `status`, `gap` e "
+               "`tempo_exato_s` de `resultados_fase2.csv`.", ""]
     if not parou.empty:
         partes += [
             "Instâncias que pararam no limite de tempo (todas as rodadas de r). Como custo e tempo "
