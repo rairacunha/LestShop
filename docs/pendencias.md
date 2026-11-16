@@ -53,11 +53,12 @@ Implementada em `src/lesteshop/otimizacao/`, formulação em
 
 ## Fase 3 — Regras fiscais
 
-* A Fase 2 já usa a regra simples (cota disponível + 50% sobre o excedente, em US$).
-  Falta na Fase 3: conferir a regra na legislação vigente, controlar o uso da cota a cada
-  30 dias (histórico de viagens) e eventuais limites por tipo de item.
-* Limites por quantidade/tipo de item (ex.: bebidas, perfumes, eletrônicos) — conferir a
-  legislação vigente.
+* Levantamento da legislação concluído em
+  [`legislacao_bagagem.md`](legislacao_bagagem.md); decisões de 16/11/2026 na seção 11.
+* Fica **fora** da Fase 3 (decidido): histórico de compras e cota residual entre viagens
+  (cada rota é uma viagem nova, com a cota integral), limites como restrição rígida,
+  quantidade inteira (y_k continua binário), bens de uso pessoal, proibidos ou restritos,
+  e **destinação comercial** (o comércio importa com CNPJ, pelo regime comum).
 
 ## Fase 4 — Aplicativo
 

@@ -8,7 +8,10 @@ redação e a norma que a alterou) e nas páginas do **Guia do Viajante** do gov
 * Data da consulta: **11/11/2026**.
 * Todos os valores estão em **US$** (as normas dizem "ou o equivalente em outra moeda").
 * Os trechos entre aspas são citações literais. Os comentários sobre o LesteShop estão
-  nas seções 9 a 11 e são marcados como **proposta** ou **pergunta**.
+  nas seções 9 a 11.
+* **Decisões de 16/11/2026** (respostas às perguntas da seção 11): premissa da
+  periodicidade confirmada, alerta com o imposto sem cota, destinação comercial **fora do
+  escopo** e excesso de bebidas **só como alerta**.
 
 ## 1. Fontes consultadas
 
@@ -255,10 +258,10 @@ com fins comerciais ou industriais". Consequências:
 de destinação comercial. A frequência aparece apenas na regra de 1 mês da cota (seção 4).
 Como o LesteShop trata cada rota como viagem nova, a frequência não é avaliada.
 
-**Proposta de alerta (sem número legal):** avisar quando a cesta tiver muitas unidades
-idênticas ou quantidade incompatível com uso pessoal. O sinal mais objetivo que a norma
-dá é o próprio limite quantitativo (mais de 3 unidades idênticas, ou mais de 10 no total,
-por via terrestre). Ver pergunta Q3.
+**Decisão (Q3): fora do escopo.** O LesteShop não emite alerta de destinação comercial.
+Quem compra para revender deve importar pelo procedimento próprio do comércio, com CNPJ
+(regime comum; Portaria 440, art. 13, § 2º), e não como bagagem. O app atende o turista
+que compra para uso próprio ou para presentear.
 
 ### 7.3 Cota adicional de free shop de fronteira terrestre
 
@@ -302,12 +305,12 @@ unidades" por via terrestre) estão desatualizadas e foram descartadas.
 | 1 vez a cada 1 mês | não tratada | **premissa** documentada (seção 4) |
 | 50% sobre o excedente | correto | sem mudança |
 | perda da cota ao passar dos limites V e VI | não tratada | **alerta**, com o imposto que seria cobrado sem cota (Q2) |
-| bebidas: 12 litros | não tratada | alerta; excesso vai para o regime comum |
+| bebidas: 12 litros | não tratada | só alerta, informando que o excesso vai para o regime comum (Q4) |
 | outros bens, via terrestre: 10 unidades, até 3 idênticas | não tratada | alerta |
 | bens < US$ 5: 20 unidades, até 10 idênticas | não tratada | alerta (na base fictícia nenhum produto custa menos de US$ 12) |
 | cigarros, charutos, fumo | não há produtos na base | regra fica na tabela, sem produtos mapeados |
 | e-DBV | não tratada | indicação "declaração necessária" se G > cota ou se um limite for ultrapassado |
-| destinação comercial | não tratada | alerta qualitativo (Q3) |
+| destinação comercial | não tratada | **fora do escopo** (Q3: o comércio importa com CNPJ) |
 | free shop de fronteira | — | fora do modelo (lojas no Paraguai); só uma nota |
 
 **Indício na base fictícia** (contagem simples sobre as soluções da Fase 2 com
@@ -317,7 +320,7 @@ têm quantidade 1, nenhuma cesta passa de 3 garrafas (≤ 3 litros) e **3 das 10
 terrestre, essas 3 cestas perderiam a cota. O limite de 10 unidades é, portanto, o que
 deve disparar mais alertas.
 
-## 10. Proposta para a tabela de regras (só para aprovação; nada foi implementado)
+## 10. Proposta para a tabela de regras (nada foi implementado ainda)
 
 Rascunho das linhas de `data/regras_fiscais.csv` (7.2), para mostrar que o levantamento
 cobre todas as colunas previstas no escopo:
@@ -347,18 +350,15 @@ Observações para a 7.2:
   a redação original. A consequência "RTE sem cota" para os limites V e VI vale desde a
   IN RFB 1.831/2018 (DOU 21/09/2018), que incluiu o § 5º no art. 41.
 
-## 11. Perguntas para o professor
+## 11. Decisões (respostas de 16/11/2026)
 
-* **Q1 — Premissa da periodicidade.** Confirmar o texto da seção 4 (cota integral; a
-  cota não foi usada no mês anterior à entrada).
-* **Q2 — Perda da cota.** Quando a cesta passa dos limites V ou VI (ex.: 11 unidades),
-  a norma tira a isenção. Como os limites são só alerta, o alerta deve mostrar também o
-  **imposto sem cota** (0,5·G) ao lado do imposto calculado pelo modelo? Recomendação:
-  sim, em um campo separado, sem mudar a solução nem o objetivo.
-* **Q3 — Destinação comercial.** Como a lei não dá número, usar como gatilho do alerta
-  "mais de 3 unidades idênticas" (o mesmo limite da via terrestre), ou só um texto fixo
-  quando algum limite quantitativo é ultrapassado? Recomendação: a segunda opção, para
-  não inventar um critério que a norma não tem.
-* **Q4 — Excesso de bebidas.** Acima de 12 litros o excesso vai para o regime comum (não
-  dá para regularizar como bagagem). Basta o alerta, ou o texto deve dizer que o turista
-  não deve comprar acima do limite?
+* **Q1 — Premissa da periodicidade: sim.** Cada rota começa com a cota integral de
+  US$ 500, assumindo que a cota não foi usada no mês anterior à entrada (seção 4).
+* **Q2 — Perda da cota: sim.** Quando a cesta passa dos limites V ou VI, o alerta mostra
+  também o **imposto sem cota** (0,5·G), em um campo separado, ao lado do imposto
+  calculado pelo modelo. A solução e a função objetivo não mudam.
+* **Q3 — Destinação comercial: fora do escopo.** Não há alerta. Quem compra para revender
+  usa o procedimento de importação do comércio, com CNPJ (seção 7.2).
+* **Q4 — Excesso de bebidas: só alerta.** O app informa que, acima de 12 litros, o
+  excesso vai para o regime comum, sem recomendar que o turista deixe de comprar: é um
+  risco que ele tem o direito de assumir.
