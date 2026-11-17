@@ -117,16 +117,60 @@ apenas os guarda e valida.
 |---|---|---|
 | nome, tamanho, seed, densidade | — | Identificação e parâmetros de geração |
 | n_lojas, n_produtos, n_ofertas, n_itens_lista | — | Tamanho real da instância |
-| cota_disponivel_usd | US$ | Cota de isenção ainda disponível no mês (500, 300 ou 150) |
 | aliquota_excedente | fração | Imposto sobre o que passar da cota (0,5 = 50%) |
 | orcamento_usd | US$ | Quanto o turista pode gastar |
 | custo_minimo_lista_usd | US$ | Soma dos menores preços dos itens da lista (sem deslocamento) |
-| lista_excede_cota | booleano | `custo_minimo_lista_usd > cota_disponivel_usd` |
+| lista_excede_cota | booleano | `custo_minimo_lista_usd` > cota integral da tabela de regras (US$ 500) |
 | horario_chegada, horario_saida | HH:MM | Janela de tempo do turista em Ciudad del Este |
 | data_geracao, tipo_dado | — | Sempre `sintetico` |
 
+Fase 3: o campo `cota_disponivel_usd` foi removido. A cota vem de
+`data/regras_fiscais.csv` (abaixo); se um `metadata.json` antigo ainda tiver o campo, ele
+é ignorado, com aviso.
+
 **Coluna extra em produtos.csv:** `preco_base_usd` (preço de referência usado só para gerar
 as ofertas fictícias; não é dado de mercado).
+
+## Regras fiscais (Fase 3)
+
+**`data/regras_fiscais.csv`** — uma linha por regra e vigência; para cada `regra_id`
+vale a linha mais recente com `vigencia_inicio` ≤ data de referência (padrão: hoje).
+
+| Campo | Significado |
+|---|---|
+| regra_id | `cota_terrestre`, `bebidas`, `cigarros`, `charutos`, `fumo`, `pequeno_valor_total`, `pequeno_valor_identicos`, `outros_total`, `outros_identicos` |
+| tipo_limite | `valor` (US$), `quantidade` (unidades, maços, gramas) ou `litros` |
+| categoria_fiscal | categoria a que a regra se aplica (`todas` para a cota) |
+| contagem | `total` (soma da categoria) ou `identicos` (cada produto separadamente) |
+| limite, unidade | valor do limite e unidade |
+| via | via de transporte (o projeto usa `terrestre`) |
+| valor_unitario_min_usd, valor_unitario_max_usd | faixa de preço unitário coberta (mínimo inclusivo, máximo exclusivo; vazio = sem limite) |
+| consequencia | `rte_excedente` (50% sobre o que passa da cota), `regime_comum` (o excesso não pode ser regularizado como bagagem) ou `perde_cota` (RTE sobre tudo, sem a cota) |
+| descricao, fonte, vigencia_inicio | texto, norma e dispositivo, data de início (AAAA-MM-DD) |
+
+**`data/categorias_fiscais.csv`** — editável à mão.
+
+| Campo | Significado |
+|---|---|
+| categoria | valor de `produtos.categoria` |
+| produto_id | vazio = vale para a categoria toda; preenchido = só esse produto (tem precedência) |
+| categoria_fiscal | `outros`, `bebidas_alcoolicas`, `cigarros`, `charutos_cigarrilhas`, `fumo` |
+| conteudo_por_unidade | litros de bebida, maços ou gramas por unidade (`produtos.volume_l` é a embalagem, não o conteúdo) |
+| observacao | texto livre |
+
+**Bloco `fiscal` de `descrever()`**: `cota_usd` e `fonte_cota`, `premissa` (cota integral),
+`limites` (por regra: `usado`, `limite`, `unidade`, `situacao` = `abaixo`/`no_limite`/`acima`,
+`consequencia`, `fonte`, produto mais repetido nas regras de idênticos), `limites_ultrapassados`,
+`perde_cota`, `imposto_modelo_usd`, `imposto_sem_cota_usd` (α·G quando a cota é perdida),
+`excesso_regime_comum`, `declaracao_necessaria`, `alertas` e `avisos`.
+
+## Resultados da Fase 3 (`data/resultados/fase3/resultados_fase3.csv`)
+
+Uma linha por instância (r = 0,25), com as mesmas colunas de `resultados_fase2.csv` (a
+coluna `cota` agora é sempre 500) e mais: `excede_cota`, `limites_ultrapassados`
+(regras separadas por `;`), `n_limites_ultrapassados`, `algum_alerta_limite`,
+`perde_cota`, `imposto_sem_cota`, `excesso_regime_comum`, `declaracao_necessaria`,
+`unidades_outros`, `max_identicos_outros`, `unidades_pequeno_valor` e `litros_bebidas`.
 
 ## Resultados da Fase 2 (`data/resultados/resultados_fase2.csv`)
 
@@ -139,7 +183,7 @@ Uma linha por (instância, r). Valores em US$ e minutos. Formulação em
 | n_lojas | Lojas reais da instância (`metadata.json`) |
 | n_lojas_modelo, n_lojas_excluidas | Lojas candidatas após o pré-processamento / excluídas (coordenada pendente ou fora da janela) |
 | n_itens | Itens da lista |
-| cota, orcamento, custo_minimo_lista | Cota disponível, orçamento B, soma dos menores preços da lista |
+| cota, orcamento, custo_minimo_lista | Cota usada na rodada (na Fase 2 vinha do `metadata.json`: 500, 300 ou 150), orçamento B, soma dos menores preços da lista |
 | lambda, big_m | λ = 1/(B + r·T_max + 1) e o big-M usado |
 | n_variaveis, n_restricoes | Tamanho do modelo exato |
 | status | `otimo` ou `viavel (limite de tempo)` |

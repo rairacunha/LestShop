@@ -1,0 +1,21 @@
+categoria,produto_id,categoria_fiscal,conteudo_por_unidade,observacao
+Informática,,outros,,
+Games,,outros,,
+Celulares,,outros,,
+Eletrônicos,,outros,,
+Áudio,,outros,,
+TV,,outros,,
+Perfumes,,outros,,
+Cosméticos,,outros,,
+Beleza,,outros,,
+Moda,,outros,,
+Casa,,outros,,
+Lazer,,outros,,
+Brinquedos,,outros,,
+Bebidas,,bebidas_alcoolicas,,conteúdo em litros por produto (linhas abaixo)
+Bebidas,P050,bebidas_alcoolicas,1.0,Whisky 12 anos 1L
+Bebidas,P051,bebidas_alcoolicas,0.75,Whisky 18 anos 750ml
+Bebidas,P052,bebidas_alcoolicas,1.0,Vodka Premium 1L
+Bebidas,P053,bebidas_alcoolicas,0.75,Gin Importado 750ml
+Bebidas,P054,bebidas_alcoolicas,0.75,Vinho Tinto Reserva 750ml
+Bebidas,P055,bebidas_alcoolicas,0.75,Espumante Brut 750ml

@@ -13,6 +13,11 @@ Pré-processamento (decisões aprovadas):
 * a janela de cada loja é recortada pela janela do turista [H⁰, H¹]; loja cuja
   janela recortada não comporta a permanência fica de fora, com aviso.
 
+Fase 3: a cota de isenção vem da tabela de regras fiscais
+(``data/regras_fiscais.csv``), que é a única fonte desse valor; cada rota é uma
+viagem nova, com a cota integral. Cada item recebe a categoria fiscal de
+``data/categorias_fiscais.csv``, usada só na verificação dos limites (alertas).
+
 Tempos em minutos desde 00:00; dinheiro em US$.
 """
 
@@ -29,6 +34,8 @@ import pandas as pd
 from . import config
 from .distancias import matriz_tempos
 from ..data.sources.fonte_csv import FonteCSV
+from ..fiscal.categorias import MapaCategorias, carregar_categorias
+from ..fiscal.regras import RegrasFiscais, carregar_regras
 
 _DO_METADATA = "instancia"  # sentinela: usar o orçamento do metadata.json
 
@@ -56,6 +63,9 @@ class Item:
     prioridade: int
     peso_kg: float | None
     volume_l: float | None
+    categoria: str | None = None              # produtos.categoria
+    categoria_fiscal: str = "outros"          # data/categorias_fiscais.csv
+    conteudo_por_unidade: float | None = None # litros, maços ou gramas por unidade
 
 
 @dataclass
@@ -82,7 +92,7 @@ class Instancia:
     # i (nó 1..m). Só existe a chave se a loja vende o item.
     preco: dict[tuple[int, int], float]
     t: np.ndarray                     # (m+1) × (m+1), minutos
-    cota: float
+    cota: float                       # cota integral, de data/regras_fiscais.csv
     aliquota: float
     orcamento: float                  # B (= cota quando não informado)
     orcamento_informado: bool
@@ -94,6 +104,7 @@ class Instancia:
     avisos: list[str] = field(default_factory=list)
     lojas_excluidas: list[dict] = field(default_factory=list)
     metadata: dict = field(default_factory=dict)
+    regras: RegrasFiscais | None = None
 
     # --- atalhos -------------------------------------------------------------
     @property
@@ -143,11 +154,14 @@ def carregar_instancia(
     orcamento: float | None | str = _DO_METADATA,
     peso_max_kg: float | None = None,
     volume_max_l: float | None = None,
+    regras: RegrasFiscais | None = None,
+    categorias: MapaCategorias | None = None,
 ) -> Instancia:
     """Lê e pré-processa uma instância.
 
     ``orcamento``: ``"instancia"`` (padrão) usa ``orcamento_usd`` do metadata.json;
     ``None`` = turista não informou orçamento (teto = cota); um número substitui.
+    ``regras`` e ``categorias``: padrão = tabelas de ``data/`` (regras em vigor hoje).
     """
     pasta = Path(pasta)
     meta = json.loads((pasta / "metadata.json").read_text(encoding="utf-8"))
@@ -161,6 +175,7 @@ def carregar_instancia(
         nome=meta.get("nome", pasta.name), meta=meta, lojas_df=lojas_df,
         produtos_df=produtos_df, ofertas_df=ofertas_df, pontos=pontos, lista=lista,
         orcamento=orcamento, peso_max_kg=peso_max_kg, volume_max_l=volume_max_l,
+        regras=regras, categorias=categorias,
     )
 
 
@@ -183,10 +198,19 @@ def montar_instancia(
     orcamento: float | None | str = _DO_METADATA,
     peso_max_kg: float | None = None,
     volume_max_l: float | None = None,
+    regras: RegrasFiscais | None = None,
+    categorias: MapaCategorias | None = None,
 ) -> Instancia:
     avisos: list[str] = []
     excluidas: list[dict] = []
-    cota = float(meta.get("cota_disponivel_usd", 500.0))
+    regras = regras or carregar_regras()
+    categorias = categorias or carregar_categorias()
+    cota = regras.cota_usd
+    if "cota_disponivel_usd" in meta:
+        avisos.append(
+            "Campo 'cota_disponivel_usd' do metadata.json ignorado: a cota vem de "
+            f"data/regras_fiscais.csv (US$ {cota:.2f})."
+        )
     aliquota = float(meta.get("aliquota_excedente", 0.5))
     if orcamento == _DO_METADATA:
         orcamento = _float_ou_none(meta.get("orcamento_usd"))
@@ -202,6 +226,12 @@ def montar_instancia(
     for _, row in lista.iterrows():
         pid = str(row["produto_id"])
         prod = produtos_df.loc[pid] if pid in produtos_df.index else None
+        categoria = None
+        if prod is not None and "categoria" in prod.index and isinstance(prod["categoria"], str):
+            categoria = prod["categoria"]
+        fiscal = categorias.classificar(pid, categoria)
+        if fiscal.aviso:
+            avisos.append(fiscal.aviso)
         itens.append(Item(
             produto_id=pid,
             nome=str(row.get("nome") or (prod["nome"] if prod is not None else pid)),
@@ -209,6 +239,8 @@ def montar_instancia(
             prioridade=int(row["prioridade"]),
             peso_kg=_float_ou_none(prod["peso_kg"]) if prod is not None else None,
             volume_l=_float_ou_none(prod["volume_l"]) if prod is not None else None,
+            categoria=categoria, categoria_fiscal=fiscal.categoria_fiscal,
+            conteudo_por_unidade=fiscal.conteudo_por_unidade,
         ))
     idx_item = {it.produto_id: k for k, it in enumerate(itens)}
 
@@ -273,5 +305,5 @@ def montar_instancia(
         t=t, cota=cota, aliquota=aliquota, orcamento=B, orcamento_informado=orcamento_informado,
         chegada=H0, saida=H1, n_lojas_instancia=int(meta.get("n_lojas", len(lojas_df))),
         peso_max_kg=peso_max_kg, volume_max_l=volume_max_l, avisos=avisos,
-        lojas_excluidas=excluidas, metadata=meta,
+        lojas_excluidas=excluidas, metadata=meta, regras=regras,
     )

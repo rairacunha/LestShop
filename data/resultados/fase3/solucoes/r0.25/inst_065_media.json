@@ -1,0 +1,235 @@
+{
+  "instancia": "inst_065_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 22,
+    "itens_comprados": 7,
+    "gasto_produtos": 829.6,
+    "excedente": 329.6,
+    "imposto": 164.8,
+    "custo_total": 994.4,
+    "tempo_andando": 51.2682,
+    "retorno": 661.2682,
+    "peso_kg": 4.15,
+    "volume_l": 6.6,
+    "lambda_": 0.0008,
+    "objetivo": 21.1479
+  },
+  "situacao_cota": "excede a cota em US$ 329.60 (imposto US$ 164.80)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 1061.08,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "16:00",
+  "horario_retorno": "11:01",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L035",
+      "nome": "Smart Digital (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:12",
+      "inicio_atendimento": "08:12",
+      "saida": "08:32",
+      "compras": [
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 88.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L018",
+      "nome": "Max Games (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:38",
+      "inicio_atendimento": "08:38",
+      "saida": "09:03",
+      "compras": [
+        {
+          "produto_id": "P015",
+          "nome": "Câmera de Ação 4K",
+          "quantidade": 1,
+          "preco_usd": 221.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:04",
+      "inicio_atendimento": "09:04",
+      "saida": "09:29",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 28.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:43",
+      "inicio_atendimento": "09:43",
+      "saida": "10:13",
+      "compras": [
+        {
+          "produto_id": "P052",
+          "nome": "Vodka Premium 1L",
+          "quantidade": 1,
+          "preco_usd": 18.9
+        },
+        {
+          "produto_id": "P070",
+          "nome": "Relógio Analógico Aço",
+          "quantidade": 1,
+          "preco_usd": 111.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L011",
+      "nome": "Gold Digital (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "10:18",
+      "inicio_atendimento": "10:18",
+      "saida": "10:48",
+      "compras": [
+        {
+          "produto_id": "P006",
+          "nome": "Celular Modelo D 5G 128GB",
+          "quantidade": 1,
+          "preco_usd": 292.9
+        },
+        {
+          "produto_id": "P040",
+          "nome": "Perfume Feminino Oriental 50ml",
+          "quantidade": 1,
+          "preco_usd": 68.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P018",
+      "nome": "Kindle-like Leitor Digital 6\"",
+      "prioridade": 1
+    },
+    {
+      "produto_id": "P068",
+      "nome": "Jogo de Panelas Antiaderente 5pç",
+      "prioridade": 1
+    }
+  ],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "bebidas",
+        "descricao": "Bebidas alcoólicas",
+        "categoria_fiscal": "bebidas_alcoolicas",
+        "contagem": "total",
+        "usado": 1.0,
+        "limite": 12.0,
+        "unidade": "L",
+        "situacao": "abaixo",
+        "consequencia": "regime_comum",
+        "fonte": "Portaria MF 440/2010, art. 7º, § 1º, I; IN RFB 1.059/2010, art. 44, II",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P052"
+        ]
+      },
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P070",
+        "produto": "Relógio Analógico Aço",
+        "itens": [
+          "P006",
+          "P015",
+          "P017",
+          "P040",
+          "P042",
+          "P070"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 6.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P006",
+          "P015",
+          "P017",
+          "P040",
+          "P042",
+          "P070"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 164.8,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 829.60) passa da cota de US$ 500.00 (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.08023938200000202,
+    "big_m": 529.3842883813327,
+    "objetivo_modelo": 21.147928186687054,
+    "limitante": 21.147928186687054,
+    "n_variaveis": 163,
+    "n_restricoes": 185,
+    "tempo_andando_antes_polimento": 51.2681963238645,
+    "tempo_andando_depois_polimento": 51.2681963238645,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.03793876000003138
+  }
+}

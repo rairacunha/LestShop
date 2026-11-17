@@ -30,7 +30,7 @@ Todos os valores monetários estão em **US$** e todos os tempos em **minutos**
 | p_ik | preço unitário do item k na loja i (menor oferta da loja) | `ofertas.preco_usd` |
 | q_k | quantidade desejada | `lista_compras.quantidade` |
 | v_k | prioridade (1 a 5) = valor do item | `lista_compras.prioridade` |
-| c | cota de isenção disponível | `metadata.cota_disponivel_usd` |
+| c | cota de isenção (integral: cada rota é uma viagem nova) | `data/regras_fiscais.csv` (Fase 3; hoje US$ 500) |
 | α | alíquota sobre o excedente (0,5) | `metadata.aliquota_excedente` |
 | B | orçamento (preço + imposto); **B = c** se o turista não informar | `metadata.orcamento_usd` |
 | t_ij | tempo a pé de i para j | seção 5 |
@@ -249,6 +249,12 @@ horário de volta, prioridade atendida, gasto em produtos, imposto, custo total,
 situação da cota, tempo andando (antes e depois do polimento), peso e volume
 totais da bagagem (sempre exibidos, mesmo com a restrição desligada) e avisos do
 pré-processamento.
+
+**Fase 3.** O modelo acima não muda. Depois de resolver, a cesta escolhida é comparada
+com os limites quantitativos da tabela de regras, Σ_{k ∈ categoria} q_k·c_k·y_k com
+L_categoria (c_k = litros, maços ou gramas por unidade; 1 para os demais bens), e o
+resultado sai no bloco `fiscal` de `descrever()`, só como alerta. Detalhes em
+[`legislacao_bagagem.md`](legislacao_bagagem.md).
 
 ## Referências
 

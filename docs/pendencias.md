@@ -60,7 +60,33 @@ Implementada em `src/lesteshop/otimizacao/`, formulação em
   quantidade inteira (y_k continua binário), bens de uso pessoal, proibidos ou restritos,
   e **destinação comercial** (o comércio importa com CNPJ, pelo regime comum).
 
+### Implementado (7.2)
+
+Módulo `src/lesteshop/fiscal/`, tabela versionada `data/regras_fiscais.csv` (única fonte
+da cota), mapeamento editável `data/categorias_fiscais.csv`, bloco `fiscal` em
+`descrever()` (situação de cada limite, alertas, imposto sem cota, declaração), testes em
+`tests/test_fiscal.py` e experimentos em `data/resultados/fase3/`. O modelo de otimização
+não mudou.
+
+### Ficou para depois (percebido na Fase 3; não implementar sem autorização)
+
+* **Resultados da Fase 2 com a cota antiga.** `data/resultados/resultados_fase2.csv` e o
+  resumo da Fase 2 foram gerados com a cota do `metadata.json` (500, 300 ou 150) e ficam
+  como registro. Rodar `lesteshop.otimizacao.experimentos` de novo agora usa US$ 500 em
+  todas as instâncias. A Fase 3 mostrou que as 64 instâncias com cota de 500 têm a mesma
+  solução e que 31 das 36 restantes mudam por causa da cota.
+* **Alíquota na tabela de regras.** O escopo moveu só a cota; a alíquota de 50% continua
+  em `metadata.aliquota_excedente`. Pode passar para `regras_fiscais.csv` se for preciso
+  uma fonte única para todas as regras.
+* **Data de referência das regras.** Hoje é a data do dia; o app poderia usar a data da
+  viagem informada pelo turista.
+* **Cota adicional de loja franca de fronteira (Foz do Iguaçu).** Não se aplica às lojas
+  de Ciudad del Este; só faria sentido se o app passasse a incluir lojas do lado brasileiro.
+
 ## Fase 4 — Aplicativo
+
+* Exibir na tela o bloco `fiscal` (uso de cada limite, alertas, imposto sem cota,
+  declaração e-DBV) e o texto da premissa da cota integral.
 
 * **Coleta no aparelho do usuário.** Como o site exige verificação humana, um servidor não
   consegue coletar sozinho. No app, as páginas teriam de ser carregadas no próprio

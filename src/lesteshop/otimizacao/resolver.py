@@ -99,6 +99,18 @@ def imprimir(sol: Solucao, inst: Instancia) -> None:
         print(f" (antes do polimento: {info['tempo_andando_antes_polimento']:.1f} min)", end="")
     print()
     print(f"Bagagem: {av['peso_kg']:.2f} kg, {av['volume_l']:.1f} L")
+    fiscal = d["fiscal"]
+    print()
+    print(f"Regras fiscais (via {fiscal['via']}, cota US$ {fiscal['cota_usd']:.2f}):")
+    for s in fiscal["limites"]:
+        alvo = f" — {s['produto']}" if s["contagem"] == "identicos" and s["produto"] else ""
+        print(f"  {s['descricao']}{alvo}: {s['usado']:g} de {s['limite']:g} {s['unidade']} ({s['situacao']})")
+    if fiscal["imposto_sem_cota_usd"] is not None:
+        print(f"  Imposto sem cota (limite ultrapassado): US$ {fiscal['imposto_sem_cota_usd']:.2f}")
+    print(f"  Declaração (e-DBV) necessária: {'sim' if fiscal['declaracao_necessaria'] else 'não'}")
+    for alerta in fiscal["alertas"]:
+        print(f"  ! {alerta}")
+    print(f"  Premissa: {fiscal['premissa']}")
 
 
 def main(argv: list[str] | None = None) -> int:

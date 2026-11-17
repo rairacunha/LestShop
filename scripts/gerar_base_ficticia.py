@@ -12,8 +12,12 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from lesteshop.fiscal.regras import carregar_regras
+
 SEED_BASE = 2026
 DATA_COLETA = "2026-10-26"
+# Cota integral da via terrestre, da tabela de regras (única fonte desse valor).
+COTA_INTEGRAL = carregar_regras(data=DATA_COLETA).cota_usd
 FONTE = "ficticio (gerado para teste da Fase 1)"
 SAIDA = Path(__file__).resolve().parents[1]  # raiz do projeto
 rng = np.random.default_rng(SEED_BASE)
@@ -283,7 +287,11 @@ for k, (tam, n_l, n_p) in enumerate(tamanhos, start=1):
     lista["prioridade"] = r.integers(1, 6, size=len(lista))
 
     # cenário: cota disponível, orçamento e tempo
-    cota = float(r.choice([500, 500, 500, 300, 150]))  # parte já usada
+    # Fase 3: a cota vem de data/regras_fiscais.csv (cada rota é uma viagem nova,
+    # com a cota integral). O sorteio antigo da cota disponível continua aqui só
+    # para não mudar a sequência aleatória (e, portanto, o resto da base).
+    r.choice([500, 500, 500, 300, 150])
+    cota = COTA_INTEGRAL
     menor_por_prod = of_i.groupby("produto_id")["preco_usd"].min()
     custo_min_lista = float(menor_por_prod.loc[lista["produto_id"]].sum())
     orcamento = round(custo_min_lista * float(r.uniform(0.6, 1.4)), 2)
@@ -303,7 +311,7 @@ for k, (tam, n_l, n_p) in enumerate(tamanhos, start=1):
         "nome": nome_inst, "tamanho": tam, "seed": seed, "densidade": densidade,
         "n_lojas": len(lojas_i), "n_produtos": len(prod_i), "n_ofertas": len(of_i),
         "n_itens_lista": len(lista),
-        "cota_disponivel_usd": cota, "aliquota_excedente": 0.5,
+        "aliquota_excedente": 0.5,
         "orcamento_usd": orcamento,
         "custo_minimo_lista_usd": round(custo_min_lista, 2),
         "lista_excede_cota": custo_min_lista > cota,
@@ -340,10 +348,10 @@ decisões de compra.
   25 grandes (40 lojas, até 70 produtos)
 - Cada pasta tem lojas, produtos, ofertas, pontos_partida, **lista_compras.csv**
   (3 a 15 itens desejados, com prioridade 1–5) e metadata.json (seed, densidade,
-  cota disponível, orçamento, horários de chegada e saída)
+  orçamento, horários de chegada e saída)
 - resumo_instancias.csv lista todas lado a lado
-- Os cenários variam de propósito: algumas listas cabem na cota, outras excedem;
-  a cota disponível às vezes é menor que 500 (parte já usada no mês).
+- Os cenários variam de propósito: algumas listas cabem na cota, outras excedem.
+  A cota (US$ 500, via terrestre) não fica na instância: vem de data/regras_fiscais.csv.
 
 Regenerar: `python scripts/gerar_base_ficticia.py` (seed fixa {SEED_BASE}, resultado idêntico).
 """, encoding="utf-8")

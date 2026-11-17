@@ -320,10 +320,19 @@ têm quantidade 1, nenhuma cesta passa de 3 garrafas (≤ 3 litros) e **3 das 10
 terrestre, essas 3 cestas perderiam a cota. O limite de 10 unidades é, portanto, o que
 deve disparar mais alertas.
 
-## 10. Proposta para a tabela de regras (nada foi implementado ainda)
+**Resultado da 7.2** (`data/resultados/fase3/resumo_fase3.md`): com a cota integral de
+US$ 500 em todas as instâncias, **4 das 100** cestas ótimas passam do limite de 10
+unidades (todas grandes) e perderiam a cota; nenhuma passa de 12 litros de bebida; 38
+precisam de declaração por passar da cota.
 
-Rascunho das linhas de `data/regras_fiscais.csv` (7.2), para mostrar que o levantamento
-cobre todas as colunas previstas no escopo:
+## 10. Tabela de regras
+
+Implementada em `data/regras_fiscais.csv` (7.2), carregada por `src/lesteshop/fiscal/`.
+Diferenças em relação ao rascunho abaixo: a tabela tem também a cota antiga de US$ 300
+(vigência 2010-10-01), para a versão por data funcionar; a alíquota de 50% **não** entrou
+na tabela (o escopo moveu só a cota; ela continua em `metadata.aliquota_excedente`); e
+cada regra tem as colunas `contagem` (`total` ou `identicos`) e a faixa de valor unitário.
+Rascunho aprovado:
 
 | regra_id | tipo_limite | categoria_fiscal | limite | unidade | via | consequencia_excesso | fonte | vigencia_inicio |
 |---|---|---|---|---|---|---|---|---|

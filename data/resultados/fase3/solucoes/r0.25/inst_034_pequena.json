@@ -1,0 +1,164 @@
+{
+  "instancia": "inst_034_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 13,
+    "itens_comprados": 4,
+    "gasto_produtos": 201.78,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 201.78,
+    "tempo_andando": 35.973,
+    "retorno": 635.973,
+    "peso_kg": 4.7,
+    "volume_l": 10.8,
+    "lambda_": 0.0031,
+    "objetivo": 12.3474
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 276.95,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "10:36",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:18",
+      "inicio_atendimento": "09:18",
+      "saida": "09:48",
+      "compras": [
+        {
+          "produto_id": "P052",
+          "nome": "Vodka Premium 1L",
+          "quantidade": 1,
+          "preco_usd": 18.9
+        },
+        {
+          "produto_id": "P071",
+          "nome": "Tênis Esportivo Corrida",
+          "quantidade": 1,
+          "preco_usd": 70.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L011",
+      "nome": "Gold Digital (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:53",
+      "inicio_atendimento": "09:53",
+      "saida": "10:23",
+      "compras": [
+        {
+          "produto_id": "P042",
+          "nome": "Perfume Masculino Cítrico 200ml",
+          "quantidade": 1,
+          "preco_usd": 77.9
+        },
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 33.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "bebidas",
+        "descricao": "Bebidas alcoólicas",
+        "categoria_fiscal": "bebidas_alcoolicas",
+        "contagem": "total",
+        "usado": 2.0,
+        "limite": 12.0,
+        "unidade": "L",
+        "situacao": "abaixo",
+        "consequencia": "regime_comum",
+        "fonte": "Portaria MF 440/2010, art. 7º, § 1º, I; IN RFB 1.059/2010, art. 44, II",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P050",
+          "P052"
+        ]
+      },
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P071",
+        "produto": "Tênis Esportivo Corrida",
+        "itens": [
+          "P042",
+          "P071"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 2.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P042",
+          "P071"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 0.0,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": false,
+    "alertas": [],
+    "avisos": []
+  },
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.014537821000033091,
+    "big_m": 227.74641321651802,
+    "objetivo_modelo": 12.34735022114531,
+    "limitante": 12.34735022114531,
+    "n_variaveis": 57,
+    "n_restricoes": 69,
+    "tempo_andando_antes_polimento": 35.97298432448538,
+    "tempo_andando_depois_polimento": 35.97298432448538,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.3789999968594202e-05
+  }
+}

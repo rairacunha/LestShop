@@ -1,0 +1,11 @@
+regra_id,tipo_limite,categoria_fiscal,contagem,limite,unidade,via,valor_unitario_min_usd,valor_unitario_max_usd,consequencia,descricao,fonte,vigencia_inicio
+cota_terrestre,valor,todas,total,300,US$,terrestre,,,rte_excedente,Cota de isenção da bagagem acompanhada,"Portaria MF 440/2010, art. 7º, III, b (redação original)",2010-10-01
+cota_terrestre,valor,todas,total,500,US$,terrestre,,,rte_excedente,Cota de isenção da bagagem acompanhada,"Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",2020-01-01
+bebidas,litros,bebidas_alcoolicas,total,12,L,terrestre,,,regime_comum,Bebidas alcoólicas,"Portaria MF 440/2010, art. 7º, § 1º, I; IN RFB 1.059/2010, art. 44, II",2010-10-01
+cigarros,quantidade,cigarros,total,10,maços,terrestre,,,regime_comum,Cigarros (maços de 20 unidades),"Portaria MF 440/2010, art. 7º, § 1º, II; IN RFB 1.059/2010, art. 44, II",2010-10-01
+charutos,quantidade,charutos_cigarrilhas,total,25,unidades,terrestre,,,regime_comum,Charutos ou cigarrilhas,"Portaria MF 440/2010, art. 7º, § 1º, III; IN RFB 1.059/2010, art. 44, II",2010-10-01
+fumo,quantidade,fumo,total,250,g,terrestre,,,regime_comum,Fumo,"Portaria MF 440/2010, art. 7º, § 1º, IV; IN RFB 1.059/2010, art. 44, II",2010-10-01
+pequeno_valor_total,quantidade,outros,total,20,unidades,terrestre,,5,perde_cota,Bens de valor unitário inferior a US$ 5 (total),"IN RFB 1.059/2010, art. 33, § 1º, V e § 2º, I; art. 41, § 5º",2010-10-01
+pequeno_valor_identicos,quantidade,outros,identicos,10,unidades,terrestre,,5,perde_cota,Bens de valor unitário inferior a US$ 5 (idênticos),"IN RFB 1.059/2010, art. 33, § 1º, V e § 2º, I; art. 41, § 5º",2010-10-01
+outros_total,quantidade,outros,total,10,unidades,terrestre,5,,perde_cota,Demais bens (total),"IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",2010-10-01
+outros_identicos,quantidade,outros,identicos,3,unidades,terrestre,5,,perde_cota,Demais bens (idênticos),"IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",2010-10-01

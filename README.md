@@ -10,9 +10,13 @@ Seguindo o modelo cascata, o repositório contém:
 * **Fase 1** — coleta, validação, banco de dados, catálogo de modelos e gerador de instâncias;
 * **Fase 2** — modelo de otimização: TPP com mochila, cota de isenção, imposto sobre o
   excedente e janelas de tempo (PuLP + CBC e heurística). Ver
-  [Fase 2](#fase-2--modelo-de-otimização) e [`docs/modelo_matematico.md`](docs/modelo_matematico.md).
+  [Fase 2](#fase-2--modelo-de-otimização) e [`docs/modelo_matematico.md`](docs/modelo_matematico.md);
+* **Fase 3** — regras fiscais e de bagagem: cota e limites quantitativos da Receita Federal
+  numa tabela versionada, verificados sobre a cesta escolhida (só alertas). Ver
+  [Fase 3](#fase-3--regras-fiscais-e-de-bagagem) e
+  [`docs/legislacao_bagagem.md`](docs/legislacao_bagagem.md).
 
-Regras fiscais detalhadas e telas do app estão em [`docs/pendencias.md`](docs/pendencias.md).
+Telas do app e o que ficou para depois estão em [`docs/pendencias.md`](docs/pendencias.md).
 
 ## Estrutura
 
@@ -23,7 +27,9 @@ LestShop/
 │   ├── raw/                  base fictícia: 50 lojas, 73 produtos, 613 ofertas (sintetico)
 │   ├── coletas/<data>/       coletas reais salvas em CSV (criada na primeira coleta)
 │   ├── instances/            100 instâncias de teste (inst_001…inst_100) + geradas pelo generator
-│   ├── resultados/           resultados dos experimentos da Fase 2 (CSV, soluções JSON, resumo)
+│   ├── resultados/           experimentos da Fase 2 (CSV, soluções JSON, resumo) e fase3/
+│   ├── regras_fiscais.csv    Fase 3: cota e limites da bagagem (versionada, com fonte e vigência)
+│   ├── categorias_fiscais.csv Fase 3: produto/categoria → categoria fiscal (editável à mão)
 │   ├── catalogo_modelos.csv  catálogo versionado (atualizado pelo GitHub Actions)
 │   ├── lojas_complemento.csv coordenadas/prédios preenchidos à mão
 │   ├── lesteshop.db          SQLite (não versionado; recriado a partir dos CSVs)
@@ -40,6 +46,7 @@ LestShop/
 │   └── resumo.py             resumo da base + exportação
 ├── src/lesteshop/otimizacao/ Fase 2: distancias, instancia, rota, solucao, modelo,
 │                             heuristica, resolver (comando), experimentos
+├── src/lesteshop/fiscal/     Fase 3: regras, categorias, verificacao, experimentos
 ├── tests/                    pytest (fixtures HTML em tests/fixtures/)
 └── docs/                     dicionário de dados, origem dos dados, pendências
 ```
@@ -256,11 +263,42 @@ descrever(solucao, inst)   # dicionário com itens, roteiro, gasto, imposto e co
 
 O solver é o CBC que vem com o PuLP (`pulp>=2.7,<4`; o PuLP 4 não traz mais o CBC).
 
+## Fase 3 — Regras fiscais e de bagagem
+
+A cota de isenção (US$ 500 por via terrestre) e os limites quantitativos da bagagem ficam
+em `data/regras_fiscais.csv`, com tipo de limite, categoria, fonte (norma e dispositivo) e
+data de vigência; vale, para cada regra, a linha mais recente já em vigor. Essa tabela é a
+única fonte da cota: o `metadata.json` não tem mais esse campo, e cada rota é tratada como
+uma viagem nova, com a cota integral. O arquivo `data/categorias_fiscais.csv` liga
+`produtos.categoria` (ou um produto específico) à categoria fiscal e guarda os litros de
+cada bebida.
+
+O modelo de otimização não muda. Depois de resolver, a cesta escolhida é comparada com cada
+limite (bebidas em litros; demais bens até 10 unidades e 3 idênticas; bens abaixo de US$ 5
+até 20 unidades e 10 idênticas; tabaco). `descrever()` ganha o bloco `fiscal`: uso de cada
+limite, alertas, imposto sem cota quando a norma tira a isenção e se a declaração (e-DBV)
+é necessária. Legislação, fontes e decisões em
+[`docs/legislacao_bagagem.md`](docs/legislacao_bagagem.md).
+
+```bash
+# o resolver já mostra a situação fiscal ao final
+python -m lesteshop.otimizacao.resolver data/instances/inst_078_grande
+
+# experimentos: em quantas instâncias a cesta ótima dispara algum alerta (r = 0,25)
+python -m lesteshop.fiscal.experimentos --processos 3
+python -m lesteshop.fiscal.experimentos --so-resumo
+```
+
+Os experimentos gravam `data/resultados/fase3/resultados_fase3.csv`, as soluções em
+`data/resultados/fase3/solucoes/r0.25/` e `data/resultados/fase3/resumo_fase3.md`.
+
 ## Documentação
 
 * [Dicionário de dados](docs/dicionario_de_dados.md)
 * [Modelo matemático da Fase 2](docs/modelo_matematico.md)
 * [Resultados dos experimentos da Fase 2](data/resultados/resumo_experimentos.md)
+* [Legislação de bagagem (Fase 3)](docs/legislacao_bagagem.md)
+* [Resultados dos experimentos da Fase 3](data/resultados/fase3/resumo_fase3.md)
 * [Handoff para a Fase 3](docs/handoff_fase3.md)
 * [Origem dos dados e limitações](docs/origem_dos_dados.md)
 * [Pendências para as próximas fases](docs/pendencias.md)

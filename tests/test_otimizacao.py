@@ -54,7 +54,7 @@ def criar_instancia(pasta: Path, lojas, ofertas, lista, **meta) -> Path:
     pd.DataFrame([{"produto_id": p, "nome": f"Produto {p}", "quantidade": q, "prioridade": v}
                   for p, v, q in lista]).to_csv(pasta / "lista_compras.csv", index=False)
     base = {"nome": pasta.name, "tamanho": "pequena", "n_lojas": len(lojas),
-            "cota_disponivel_usd": 500.0, "aliquota_excedente": 0.5, "orcamento_usd": 2000.0,
+            "aliquota_excedente": 0.5, "orcamento_usd": 2000.0,
             "horario_chegada": "08:00", "horario_saida": "16:00", "tipo_dado": "sintetico"}
     base.update(meta)
     (pasta / "metadata.json").write_text(json.dumps(base), encoding="utf-8")
@@ -128,7 +128,7 @@ def test_quantidade_multiplica_preco(tmp_path):
 
 def test_sem_orcamento_teto_e_a_cota(tmp_path):
     p = criar_instancia(tmp_path / "i", [_loja("A", 5)], [("A", "P1", 300.0), ("A", "P2", 250.0)],
-                        [("P1", 3, 1), ("P2", 2, 1)], cota_disponivel_usd=500.0)
+                        [("P1", 3, 1), ("P2", 2, 1)])
     inst = carregar_instancia(p, orcamento=None)
     assert inst.orcamento == 500.0 and not inst.orcamento_informado
     sol, av = _exato(inst)

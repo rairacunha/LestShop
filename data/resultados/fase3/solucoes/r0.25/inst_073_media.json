@@ -1,0 +1,220 @@
+{
+  "instancia": "inst_073_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 29,
+    "itens_comprados": 7,
+    "gasto_produtos": 930.78,
+    "excedente": 430.78,
+    "imposto": 215.39,
+    "custo_total": 1146.17,
+    "tempo_andando": 48.6884,
+    "retorno": 698.6884,
+    "peso_kg": 18.8,
+    "volume_l": 140.9,
+    "lambda_": 0.0007,
+    "objetivo": 28.1616
+  },
+  "situacao_cota": "excede a cota em US$ 430.78 (imposto US$ 215.39)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 1275.68,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "16:00",
+  "horario_retorno": "11:39",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L049",
+      "nome": "Ultra Games (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:12",
+      "inicio_atendimento": "09:12",
+      "saida": "09:42",
+      "compras": [
+        {
+          "produto_id": "P059",
+          "nome": "Vara de Pesca Telescópica",
+          "quantidade": 1,
+          "preco_usd": 38.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L022",
+      "nome": "Mega Bazar (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "09:43",
+      "inicio_atendimento": "09:43",
+      "saida": "09:53",
+      "compras": [
+        {
+          "produto_id": "P007",
+          "nome": "Smartwatch Esportivo S1",
+          "quantidade": 1,
+          "preco_usd": 90.0
+        },
+        {
+          "produto_id": "P019",
+          "nome": "Smart TV 50\" 4K",
+          "quantidade": 1,
+          "preco_usd": 342.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L014",
+      "nome": "Luna Eletrônicos (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:58",
+      "inicio_atendimento": "09:58",
+      "saida": "10:13",
+      "compras": [
+        {
+          "produto_id": "P006",
+          "nome": "Celular Modelo D 5G 128GB",
+          "quantidade": 1,
+          "preco_usd": 305.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:24",
+      "inicio_atendimento": "10:24",
+      "saida": "10:34",
+      "compras": [
+        {
+          "produto_id": "P031",
+          "nome": "Mouse Sem Fio",
+          "quantidade": 1,
+          "preco_usd": 14.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L030",
+      "nome": "Royal Eletrônicos (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:35",
+      "inicio_atendimento": "10:35",
+      "saida": "11:00",
+      "compras": [
+        {
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
+          "quantidade": 1,
+          "preco_usd": 61.99
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L035",
+      "nome": "Smart Digital (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "11:07",
+      "inicio_atendimento": "11:07",
+      "saida": "11:27",
+      "compras": [
+        {
+          "produto_id": "P041",
+          "nome": "Perfume Masculino Amadeirado 100ml",
+          "quantidade": 1,
+          "preco_usd": 77.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P073",
+        "produto": "Mala de Bordo 10kg",
+        "itens": [
+          "P006",
+          "P007",
+          "P019",
+          "P031",
+          "P041",
+          "P059",
+          "P073"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 7.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P006",
+          "P007",
+          "P019",
+          "P031",
+          "P041",
+          "P059",
+          "P073"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 215.39,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 930.78) passa da cota de US$ 500.00 (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.09239123399999016,
+    "big_m": 485.6519480577015,
+    "objetivo_modelo": 28.161642282984204,
+    "limitante": 28.161642282984204,
+    "n_variaveis": 180,
+    "n_restricoes": 204,
+    "tempo_andando_antes_polimento": 48.68836178550802,
+    "tempo_andando_depois_polimento": 48.68836178550802,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.032319358999984615
+  }
+}
