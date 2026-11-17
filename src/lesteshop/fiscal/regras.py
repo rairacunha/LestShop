@@ -6,8 +6,9 @@ referência. Assim uma mudança na lei entra como linha nova, sem apagar a antig
 
 Colunas:
 
-* ``regra_id``: identificador da regra (``cota_terrestre``, ``bebidas``...);
-* ``tipo_limite``: ``valor`` (US$), ``quantidade`` (unidades, maços, gramas) ou ``litros``;
+* ``regra_id``: identificador da regra (``cota_terrestre``, ``aliquota_rte``, ``bebidas``...);
+* ``tipo_limite``: ``valor`` (US$), ``quantidade`` (unidades, maços, gramas), ``litros``
+  ou ``aliquota`` (fração; só a regra ``aliquota_rte``);
 * ``categoria_fiscal``: categoria a que a regra se aplica (``todas`` para a cota);
 * ``contagem``: ``total`` (soma da categoria) ou ``identicos`` (por produto);
 * ``limite``, ``unidade``, ``via``;
@@ -35,8 +36,9 @@ from ..data import config as config_dados
 CAMINHO_REGRAS = config_dados.DIR_DADOS / "regras_fiscais.csv"
 VIA_PADRAO = "terrestre"
 REGRA_COTA = "cota_terrestre"
+REGRA_ALIQUOTA = "aliquota_rte"
 
-TIPOS_LIMITE = ("valor", "quantidade", "litros")
+TIPOS_LIMITE = ("valor", "quantidade", "litros", "aliquota")
 CONTAGENS = ("total", "identicos")
 CONSEQUENCIAS = ("rte_excedente", "regime_comum", "perde_cota")
 COLUNAS = [
@@ -82,11 +84,17 @@ class RegrasFiscais:
     data_referencia: date
     via: str
     cota: Regra
+    aliquota: Regra
     limites: tuple[Regra, ...]
 
     @property
     def cota_usd(self) -> float:
         return self.cota.limite
+
+    @property
+    def aliquota_rte(self) -> float:
+        """Alíquota α do RTE sobre o que passa da cota (0,5 = 50%)."""
+        return self.aliquota.limite
 
 
 def _opcional(v) -> float | None:
@@ -156,4 +164,12 @@ def carregar_regras(
         raise ErroRegras(f"{caminho}: nenhuma regra '{REGRA_COTA}' em vigor em {ref} (via {via}).")
     if cota.tipo_limite != "valor":
         raise ErroRegras(f"{caminho}: a regra '{REGRA_COTA}' deve ser do tipo 'valor'.")
-    return RegrasFiscais(ref, via, cota, tuple(vigentes[k] for k in sorted(vigentes)))
+    aliquota = vigentes.pop(REGRA_ALIQUOTA, None)
+    if aliquota is None:
+        raise ErroRegras(f"{caminho}: nenhuma regra '{REGRA_ALIQUOTA}' em vigor em {ref} (via {via}).")
+    if aliquota.tipo_limite != "aliquota" or not 0 <= aliquota.limite <= 1:
+        raise ErroRegras(f"{caminho}: a regra '{REGRA_ALIQUOTA}' deve ser do tipo 'aliquota', entre 0 e 1.")
+    outras = [r for r in vigentes.values() if r.tipo_limite == "aliquota"]
+    if outras:
+        raise ErroRegras(f"{caminho}: tipo 'aliquota' só vale para '{REGRA_ALIQUOTA}' ({outras[0].regra_id}).")
+    return RegrasFiscais(ref, via, cota, aliquota, tuple(vigentes[k] for k in sorted(vigentes)))

@@ -5,21 +5,21 @@
   "resumo": {
     "viavel": true,
     "motivo": "",
-    "prioridade_total": 11,
-    "itens_comprados": 4,
-    "gasto_produtos": 596.78,
-    "excedente": 446.78,
-    "imposto": 223.39,
-    "custo_total": 820.17,
+    "prioridade_total": 13,
+    "itens_comprados": 5,
+    "gasto_produtos": 1408.68,
+    "excedente": 908.68,
+    "imposto": 454.34,
+    "custo_total": 1863.02,
     "tempo_andando": 48.5732,
     "retorno": 638.5732,
-    "peso_kg": 9.32,
-    "volume_l": 38.3,
+    "peso_kg": 14.32,
+    "volume_l": 70.3,
     "lambda_": 0.0005,
-    "objetivo": 10.5645
+    "objetivo": 12.0107
   },
-  "situacao_cota": "excede a cota em US$ 446.78 (imposto US$ 223.39)",
-  "cota_disponivel_usd": 150.0,
+  "situacao_cota": "excede a cota em US$ 908.68 (imposto US$ 454.34)",
+  "cota_disponivel_usd": 500.0,
   "orcamento_usd": 1882.18,
   "orcamento_informado": true,
   "horario_chegada": "09:00",
@@ -59,6 +59,12 @@
           "preco_usd": 402.9
         },
         {
+          "produto_id": "P022",
+          "nome": "Console de Mesa Pro 2TB",
+          "quantidade": 1,
+          "preco_usd": 811.9
+        },
+        {
           "produto_id": "P067",
           "nome": "Cafeteira de Cápsulas",
           "quantidade": 1,
@@ -84,27 +90,82 @@
       ]
     }
   ],
-  "nao_comprados": [
-    {
-      "produto_id": "P022",
-      "nome": "Console de Mesa Pro 2TB",
-      "prioridade": 2
-    }
-  ],
+  "nao_comprados": [],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P067",
+        "produto": "Cafeteira de Cápsulas",
+        "itens": [
+          "P016",
+          "P022",
+          "P026",
+          "P064",
+          "P067"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 5.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P016",
+          "P022",
+          "P026",
+          "P064",
+          "P067"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 454.34,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 1408.68) passa da cota de US$ 500.00 (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
   "avisos": [],
   "info": {
     "status": "otimo",
     "gap": 0.0,
-    "tempo_s": 0.022019363000026715,
+    "tempo_s": 0.026773934999994253,
     "big_m": 284.87682718165115,
-    "objetivo_modelo": 10.564476045837361,
-    "limitante": 10.564476045837361,
+    "objetivo_modelo": 12.010705296360412,
+    "limitante": 12.010705296360412,
     "n_variaveis": 58,
     "n_restricoes": 70,
     "tempo_andando_antes_polimento": 48.573157104540975,
     "tempo_andando_depois_polimento": 48.573157104540975,
     "polimento": "exato",
     "polimento_aceito": false,
-    "tempo_polimento_s": 0.011335964999943826
+    "tempo_polimento_s": 0.011290675000054762
   }
 }

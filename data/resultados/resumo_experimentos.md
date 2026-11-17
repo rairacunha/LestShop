@@ -10,9 +10,9 @@ Tempos são de relógio (wall clock), com as instâncias rodando em paralelo; a 
 
 | tamanho | instâncias | lojas no modelo (méd/máx) | itens (méd/máx) | variáveis (méd) | ótimo | limite de tempo | gap méd / máx (%) | tempo méd / mediana / máx (s) | M méd (min) |
 |---|---|---|---|---|---|---|---|---|---|
-| pequena | 40 | 4.3 / 5 | 4.3 / 6 | 48 | 40 | 0 | 0.000 / 0.000 | 0.52 / 0.02 / 10.02 | 358 |
-| media | 35 | 9.7 / 14 | 7.0 / 10 | 156 | 34 | 1 | 0.112 / 3.910 | 2.20 / 0.10 / 60.11 | 412 |
-| grande | 25 | 27.2 / 35 | 9.9 / 15 | 911 | 25 | 0 | 0.000 / 0.000 | 4.15 / 2.85 / 21.98 | 394 |
+| pequena | 40 | 4.3 / 5 | 4.3 / 6 | 48 | 40 | 0 | 0.000 / 0.000 | 0.02 / 0.02 / 0.06 | 358 |
+| media | 35 | 9.7 / 14 | 7.0 / 10 | 156 | 34 | 1 | 0.112 / 3.911 | 1.91 / 0.08 / 60.10 | 412 |
+| grande | 25 | 27.2 / 35 | 9.9 / 15 | 911 | 25 | 0 | 0.000 / 0.000 | 4.30 / 3.01 / 22.57 | 394 |
 
 ### Distribuição dos gaps das instâncias que atingiram o limite de tempo
 
@@ -33,16 +33,16 @@ Instâncias que pararam no limite de tempo (todas as rodadas de r). Como custo e
 | instância | r | lojas | itens | objetivo | limitante | gap (%) | prioridade | prioridade máxima provada | heurística = incumbente |
 |---|---|---|---|---|---|---|---|---|---|
 | inst_075_media | 0.0 | 10 | 10 | 24.0935 | 25.0391 | 3.92 | 25 | não | sim |
-| inst_075_media | 0.25 | 10 | 10 | 24.1008 | 25.0432 | 3.91 | 25 | não | sim |
-| inst_075_media | 1.0 | 10 | 10 | 24.1212 | 25.0593 | 3.89 | 25 | não | sim |
+| inst_075_media | 0.25 | 10 | 10 | 24.1008 | 25.0433 | 3.91 | 25 | não | sim |
+| inst_075_media | 1.0 | 10 | 10 | 24.1212 | 25.0595 | 3.89 | 25 | não | sim |
 
 ## 2. Heurística × modelo exato (r = 0.25)
 
 | tamanho | heurística = exato | mesma prioridade | pontos de prioridade perdidos (total) | custo a mais méd (US$) | andando a mais méd (min) | gap da heurística méd / máx (%) | tempo heurística méd / máx (s) |
 |---|---|---|---|---|---|---|---|
-| pequena | 40/40 | 40/40 | 0 | 0.00 | -0.00 | 0.0000 / 0.0000 | 0.002 / 0.004 |
-| media | 35/35 | 35/35 | 0 | 0.00 | -0.00 | 0.0000 / 0.0000 | 0.006 / 0.026 |
-| grande | 24/25 | 25/25 | 0 | 0.12 | -0.42 | 0.0001 / 0.0024 | 0.047 / 0.326 |
+| pequena | 40/40 | 40/40 | 0 | 0.00 | -0.00 | 0.0000 / 0.0000 | 0.001 / 0.006 |
+| media | 35/35 | 35/35 | 0 | 0.00 | 0.00 | 0.0000 / 0.0000 | 0.006 / 0.014 |
+| grande | 24/25 | 25/25 | 0 | 0.12 | -0.42 | 0.0001 / 0.0024 | 0.045 / 0.309 |
 
 Gap da heurística = (objetivo exato − objetivo heurística) ÷ objetivo exato.
 
@@ -50,9 +50,9 @@ Gap da heurística = (objetivo exato − objetivo heurística) ÷ objetivo exato
 
 | tamanho | orçamento < custo mínimo da lista | com item deixado de fora | prioridade atendida méd (%) | pagam imposto | imposto méd quando paga (US$) | lojas visitadas méd | andando méd (min) |
 |---|---|---|---|---|---|---|---|
-| pequena | 20 | 31 | 86.5 | 14 | 199.47 | 2.3 | 38.9 |
-| media | 18 | 25 | 90.9 | 21 | 219.05 | 4.8 | 51.0 |
-| grande | 14 | 18 | 92.4 | 15 | 205.74 | 7.2 | 51.5 |
+| pequena | 20 | 27 | 87.6 | 12 | 186.76 | 2.3 | 38.8 |
+| media | 18 | 24 | 92.3 | 13 | 288.96 | 4.9 | 50.8 |
+| grande | 14 | 18 | 93.1 | 13 | 187.98 | 7.2 | 51.4 |
 
 ## 4. Polimento da rota
 
@@ -66,12 +66,12 @@ Gap da heurística = (objetivo exato − objetivo heurística) ÷ objetivo exato
 
 | tamanho | r (US$/min) | instâncias | prioridade méd | custo total méd (US$) | andando méd (min) | lojas visitadas méd | pagam imposto | solução difere de r = 0,25 | tempo exato méd (s) |
 |---|---|---|---|---|---|---|---|---|---|
-| pequena | 0.0 | 40 | 11.60 | 428.83 | 39.82 | 2.33 | 14 | 4 | 0.02 |
-| pequena | 0.25 | 40 | 11.60 | 429.01 | 38.87 | 2.27 | 14 | 0 | 0.52 |
-| pequena | 1.0 | 40 | 11.60 | 429.63 | 37.55 | 2.20 | 14 | 6 | 0.28 |
-| media | 0.0 | 35 | 19.63 | 703.67 | 55.66 | 4.91 | 21 | 10 | 1.82 |
-| media | 0.25 | 35 | 19.63 | 704.05 | 50.97 | 4.83 | 21 | 0 | 2.20 |
-| media | 1.0 | 35 | 19.63 | 706.57 | 46.33 | 4.66 | 21 | 14 | 2.06 |
+| pequena | 0.0 | 40 | 11.78 | 451.51 | 39.75 | 2.38 | 12 | 4 | 0.27 |
+| pequena | 0.25 | 40 | 11.78 | 451.69 | 38.80 | 2.33 | 12 | 0 | 0.02 |
+| pequena | 1.0 | 40 | 11.78 | 452.26 | 37.48 | 2.25 | 12 | 6 | 0.28 |
+| media | 0.0 | 35 | 19.89 | 710.90 | 55.69 | 4.94 | 13 | 11 | 1.82 |
+| media | 0.25 | 35 | 19.89 | 711.29 | 50.83 | 4.86 | 13 | 0 | 1.91 |
+| media | 1.0 | 35 | 19.89 | 714.12 | 45.58 | 4.57 | 13 | 15 | 2.06 |
 
 Instâncias em que a prioridade atendida mudou com r: 0. Pela escolha de λ, gasto + tempo valem menos que 1 ponto de prioridade, então r só deveria redistribuir entre gasto e caminhada entre soluções de mesma prioridade.
 

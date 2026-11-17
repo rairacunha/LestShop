@@ -226,7 +226,7 @@
   "info": {
     "status": "otimo",
     "gap": 0.0,
-    "tempo_s": 0.05420504599999276,
+    "tempo_s": 0.05378078300003608,
     "big_m": 289.15476700396914,
     "objetivo_modelo": 21.223664235445685,
     "limitante": 21.223664235445685,
@@ -236,6 +236,6 @@
     "tempo_andando_depois_polimento": 51.45864140063051,
     "polimento": "exato",
     "polimento_aceito": false,
-    "tempo_polimento_s": 0.05188474699997414
+    "tempo_polimento_s": 0.05312342700000272
   }
 }

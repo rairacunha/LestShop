@@ -31,7 +31,7 @@ Todos os valores monetários estão em **US$** e todos os tempos em **minutos**
 | q_k | quantidade desejada | `lista_compras.quantidade` |
 | v_k | prioridade (1 a 5) = valor do item | `lista_compras.prioridade` |
 | c | cota de isenção (integral: cada rota é uma viagem nova) | `data/regras_fiscais.csv` (Fase 3; hoje US$ 500) |
-| α | alíquota sobre o excedente (0,5) | `metadata.aliquota_excedente` |
+| α | alíquota sobre o excedente (0,5) | `data/regras_fiscais.csv`, regra `aliquota_rte` (Fase 3) |
 | B | orçamento (preço + imposto); **B = c** se o turista não informar | `metadata.orcamento_usd` |
 | t_ij | tempo a pé de i para j | seção 5 |
 | s_i | permanência na loja i | `lojas.tempo_permanencia_min` (padrão 20) |

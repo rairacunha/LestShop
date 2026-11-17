@@ -52,6 +52,12 @@ def test_cota_terrestre_vigente_e_500(regras):
     assert regras.via == "terrestre"
 
 
+def test_aliquota_do_rte_vem_da_tabela(regras):
+    assert regras.aliquota_rte == 0.5
+    assert "art. 12" in regras.aliquota.fonte
+    assert "aliquota_rte" not in {r.regra_id for r in regras.limites}
+
+
 def test_tabela_versionada_usa_a_vigencia_da_data():
     assert carregar_regras(data="2019-12-31").cota_usd == 300.0
     assert carregar_regras(data="2020-01-01").cota_usd == 500.0
@@ -67,7 +73,9 @@ def test_tabela_tem_todos_os_limites_do_levantamento(regras):
 
 def _tabela(tmp_path, linhas):
     base = pd.read_csv(carregar_regras.__defaults__[0], dtype=str, keep_default_na=False)
-    df = pd.concat([base.iloc[[1]]] + [pd.DataFrame([l]) for l in linhas], ignore_index=True)
+    # cota de US$ 500 e alíquota em vigor + as linhas do teste
+    vigentes = base[base["regra_id"].isin(["cota_terrestre", "aliquota_rte"])].iloc[1:]
+    df = pd.concat([vigentes] + [pd.DataFrame([l]) for l in linhas], ignore_index=True)
     caminho = tmp_path / "regras.csv"
     df.to_csv(caminho, index=False)
     return caminho
@@ -85,9 +93,19 @@ def test_tabela_invalida_e_recusada(tmp_path):
 
 def test_vigencia_duplicada_e_recusada(tmp_path):
     base = pd.read_csv(carregar_regras.__defaults__[0], dtype=str, keep_default_na=False)
-    dup = base.iloc[1].to_dict()
+    dup = base[base["regra_id"] == "cota_terrestre"].iloc[-1].to_dict()
     with pytest.raises(ErroRegras, match="mesma vigência"):
         carregar_regras(_tabela(tmp_path, [dup]), data=HOJE)
+
+
+def test_aliquota_fora_de_0_a_1_e_recusada(tmp_path):
+    base = pd.read_csv(carregar_regras.__defaults__[0], dtype=str, keep_default_na=False)
+    ruim = base[base["regra_id"] != "aliquota_rte"].copy()
+    linha = base[base["regra_id"] == "aliquota_rte"].iloc[0].to_dict() | {"limite": "1.5"}
+    caminho = tmp_path / "r.csv"
+    pd.concat([ruim, pd.DataFrame([linha])]).to_csv(caminho, index=False)
+    with pytest.raises(ErroRegras, match="entre 0 e 1"):
+        carregar_regras(caminho, data=HOJE)
 
 
 def test_sem_cota_em_vigor_e_erro():
@@ -247,17 +265,19 @@ def test_premissa_da_periodicidade_sempre_presente(regras):
 
 # --- Integração com o modelo da Fase 2 -------------------------------------------------
 
-def test_cota_vem_da_tabela_e_campo_antigo_e_ignorado(tmp_path):
+def test_cota_e_aliquota_vem_da_tabela_e_campos_antigos_sao_ignorados(tmp_path):
     p = criar_instancia(tmp_path / "i", [_loja("A", 5)], [("A", "P1", 100.0)], [("P1", 3, 1)],
-                        cota_disponivel_usd=150.0)
+                        cota_disponivel_usd=150.0, aliquota_excedente=0.8)
     inst = carregar_instancia(p, regras=carregar_regras(data=HOJE))
-    assert inst.cota == 500.0
+    assert inst.cota == 500.0 and inst.aliquota == 0.5
     assert any("cota_disponivel_usd" in a for a in inst.avisos)
+    assert any("aliquota_excedente" in a for a in inst.avisos)
 
 
-def test_instancias_da_base_nao_tem_mais_o_campo_de_cota():
+def test_instancias_da_base_nao_tem_mais_campos_fiscais():
     for meta in sorted(__import__("pathlib").Path("data/instances").glob("inst_*/metadata.json")):
-        assert "cota_disponivel_usd" not in json.loads(meta.read_text(encoding="utf-8")), meta
+        campos = json.loads(meta.read_text(encoding="utf-8"))
+        assert "cota_disponivel_usd" not in campos and "aliquota_excedente" not in campos, meta
 
 
 def test_limites_nao_mudam_a_solucao_e_aparecem_em_descrever(tmp_path):

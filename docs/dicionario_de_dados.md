@@ -117,16 +117,15 @@ apenas os guarda e valida.
 |---|---|---|
 | nome, tamanho, seed, densidade | — | Identificação e parâmetros de geração |
 | n_lojas, n_produtos, n_ofertas, n_itens_lista | — | Tamanho real da instância |
-| aliquota_excedente | fração | Imposto sobre o que passar da cota (0,5 = 50%) |
 | orcamento_usd | US$ | Quanto o turista pode gastar |
 | custo_minimo_lista_usd | US$ | Soma dos menores preços dos itens da lista (sem deslocamento) |
 | lista_excede_cota | booleano | `custo_minimo_lista_usd` > cota integral da tabela de regras (US$ 500) |
 | horario_chegada, horario_saida | HH:MM | Janela de tempo do turista em Ciudad del Este |
 | data_geracao, tipo_dado | — | Sempre `sintetico` |
 
-Fase 3: o campo `cota_disponivel_usd` foi removido. A cota vem de
-`data/regras_fiscais.csv` (abaixo); se um `metadata.json` antigo ainda tiver o campo, ele
-é ignorado, com aviso.
+Fase 3: os campos `cota_disponivel_usd` e `aliquota_excedente` foram removidos. A cota e
+a alíquota vêm de `data/regras_fiscais.csv` (abaixo); se um `metadata.json` antigo ainda
+tiver esses campos, eles são ignorados, com aviso.
 
 **Coluna extra em produtos.csv:** `preco_base_usd` (preço de referência usado só para gerar
 as ofertas fictícias; não é dado de mercado).
@@ -138,8 +137,8 @@ vale a linha mais recente com `vigencia_inicio` ≤ data de referência (padrão
 
 | Campo | Significado |
 |---|---|
-| regra_id | `cota_terrestre`, `bebidas`, `cigarros`, `charutos`, `fumo`, `pequeno_valor_total`, `pequeno_valor_identicos`, `outros_total`, `outros_identicos` |
-| tipo_limite | `valor` (US$), `quantidade` (unidades, maços, gramas) ou `litros` |
+| regra_id | `cota_terrestre`, `aliquota_rte`, `bebidas`, `cigarros`, `charutos`, `fumo`, `pequeno_valor_total`, `pequeno_valor_identicos`, `outros_total`, `outros_identicos` |
+| tipo_limite | `valor` (US$), `quantidade` (unidades, maços, gramas), `litros` ou `aliquota` (fração, só `aliquota_rte`) |
 | categoria_fiscal | categoria a que a regra se aplica (`todas` para a cota) |
 | contagem | `total` (soma da categoria) ou `identicos` (cada produto separadamente) |
 | limite, unidade | valor do limite e unidade |
@@ -167,7 +166,7 @@ vale a linha mais recente com `vigencia_inicio` ≤ data de referência (padrão
 ## Resultados da Fase 3 (`data/resultados/fase3/resultados_fase3.csv`)
 
 Uma linha por instância (r = 0,25), com as mesmas colunas de `resultados_fase2.csv` (a
-coluna `cota` agora é sempre 500) e mais: `excede_cota`, `limites_ultrapassados`
+coluna `cota` é sempre 500) e mais: `excede_cota`, `limites_ultrapassados`
 (regras separadas por `;`), `n_limites_ultrapassados`, `algum_alerta_limite`,
 `perde_cota`, `imposto_sem_cota`, `excesso_regime_comum`, `declaracao_necessaria`,
 `unidades_outros`, `max_identicos_outros`, `unidades_pequeno_valor` e `litros_bebidas`.
@@ -183,7 +182,7 @@ Uma linha por (instância, r). Valores em US$ e minutos. Formulação em
 | n_lojas | Lojas reais da instância (`metadata.json`) |
 | n_lojas_modelo, n_lojas_excluidas | Lojas candidatas após o pré-processamento / excluídas (coordenada pendente ou fora da janela) |
 | n_itens | Itens da lista |
-| cota, orcamento, custo_minimo_lista | Cota usada na rodada (na Fase 2 vinha do `metadata.json`: 500, 300 ou 150), orçamento B, soma dos menores preços da lista |
+| cota, orcamento, custo_minimo_lista | Cota usada na rodada (US$ 500, da tabela de regras; a primeira rodada da Fase 2 usava 500, 300 ou 150 do `metadata.json`), orçamento B, soma dos menores preços da lista |
 | lambda, big_m | λ = 1/(B + r·T_max + 1) e o big-M usado |
 | n_variaveis, n_restricoes | Tamanho do modelo exato |
 | status | `otimo` ou `viavel (limite de tempo)` |

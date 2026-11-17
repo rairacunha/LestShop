@@ -7,24 +7,24 @@
     "motivo": "",
     "prioridade_total": 18,
     "itens_comprados": 6,
-    "gasto_produtos": 571.85,
-    "excedente": 421.85,
-    "imposto": 210.93,
-    "custo_total": 782.78,
-    "tempo_andando": 45.2204,
-    "retorno": 775.2204,
+    "gasto_produtos": 573.76,
+    "excedente": 73.76,
+    "imposto": 36.88,
+    "custo_total": 610.64,
+    "tempo_andando": 42.326,
+    "retorno": 752.326,
     "peso_kg": 7.92,
     "volume_l": 27.3,
     "lambda_": 0.001,
-    "objetivo": 17.193
+    "objetivo": 17.3636
   },
-  "situacao_cota": "excede a cota em US$ 421.85 (imposto US$ 210.93)",
-  "cota_disponivel_usd": 150.0,
+  "situacao_cota": "excede a cota em US$ 73.76 (imposto US$ 36.88)",
+  "cota_disponivel_usd": 500.0,
   "orcamento_usd": 785.01,
   "orcamento_informado": true,
   "horario_chegada": "10:00",
   "horario_saida": "14:00",
-  "horario_retorno": "12:55",
+  "horario_retorno": "12:32",
   "roteiro": [
     {
       "ordem": 1,
@@ -40,6 +40,12 @@
           "nome": "Robô Aspirador",
           "quantidade": 1,
           "preco_usd": 175.99
+        },
+        {
+          "produto_id": "P067",
+          "nome": "Cafeteira de Cápsulas",
+          "quantidade": 1,
+          "preco_usd": 90.9
         }
       ]
     },
@@ -85,29 +91,12 @@
     },
     {
       "ordem": 4,
-      "loja_id": "L039",
-      "nome": "Star Games (fictícia)",
-      "predio": "Rua (loja de rua)",
-      "chegada": "11:49",
-      "inicio_atendimento": "11:49",
-      "saida": "12:09",
-      "compras": [
-        {
-          "produto_id": "P067",
-          "nome": "Cafeteira de Cápsulas",
-          "quantidade": 1,
-          "preco_usd": 88.99
-        }
-      ]
-    },
-    {
-      "ordem": 5,
       "loja_id": "L011",
       "nome": "Gold Digital (fictícia)",
       "predio": "Galeria Aurora",
-      "chegada": "12:12",
-      "inicio_atendimento": "12:12",
-      "saida": "12:42",
+      "chegada": "11:49",
+      "inicio_atendimento": "11:49",
+      "saida": "12:19",
       "compras": [
         {
           "produto_id": "P042",
@@ -119,20 +108,83 @@
     }
   ],
   "nao_comprados": [],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P070",
+        "produto": "Relógio Analógico Aço",
+        "itens": [
+          "P025",
+          "P042",
+          "P065",
+          "P067",
+          "P069",
+          "P070"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 6.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P025",
+          "P042",
+          "P065",
+          "P067",
+          "P069",
+          "P070"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 36.88,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 573.76) passa da cota de US$ 500.00 (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
   "avisos": [],
   "info": {
     "status": "otimo",
     "gap": 0.0,
-    "tempo_s": 0.09032849599998372,
+    "tempo_s": 0.09141270000003487,
     "big_m": 305.7534247889471,
-    "objetivo_modelo": 17.192994807812656,
-    "limitante": 17.192994807812656,
+    "objetivo_modelo": 17.363587120915817,
+    "limitante": 17.363587120915817,
     "n_variaveis": 182,
     "n_restricoes": 206,
-    "tempo_andando_antes_polimento": 45.220397236140045,
-    "tempo_andando_depois_polimento": 45.220397236140045,
+    "tempo_andando_antes_polimento": 42.32597806916282,
+    "tempo_andando_depois_polimento": 42.32597806916282,
     "polimento": "exato",
     "polimento_aceito": false,
-    "tempo_polimento_s": 0.0341253079998296
+    "tempo_polimento_s": 0.021712532000037754
   }
 }

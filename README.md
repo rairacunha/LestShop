@@ -268,8 +268,8 @@ O solver é o CBC que vem com o PuLP (`pulp>=2.7,<4`; o PuLP 4 não traz mais o 
 A cota de isenção (US$ 500 por via terrestre) e os limites quantitativos da bagagem ficam
 em `data/regras_fiscais.csv`, com tipo de limite, categoria, fonte (norma e dispositivo) e
 data de vigência; vale, para cada regra, a linha mais recente já em vigor. Essa tabela é a
-única fonte da cota: o `metadata.json` não tem mais esse campo, e cada rota é tratada como
-uma viagem nova, com a cota integral. O arquivo `data/categorias_fiscais.csv` liga
+única fonte da cota e da alíquota de 50%: o `metadata.json` não tem mais esses campos, e
+cada rota é tratada como uma viagem nova, com a cota integral. O arquivo `data/categorias_fiscais.csv` liga
 `produtos.categoria` (ou um produto específico) à categoria fiscal e guarda os litros de
 cada bebida.
 

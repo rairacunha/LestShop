@@ -5,69 +5,52 @@
   "resumo": {
     "viavel": true,
     "motivo": "",
-    "prioridade_total": 16,
-    "itens_comprados": 5,
-    "gasto_produtos": 188.8,
-    "excedente": 38.8,
-    "imposto": 19.4,
-    "custo_total": 208.2,
-    "tempo_andando": 46.7412,
-    "retorno": 621.7412,
-    "peso_kg": 2.9,
-    "volume_l": 5.0,
+    "prioridade_total": 19,
+    "itens_comprados": 4,
+    "gasto_produtos": 217.9,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 217.9,
+    "tempo_andando": 44.4239,
+    "retorno": 599.4239,
+    "peso_kg": 2.5,
+    "volume_l": 4.6,
     "lambda_": 0.0032,
-    "objetivo": 15.2865
+    "objetivo": 18.2569
   },
-  "situacao_cota": "excede a cota em US$ 38.80 (imposto US$ 19.40)",
-  "cota_disponivel_usd": 150.0,
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
   "orcamento_usd": 232.17,
   "orcamento_informado": true,
   "horario_chegada": "08:00",
   "horario_saida": "13:00",
-  "horario_retorno": "10:22",
+  "horario_retorno": "09:59",
   "roteiro": [
     {
       "ordem": 1,
-      "loja_id": "L019",
-      "nome": "Max Mix (fictícia)",
-      "predio": "Centro Comercial Rio",
-      "chegada": "08:11",
-      "inicio_atendimento": "08:11",
-      "saida": "08:26",
+      "loja_id": "L018",
+      "nome": "Max Games (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:16",
+      "inicio_atendimento": "08:16",
+      "saida": "08:41",
       "compras": [
         {
-          "produto_id": "P069",
-          "nome": "Óculos de Sol Polarizado",
+          "produto_id": "P007",
+          "nome": "Smartwatch Esportivo S1",
           "quantidade": 1,
-          "preco_usd": 69.0
+          "preco_usd": 88.0
         }
       ]
     },
     {
       "ordem": 2,
-      "loja_id": "L018",
-      "nome": "Max Games (fictícia)",
-      "predio": "Plaza Comercial Este",
-      "chegada": "08:33",
-      "inicio_atendimento": "08:33",
-      "saida": "08:58",
-      "compras": [
-        {
-          "produto_id": "P017",
-          "nome": "Carregador Portátil 20000mAh",
-          "quantidade": 1,
-          "preco_usd": 27.0
-        }
-      ]
-    },
-    {
-      "ordem": 3,
       "loja_id": "L012",
       "nome": "Gold Shop (fictícia)",
       "predio": "Paseo Las Palmas",
-      "chegada": "09:04",
-      "inicio_atendimento": "09:04",
-      "saida": "09:14",
+      "chegada": "08:47",
+      "inicio_atendimento": "08:47",
+      "saida": "08:57",
       "compras": [
         {
           "produto_id": "P062",
@@ -78,13 +61,13 @@
       ]
     },
     {
-      "ordem": 4,
+      "ordem": 3,
       "loja_id": "L036",
       "nome": "Smart Games (fictícia)",
       "predio": "Shopping Monte Azul",
-      "chegada": "09:20",
-      "inicio_atendimento": "09:20",
-      "saida": "09:45",
+      "chegada": "09:03",
+      "inicio_atendimento": "09:03",
+      "saida": "09:28",
       "compras": [
         {
           "produto_id": "P050",
@@ -95,28 +78,33 @@
       ]
     },
     {
-      "ordem": 5,
-      "loja_id": "L025",
-      "nome": "Mega Tech (fictícia)",
-      "predio": "Galeria Aurora",
-      "chegada": "09:49",
-      "inicio_atendimento": "09:49",
-      "saida": "10:09",
+      "ordem": 4,
+      "loja_id": "L019",
+      "nome": "Max Mix (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "09:33",
+      "inicio_atendimento": "09:33",
+      "saida": "09:48",
       "compras": [
         {
-          "produto_id": "P020",
-          "nome": "Streaming Stick HD",
+          "produto_id": "P069",
+          "nome": "Óculos de Sol Polarizado",
           "quantidade": 1,
-          "preco_usd": 31.9
+          "preco_usd": 69.0
         }
       ]
     }
   ],
   "nao_comprados": [
     {
-      "produto_id": "P007",
-      "nome": "Smartwatch Esportivo S1",
-      "prioridade": 5
+      "produto_id": "P017",
+      "nome": "Carregador Portátil 20000mAh",
+      "prioridade": 1
+    },
+    {
+      "produto_id": "P020",
+      "nome": "Streaming Stick HD",
+      "prioridade": 1
     },
     {
       "produto_id": "P042",
@@ -124,20 +112,92 @@
       "prioridade": 2
     }
   ],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "bebidas",
+        "descricao": "Bebidas alcoólicas",
+        "categoria_fiscal": "bebidas_alcoolicas",
+        "contagem": "total",
+        "usado": 1.0,
+        "limite": 12.0,
+        "unidade": "L",
+        "situacao": "abaixo",
+        "consequencia": "regime_comum",
+        "fonte": "Portaria MF 440/2010, art. 7º, § 1º, I; IN RFB 1.059/2010, art. 44, II",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P050"
+        ]
+      },
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P069",
+        "produto": "Óculos de Sol Polarizado",
+        "itens": [
+          "P007",
+          "P062",
+          "P069"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 3.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P007",
+          "P062",
+          "P069"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 0.0,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": false,
+    "alertas": [],
+    "avisos": []
+  },
   "avisos": [],
   "info": {
     "status": "otimo",
     "gap": 0.0,
-    "tempo_s": 0.1458746590001283,
+    "tempo_s": 0.1932215260000021,
     "big_m": 349.4793351288936,
-    "objetivo_modelo": 15.286480475344902,
-    "limitante": 15.286480475344902,
+    "objetivo_modelo": 18.25688426701999,
+    "limitante": 18.25688426701999,
     "n_variaveis": 268,
     "n_restricoes": 298,
-    "tempo_andando_antes_polimento": 46.74124765184515,
-    "tempo_andando_depois_polimento": 46.74124765184515,
+    "tempo_andando_antes_polimento": 44.42390172979621,
+    "tempo_andando_depois_polimento": 44.42390172979621,
     "polimento": "exato",
     "polimento_aceito": false,
-    "tempo_polimento_s": 0.028723060999936934
+    "tempo_polimento_s": 0.019907178999972075
   }
 }

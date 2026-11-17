@@ -329,9 +329,9 @@ precisam de declaração por passar da cota.
 
 Implementada em `data/regras_fiscais.csv` (7.2), carregada por `src/lesteshop/fiscal/`.
 Diferenças em relação ao rascunho abaixo: a tabela tem também a cota antiga de US$ 300
-(vigência 2010-10-01), para a versão por data funcionar; a alíquota de 50% **não** entrou
-na tabela (o escopo moveu só a cota; ela continua em `metadata.aliquota_excedente`); e
-cada regra tem as colunas `contagem` (`total` ou `identicos`) e a faixa de valor unitário.
+(vigência 2010-10-01), para a versão por data funcionar; a alíquota de 50% entrou como
+regra `aliquota_rte` (tipo `aliquota`) no fechamento da fase, em 17/11/2026; e cada regra
+tem as colunas `contagem` (`total` ou `identicos`) e a faixa de valor unitário.
 Rascunho aprovado:
 
 | regra_id | tipo_limite | categoria_fiscal | limite | unidade | via | consequencia_excesso | fonte | vigencia_inicio |

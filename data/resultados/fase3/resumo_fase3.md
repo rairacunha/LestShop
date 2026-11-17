@@ -24,7 +24,7 @@ Nessas instâncias o modelo mantém a cesta (os limites não são restrição); 
 
 ## 3. Conferência com a Fase 2
 
-* Instâncias com cota de US$ 500 na Fase 2: 64; com a mesma solução (prioridade, custo total e tempo andando) agora: 64.
-* Instâncias com cota de US$ 300 ou 150 na Fase 2: 36. Com a cota integral, 31 mudaram de solução; prioridade atendida média de 17.83 para 18.42, imposto médio de US$ 203.09 para US$ 146.50.
+* Instâncias com cota de US$ 500 na Fase 2: 100; com a mesma solução (prioridade, custo total e tempo andando) agora: 100.
+* Nenhuma instância tinha cota diferente de US$ 500.
 
 Soluções inviáveis na verificação independente: 0.

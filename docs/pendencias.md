@@ -68,16 +68,24 @@ da cota), mapeamento editável `data/categorias_fiscais.csv`, bloco `fiscal` em
 `tests/test_fiscal.py` e experimentos em `data/resultados/fase3/`. O modelo de otimização
 não mudou.
 
+### Fechamento da Fase 3 (aprovado em 17/11/2026)
+
+* **Alíquota na tabela de regras.** A alíquota de 50% do RTE passou para
+  `data/regras_fiscais.csv` (regra `aliquota_rte`, Portaria MF 440/2010, art. 12). O campo
+  `aliquota_excedente` saiu dos `metadata.json`; se aparecer num arquivo antigo, é
+  ignorado com aviso. A tabela agora é a única fonte da cota e da alíquota.
+* **Experimentos da Fase 2 refeitos** com a cota integral de US$ 500 em todas as
+  instâncias (`resultados_fase2.csv` e `resumo_experimentos.md` atualizados). Das 250
+  rodadas, 79 mudaram, todas de instâncias que antes tinham cota de 300 ou 150; nenhuma
+  das que já tinham cota de 500 mudou. Com r = 0,25: itens deixados de fora em 69
+  instâncias (antes 74), imposto em 38 (antes 50; média de US$ 222,14 quando paga, antes
+  US$ 209,58), prioridade atendida média de 90,6% (antes 89,5%). O solver não mudou de
+  comportamento: 99 ótimos provados, `inst_075_media` no limite com gap de 3,91%,
+  heurística = exato em 99, nenhuma solução inviável. A conferência da Fase 3 agora dá
+  100 de 100 instâncias com a mesma solução nas duas rodadas.
+
 ### Ficou para depois (percebido na Fase 3; não implementar sem autorização)
 
-* **Resultados da Fase 2 com a cota antiga.** `data/resultados/resultados_fase2.csv` e o
-  resumo da Fase 2 foram gerados com a cota do `metadata.json` (500, 300 ou 150) e ficam
-  como registro. Rodar `lesteshop.otimizacao.experimentos` de novo agora usa US$ 500 em
-  todas as instâncias. A Fase 3 mostrou que as 64 instâncias com cota de 500 têm a mesma
-  solução e que 31 das 36 restantes mudam por causa da cota.
-* **Alíquota na tabela de regras.** O escopo moveu só a cota; a alíquota de 50% continua
-  em `metadata.aliquota_excedente`. Pode passar para `regras_fiscais.csv` se for preciso
-  uma fonte única para todas as regras.
 * **Data de referência das regras.** Hoje é a data do dia; o app poderia usar a data da
   viagem informada pelo turista.
 * **Cota adicional de loja franca de fronteira (Foz do Iguaçu).** Não se aplica às lojas

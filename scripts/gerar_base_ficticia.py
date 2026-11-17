@@ -311,7 +311,6 @@ for k, (tam, n_l, n_p) in enumerate(tamanhos, start=1):
         "nome": nome_inst, "tamanho": tam, "seed": seed, "densidade": densidade,
         "n_lojas": len(lojas_i), "n_produtos": len(prod_i), "n_ofertas": len(of_i),
         "n_itens_lista": len(lista),
-        "aliquota_excedente": 0.5,
         "orcamento_usd": orcamento,
         "custo_minimo_lista_usd": round(custo_min_lista, 2),
         "lista_excede_cota": custo_min_lista > cota,

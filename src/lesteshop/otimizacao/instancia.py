@@ -13,8 +13,8 @@ Pré-processamento (decisões aprovadas):
 * a janela de cada loja é recortada pela janela do turista [H⁰, H¹]; loja cuja
   janela recortada não comporta a permanência fica de fora, com aviso.
 
-Fase 3: a cota de isenção vem da tabela de regras fiscais
-(``data/regras_fiscais.csv``), que é a única fonte desse valor; cada rota é uma
+Fase 3: a cota de isenção e a alíquota do RTE vêm da tabela de regras fiscais
+(``data/regras_fiscais.csv``), que é a única fonte desses valores; cada rota é uma
 viagem nova, com a cota integral. Cada item recebe a categoria fiscal de
 ``data/categorias_fiscais.csv``, usada só na verificação dos limites (alertas).
 
@@ -93,7 +93,7 @@ class Instancia:
     preco: dict[tuple[int, int], float]
     t: np.ndarray                     # (m+1) × (m+1), minutos
     cota: float                       # cota integral, de data/regras_fiscais.csv
-    aliquota: float
+    aliquota: float                   # alíquota do RTE, de data/regras_fiscais.csv
     orcamento: float                  # B (= cota quando não informado)
     orcamento_informado: bool
     chegada: float                    # H⁰ (min)
@@ -206,12 +206,17 @@ def montar_instancia(
     regras = regras or carregar_regras()
     categorias = categorias or carregar_categorias()
     cota = regras.cota_usd
+    aliquota = regras.aliquota_rte
     if "cota_disponivel_usd" in meta:
         avisos.append(
             "Campo 'cota_disponivel_usd' do metadata.json ignorado: a cota vem de "
             f"data/regras_fiscais.csv (US$ {cota:.2f})."
         )
-    aliquota = float(meta.get("aliquota_excedente", 0.5))
+    if "aliquota_excedente" in meta:
+        avisos.append(
+            "Campo 'aliquota_excedente' do metadata.json ignorado: a alíquota vem de "
+            f"data/regras_fiscais.csv ({aliquota:g})."
+        )
     if orcamento == _DO_METADATA:
         orcamento = _float_ou_none(meta.get("orcamento_usd"))
     orcamento_informado = orcamento is not None

@@ -54,7 +54,7 @@ def criar_instancia(pasta: Path, lojas, ofertas, lista, **meta) -> Path:
     pd.DataFrame([{"produto_id": p, "nome": f"Produto {p}", "quantidade": q, "prioridade": v}
                   for p, v, q in lista]).to_csv(pasta / "lista_compras.csv", index=False)
     base = {"nome": pasta.name, "tamanho": "pequena", "n_lojas": len(lojas),
-            "aliquota_excedente": 0.5, "orcamento_usd": 2000.0,
+            "orcamento_usd": 2000.0,
             "horario_chegada": "08:00", "horario_saida": "16:00", "tipo_dado": "sintetico"}
     base.update(meta)
     (pasta / "metadata.json").write_text(json.dumps(base), encoding="utf-8")
