@@ -300,5 +300,6 @@ Os experimentos gravam `data/resultados/fase3/resultados_fase3.csv`, as soluçõ
 * [Legislação de bagagem (Fase 3)](docs/legislacao_bagagem.md)
 * [Resultados dos experimentos da Fase 3](data/resultados/fase3/resumo_fase3.md)
 * [Handoff para a Fase 3](docs/handoff_fase3.md)
+* [Handoff para a Fase 4](docs/handoff_fase4.md)
 * [Origem dos dados e limitações](docs/origem_dos_dados.md)
 * [Pendências para as próximas fases](docs/pendencias.md)
