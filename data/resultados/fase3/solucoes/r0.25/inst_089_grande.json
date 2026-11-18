@@ -1,0 +1,295 @@
+{
+  "instancia": "inst_089_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 35,
+    "itens_comprados": 11,
+    "gasto_produtos": 906.47,
+    "excedente": 406.47,
+    "imposto": 203.24,
+    "custo_total": 1109.7,
+    "tempo_andando": 56.0299,
+    "retorno": 701.0299,
+    "peso_kg": 29.2,
+    "volume_l": 152.6,
+    "lambda_": 0.0004,
+    "objetivo": 34.5202
+  },
+  "situacao_cota": "excede a cota em US$ 406.47 (imposto US$ 203.24)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 2281.17,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "11:41",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:12",
+      "inicio_atendimento": "08:12",
+      "saida": "08:22",
+      "compras": [
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 42.9
+        },
+        {
+          "produto_id": "P034",
+          "nome": "Pendrive 128GB",
+          "quantidade": 1,
+          "preco_usd": 9.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:28",
+      "inicio_atendimento": "08:28",
+      "saida": "08:53",
+      "compras": [
+        {
+          "produto_id": "P048",
+          "nome": "Prancha Alisadora Titânio",
+          "quantidade": 1,
+          "preco_usd": 38.99
+        },
+        {
+          "produto_id": "P068",
+          "nome": "Jogo de Panelas Antiaderente 5pç",
+          "quantidade": 1,
+          "preco_usd": 79.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:58",
+      "inicio_atendimento": "08:58",
+      "saida": "09:28",
+      "compras": [
+        {
+          "produto_id": "P019",
+          "nome": "Smart TV 50\" 4K",
+          "quantidade": 1,
+          "preco_usd": 323.9
+        },
+        {
+          "produto_id": "P039",
+          "nome": "Perfume Feminino Floral 100ml",
+          "quantidade": 1,
+          "preco_usd": 75.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L030",
+      "nome": "Royal Eletrônicos (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:29",
+      "inicio_atendimento": "09:29",
+      "saida": "09:54",
+      "compras": [
+        {
+          "produto_id": "P055",
+          "nome": "Espumante Brut 750ml",
+          "quantidade": 1,
+          "preco_usd": 18.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "09:55",
+      "inicio_atendimento": "09:55",
+      "saida": "10:05",
+      "compras": [
+        {
+          "produto_id": "P010",
+          "nome": "Fone Bluetooth Intra com Cancelamento",
+          "quantidade": 1,
+          "preco_usd": 129.9
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L016",
+      "nome": "Luna Perfumes (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "10:16",
+      "inicio_atendimento": "10:16",
+      "saida": "10:41",
+      "compras": [
+        {
+          "produto_id": "P033",
+          "nome": "SSD Externo 1TB",
+          "quantidade": 1,
+          "preco_usd": 70.9
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L029",
+      "nome": "Royal Center (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "10:48",
+      "inicio_atendimento": "10:48",
+      "saida": "11:08",
+      "compras": [
+        {
+          "produto_id": "P059",
+          "nome": "Vara de Pesca Telescópica",
+          "quantidade": 1,
+          "preco_usd": 42.0
+        }
+      ]
+    },
+    {
+      "ordem": 8,
+      "loja_id": "L023",
+      "nome": "Mega Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "11:09",
+      "inicio_atendimento": "11:09",
+      "saida": "11:29",
+      "compras": [
+        {
+          "produto_id": "P060",
+          "nome": "Barraca Camping 4 Pessoas",
+          "quantidade": 1,
+          "preco_usd": 74.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P004",
+      "nome": "Celular Modelo B Pro Max 512GB",
+      "prioridade": 1
+    }
+  ],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "bebidas",
+        "descricao": "Bebidas alcoólicas",
+        "categoria_fiscal": "bebidas_alcoolicas",
+        "contagem": "total",
+        "usado": 0.75,
+        "limite": 12.0,
+        "unidade": "L",
+        "situacao": "abaixo",
+        "consequencia": "regime_comum",
+        "fonte": "Portaria MF 440/2010, art. 7º, § 1º, I; IN RFB 1.059/2010, art. 44, II",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P055"
+        ]
+      },
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P068",
+        "produto": "Jogo de Panelas Antiaderente 5pç",
+        "itens": [
+          "P010",
+          "P019",
+          "P032",
+          "P033",
+          "P034",
+          "P039",
+          "P048",
+          "P059",
+          "P060",
+          "P068"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 10.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "no_limite",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P010",
+          "P019",
+          "P032",
+          "P033",
+          "P034",
+          "P039",
+          "P048",
+          "P059",
+          "P060",
+          "P068"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 203.24,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 906.47) passa da cota de US$ 500.00 (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 5.166416584999979,
+    "big_m": 308.16305367697635,
+    "objetivo_modelo": 34.52022591417894,
+    "limitante": 34.52022591417894,
+    "n_variaveis": 995,
+    "n_restricoes": 1055,
+    "tempo_andando_antes_polimento": 56.02988235009651,
+    "tempo_andando_depois_polimento": 56.02988235009651,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.17013623000002553
+  }
+}

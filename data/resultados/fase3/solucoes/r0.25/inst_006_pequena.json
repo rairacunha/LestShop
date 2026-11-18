@@ -1,0 +1,150 @@
+{
+  "instancia": "inst_006_pequena",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 8,
+    "itens_comprados": 4,
+    "gasto_produtos": 223.88,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 223.88,
+    "tempo_andando": 39.7109,
+    "retorno": 574.7109,
+    "peso_kg": 5.82,
+    "volume_l": 22.5,
+    "lambda_": 0.0027,
+    "objetivo": 7.3763
+  },
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 268.86,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "15:00",
+  "horario_retorno": "09:35",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L004",
+      "nome": "Delta Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "08:17",
+      "inicio_atendimento": "08:17",
+      "saida": "08:42",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 32.99
+        },
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 44.99
+        },
+        {
+          "produto_id": "P038",
+          "nome": "Memória RAM 16GB DDR5",
+          "quantidade": 1,
+          "preco_usd": 55.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L049",
+      "nome": "Ultra Games (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "08:52",
+      "inicio_atendimento": "08:52",
+      "saida": "09:22",
+      "compras": [
+        {
+          "produto_id": "P060",
+          "nome": "Barraca Camping 4 Pessoas",
+          "quantidade": 1,
+          "preco_usd": 90.0
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P060",
+        "produto": "Barraca Camping 4 Pessoas",
+        "itens": [
+          "P026",
+          "P032",
+          "P038",
+          "P060"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 4.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P026",
+          "P032",
+          "P038",
+          "P060"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 0.0,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": false,
+    "alertas": [],
+    "avisos": []
+  },
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.007996155000000726,
+    "big_m": 466.6392864394271,
+    "objetivo_modelo": 7.376279855648561,
+    "limitante": 7.376279855648561,
+    "n_variaveis": 21,
+    "n_restricoes": 27,
+    "tempo_andando_antes_polimento": 39.71093324632043,
+    "tempo_andando_depois_polimento": 39.71093324632043,
+    "polimento": "nenhum",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 1.1519999986830953e-05
+  }
+}

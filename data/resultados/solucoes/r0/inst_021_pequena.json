@@ -8,18 +8,18 @@
     "prioridade_total": 10,
     "itens_comprados": 4,
     "gasto_produtos": 199.79,
-    "excedente": 49.79,
-    "imposto": 24.89,
-    "custo_total": 224.69,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 199.79,
     "tempo_andando": 46.0192,
     "retorno": 601.0192,
     "peso_kg": 1.7,
     "volume_l": 4.4,
     "lambda_": 0.0014,
-    "objetivo": 9.6745
+    "objetivo": 9.7106
   },
-  "situacao_cota": "excede a cota em US$ 49.79 (imposto US$ 24.89)",
-  "cota_disponivel_usd": 150.0,
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
   "orcamento_usd": 689.37,
   "orcamento_informado": true,
   "horario_chegada": "08:00",
@@ -91,20 +91,77 @@
       "prioridade": 1
     }
   ],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P059",
+        "produto": "Vara de Pesca Telescópica",
+        "itens": [
+          "P017",
+          "P038",
+          "P039",
+          "P059"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 4.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P017",
+          "P038",
+          "P039",
+          "P059"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 0.0,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": false,
+    "alertas": [],
+    "avisos": []
+  },
   "avisos": [],
   "info": {
     "status": "otimo",
     "gap": 0.0,
-    "tempo_s": 0.015509233999864591,
+    "tempo_s": 0.015051575000029516,
     "big_m": 347.746413216518,
-    "objetivo_modelo": 9.67454408505584,
-    "limitante": 9.67454408505584,
+    "objetivo_modelo": 9.710604458478787,
+    "limitante": 9.710604458478787,
     "n_variaveis": 58,
     "n_restricoes": 70,
     "tempo_andando_antes_polimento": 46.01920511048408,
     "tempo_andando_depois_polimento": 46.01920511048408,
     "polimento": "exato",
     "polimento_aceito": false,
-    "tempo_polimento_s": 0.012176685999975234
+    "tempo_polimento_s": 0.015955027000018163
   }
 }

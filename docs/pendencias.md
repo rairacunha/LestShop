@@ -53,13 +53,48 @@ Implementada em `src/lesteshop/otimizacao/`, formulação em
 
 ## Fase 3 — Regras fiscais
 
-* A Fase 2 já usa a regra simples (cota disponível + 50% sobre o excedente, em US$).
-  Falta na Fase 3: conferir a regra na legislação vigente, controlar o uso da cota a cada
-  30 dias (histórico de viagens) e eventuais limites por tipo de item.
-* Limites por quantidade/tipo de item (ex.: bebidas, perfumes, eletrônicos) — conferir a
-  legislação vigente.
+* Levantamento da legislação concluído em
+  [`legislacao_bagagem.md`](legislacao_bagagem.md); decisões de 16/11/2026 na seção 11.
+* Fica **fora** da Fase 3 (decidido): histórico de compras e cota residual entre viagens
+  (cada rota é uma viagem nova, com a cota integral), limites como restrição rígida,
+  quantidade inteira (y_k continua binário), bens de uso pessoal, proibidos ou restritos,
+  e **destinação comercial** (o comércio importa com CNPJ, pelo regime comum).
+
+### Implementado (7.2)
+
+Módulo `src/lesteshop/fiscal/`, tabela versionada `data/regras_fiscais.csv` (única fonte
+da cota), mapeamento editável `data/categorias_fiscais.csv`, bloco `fiscal` em
+`descrever()` (situação de cada limite, alertas, imposto sem cota, declaração), testes em
+`tests/test_fiscal.py` e experimentos em `data/resultados/fase3/`. O modelo de otimização
+não mudou.
+
+### Fechamento da Fase 3 (aprovado em 17/11/2026)
+
+* **Alíquota na tabela de regras.** A alíquota de 50% do RTE passou para
+  `data/regras_fiscais.csv` (regra `aliquota_rte`, Portaria MF 440/2010, art. 12). O campo
+  `aliquota_excedente` saiu dos `metadata.json`; se aparecer num arquivo antigo, é
+  ignorado com aviso. A tabela agora é a única fonte da cota e da alíquota.
+* **Experimentos da Fase 2 refeitos** com a cota integral de US$ 500 em todas as
+  instâncias (`resultados_fase2.csv` e `resumo_experimentos.md` atualizados). Das 250
+  rodadas, 79 mudaram, todas de instâncias que antes tinham cota de 300 ou 150; nenhuma
+  das que já tinham cota de 500 mudou. Com r = 0,25: itens deixados de fora em 69
+  instâncias (antes 74), imposto em 38 (antes 50; média de US$ 222,14 quando paga, antes
+  US$ 209,58), prioridade atendida média de 90,6% (antes 89,5%). O solver não mudou de
+  comportamento: 99 ótimos provados, `inst_075_media` no limite com gap de 3,91%,
+  heurística = exato em 99, nenhuma solução inviável. A conferência da Fase 3 agora dá
+  100 de 100 instâncias com a mesma solução nas duas rodadas.
+
+### Ficou para depois (percebido na Fase 3; não implementar sem autorização)
+
+* **Data de referência das regras.** Hoje é a data do dia; o app poderia usar a data da
+  viagem informada pelo turista.
+* **Cota adicional de loja franca de fronteira (Foz do Iguaçu).** Não se aplica às lojas
+  de Ciudad del Este; só faria sentido se o app passasse a incluir lojas do lado brasileiro.
 
 ## Fase 4 — Aplicativo
+
+* Exibir na tela o bloco `fiscal` (uso de cada limite, alertas, imposto sem cota,
+  declaração e-DBV) e o texto da premissa da cota integral.
 
 * **Coleta no aparelho do usuário.** Como o site exige verificação humana, um servidor não
   consegue coletar sozinho. No app, as páginas teriam de ser carregadas no próprio

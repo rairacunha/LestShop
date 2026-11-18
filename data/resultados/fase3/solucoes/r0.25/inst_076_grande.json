@@ -1,0 +1,335 @@
+{
+  "instancia": "inst_076_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 39,
+    "itens_comprados": 13,
+    "gasto_produtos": 548.28,
+    "excedente": 48.28,
+    "imposto": 24.14,
+    "custo_total": 572.42,
+    "tempo_andando": 56.6687,
+    "retorno": 781.6687,
+    "peso_kg": 7.77,
+    "volume_l": 35.6,
+    "lambda_": 0.0014,
+    "objetivo": 38.1741
+  },
+  "situacao_cota": "excede a cota em US$ 48.28 (imposto US$ 24.14)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 634.22,
+  "orcamento_informado": true,
+  "horario_chegada": "09:00",
+  "horario_saida": "14:00",
+  "horario_retorno": "13:02",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "09:12",
+      "inicio_atendimento": "09:12",
+      "saida": "09:22",
+      "compras": [
+        {
+          "produto_id": "P024",
+          "nome": "Controle Sem Fio Console",
+          "quantidade": 1,
+          "preco_usd": 50.99
+        },
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 42.9
+        },
+        {
+          "produto_id": "P034",
+          "nome": "Pendrive 128GB",
+          "quantidade": 1,
+          "preco_usd": 9.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L032",
+      "nome": "Royal Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:28",
+      "inicio_atendimento": "09:28",
+      "saida": "09:53",
+      "compras": [
+        {
+          "produto_id": "P054",
+          "nome": "Vinho Tinto Reserva 750ml",
+          "quantidade": 1,
+          "preco_usd": 14.0
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L033",
+      "nome": "Royal Shop (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:54",
+      "inicio_atendimento": "09:54",
+      "saida": "10:24",
+      "compras": [
+        {
+          "produto_id": "P044",
+          "nome": "Kit Maquiagem Básico",
+          "quantidade": 1,
+          "preco_usd": 32.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L009",
+      "nome": "Gold Bazar (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:29",
+      "inicio_atendimento": "10:29",
+      "saida": "10:54",
+      "compras": [
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 60.9
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:55",
+      "inicio_atendimento": "10:55",
+      "saida": "11:05",
+      "compras": [
+        {
+          "produto_id": "P051",
+          "nome": "Whisky 18 anos 750ml",
+          "quantidade": 1,
+          "preco_usd": 88.0
+        },
+        {
+          "produto_id": "P062",
+          "nome": "Boneca Articulada Colecionável",
+          "quantidade": 1,
+          "preco_usd": 27.9
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "11:13",
+      "inicio_atendimento": "11:13",
+      "saida": "11:33",
+      "compras": [
+        {
+          "produto_id": "P040",
+          "nome": "Perfume Feminino Oriental 50ml",
+          "quantidade": 1,
+          "preco_usd": 60.9
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L016",
+      "nome": "Luna Perfumes (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "11:35",
+      "inicio_atendimento": "11:35",
+      "saida": "12:00",
+      "compras": [
+        {
+          "produto_id": "P033",
+          "nome": "SSD Externo 1TB",
+          "quantidade": 1,
+          "preco_usd": 70.9
+        }
+      ]
+    },
+    {
+      "ordem": 8,
+      "loja_id": "L037",
+      "nome": "Smart Mix (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "12:01",
+      "inicio_atendimento": "12:01",
+      "saida": "12:11",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 25.9
+        }
+      ]
+    },
+    {
+      "ordem": 9,
+      "loja_id": "L048",
+      "nome": "Top Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "12:19",
+      "inicio_atendimento": "12:19",
+      "saida": "12:29",
+      "compras": [
+        {
+          "produto_id": "P072",
+          "nome": "Mochila Notebook 15\"",
+          "quantidade": 1,
+          "preco_usd": 37.0
+        }
+      ]
+    },
+    {
+      "ordem": 10,
+      "loja_id": "L029",
+      "nome": "Royal Center (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "12:30",
+      "inicio_atendimento": "12:30",
+      "saida": "12:50",
+      "compras": [
+        {
+          "produto_id": "P017",
+          "nome": "Carregador Portátil 20000mAh",
+          "quantidade": 1,
+          "preco_usd": 26.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P060",
+      "nome": "Barraca Camping 4 Pessoas",
+      "prioridade": 1
+    }
+  ],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "bebidas",
+        "descricao": "Bebidas alcoólicas",
+        "categoria_fiscal": "bebidas_alcoolicas",
+        "contagem": "total",
+        "usado": 1.5,
+        "limite": 12.0,
+        "unidade": "L",
+        "situacao": "abaixo",
+        "consequencia": "regime_comum",
+        "fonte": "Portaria MF 440/2010, art. 7º, § 1º, I; IN RFB 1.059/2010, art. 44, II",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P051",
+          "P054"
+        ]
+      },
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P072",
+        "produto": "Mochila Notebook 15\"",
+        "itens": [
+          "P017",
+          "P024",
+          "P026",
+          "P027",
+          "P032",
+          "P033",
+          "P034",
+          "P040",
+          "P044",
+          "P062",
+          "P072"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 11.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "acima",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P017",
+          "P024",
+          "P026",
+          "P027",
+          "P032",
+          "P033",
+          "P034",
+          "P040",
+          "P044",
+          "P062",
+          "P072"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [
+      "outros_total"
+    ],
+    "perde_cota": true,
+    "imposto_modelo_usd": 24.14,
+    "imposto_sem_cota_usd": 274.14,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Limite ultrapassado — Demais bens (total): 11 unidades para um limite de 10 unidades (IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º). Pela norma, a bagagem perde a cota de isenção e vai para o regime de tributação especial sobre todo o valor: imposto estimado de US$ 274.14.",
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 548.28) passa da cota de US$ 500.00 e há limite quantitativo ultrapassado (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 8.24990621500001,
+    "big_m": 368.16305367697635,
+    "objetivo_modelo": 38.174076809985465,
+    "limitante": 38.174076809985465,
+    "n_variaveis": 1354,
+    "n_restricoes": 1424,
+    "tempo_andando_antes_polimento": 56.6686720485014,
+    "tempo_andando_depois_polimento": 56.6686720485014,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.9854919680000194
+  }
+}

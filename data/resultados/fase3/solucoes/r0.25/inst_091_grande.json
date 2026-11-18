@@ -1,0 +1,294 @@
+{
+  "instancia": "inst_091_grande",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 31,
+    "itens_comprados": 11,
+    "gasto_produtos": 751.74,
+    "excedente": 251.74,
+    "imposto": 125.87,
+    "custo_total": 877.61,
+    "tempo_andando": 54.6659,
+    "retorno": 719.6659,
+    "peso_kg": 10.89,
+    "volume_l": 35.4,
+    "lambda_": 0.0008,
+    "objetivo": 30.2812
+  },
+  "situacao_cota": "excede a cota em US$ 251.74 (imposto US$ 125.87)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 1179.01,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "12:00",
+  "horario_retorno": "12:00",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L044",
+      "nome": "Super Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "08:12",
+      "inicio_atendimento": "08:12",
+      "saida": "08:42",
+      "compras": [
+        {
+          "produto_id": "P024",
+          "nome": "Controle Sem Fio Console",
+          "quantidade": 1,
+          "preco_usd": 60.9
+        },
+        {
+          "produto_id": "P025",
+          "nome": "Jogo Mídia Física Lançamento",
+          "quantidade": 1,
+          "preco_usd": 52.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L048",
+      "nome": "Top Shop (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "08:43",
+      "inicio_atendimento": "08:43",
+      "saida": "08:53",
+      "compras": [
+        {
+          "produto_id": "P039",
+          "nome": "Perfume Feminino Floral 100ml",
+          "quantidade": 1,
+          "preco_usd": 74.99
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:00",
+      "inicio_atendimento": "09:00",
+      "saida": "09:30",
+      "compras": [
+        {
+          "produto_id": "P069",
+          "nome": "Óculos de Sol Polarizado",
+          "quantidade": 1,
+          "preco_usd": 61.0
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L014",
+      "nome": "Luna Eletrônicos (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:31",
+      "inicio_atendimento": "09:31",
+      "saida": "09:46",
+      "compras": [
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 49.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L039",
+      "nome": "Star Games (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "09:49",
+      "inicio_atendimento": "09:49",
+      "saida": "10:09",
+      "compras": [
+        {
+          "produto_id": "P067",
+          "nome": "Cafeteira de Cápsulas",
+          "quantidade": 1,
+          "preco_usd": 88.99
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L045",
+      "nome": "Top Bazar (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "10:17",
+      "inicio_atendimento": "10:17",
+      "saida": "10:37",
+      "compras": [
+        {
+          "produto_id": "P012",
+          "nome": "Caixa de Som Portátil Mini",
+          "quantidade": 1,
+          "preco_usd": 38.9
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L028",
+      "nome": "Rapid Perfumes (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "10:42",
+      "inicio_atendimento": "10:42",
+      "saida": "11:07",
+      "compras": [
+        {
+          "produto_id": "P066",
+          "nome": "Liquidificador Potente 1200W",
+          "quantidade": 1,
+          "preco_usd": 44.0
+        }
+      ]
+    },
+    {
+      "ordem": 8,
+      "loja_id": "L003",
+      "nome": "Delta Imports (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "11:12",
+      "inicio_atendimento": "11:12",
+      "saida": "11:37",
+      "compras": [
+        {
+          "produto_id": "P001",
+          "nome": "Celular Modelo A 128GB",
+          "quantidade": 1,
+          "preco_usd": 199.99
+        }
+      ]
+    },
+    {
+      "ordem": 9,
+      "loja_id": "L024",
+      "nome": "Mega Shop (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "11:38",
+      "inicio_atendimento": "11:38",
+      "saida": "11:48",
+      "compras": [
+        {
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
+          "quantidade": 1,
+          "preco_usd": 24.99
+        },
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 55.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P006",
+      "nome": "Celular Modelo D 5G 128GB",
+      "prioridade": 1
+    }
+  ],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P069",
+        "produto": "Óculos de Sol Polarizado",
+        "itens": [
+          "P001",
+          "P012",
+          "P024",
+          "P025",
+          "P026",
+          "P027",
+          "P032",
+          "P039",
+          "P066",
+          "P067",
+          "P069"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 11.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "acima",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P001",
+          "P012",
+          "P024",
+          "P025",
+          "P026",
+          "P027",
+          "P032",
+          "P039",
+          "P066",
+          "P067",
+          "P069"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [
+      "outros_total"
+    ],
+    "perde_cota": true,
+    "imposto_modelo_usd": 125.87,
+    "imposto_sem_cota_usd": 375.87,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Limite ultrapassado — Demais bens (total): 11 unidades para um limite de 10 unidades (IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º). Pela norma, a bagagem perde a cota de isenção e vai para o regime de tributação especial sobre todo o valor: imposto estimado de US$ 375.87.",
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 751.74) passa da cota de US$ 500.00 e há limite quantitativo ultrapassado (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 2.574250745000029,
+    "big_m": 305.9550406855311,
+    "objetivo_modelo": 30.281234454571848,
+    "limitante": 30.281234454571848,
+    "n_variaveis": 1420,
+    "n_restricoes": 1492,
+    "tempo_andando_antes_polimento": 54.66585594544013,
+    "tempo_andando_depois_polimento": 54.66585594544013,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.4190418690000115
+  }
+}

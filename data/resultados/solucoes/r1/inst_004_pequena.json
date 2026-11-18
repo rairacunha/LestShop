@@ -5,26 +5,26 @@
   "resumo": {
     "viavel": true,
     "motivo": "",
-    "prioridade_total": 25,
-    "itens_comprados": 5,
-    "gasto_produtos": 1382.78,
-    "excedente": 1232.78,
-    "imposto": 616.39,
-    "custo_total": 1999.17,
+    "prioridade_total": 27,
+    "itens_comprados": 6,
+    "gasto_produtos": 1709.68,
+    "excedente": 1209.68,
+    "imposto": 604.84,
+    "custo_total": 2314.52,
     "tempo_andando": 38.7919,
-    "retorno": 543.7919,
-    "peso_kg": 6.5,
-    "volume_l": 23.5,
+    "retorno": 568.7919,
+    "peso_kg": 6.95,
+    "volume_l": 24.7,
     "lambda_": 0.0004,
-    "objetivo": 24.2226
+    "objetivo": 26.1023
   },
-  "situacao_cota": "excede a cota em US$ 1232.78 (imposto US$ 616.39)",
-  "cota_disponivel_usd": 150.0,
+  "situacao_cota": "excede a cota em US$ 1209.68 (imposto US$ 604.84)",
+  "cota_disponivel_usd": 500.0,
   "orcamento_usd": 2380.57,
   "orcamento_informado": true,
   "horario_chegada": "08:00",
   "horario_saida": "12:00",
-  "horario_retorno": "09:04",
+  "horario_retorno": "09:29",
   "roteiro": [
     {
       "ordem": 1,
@@ -77,29 +77,103 @@
           "preco_usd": 53.9
         }
       ]
-    }
-  ],
-  "nao_comprados": [
+    },
     {
-      "produto_id": "P006",
-      "nome": "Celular Modelo D 5G 128GB",
-      "prioridade": 2
+      "ordem": 3,
+      "loja_id": "L003",
+      "nome": "Delta Imports (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:52",
+      "inicio_atendimento": "08:52",
+      "saida": "09:17",
+      "compras": [
+        {
+          "produto_id": "P006",
+          "nome": "Celular Modelo D 5G 128GB",
+          "quantidade": 1,
+          "preco_usd": 326.9
+        }
+      ]
     }
   ],
+  "nao_comprados": [],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P063",
+        "produto": "Carrinho Controle Remoto",
+        "itens": [
+          "P006",
+          "P012",
+          "P029",
+          "P030",
+          "P062",
+          "P063"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 6.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P006",
+          "P012",
+          "P029",
+          "P030",
+          "P062",
+          "P063"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 604.84,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 1709.68) passa da cota de US$ 500.00 (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
   "avisos": [],
   "info": {
     "status": "otimo",
     "gap": 0.0,
-    "tempo_s": 0.01825133099987397,
+    "tempo_s": 0.017673329999979615,
     "big_m": 284.3842883813327,
-    "objetivo_modelo": 24.22261778849777,
-    "limitante": 24.22261778849777,
+    "objetivo_modelo": 26.102327271262038,
+    "limitante": 26.102327271262038,
     "n_variaveis": 61,
     "n_restricoes": 73,
-    "tempo_andando_antes_polimento": 38.79188420789471,
-    "tempo_andando_depois_polimento": 38.79188420789471,
-    "polimento": "nenhum",
+    "tempo_andando_antes_polimento": 38.791895477569135,
+    "tempo_andando_depois_polimento": 38.791895477569135,
+    "polimento": "exato",
     "polimento_aceito": false,
-    "tempo_polimento_s": 1.4243000123315142e-05
+    "tempo_polimento_s": 0.010898967000002813
   }
 }

@@ -74,11 +74,66 @@
       "prioridade": 4
     }
   ],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P057",
+        "produto": "Copo Térmico 473ml",
+        "itens": [
+          "P012",
+          "P056",
+          "P057"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 3.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P012",
+          "P056",
+          "P057"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 0.0,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": false,
+    "alertas": [],
+    "avisos": []
+  },
   "avisos": [],
   "info": {
     "status": "otimo",
     "gap": 0.0,
-    "tempo_s": 0.023031519000141998,
+    "tempo_s": 0.030078367999976763,
     "big_m": 289.87682718165115,
     "objetivo_modelo": 12.621545941550316,
     "limitante": 12.621545941550316,
@@ -88,6 +143,6 @@
     "tempo_andando_depois_polimento": 28.899056773931903,
     "polimento": "nenhum",
     "polimento_aceito": false,
-    "tempo_polimento_s": 1.5099999927770114e-05
+    "tempo_polimento_s": 1.960499997721854e-05
   }
 }

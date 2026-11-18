@@ -199,11 +199,87 @@
       "prioridade": 1
     }
   ],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P069",
+        "produto": "Óculos de Sol Polarizado",
+        "itens": [
+          "P001",
+          "P012",
+          "P024",
+          "P025",
+          "P026",
+          "P027",
+          "P032",
+          "P039",
+          "P066",
+          "P067",
+          "P069"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 11.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "acima",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P001",
+          "P012",
+          "P024",
+          "P025",
+          "P026",
+          "P027",
+          "P032",
+          "P039",
+          "P066",
+          "P067",
+          "P069"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [
+      "outros_total"
+    ],
+    "perde_cota": true,
+    "imposto_modelo_usd": 125.87,
+    "imposto_sem_cota_usd": 375.87,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Limite ultrapassado — Demais bens (total): 11 unidades para um limite de 10 unidades (IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º). Pela norma, a bagagem perde a cota de isenção e vai para o regime de tributação especial sobre todo o valor: imposto estimado de US$ 375.87.",
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 751.74) passa da cota de US$ 500.00 e há limite quantitativo ultrapassado (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
   "avisos": [],
   "info": {
     "status": "otimo",
     "gap": 0.0,
-    "tempo_s": 2.3995175489999383,
+    "tempo_s": 2.6671893259999706,
     "big_m": 305.9550406855311,
     "objetivo_modelo": 30.281234454571848,
     "limitante": 30.281234454571848,
@@ -213,6 +289,6 @@
     "tempo_andando_depois_polimento": 54.66585594544013,
     "polimento": "exato",
     "polimento_aceito": false,
-    "tempo_polimento_s": 0.41729623700007323
+    "tempo_polimento_s": 0.45438944900001843
   }
 }

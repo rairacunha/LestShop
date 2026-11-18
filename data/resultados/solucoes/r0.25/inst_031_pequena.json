@@ -5,21 +5,21 @@
   "resumo": {
     "viavel": true,
     "motivo": "",
-    "prioridade_total": 11,
-    "itens_comprados": 4,
-    "gasto_produtos": 596.88,
-    "excedente": 446.88,
-    "imposto": 223.44,
-    "custo_total": 820.32,
+    "prioridade_total": 13,
+    "itens_comprados": 5,
+    "gasto_produtos": 1408.78,
+    "excedente": 908.78,
+    "imposto": 454.39,
+    "custo_total": 1863.17,
     "tempo_andando": 47.2169,
     "retorno": 642.2169,
-    "peso_kg": 9.32,
-    "volume_l": 38.3,
+    "peso_kg": 14.32,
+    "volume_l": 70.3,
     "lambda_": 0.0005,
-    "objetivo": 10.5718
+    "objetivo": 12.0351
   },
-  "situacao_cota": "excede a cota em US$ 446.88 (imposto US$ 223.44)",
-  "cota_disponivel_usd": 150.0,
+  "situacao_cota": "excede a cota em US$ 908.78 (imposto US$ 454.39)",
+  "cota_disponivel_usd": 500.0,
   "orcamento_usd": 1882.18,
   "orcamento_informado": true,
   "horario_chegada": "09:00",
@@ -28,18 +28,18 @@
   "roteiro": [
     {
       "ordem": 1,
-      "loja_id": "L023",
-      "nome": "Mega Eletrônicos (fictícia)",
-      "predio": "Galeria Puente",
-      "chegada": "09:12",
-      "inicio_atendimento": "09:12",
-      "saida": "09:32",
+      "loja_id": "L024",
+      "nome": "Mega Shop (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "09:11",
+      "inicio_atendimento": "09:11",
+      "saida": "09:21",
       "compras": [
         {
-          "produto_id": "P064",
-          "nome": "Air Fryer 5L",
+          "produto_id": "P026",
+          "nome": "Jogo Mídia Física Catálogo",
           "quantidade": 1,
-          "preco_usd": 77.0
+          "preco_usd": 24.99
         }
       ]
     },
@@ -48,15 +48,21 @@
       "loja_id": "L009",
       "nome": "Gold Bazar (fictícia)",
       "predio": "Paseo Las Palmas",
-      "chegada": "09:47",
-      "inicio_atendimento": "09:47",
-      "saida": "10:12",
+      "chegada": "09:30",
+      "inicio_atendimento": "09:30",
+      "saida": "09:55",
       "compras": [
         {
           "produto_id": "P016",
           "nome": "Drone Compacto com Câmera",
           "quantidade": 1,
           "preco_usd": 402.9
+        },
+        {
+          "produto_id": "P022",
+          "nome": "Console de Mesa Pro 2TB",
+          "quantidade": 1,
+          "preco_usd": 811.9
         },
         {
           "produto_id": "P067",
@@ -68,43 +74,98 @@
     },
     {
       "ordem": 3,
-      "loja_id": "L024",
-      "nome": "Mega Shop (fictícia)",
-      "predio": "Centro Comercial Rio",
-      "chegada": "10:21",
-      "inicio_atendimento": "10:21",
+      "loja_id": "L023",
+      "nome": "Mega Eletrônicos (fictícia)",
+      "predio": "Galeria Puente",
+      "chegada": "10:11",
+      "inicio_atendimento": "10:11",
       "saida": "10:31",
       "compras": [
         {
-          "produto_id": "P026",
-          "nome": "Jogo Mídia Física Catálogo",
+          "produto_id": "P064",
+          "nome": "Air Fryer 5L",
           "quantidade": 1,
-          "preco_usd": 24.99
+          "preco_usd": 77.0
         }
       ]
     }
   ],
-  "nao_comprados": [
-    {
-      "produto_id": "P022",
-      "nome": "Console de Mesa Pro 2TB",
-      "prioridade": 2
-    }
-  ],
+  "nao_comprados": [],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P067",
+        "produto": "Cafeteira de Cápsulas",
+        "itens": [
+          "P016",
+          "P022",
+          "P026",
+          "P064",
+          "P067"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 5.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P016",
+          "P022",
+          "P026",
+          "P064",
+          "P067"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 454.39,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 1408.78) passa da cota de US$ 500.00 (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
   "avisos": [],
   "info": {
     "status": "otimo",
     "gap": 0.0,
-    "tempo_s": 0.05243820999999116,
+    "tempo_s": 0.02771026099998153,
     "big_m": 284.87682718165115,
-    "objetivo_modelo": 10.571771930844598,
-    "limitante": 10.571771930844598,
+    "objetivo_modelo": 12.035100083666261,
+    "limitante": 12.035100083666261,
     "n_variaveis": 58,
     "n_restricoes": 70,
     "tempo_andando_antes_polimento": 47.21687768556893,
     "tempo_andando_depois_polimento": 47.21687768556893,
     "polimento": "exato",
     "polimento_aceito": false,
-    "tempo_polimento_s": 0.01149632700003167
+    "tempo_polimento_s": 0.011556552999991254
   }
 }

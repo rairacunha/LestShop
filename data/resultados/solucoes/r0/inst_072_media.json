@@ -5,21 +5,21 @@
   "resumo": {
     "viavel": true,
     "motivo": "",
-    "prioridade_total": 21,
-    "itens_comprados": 6,
-    "gasto_produtos": 268.68,
-    "excedente": 118.68,
-    "imposto": 59.34,
-    "custo_total": 328.02,
+    "prioridade_total": 23,
+    "itens_comprados": 7,
+    "gasto_produtos": 336.67,
+    "excedente": 0.0,
+    "imposto": 0.0,
+    "custo_total": 336.67,
     "tempo_andando": 55.8019,
     "retorno": 645.8019,
-    "peso_kg": 6.7,
-    "volume_l": 15.9,
+    "peso_kg": 7.4,
+    "volume_l": 18.9,
     "lambda_": 0.0028,
-    "objetivo": 20.0895
+    "objetivo": 22.0655
   },
-  "situacao_cota": "excede a cota em US$ 118.68 (imposto US$ 59.34)",
-  "cota_disponivel_usd": 150.0,
+  "situacao_cota": "dentro da cota",
+  "cota_disponivel_usd": 500.0,
   "orcamento_usd": 359.28,
   "orcamento_informado": true,
   "horario_chegada": "07:30",
@@ -35,6 +35,12 @@
       "inicio_atendimento": "07:42",
       "saida": "08:07",
       "compras": [
+        {
+          "produto_id": "P027",
+          "nome": "Headset Gamer 7.1",
+          "quantidade": 1,
+          "preco_usd": 67.99
+        },
         {
           "produto_id": "P057",
           "nome": "Copo Térmico 473ml",
@@ -120,11 +126,6 @@
   ],
   "nao_comprados": [
     {
-      "produto_id": "P027",
-      "nome": "Headset Gamer 7.1",
-      "prioridade": 2
-    },
-    {
       "produto_id": "P041",
       "nome": "Perfume Masculino Amadeirado 100ml",
       "prioridade": 2
@@ -135,20 +136,98 @@
       "prioridade": 2
     }
   ],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "bebidas",
+        "descricao": "Bebidas alcoólicas",
+        "categoria_fiscal": "bebidas_alcoolicas",
+        "contagem": "total",
+        "usado": 0.75,
+        "limite": 12.0,
+        "unidade": "L",
+        "situacao": "abaixo",
+        "consequencia": "regime_comum",
+        "fonte": "Portaria MF 440/2010, art. 7º, § 1º, I; IN RFB 1.059/2010, art. 44, II",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P055"
+        ]
+      },
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P066",
+        "produto": "Liquidificador Potente 1200W",
+        "itens": [
+          "P027",
+          "P031",
+          "P033",
+          "P042",
+          "P057",
+          "P066"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 6.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P027",
+          "P031",
+          "P033",
+          "P042",
+          "P057",
+          "P066"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 0.0,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": false,
+    "alertas": [],
+    "avisos": []
+  },
   "avisos": [],
   "info": {
     "status": "otimo",
     "gap": 0.0,
-    "tempo_s": 0.09070749800002886,
+    "tempo_s": 0.06640425000000505,
     "big_m": 575.7534247889471,
-    "objetivo_modelo": 20.089541467747306,
-    "limitante": 20.089541467747306,
+    "objetivo_modelo": 22.06553236371711,
+    "limitante": 22.06553236371711,
     "n_variaveis": 185,
     "n_restricoes": 209,
-    "tempo_andando_antes_polimento": 69.81201238639125,
+    "tempo_andando_antes_polimento": 73.08533406669726,
     "tempo_andando_depois_polimento": 55.80190749097123,
     "polimento": "exato",
     "polimento_aceito": true,
-    "tempo_polimento_s": 0.03899846800004525
+    "tempo_polimento_s": 0.03089949900004285
   }
 }

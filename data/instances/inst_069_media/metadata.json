@@ -7,8 +7,6 @@
   "n_produtos": 40,
   "n_ofertas": 103,
   "n_itens_lista": 4,
-  "cota_disponivel_usd": 300.0,
-  "aliquota_excedente": 0.5,
   "orcamento_usd": 757.33,
   "custo_minimo_lista_usd": 692.96,
   "lista_excede_cota": true,

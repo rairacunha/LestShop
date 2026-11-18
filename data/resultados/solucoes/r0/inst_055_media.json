@@ -5,35 +5,52 @@
   "resumo": {
     "viavel": true,
     "motivo": "",
-    "prioridade_total": 18,
-    "itens_comprados": 5,
-    "gasto_produtos": 2311.79,
-    "excedente": 2161.79,
-    "imposto": 1080.89,
-    "custo_total": 3392.68,
-    "tempo_andando": 92.7535,
-    "retorno": 687.7535,
-    "peso_kg": 2.65,
-    "volume_l": 24.2,
+    "prioridade_total": 19,
+    "itens_comprados": 6,
+    "gasto_produtos": 2907.79,
+    "excedente": 2407.79,
+    "imposto": 1203.89,
+    "custo_total": 4111.68,
+    "tempo_andando": 92.9128,
+    "retorno": 697.9128,
+    "peso_kg": 4.85,
+    "volume_l": 32.2,
     "lambda_": 0.0002,
-    "objetivo": 17.2049
+    "objetivo": 18.0364
   },
-  "situacao_cota": "excede a cota em US$ 2161.79 (imposto US$ 1080.89)",
-  "cota_disponivel_usd": 150.0,
+  "situacao_cota": "excede a cota em US$ 2407.79 (imposto US$ 1203.89)",
+  "cota_disponivel_usd": 500.0,
   "orcamento_usd": 4266.22,
   "orcamento_informado": true,
   "horario_chegada": "08:00",
   "horario_saida": "15:00",
-  "horario_retorno": "11:28",
+  "horario_retorno": "11:38",
   "roteiro": [
     {
       "ordem": 1,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:12",
+      "inicio_atendimento": "08:12",
+      "saida": "08:22",
+      "compras": [
+        {
+          "produto_id": "P028",
+          "nome": "Notebook Ultrafino 16GB/512GB",
+          "quantidade": 1,
+          "preco_usd": 596.0
+        }
+      ]
+    },
+    {
+      "ordem": 2,
       "loja_id": "L043",
       "nome": "Super Perfumes (fictícia)",
       "predio": "Rua (loja de rua)",
-      "chegada": "08:36",
-      "inicio_atendimento": "08:36",
-      "saida": "08:51",
+      "chegada": "08:46",
+      "inicio_atendimento": "08:46",
+      "saida": "09:01",
       "compras": [
         {
           "produto_id": "P018",
@@ -44,13 +61,13 @@
       ]
     },
     {
-      "ordem": 2,
+      "ordem": 3,
       "loja_id": "L047",
       "nome": "Top Mix (fictícia)",
       "predio": "Rua (loja de rua)",
-      "chegada": "09:06",
-      "inicio_atendimento": "09:06",
-      "saida": "09:26",
+      "chegada": "09:16",
+      "inicio_atendimento": "09:16",
+      "saida": "09:36",
       "compras": [
         {
           "produto_id": "P072",
@@ -61,13 +78,13 @@
       ]
     },
     {
-      "ordem": 3,
+      "ordem": 4,
       "loja_id": "L039",
       "nome": "Star Games (fictícia)",
       "predio": "Rua (loja de rua)",
-      "chegada": "09:45",
-      "inicio_atendimento": "09:45",
-      "saida": "10:05",
+      "chegada": "09:55",
+      "inicio_atendimento": "09:55",
+      "saida": "10:15",
       "compras": [
         {
           "produto_id": "P041",
@@ -78,13 +95,13 @@
       ]
     },
     {
-      "ordem": 4,
+      "ordem": 5,
       "loja_id": "L031",
       "nome": "Royal Games (fictícia)",
       "predio": "Torre Fronteira",
-      "chegada": "10:08",
-      "inicio_atendimento": "10:08",
-      "saida": "10:38",
+      "chegada": "10:18",
+      "inicio_atendimento": "10:18",
+      "saida": "10:48",
       "compras": [
         {
           "produto_id": "P004",
@@ -95,13 +112,13 @@
       ]
     },
     {
-      "ordem": 5,
+      "ordem": 6,
       "loja_id": "L044",
       "nome": "Super Shop (fictícia)",
       "predio": "Galeria Puente",
-      "chegada": "10:46",
-      "inicio_atendimento": "10:46",
-      "saida": "11:16",
+      "chegada": "10:56",
+      "inicio_atendimento": "10:56",
+      "saida": "11:26",
       "compras": [
         {
           "produto_id": "P003",
@@ -114,30 +131,88 @@
   ],
   "nao_comprados": [
     {
-      "produto_id": "P028",
-      "nome": "Notebook Ultrafino 16GB/512GB",
-      "prioridade": 1
-    },
-    {
       "produto_id": "P029",
       "nome": "Notebook Gamer RTX 16GB/1TB",
       "prioridade": 2
     }
   ],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P072",
+        "produto": "Mochila Notebook 15\"",
+        "itens": [
+          "P003",
+          "P004",
+          "P018",
+          "P028",
+          "P041",
+          "P072"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 6.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P003",
+          "P004",
+          "P018",
+          "P028",
+          "P041",
+          "P072"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 1203.89,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 2907.79) passa da cota de US$ 500.00 (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
   "avisos": [],
   "info": {
     "status": "otimo",
     "gap": 0.0,
-    "tempo_s": 0.10720498399996359,
+    "tempo_s": 0.08648153599995112,
     "big_m": 485.7534247889471,
-    "objetivo_modelo": 17.204942562136473,
-    "limitante": 17.204942562136473,
+    "objetivo_modelo": 18.036448788672722,
+    "limitante": 18.036448788672722,
     "n_variaveis": 178,
     "n_restricoes": 202,
-    "tempo_andando_antes_polimento": 130.13844687300212,
-    "tempo_andando_depois_polimento": 92.75347453871795,
+    "tempo_andando_antes_polimento": 92.91282394789857,
+    "tempo_andando_depois_polimento": 92.91282394789857,
     "polimento": "exato",
-    "polimento_aceito": true,
-    "tempo_polimento_s": 0.051575508000041737
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.04784072899997227
   }
 }

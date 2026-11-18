@@ -8,18 +8,18 @@
     "prioridade_total": 33,
     "itens_comprados": 11,
     "gasto_produtos": 520.96,
-    "excedente": 220.96,
-    "imposto": 110.48,
-    "custo_total": 631.44,
+    "excedente": 20.96,
+    "imposto": 10.48,
+    "custo_total": 531.44,
     "tempo_andando": 52.8466,
     "retorno": 742.8466,
     "peso_kg": 16.25,
     "volume_l": 80.4,
     "lambda_": 0.0012,
-    "objetivo": 32.1974
+    "objetivo": 32.3219
   },
-  "situacao_cota": "excede a cota em US$ 220.96 (imposto US$ 110.48)",
-  "cota_disponivel_usd": 300.0,
+  "situacao_cota": "excede a cota em US$ 20.96 (imposto US$ 10.48)",
+  "cota_disponivel_usd": 500.0,
   "orcamento_usd": 727.24,
   "orcamento_informado": true,
   "horario_chegada": "08:00",
@@ -193,20 +193,107 @@
     }
   ],
   "nao_comprados": [],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "bebidas",
+        "descricao": "Bebidas alcoólicas",
+        "categoria_fiscal": "bebidas_alcoolicas",
+        "contagem": "total",
+        "usado": 2.0,
+        "limite": 12.0,
+        "unidade": "L",
+        "situacao": "abaixo",
+        "consequencia": "regime_comum",
+        "fonte": "Portaria MF 440/2010, art. 7º, § 1º, I; IN RFB 1.059/2010, art. 44, II",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P050",
+          "P052"
+        ]
+      },
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P073",
+        "produto": "Mala de Bordo 10kg",
+        "itens": [
+          "P007",
+          "P009",
+          "P034",
+          "P047",
+          "P048",
+          "P060",
+          "P066",
+          "P069",
+          "P073"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 9.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P007",
+          "P009",
+          "P034",
+          "P047",
+          "P048",
+          "P060",
+          "P066",
+          "P069",
+          "P073"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 10.48,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 520.96) passa da cota de US$ 500.00 (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
   "avisos": [],
   "info": {
     "status": "otimo",
     "gap": 0.0,
-    "tempo_s": 1.4049815329999547,
+    "tempo_s": 1.1650627260000306,
     "big_m": 368.16305367697635,
-    "objetivo_modelo": 32.19743580737634,
-    "limitante": 32.19743580737634,
+    "objetivo_modelo": 32.32193159941856,
+    "limitante": 32.32193159941856,
     "n_variaveis": 1128,
     "n_restricoes": 1192,
     "tempo_andando_antes_polimento": 52.846648332127174,
     "tempo_andando_depois_polimento": 52.846648332127174,
     "polimento": "exato",
     "polimento_aceito": false,
-    "tempo_polimento_s": 0.11795177099998
+    "tempo_polimento_s": 0.1513996410000118
   }
 }

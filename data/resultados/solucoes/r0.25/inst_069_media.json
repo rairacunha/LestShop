@@ -5,69 +5,35 @@
   "resumo": {
     "viavel": true,
     "motivo": "",
-    "prioridade_total": 6,
+    "prioridade_total": 7,
     "itens_comprados": 3,
-    "gasto_produtos": 441.97,
-    "excedente": 141.97,
-    "imposto": 70.99,
-    "custo_total": 512.96,
-    "tempo_andando": 34.2137,
-    "retorno": 574.2137,
-    "peso_kg": 4.65,
-    "volume_l": 18.2,
+    "gasto_produtos": 636.97,
+    "excedente": 136.97,
+    "imposto": 68.49,
+    "custo_total": 705.46,
+    "tempo_andando": 33.7747,
+    "retorno": 563.7747,
+    "peso_kg": 4.4,
+    "volume_l": 16.4,
     "lambda_": 0.0012,
-    "objetivo": 5.3959
+    "objetivo": 6.1731
   },
-  "situacao_cota": "excede a cota em US$ 141.97 (imposto US$ 70.99)",
-  "cota_disponivel_usd": 300.0,
+  "situacao_cota": "excede a cota em US$ 136.97 (imposto US$ 68.49)",
+  "cota_disponivel_usd": 500.0,
   "orcamento_usd": 757.33,
   "orcamento_informado": true,
   "horario_chegada": "08:00",
   "horario_saida": "15:00",
-  "horario_retorno": "09:34",
+  "horario_retorno": "09:24",
   "roteiro": [
     {
       "ordem": 1,
-      "loja_id": "L024",
-      "nome": "Mega Shop (fictícia)",
-      "predio": "Centro Comercial Rio",
-      "chegada": "08:11",
-      "inicio_atendimento": "08:11",
-      "saida": "08:21",
-      "compras": [
-        {
-          "produto_id": "P027",
-          "nome": "Headset Gamer 7.1",
-          "quantidade": 1,
-          "preco_usd": 55.99
-        }
-      ]
-    },
-    {
-      "ordem": 2,
-      "loja_id": "L003",
-      "nome": "Delta Imports (fictícia)",
-      "predio": "Centro Comercial Rio",
-      "chegada": "08:22",
-      "inicio_atendimento": "08:22",
-      "saida": "08:47",
-      "compras": [
-        {
-          "produto_id": "P001",
-          "nome": "Celular Modelo A 128GB",
-          "quantidade": 1,
-          "preco_usd": 199.99
-        }
-      ]
-    },
-    {
-      "ordem": 3,
       "loja_id": "L028",
       "nome": "Rapid Perfumes (fictícia)",
       "predio": "Plaza Comercial Este",
-      "chegada": "08:53",
-      "inicio_atendimento": "08:53",
-      "saida": "09:18",
+      "chegada": "08:16",
+      "inicio_atendimento": "08:16",
+      "saida": "08:41",
       "compras": [
         {
           "produto_id": "P065",
@@ -76,29 +42,109 @@
           "preco_usd": 185.99
         }
       ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L003",
+      "nome": "Delta Imports (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "08:47",
+      "inicio_atendimento": "08:47",
+      "saida": "09:12",
+      "compras": [
+        {
+          "produto_id": "P001",
+          "nome": "Celular Modelo A 128GB",
+          "quantidade": 1,
+          "preco_usd": 199.99
+        },
+        {
+          "produto_id": "P002",
+          "nome": "Celular Modelo A 256GB",
+          "quantidade": 1,
+          "preco_usd": 250.99
+        }
+      ]
     }
   ],
   "nao_comprados": [
     {
-      "produto_id": "P002",
-      "nome": "Celular Modelo A 256GB",
-      "prioridade": 2
+      "produto_id": "P027",
+      "nome": "Headset Gamer 7.1",
+      "prioridade": 1
     }
   ],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P065",
+        "produto": "Robô Aspirador",
+        "itens": [
+          "P001",
+          "P002",
+          "P065"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 3.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P001",
+          "P002",
+          "P065"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 68.49,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 636.97) passa da cota de US$ 500.00 (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
   "avisos": [],
   "info": {
     "status": "otimo",
     "gap": 0.0,
-    "tempo_s": 0.0447368650000044,
+    "tempo_s": 0.04457946399998036,
     "big_m": 480.7534247889471,
-    "objetivo_modelo": 5.395933841826831,
-    "limitante": 5.395933841826831,
+    "objetivo_modelo": 6.173087159170716,
+    "limitante": 6.173087159170716,
     "n_variaveis": 104,
     "n_restricoes": 122,
-    "tempo_andando_antes_polimento": 34.21374534257265,
-    "tempo_andando_depois_polimento": 34.21374534257265,
-    "polimento": "exato",
+    "tempo_andando_antes_polimento": 33.77465149258357,
+    "tempo_andando_depois_polimento": 33.77465149258357,
+    "polimento": "nenhum",
     "polimento_aceito": false,
-    "tempo_polimento_s": 0.011734563999880265
+    "tempo_polimento_s": 1.5174999987266347e-05
   }
 }

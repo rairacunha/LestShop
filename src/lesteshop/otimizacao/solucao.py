@@ -6,6 +6,10 @@ Objetivo (uma única resolução, aprovado com o professor):
 
 O imposto exibido é sempre recalculado depois de resolver:
 α·max(0, G − c), por segurança contra tolerâncias numéricas do solver.
+
+Fase 3: ``descrever()`` inclui a situação fiscal da cesta (``fiscal``): uso de cada
+limite quantitativo, alertas, imposto sem cota quando a cota é perdida e se a
+declaração (e-DBV) é necessária. São só alertas; a solução não muda.
 """
 
 from __future__ import annotations
@@ -13,6 +17,8 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass, field
 
 from . import config
+from ..fiscal.regras import carregar_regras
+from ..fiscal.verificacao import ItemCesta, verificar
 from .instancia import Instancia, min_para_hhmm
 from .rota import agenda
 
@@ -83,6 +89,21 @@ def avaliar(sol: Solucao, inst: Instancia) -> Avaliacao:
     )
 
 
+def situacao_fiscal(sol: Solucao, inst: Instancia, av: Avaliacao | None = None) -> dict:
+    """Verifica a cesta escolhida frente aos limites da tabela de regras (só alertas)."""
+    av = av or avaliar(sol, inst)
+    cesta = [
+        ItemCesta(
+            produto_id=inst.itens[k].produto_id, nome=inst.itens[k].nome,
+            categoria_fiscal=inst.itens[k].categoria_fiscal, quantidade=inst.itens[k].quantidade,
+            preco_unitario=inst.preco[(i, k)], conteudo_por_unidade=inst.itens[k].conteudo_por_unidade,
+        )
+        for k, i in sorted(sol.compras.items()) if (i, k) in inst.preco
+    ]
+    regras = inst.regras or carregar_regras()
+    return verificar(cesta, regras, av.gasto_produtos, inst.aliquota, av.imposto)
+
+
 def descrever(sol: Solucao, inst: Instancia) -> dict:
     """Dicionário legível (JSON) com itens, roteiro, gasto e situação da cota."""
     av = avaliar(sol, inst)
@@ -116,5 +137,6 @@ def descrever(sol: Solucao, inst: Instancia) -> dict:
         "horario_chegada": min_para_hhmm(inst.chegada), "horario_saida": min_para_hhmm(inst.saida),
         "horario_retorno": min_para_hhmm(av.retorno),
         "roteiro": roteiro, "nao_comprados": nao_comprados,
+        "fiscal": situacao_fiscal(sol, inst, av),
         "avisos": inst.avisos, "info": sol.info,
     }

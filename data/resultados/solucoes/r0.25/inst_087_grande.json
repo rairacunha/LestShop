@@ -205,11 +205,104 @@
       "prioridade": 4
     }
   ],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "bebidas",
+        "descricao": "Bebidas alcoólicas",
+        "categoria_fiscal": "bebidas_alcoolicas",
+        "contagem": "total",
+        "usado": 0.75,
+        "limite": 12.0,
+        "unidade": "L",
+        "situacao": "abaixo",
+        "consequencia": "regime_comum",
+        "fonte": "Portaria MF 440/2010, art. 7º, § 1º, I; IN RFB 1.059/2010, art. 44, II",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P053"
+        ]
+      },
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P068",
+        "produto": "Jogo de Panelas Antiaderente 5pç",
+        "itens": [
+          "P001",
+          "P009",
+          "P015",
+          "P020",
+          "P026",
+          "P034",
+          "P042",
+          "P056",
+          "P057",
+          "P065",
+          "P068"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 11.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "acima",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P001",
+          "P009",
+          "P015",
+          "P020",
+          "P026",
+          "P034",
+          "P042",
+          "P056",
+          "P057",
+          "P065",
+          "P068"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [
+      "outros_total"
+    ],
+    "perde_cota": true,
+    "imposto_modelo_usd": 212.23,
+    "imposto_sem_cota_usd": 462.23,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Limite ultrapassado — Demais bens (total): 11 unidades para um limite de 10 unidades (IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º). Pela norma, a bagagem perde a cota de isenção e vai para o regime de tributação especial sobre todo o valor: imposto estimado de US$ 462.23.",
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 924.46) passa da cota de US$ 500.00 e há limite quantitativo ultrapassado (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
   "avisos": [],
   "info": {
     "status": "otimo",
     "gap": 0.0,
-    "tempo_s": 15.703588452999838,
+    "tempo_s": 16.313948127999993,
     "big_m": 488.16305367697623,
     "objetivo_modelo": 29.340450899834774,
     "limitante": 29.340450899834774,
@@ -219,6 +312,6 @@
     "tempo_andando_depois_polimento": 54.83492596077109,
     "polimento": "exato",
     "polimento_aceito": false,
-    "tempo_polimento_s": 0.2881543099999817
+    "tempo_polimento_s": 0.28051371999998764
   }
 }

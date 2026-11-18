@@ -1,0 +1,268 @@
+{
+  "instancia": "inst_041_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 33,
+    "itens_comprados": 9,
+    "gasto_produtos": 539.67,
+    "excedente": 39.67,
+    "imposto": 19.83,
+    "custo_total": 559.5,
+    "tempo_andando": 50.6569,
+    "retorno": 635.6569,
+    "peso_kg": 9.12,
+    "volume_l": 30.1,
+    "lambda_": 0.0013,
+    "objetivo": 32.273
+  },
+  "situacao_cota": "excede a cota em US$ 39.67 (imposto US$ 19.83)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 688.51,
+  "orcamento_informado": true,
+  "horario_chegada": "07:30",
+  "horario_saida": "14:00",
+  "horario_retorno": "10:36",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L015",
+      "nome": "Luna Outlet (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "07:41",
+      "inicio_atendimento": "07:41",
+      "saida": "07:56",
+      "compras": [
+        {
+          "produto_id": "P012",
+          "nome": "Caixa de Som Portátil Mini",
+          "quantidade": 1,
+          "preco_usd": 40.9
+        },
+        {
+          "produto_id": "P046",
+          "nome": "Protetor Solar FPS 50 200ml",
+          "quantidade": 1,
+          "preco_usd": 18.99
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L001",
+      "nome": "Delta Center (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:05",
+      "inicio_atendimento": "08:05",
+      "saida": "08:35",
+      "compras": [
+        {
+          "produto_id": "P043",
+          "nome": "Perfume Árabe Unissex 100ml",
+          "quantidade": 1,
+          "preco_usd": 33.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L012",
+      "nome": "Gold Shop (fictícia)",
+      "predio": "Paseo Las Palmas",
+      "chegada": "08:36",
+      "inicio_atendimento": "08:36",
+      "saida": "08:46",
+      "compras": [
+        {
+          "produto_id": "P050",
+          "nome": "Whisky 12 anos 1L",
+          "quantidade": 1,
+          "preco_usd": 36.99
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L013",
+      "nome": "Luna Center (fictícia)",
+      "predio": "Shopping Monte Azul",
+      "chegada": "08:52",
+      "inicio_atendimento": "08:52",
+      "saida": "09:12",
+      "compras": [
+        {
+          "produto_id": "P062",
+          "nome": "Boneca Articulada Colecionável",
+          "quantidade": 1,
+          "preco_usd": 31.0
+        }
+      ]
+    },
+    {
+      "ordem": 5,
+      "loja_id": "L016",
+      "nome": "Luna Perfumes (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:17",
+      "inicio_atendimento": "09:17",
+      "saida": "09:42",
+      "compras": [
+        {
+          "produto_id": "P001",
+          "nome": "Celular Modelo A 128GB",
+          "quantidade": 1,
+          "preco_usd": 214.0
+        },
+        {
+          "produto_id": "P064",
+          "nome": "Air Fryer 5L",
+          "quantidade": 1,
+          "preco_usd": 69.99
+        }
+      ]
+    },
+    {
+      "ordem": 6,
+      "loja_id": "L042",
+      "nome": "Super Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "09:43",
+      "inicio_atendimento": "09:43",
+      "saida": "09:58",
+      "compras": [
+        {
+          "produto_id": "P049",
+          "nome": "Barbeador Elétrico",
+          "quantidade": 1,
+          "preco_usd": 74.0
+        }
+      ]
+    },
+    {
+      "ordem": 7,
+      "loja_id": "L025",
+      "nome": "Mega Tech (fictícia)",
+      "predio": "Galeria Aurora",
+      "chegada": "10:03",
+      "inicio_atendimento": "10:03",
+      "saida": "10:23",
+      "compras": [
+        {
+          "produto_id": "P045",
+          "nome": "Sérum Facial Vitamina C 30ml",
+          "quantidade": 1,
+          "preco_usd": 19.9
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P021",
+      "nome": "Console de Mesa Geração Atual 1TB",
+      "prioridade": 5
+    }
+  ],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "bebidas",
+        "descricao": "Bebidas alcoólicas",
+        "categoria_fiscal": "bebidas_alcoolicas",
+        "contagem": "total",
+        "usado": 1.0,
+        "limite": 12.0,
+        "unidade": "L",
+        "situacao": "abaixo",
+        "consequencia": "regime_comum",
+        "fonte": "Portaria MF 440/2010, art. 7º, § 1º, I; IN RFB 1.059/2010, art. 44, II",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P050"
+        ]
+      },
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P064",
+        "produto": "Air Fryer 5L",
+        "itens": [
+          "P001",
+          "P012",
+          "P043",
+          "P045",
+          "P046",
+          "P049",
+          "P062",
+          "P064"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 8.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P001",
+          "P012",
+          "P043",
+          "P045",
+          "P046",
+          "P049",
+          "P062",
+          "P064"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 19.83,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 539.67) passa da cota de US$ 500.00 (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 1.3960338620000243,
+    "big_m": 439.4753520292039,
+    "objetivo_modelo": 32.27298355364383,
+    "limitante": 32.27298355364383,
+    "n_variaveis": 241,
+    "n_restricoes": 269,
+    "tempo_andando_antes_polimento": 50.65685378708029,
+    "tempo_andando_depois_polimento": 50.65685378708029,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.1219662760000233
+  }
+}

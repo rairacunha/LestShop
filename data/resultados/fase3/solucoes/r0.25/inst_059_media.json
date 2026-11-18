@@ -1,0 +1,196 @@
+{
+  "instancia": "inst_059_media",
+  "origem": "exato",
+  "r_usd_por_min": 0.25,
+  "resumo": {
+    "viavel": true,
+    "motivo": "",
+    "prioridade_total": 21,
+    "itens_comprados": 6,
+    "gasto_produtos": 1126.49,
+    "excedente": 626.49,
+    "imposto": 313.25,
+    "custo_total": 1439.74,
+    "tempo_andando": 90.5404,
+    "retorno": 650.5404,
+    "peso_kg": 6.35,
+    "volume_l": 23.7,
+    "lambda_": 0.0004,
+    "objetivo": 20.3903
+  },
+  "situacao_cota": "excede a cota em US$ 626.49 (imposto US$ 313.25)",
+  "cota_disponivel_usd": 500.0,
+  "orcamento_usd": 2322.61,
+  "orcamento_informado": true,
+  "horario_chegada": "08:00",
+  "horario_saida": "13:00",
+  "horario_retorno": "10:51",
+  "roteiro": [
+    {
+      "ordem": 1,
+      "loja_id": "L026",
+      "nome": "Nova Tech (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "08:38",
+      "inicio_atendimento": "08:38",
+      "saida": "09:08",
+      "compras": [
+        {
+          "produto_id": "P001",
+          "nome": "Celular Modelo A 128GB",
+          "quantidade": 1,
+          "preco_usd": 194.9
+        }
+      ]
+    },
+    {
+      "ordem": 2,
+      "loja_id": "L047",
+      "nome": "Top Mix (fictícia)",
+      "predio": "Rua (loja de rua)",
+      "chegada": "09:23",
+      "inicio_atendimento": "09:23",
+      "saida": "09:43",
+      "compras": [
+        {
+          "produto_id": "P065",
+          "nome": "Robô Aspirador",
+          "quantidade": 1,
+          "preco_usd": 204.9
+        }
+      ]
+    },
+    {
+      "ordem": 3,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "10:08",
+      "inicio_atendimento": "10:08",
+      "saida": "10:18",
+      "compras": [
+        {
+          "produto_id": "P003",
+          "nome": "Celular Modelo B Pro 256GB",
+          "quantidade": 1,
+          "preco_usd": 587.9
+        },
+        {
+          "produto_id": "P032",
+          "nome": "Teclado Mecânico RGB",
+          "quantidade": 1,
+          "preco_usd": 42.9
+        },
+        {
+          "produto_id": "P038",
+          "nome": "Memória RAM 16GB DDR5",
+          "quantidade": 1,
+          "preco_usd": 51.9
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L035",
+      "nome": "Smart Digital (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "10:19",
+      "inicio_atendimento": "10:19",
+      "saida": "10:39",
+      "compras": [
+        {
+          "produto_id": "P059",
+          "nome": "Vara de Pesca Telescópica",
+          "quantidade": 1,
+          "preco_usd": 43.99
+        }
+      ]
+    }
+  ],
+  "nao_comprados": [
+    {
+      "produto_id": "P029",
+      "nome": "Notebook Gamer RTX 16GB/1TB",
+      "prioridade": 1
+    }
+  ],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P065",
+        "produto": "Robô Aspirador",
+        "itens": [
+          "P001",
+          "P003",
+          "P032",
+          "P038",
+          "P059",
+          "P065"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 6.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P001",
+          "P003",
+          "P032",
+          "P038",
+          "P059",
+          "P065"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 313.25,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 1126.49) passa da cota de US$ 500.00 (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
+  "avisos": [],
+  "info": {
+    "status": "otimo",
+    "gap": 0.0,
+    "tempo_s": 0.12501446199996735,
+    "big_m": 368.16305367697635,
+    "objetivo_modelo": 20.390326019225398,
+    "limitante": 20.390326019225398,
+    "n_variaveis": 161,
+    "n_restricoes": 183,
+    "tempo_andando_antes_polimento": 90.54042810305121,
+    "tempo_andando_depois_polimento": 90.54042810305121,
+    "polimento": "exato",
+    "polimento_aceito": false,
+    "tempo_polimento_s": 0.02650970600001301
+  }
+}

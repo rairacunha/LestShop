@@ -19,9 +19,9 @@ decisões de compra.
   25 grandes (40 lojas, até 70 produtos)
 - Cada pasta tem lojas, produtos, ofertas, pontos_partida, **lista_compras.csv**
   (3 a 15 itens desejados, com prioridade 1–5) e metadata.json (seed, densidade,
-  cota disponível, orçamento, horários de chegada e saída)
+  orçamento, horários de chegada e saída)
 - resumo_instancias.csv lista todas lado a lado
-- Os cenários variam de propósito: algumas listas cabem na cota, outras excedem;
-  a cota disponível às vezes é menor que 500 (parte já usada no mês).
+- Os cenários variam de propósito: algumas listas cabem na cota, outras excedem.
+  A cota (US$ 500, via terrestre) não fica na instância: vem de data/regras_fiscais.csv.
 
 Regenerar: `python scripts/gerar_base_ficticia.py` (seed fixa 2026, resultado idêntico).

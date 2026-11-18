@@ -8,72 +8,55 @@
     "prioridade_total": 21,
     "itens_comprados": 7,
     "gasto_produtos": 1333.87,
-    "excedente": 1033.87,
-    "imposto": 516.94,
-    "custo_total": 1850.81,
+    "excedente": 833.87,
+    "imposto": 416.94,
+    "custo_total": 1750.81,
     "tempo_andando": 50.1766,
-    "retorno": 595.1766,
+    "retorno": 607.4302,
     "peso_kg": 10.6,
     "volume_l": 99.6,
     "lambda_": 0.0005,
-    "objetivo": 20.0933
+    "objetivo": 20.142
   },
-  "situacao_cota": "excede a cota em US$ 1033.87 (imposto US$ 516.94)",
-  "cota_disponivel_usd": 300.0,
+  "situacao_cota": "excede a cota em US$ 833.87 (imposto US$ 416.94)",
+  "cota_disponivel_usd": 500.0,
   "orcamento_usd": 1926.63,
   "orcamento_informado": true,
   "horario_chegada": "07:30",
   "horario_saida": "16:00",
-  "horario_retorno": "09:55",
+  "horario_retorno": "10:07",
   "roteiro": [
     {
       "ordem": 1,
-      "loja_id": "L002",
-      "nome": "Delta Games (fictícia)",
-      "predio": "Centro Comercial Rio",
-      "chegada": "07:42",
-      "inicio_atendimento": "07:42",
-      "saida": "07:52",
+      "loja_id": "L031",
+      "nome": "Royal Games (fictícia)",
+      "predio": "Torre Fronteira",
+      "chegada": "07:48",
+      "inicio_atendimento": "08:00",
+      "saida": "08:30",
       "compras": [
         {
-          "produto_id": "P023",
-          "nome": "Console Portátil Híbrido",
+          "produto_id": "P005",
+          "nome": "Celular Modelo C Lite 64GB",
           "quantidade": 1,
-          "preco_usd": 259.0
+          "preco_usd": 99.9
         },
         {
-          "produto_id": "P031",
-          "nome": "Mouse Sem Fio",
+          "produto_id": "P073",
+          "nome": "Mala de Bordo 10kg",
           "quantidade": 1,
-          "preco_usd": 14.0
+          "preco_usd": 59.0
         }
       ]
     },
     {
       "ordem": 2,
-      "loja_id": "L032",
-      "nome": "Royal Outlet (fictícia)",
-      "predio": "Plaza Comercial Este",
-      "chegada": "07:58",
-      "inicio_atendimento": "07:58",
-      "saida": "08:23",
-      "compras": [
-        {
-          "produto_id": "P022",
-          "nome": "Console de Mesa Pro 2TB",
-          "quantidade": 1,
-          "preco_usd": 801.99
-        }
-      ]
-    },
-    {
-      "ordem": 3,
       "loja_id": "L033",
       "nome": "Royal Shop (fictícia)",
       "predio": "Plaza Comercial Este",
-      "chegada": "08:24",
-      "inicio_atendimento": "08:24",
-      "saida": "08:54",
+      "chegada": "08:44",
+      "inicio_atendimento": "08:44",
+      "saida": "09:14",
       "compras": [
         {
           "produto_id": "P069",
@@ -90,25 +73,42 @@
       ]
     },
     {
-      "ordem": 4,
-      "loja_id": "L031",
-      "nome": "Royal Games (fictícia)",
-      "predio": "Torre Fronteira",
-      "chegada": "09:07",
-      "inicio_atendimento": "09:07",
-      "saida": "09:37",
+      "ordem": 3,
+      "loja_id": "L032",
+      "nome": "Royal Outlet (fictícia)",
+      "predio": "Plaza Comercial Este",
+      "chegada": "09:15",
+      "inicio_atendimento": "09:15",
+      "saida": "09:40",
       "compras": [
         {
-          "produto_id": "P005",
-          "nome": "Celular Modelo C Lite 64GB",
+          "produto_id": "P022",
+          "nome": "Console de Mesa Pro 2TB",
           "quantidade": 1,
-          "preco_usd": 99.9
+          "preco_usd": 801.99
+        }
+      ]
+    },
+    {
+      "ordem": 4,
+      "loja_id": "L002",
+      "nome": "Delta Games (fictícia)",
+      "predio": "Centro Comercial Rio",
+      "chegada": "09:45",
+      "inicio_atendimento": "09:45",
+      "saida": "09:55",
+      "compras": [
+        {
+          "produto_id": "P023",
+          "nome": "Console Portátil Híbrido",
+          "quantidade": 1,
+          "preco_usd": 259.0
         },
         {
-          "produto_id": "P073",
-          "nome": "Mala de Bordo 10kg",
+          "produto_id": "P031",
+          "nome": "Mouse Sem Fio",
           "quantidade": 1,
-          "preco_usd": 59.0
+          "preco_usd": 14.0
         }
       ]
     }
@@ -125,20 +125,85 @@
       "prioridade": 1
     }
   ],
+  "fiscal": {
+    "via": "terrestre",
+    "data_referencia": "2026-11-17",
+    "cota_usd": 500.0,
+    "fonte_cota": "Portaria MF 440/2010, art. 7º, III, b (redação da Portaria ME 601/2019)",
+    "premissa": "Cada rota é tratada como uma viagem nova: assume-se que a cota não foi usada no intervalo de 1 (um) mês anterior à entrada no Brasil (Portaria MF 440/2010, art. 7º, § 4º). Se a cota já tiver sido usada, toda a compra é tributada a 50%.",
+    "limites": [
+      {
+        "regra_id": "outros_identicos",
+        "descricao": "Demais bens (idênticos)",
+        "categoria_fiscal": "outros",
+        "contagem": "identicos",
+        "usado": 1.0,
+        "limite": 3.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": "P073",
+        "produto": "Mala de Bordo 10kg",
+        "itens": [
+          "P005",
+          "P022",
+          "P023",
+          "P031",
+          "P069",
+          "P072",
+          "P073"
+        ]
+      },
+      {
+        "regra_id": "outros_total",
+        "descricao": "Demais bens (total)",
+        "categoria_fiscal": "outros",
+        "contagem": "total",
+        "usado": 7.0,
+        "limite": 10.0,
+        "unidade": "unidades",
+        "situacao": "abaixo",
+        "consequencia": "perde_cota",
+        "fonte": "IN RFB 1.059/2010, art. 33, § 1º, VI e § 2º, II; art. 41, § 5º",
+        "produto_id": null,
+        "produto": null,
+        "itens": [
+          "P005",
+          "P022",
+          "P023",
+          "P031",
+          "P069",
+          "P072",
+          "P073"
+        ]
+      }
+    ],
+    "limites_ultrapassados": [],
+    "perde_cota": false,
+    "imposto_modelo_usd": 416.94,
+    "imposto_sem_cota_usd": null,
+    "excesso_regime_comum": [],
+    "declaracao_necessaria": true,
+    "alertas": [
+      "Declaração necessária: preencher a e-DBV e passar pelo canal \"bens a declarar\" porque o gasto (US$ 1333.87) passa da cota de US$ 500.00 (IN RFB 1.059/2010, art. 6º, VIII e IX; IN RFB 1.385/2013, art. 2º)."
+    ],
+    "avisos": []
+  },
   "avisos": [],
   "info": {
     "status": "otimo",
     "gap": 0.0,
-    "tempo_s": 1.5731512439999733,
+    "tempo_s": 1.314378287000011,
     "big_m": 578.1630536769762,
-    "objetivo_modelo": 20.093318113865607,
-    "limitante": 20.093318113865607,
+    "objetivo_modelo": 20.141976836184874,
+    "limitante": 20.141976836184874,
     "n_variaveis": 1133,
     "n_restricoes": 1197,
-    "tempo_andando_antes_polimento": 50.17657860552017,
-    "tempo_andando_depois_polimento": 50.17657860552017,
+    "tempo_andando_antes_polimento": 50.17657860552018,
+    "tempo_andando_depois_polimento": 50.17657860552018,
     "polimento": "exato",
     "polimento_aceito": false,
-    "tempo_polimento_s": 0.018090002999997523
+    "tempo_polimento_s": 0.03010551500000247
   }
 }
