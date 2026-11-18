@@ -184,8 +184,11 @@ def test_tabelas_do_resultado(base_ficticia):
     assert "Portaria" in f["cota"] and f["premissa"]
 
 
-def test_resumo_fiscal_com_limite_ultrapassado():
-    inst = carregar_instancia(config.DIR_INSTANCIAS / "inst_078_grande")
+def test_resumo_fiscal_com_limite_ultrapassado(base_ficticia):
+    # 4 pendrives + 4 mouses + 4 fones = 12 unidades de "demais bens" (limite 10, e
+    # 3 idênticos): a bagagem perde a cota. Caso pequeno, rápido em qualquer sistema.
+    itens = [ItemPedido(p, 4, 5) for p in ("P034", "P031", "P009")]
+    inst = montar_pedido(base_ficticia, itens, "08:00", "16:00", 2000.0)
     sol, _ = resolver(inst)
     d = descrever(sol, inst)
     f = ap.resumo_fiscal(d, COTACAO)
