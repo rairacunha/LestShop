@@ -86,12 +86,17 @@ não mudou.
 
 ### Ficou para depois (percebido na Fase 3; não implementar sem autorização)
 
-* **Data de referência das regras.** Hoje é a data do dia; o app poderia usar a data da
-  viagem informada pelo turista.
+* **Data de referência das regras.** Fica a data do dia (decidido em 18/11/2026: o app
+  não pergunta a data da viagem).
 * **Cota adicional de loja franca de fronteira (Foz do Iguaçu).** Não se aplica às lojas
   de Ciudad del Este; só faria sentido se o app passasse a incluir lojas do lado brasileiro.
 
 ## Fase 4 — Aplicativo
+
+Escopo decidido em 18/11/2026 (detalhes em [`handoff_fase4.md`](handoff_fase4.md),
+seção 8): Streamlit; coleta real no computador da dona do projeto, com horário comercial
+padrão para as lojas e coordenadas à mão; base fictícia identificada enquanto não houver
+a real; data da viagem não é perguntada; mapa e alteração manual ficam para melhorias.
 
 * Exibir na tela o bloco `fiscal` (uso de cada limite, alertas, imposto sem cota,
   declaração e-DBV) e o texto da premissa da cota integral.
@@ -136,6 +141,10 @@ explícita** (código, modelo e parâmetros continuam como aprovados na Fase 2).
 * **Reotimização dinâmica da rota** a partir da localização e do horário atuais do
   usuário, durante o passeio (PILLAC, V. et al. A review of dynamic vehicle routing
   problems. *European Journal of Operational Research*, v. 225, n. 1, p. 1–11, 2013).
+* **Mapa do roteiro com alteração manual** (em espera desde 18/11/2026): mostrar as lojas
+  num mapa e deixar o turista mudar a ordem das lojas ou a loja de cada item, com
+  recálculo de horários, preço, imposto e alertas e um botão "voltar à sugestão ótima".
+  A alteração só reavalia a rota escolhida; o modelo não muda.
 * **Permanência por loja = tempo fixo + tempo por item comprado** (hoje é só o tempo
   fixo da loja).
 * **Heurística como Iterated Local Search (ILS):** construção gulosa + 2-opt +
