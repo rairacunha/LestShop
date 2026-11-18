@@ -105,9 +105,26 @@ página com barra lateral, orçamento em US$ com o R$ ao lado. Implementado em
 `src/lesteshop/app/` e `app.py`, testes em `tests/test_app.py`. Usa só a coleta mais
 recente de cada (loja, produto) e avisa ofertas com mais de 30 dias.
 
-**Próximas etapas (aguardando decisão):** horário comercial padrão (hoje 07:00–16:00),
-o que fazer com o horário que o coletor lê de cada loja, lista de termos da coleta,
-autorização do Compras Paraguai, conferência do leitor de páginas e coleta real.
+### Etapa 2 — conferência do leitor de páginas (18/11/2026)
+
+Páginas reais salvas no computador da dona do projeto (`salvar_fixtures --navegador`) e
+guardadas em `tests/fixtures/reais/`. Corrigidos: a busca (lia o painel de "mais
+buscados") e a página de loja (nome, endereço, coordenadas e horário agora vêm do JSON-LD
+`Store` do site); o detector de verificação anti-robô (confundia o script de detecção do
+Cloudflare, presente em páginas normais, com a verificação).
+
+**Decisões (18/11/2026):**
+
+* **Horário das lojas:** usar o horário de segunda a sexta que o site informa para cada
+  loja; quando a loja não informa, vale o padrão comercial **07:00–16:00** (mantido;
+  conferido com 8 lojas reais: abrem entre 06:00 e 07:30, a maioria fecha às 16:00). Esta
+  decisão substitui a da seção 8.2 do handoff ("não coletado loja a loja"), tomada antes de
+  se saber que o site traz o horário. O site informa os horários no horário de Brasília.
+* **Coordenadas:** vêm do site (as 10 lojas conferidas tinham); `lojas_complemento.csv`
+  fica só para lojas sem coordenada ou com coordenada errada.
+
+**Próximas etapas (aguardando decisão):** autorização do Compras Paraguai (e-mail sem
+resposta até 18/11/2026), lista de termos da coleta e coleta real.
 
 * Exibir na tela o bloco `fiscal` (uso de cada limite, alertas, imposto sem cota,
   declaração e-DBV) e o texto da premissa da cota integral.
