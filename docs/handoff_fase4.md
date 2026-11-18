@@ -1,8 +1,8 @@
 # Handoff para a Fase 4 — LesteShop
 
 Documento autocontido para colar no início do chat da Fase 4. Repositório:
-**`rairacunha/LestShop`** (branch `main`). Situação em 17/11/2026: Fases 1, 2 e 3
-concluídas.
+**`rairacunha/LestShop`** (branch `main`). Situação em 18/11/2026: Fases 1, 2 e 3
+concluídas; decisões de escopo da Fase 4 na seção 8.
 
 ## 1. Contexto do projeto
 
@@ -169,68 +169,71 @@ Nenhuma solução inviável.
 7. Reotimização dinâmica da rota durante o passeio (Pillac et al., 2013).
 8. Permanência por loja = tempo fixo + tempo por item.
 9. Heurística como Iterated Local Search.
+10. **Mapa do roteiro com alteração manual** (decidido em 18/11/2026): mostrar as lojas
+    num mapa e deixar o turista mudar a ordem das lojas ou a loja de cada item, com
+    recálculo de horários, preço, imposto e alertas e um botão "voltar à sugestão ótima".
 
 Também em `pendencias.md` (igualmente sem autorização): formulação mais forte para a
 `inst_075_media`, PuLP 4, rotas a pé reais (OSRM/Google), fila da aduana, estoque, dados
 reais nos experimentos, data da viagem como data de referência das regras e cota de loja
 franca de fronteira (não se aplica às lojas de Ciudad del Este).
 
-## 8. Proposta de escopo da Fase 4 — aplicativo
+## 8. Escopo da Fase 4 — aplicativo
 
-**É apenas uma proposta**, para validar com o professor **antes** de implementar. O
-primeiro passo da Fase 4 é apresentar as opções e esperar a aprovação.
+As decisões abaixo foram tomadas pela dona do projeto em 18/11/2026. Como nas fases
+anteriores, o primeiro passo da Fase 4 é **apresentar a proposta detalhada** (telas,
+fluxo, arquivos novos, testes e o plano da coleta real) e **esperar a aprovação** antes de
+implementar.
 
 ### 8.1 O que já está pronto para o app usar
 * `catalogo.sugerir_modelos(texto)` para o autocompletar;
 * `carregar_instancia()` + `resolver()` + `descrever()`, que devolve o resultado inteiro em
   JSON (itens, roteiro com horários, gasto, imposto, cota, bagagem, alertas fiscais);
 * `cotacao.obter_cotacao()` e `usd_para_brl()` para mostrar em R$;
-* a base fictícia completa em `data/raw/` (e o SQLite de `database.py`).
+* a coleta pelo navegador (`python -m lesteshop.data.coletar --navegador`), o SQLite de
+  `database.py` e a base fictícia completa em `data/raw/`.
 
 O que **falta**: montar uma instância a partir do que o turista digita (lista, quantidades,
 prioridades, horários e orçamento) e da base, em vez de ler uma pasta de `data/instances/`.
 
-### 8.2 Decisões a tomar (com a recomendação de cada uma)
+### 8.2 Decisões tomadas
 
-1. **Plataforma.**
-   * (a) **App web em Python com Streamlit**, rodando no computador ou no GitHub
-     Codespaces. Reaproveita todo o código, sem servidor separado. **Recomendado** para a
-     disciplina.
-   * (b) API (FastAPI) + página web ou PWA para celular. Mais trabalho e mais uma
-     linguagem (JavaScript).
-   * (c) App nativo de celular. Fora do alcance do projeto.
-2. **Origem dos dados (arquitetura de coleta).**
-   * (a) **O app usa só a base já coletada** (CSV/SQLite), atualizada à parte pela dona
-     do projeto com `coletar --navegador`. Hoje seria a base fictícia, sempre marcada como
-     tal na tela. **Recomendado.**
-   * (b) Coleta no aparelho do turista (as páginas do Compras Paraguai carregadas no
-     celular dele, que resolve a verificação). Exige app nativo ou extensão; fica para
-     depois.
-   * Em paralelo, pedir autorização ao Compras Paraguai antes de qualquer coleta real.
+1. **Plataforma: app web em Python com Streamlit**, rodando no computador ou no GitHub
+   Codespaces. Reaproveita o código existente, sem servidor separado.
+2. **Base o mais verídica possível: a coleta real entra na Fase 4.** Os preços vêm do
+   Compras Paraguai (é a fonte das ofertas). Passos:
+   * pedir autorização ao Compras Paraguai antes de coletar (recomendado);
+   * conferir o leitor de páginas contra o site real (as páginas de teste atuais foram
+     escritas à mão; usar `python -m lesteshop.data.salvar_fixtures`);
+   * **a coleta roda no computador da dona do projeto**, que resolve a verificação
+     anti-robô (`coletar --navegador`); uma sessão na nuvem não consegue fazer essa etapa,
+     e o LesteShop não tenta contornar a verificação;
+   * **horário das lojas: o padrão comercial** (as lojas de Ciudad del Este seguem o
+     mesmo horário), não é coletado loja a loja. Hoje o padrão é 07:00–16:00
+     (`otimizacao/config.py`); confirmar o horário na proposta;
+   * coordenadas e prédio de cada loja continuam sendo preenchidos à mão em
+     `data/lojas_complemento.csv` (o site não traz coordenadas); loja sem coordenada fica
+     de fora, com aviso (regra da Fase 2);
+   * o app mostra a **data da coleta**, porque os preços do site mudam com o tempo, e os
+     dados coletados são marcados `tipo_dado = "real"`;
+   * enquanto não houver base real, o app usa a base fictícia, **sempre identificada como
+     fictícia na tela**.
 3. **Telas mínimas.**
    * Lista de compras: busca com autocompletar, quantidade e prioridade 1–5 por item.
-   * Dados da viagem: horário de chegada e de saída no lado paraguaio, orçamento opcional
-     e, se aprovado, a data da viagem.
+   * Dados da viagem: horário de chegada e de saída no lado paraguaio e orçamento opcional.
    * Resultado: itens com loja e preço, roteiro na ordem com horários, itens deixados de
      fora, gasto, imposto, custo total, bloco fiscal (limites, alertas, imposto sem cota,
-     declaração e premissa), valores em US$ e R$.
-4. **Mapa do roteiro.** Mostrar as lojas e a ordem num mapa (ex.: `pydeck` ou `folium`)
-   ou só a lista. Recomendado: só a lista na primeira versão; o mapa como opção, se o
-   professor quiser.
-5. **Data da viagem.** Usar a data informada como data de referência das regras fiscais
-   (hoje é a data do dia). Recomendado: sim, é uma mudança pequena e o campo já existe nas
-   regras.
-6. **r no app.** Fica fixo em US$ 0,25/min (a barra para ajustar r é melhoria futura).
+     declaração e premissa), valores em US$ e R$, data da coleta e origem dos dados.
+4. **Mapa e alteração manual do roteiro: fora da Fase 4**, em espera como melhoria
+   futura (seção 7, item 10). Na Fase 4 o roteiro aparece como lista com horários.
+5. **Data da viagem: não é perguntada.** As regras fiscais usam a data do dia. A cota
+   reinicia a cada viagem (premissa da Fase 3); a data só escolheria a versão da lei se ela
+   mudasse, o que é raro.
+6. **r fixo** em US$ 0,25/min (a barra para ajustar r é melhoria futura).
 
-### 8.3 Fora da Fase 4 (proposta)
-* Coleta no aparelho do usuário e coleta automática no servidor.
+### 8.3 Fora da Fase 4
+* Mapa do roteiro e alteração manual (melhoria futura).
+* Coleta no aparelho do usuário e coleta automática num servidor.
 * Contas de usuário, histórico de compras e cota residual entre viagens.
+* Pergunta da data da viagem.
 * Qualquer item da seção 7.
-
-### 8.4 Perguntas para o professor
-1. A plataforma Streamlit (web, em Python) atende à disciplina, ou é preciso um app de
-   celular?
-2. Basta o app usar a base já coletada (hoje fictícia), deixando a coleta no aparelho para
-   depois?
-3. O roteiro precisa aparecer num mapa, ou a lista com horários é suficiente?
-4. A data da viagem informada pelo turista deve escolher a versão das regras fiscais?
