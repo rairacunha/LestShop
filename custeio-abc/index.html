@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- artifact:start -->
+<title>Custeio ABC do Escritório</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<!-- artifact:head-end -->
+</head>
+<body>
+<!-- artifact:body-start -->
+<div class="app">
+  <aside class="side">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">ABC</span>
+      <div>
+        <div class="brand-name">Custeio do Escritório</div>
+        <div class="brand-sub" id="processo-atual">Emissão de Notas · NIBO + Claude</div>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Seções">
+      <a href="#visao">Visão geral</a>
+      <a href="#parametros">Parâmetros</a>
+      <a href="#custeio">Custeio ABC</a>
+      <a href="#simulador">Simulador de preço</a>
+      <a href="#cronoanalise">Cronoanálise</a>
+      <a href="#exportar">Exportar</a>
+      <a href="#novo-processo">Novo processo</a>
+      <a href="#metodo">Sobre o método</a>
+    </nav>
+    <div class="side-actions">
+      <button type="button" class="btn ghost" id="btn-tema" aria-label="Alternar tema">Tema: sistema</button>
+      <button type="button" class="btn ghost" id="btn-restaurar">Restaurar padrões</button>
+      <div class="confirm" id="confirm-restaurar" hidden>
+        <p>Voltar todos os parâmetros aos valores padrão? As medições da cronoanálise continuam salvas.</p>
+        <div class="row">
+          <button type="button" class="btn danger" id="btn-restaurar-ok">Restaurar</button>
+          <button type="button" class="btn ghost" id="btn-restaurar-cancel">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="alerts" id="alertas" aria-live="polite"></div>
+
+    <!-- 1. VISÃO GERAL -->
+    <section class="view" id="visao" data-view>
+      <header class="view-head">
+        <p class="eyebrow">Processo 1 · Emissão de Notas Fiscais</p>
+        <h1>Quanto custa cada cliente por mês</h1>
+        <p class="lede">Custo por cliente ativo calculado pelo método ABC. Altere qualquer número em <a href="#parametros">Parâmetros</a> ou no <a href="#simulador">Simulador</a> e tudo recalcula.</p>
+      </header>
+      <div class="kpis" id="kpis"></div>
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Composição do custo por cliente/mês</h2>
+          <p class="muted">Licença NIBO, Claude e mão de obra humana em cada cenário.</p>
+        </div>
+        <div class="chart" data-chart></div>
+      </div>
+      <div class="panel" id="leitura"></div>
+    </section>
+
+    <!-- 2. PARÂMETROS -->
+    <section class="view" id="parametros" data-view hidden>
+      <header class="view-head">
+        <p class="eyebrow">Dados de entrada</p>
+        <h1>Parâmetros</h1>
+        <p class="lede">Os valores ficam salvos neste navegador. Campos com o selo <span class="badge est">Estimativa — validar na cronoanálise</span> são suposições e devem ser trocados por medições.</p>
+      </header>
+      <form class="param-groups" id="form-param" autocomplete="off"></form>
+    </section>
+
+    <!-- 3. CUSTEIO ABC -->
+    <section class="view" id="custeio" data-view hidden>
+      <header class="view-head">
+        <p class="eyebrow">Recursos → atividades → objeto de custo</p>
+        <h1>Custeio ABC passo a passo</h1>
+        <p class="lede">Cada linha mostra a fórmula, os números colocados nela e o resultado.</p>
+      </header>
+      <div class="flow" aria-hidden="true">
+        <div class="flow-step"><strong>Recursos</strong><span>NIBO · Claude Pro · mão de obra</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><strong>Atividades</strong><span>A1 licença · A2 cadastro · A3 emissão</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><strong>Objeto de custo</strong><span>cliente ativo/mês · nota emitida</span></div>
+      </div>
+      <div id="abc-passos"></div>
+    </section>
+
+    <!-- 4. SIMULADOR -->
+    <section class="view" id="simulador" data-view hidden>
+      <header class="view-head">
+        <p class="eyebrow">Precificação</p>
+        <h1>Simulador de preço</h1>
+        <p class="lede"><strong>Cenário A:</strong> o escritório emite as notas (A1 + A2 + A3). <strong>Cenário B:</strong> vende só o acesso ao emissor e o cliente emite pelo app (A1 + A2 + suporte).</p>
+      </header>
+      <form class="sim-inputs" id="form-sim" autocomplete="off"></form>
+      <div class="table-wrap">
+        <table class="dre" id="sim-tabela"></table>
+      </div>
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Sensibilidade: preço × margem</h2>
+            <p class="muted">Resultado e margem por cliente/mês com os parâmetros atuais.</p>
+          </div>
+          <div class="table-wrap"><table class="num-table" id="sens"></table></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Composição do custo</h2>
+            <p class="muted">Por cliente/mês, em reais.</p>
+          </div>
+          <div class="chart" data-chart></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CRONOANÁLISE -->
+    <section class="view" id="cronoanalise" data-view hidden>
+      <header class="view-head">
+        <p class="eyebrow">Medições reais</p>
+        <h1>Cronoanálise</h1>
+        <p class="lede">Registre o tempo de cada cadastro e de cada emissão. Com as medições, a média substitui os tempos estimados e o selo de estimativa sai.</p>
+      </header>
+      <form class="panel crono-form" id="form-crono" autocomplete="off">
+        <div class="field"><label for="c-data">Data</label><div class="input-wrap"><input id="c-data" type="date" required></div></div>
+        <div class="field"><label for="c-cliente">Cliente</label><div class="input-wrap"><input id="c-cliente" type="text" placeholder="Nome ou código" required></div></div>
+        <div class="field"><label for="c-fase">Fase</label><div class="input-wrap"><select id="c-fase"><option value="cadastro">Cadastro</option><option value="emissao" selected>Emissão</option></select></div></div>
+        <div class="field"><label for="c-claude">Min Claude</label><div class="input-wrap"><input id="c-claude" type="text" inputmode="decimal" placeholder="0" required></div></div>
+        <div class="field"><label for="c-humano">Min humano</label><div class="input-wrap"><input id="c-humano" type="text" inputmode="decimal" placeholder="0" required></div></div>
+        <div class="field field-btn"><button type="submit" class="btn primary">Registrar medição</button></div>
+        <p class="form-msg" id="crono-msg" role="status"></p>
+      </form>
+      <div class="grid-2" id="crono-stats"></div>
+      <div class="row wrap">
+        <button type="button" class="btn primary" id="btn-usar-media">Usar média medida nos parâmetros</button>
+        <button type="button" class="btn ghost" id="btn-crono-csv">Exportar medições (CSV)</button>
+        <span class="muted" id="crono-aplicar-msg" role="status"></span>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h2>Medições registradas</h2></div>
+        <div class="table-wrap"><table class="num-table" id="crono-tabela"></table></div>
+      </div>
+      <div class="panel csv-box" id="crono-csv-box" hidden>
+        <label for="crono-csv-text">CSV das medições</label>
+        <textarea id="crono-csv-text" rows="6" readonly></textarea>
+        <button type="button" class="btn ghost" data-copy="crono-csv-text">Copiar CSV</button>
+      </div>
+    </section>
+
+    <!-- 6. EXPORTAR -->
+    <section class="view" id="exportar" data-view hidden>
+      <header class="view-head">
+        <p class="eyebrow">Para a planilha de precificação</p>
+        <h1>Exportar</h1>
+        <p class="lede">CSV com separador <code>;</code>, vírgula decimal e UTF-8 com BOM, pronto para Excel e Google Sheets.</p>
+      </header>
+      <div class="row wrap">
+        <button type="button" class="btn primary" id="btn-csv" data-only-top>Baixar CSV</button>
+        <button type="button" class="btn ghost" data-copy="csv-text">Copiar CSV</button>
+        <button type="button" class="btn ghost" id="btn-print" data-only-top>Imprimir / PDF</button>
+        <span class="muted" id="copy-msg" role="status"></span>
+      </div>
+      <p class="muted framed-note" data-only-framed hidden>Nesta visualização o download e a impressão ficam bloqueados. Use “Copiar CSV” e cole na planilha, ou abra o <code>index.html</code> do repositório no navegador para baixar e imprimir.</p>
+      <div class="panel">
+        <div class="table-wrap"><table class="num-table" id="exp-tabela"></table></div>
+      </div>
+      <div class="panel csv-box">
+        <label for="csv-text">Conteúdo do CSV</label>
+        <textarea id="csv-text" rows="10" readonly></textarea>
+      </div>
+    </section>
+
+    <!-- 7. NOVO PROCESSO -->
+    <section class="view" id="novo-processo" data-view hidden>
+      <header class="view-head">
+        <p class="eyebrow">Próximos módulos</p>
+        <h1>Novo processo</h1>
+        <p class="lede">Outros custeios do escritório entram com o mesmo modelo: recursos → atividades → objeto de custo. Cada um é um novo item em <code>data/processos.js</code>.</p>
+      </header>
+      <div class="futuros" id="futuros"></div>
+      <div class="panel">
+        <div class="panel-head"><h2>Como adicionar</h2></div>
+        <ol class="steps">
+          <li>Liste os <strong>recursos</strong> com o custo mensal de cada um (sistemas, assinaturas, mão de obra).</li>
+          <li>Defina as <strong>atividades</strong> e o <strong>direcionador</strong> de cada uma (o que faz a atividade acontecer mais vezes).</li>
+          <li>Registre os tempos de cada atividade na cronoanálise.</li>
+          <li>Inclua o processo em <code>data/processos.js</code> com seus parâmetros e uma função de cálculo em <code>app.js</code> (<code>MODELOS</code>).</li>
+        </ol>
+<pre class="code"><code>{
+  id: "folha",
+  nome: "Folha de pagamento",
+  grupos: [{ titulo: "Sistema", campos: ["mensalidade"] }],
+  parametros: {
+    mensalidade: { rotulo: "Mensalidade do sistema", prefixo: "R$",
+                   unidade: "/mês", padrao: 0, origem: "informado" }
+  }
+}</code></pre>
+      </div>
+    </section>
+
+    <!-- 8. MÉTODO -->
+    <section class="view" id="metodo" data-view hidden>
+      <header class="view-head">
+        <p class="eyebrow">Notas metodológicas</p>
+        <h1>Sobre o método</h1>
+      </header>
+      <div class="prose">
+        <h2>Custeio baseado em atividades</h2>
+        <p>O ABC aloca os recursos às <strong>atividades</strong> por direcionadores de custo e só depois aos objetos de custo. Assim nenhum custo é rateado por critério arbitrário.</p>
+        <h2>Cadastro amortizado</h2>
+        <p>O cadastro é um custo pontual, feito uma vez por cliente. Ele foi dividido pela vida média do cliente. Se o cliente sair antes desse prazo, o custo real por mês é maior.</p>
+        <h2>Licença NIBO e capacidade ociosa</h2>
+        <p>A licença NIBO é um custo fixo de capacidade. As licenças não ocupadas são custo da estrutura, não do cliente atual. Por isso o site mostra o alerta de ociosidade quando há licenças livres.</p>
+        <h2>Tempos do Claude</h2>
+        <p>Os tempos de 5 min por emissão e 60 min por cadastro são o pior caso informado, não medição. O resultado tende a cair depois da cronoanálise.</p>
+        <h2>O que não está incluído</h2>
+        <ul>
+          <li>Depreciação do certificado digital.</li>
+          <li>Internet e energia.</li>
+          <li>Tempo de revisão contábil.</li>
+          <li>Impostos sobre a receita, que têm campo próprio em Parâmetros.</li>
+          <li>Desconto do Claude Pro quando ele atende outras atividades; use o campo “parte do Claude Pro usada neste processo”.</li>
+        </ul>
+        <h2>Ponto de equilíbrio</h2>
+        <p>Considera fixos a mensalidade do NIBO e a parte do Claude Pro dedicada ao processo. A mão de obra humana é o custo variável por cliente.</p>
+      </div>
+    </section>
+  </main>
+</div>
+<div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+<script src="data/processos.js"></script>
+<script src="app.js"></script>
+<!-- artifact:body-end -->
+</body>
+</html>
