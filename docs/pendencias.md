@@ -123,6 +123,13 @@ autorização do Compras Paraguai, conferência do leitor de páginas e coleta r
 * Tela de resultado a partir de `otimizacao.solucao.descrever()` (JSON pronto com itens,
   roteiro, gasto, imposto, situação da cota, bagagem e avisos).
 
+## Fase 5 — Design do aplicativo (decidido em 18/11/2026; não implementar antes)
+
+Fase própria, depois que a Fase 4 terminar funcionando com dados reais: cores,
+logotipo, textos e organização das telas (e, se for desejado, versão para celular).
+O cálculo (modelo, regras fiscais e montagem da instância) não muda nesta fase. Na
+Fase 4 o app usa o visual padrão do Streamlit.
+
 ## Melhorias da base de dados (podem entrar antes da Fase 2)
 
 * Conferir o parser contra páginas reais (`python -m lesteshop.data.salvar_fixtures
