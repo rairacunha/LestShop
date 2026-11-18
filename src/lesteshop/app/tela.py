@@ -66,7 +66,8 @@ def _barra_lateral(base: base_app.BaseApp, cotacao) -> tuple[dt.time, dt.time, f
         if cotacao is None:
             st.caption("Cotação do dólar indisponível: valores só em US$.")
         else:
-            st.caption(f"Cotação: US$ 1 = R$ {cotacao.valor_brl_por_usd:.4f} ".replace(".", ",")
+            valor = f"{cotacao.valor_brl_por_usd:.4f}".replace(".", ",")
+            st.caption(f"Cotação: US$ 1 = R$ {valor} "
                        f"({ap.fmt_data(cotacao.data)}, {cotacao.fonte}). O R$ é só para referência.")
         if st.button("Recarregar base"):
             _base.clear()
