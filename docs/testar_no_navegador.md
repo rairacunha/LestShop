@@ -3,6 +3,23 @@
 O Codespaces abre este repositório num computador na nuvem, com Python e as
 dependências já instalados. Os testes rodam sozinhos na primeira abertura.
 
+## Abrir o aplicativo (Fase 4)
+
+No terminal do Codespaces:
+
+```bash
+streamlit run app.py
+```
+
+O Codespaces abre o app numa aba nova (porta 8501; se não abrir, veja a aba **Ports** e
+clique no globo da porta 8501). Para testar: escolha produtos na busca, ajuste
+quantidade e prioridade, informe os horários na barra lateral e clique em
+**Calcular roteiro**. A base é fictícia e o app avisa isso na tela. Para parar o app,
+volte ao terminal e aperte `Ctrl+C`.
+
+Se o Codespaces foi criado antes desta versão, instale o Streamlit uma vez com
+`pip install -e '.[dev,app]'`.
+
 Abra o terminal (menu ☰ → Terminal → New Terminal) e rode:
 
 | Critério de aceite | Comando | Esperado |

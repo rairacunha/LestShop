@@ -98,6 +98,17 @@ seção 8): Streamlit; coleta real no computador da dona do projeto, com horári
 padrão para as lojas e coordenadas à mão; base fictícia identificada enquanto não houver
 a real; data da viagem não é perguntada; mapa e alteração manual ficam para melhorias.
 
+### Etapa 1 — primeira versão do app (implementada em 18/11/2026)
+
+Decisões aprovadas: autocompletar com a lista do Streamlit (só produtos da base), uma
+página com barra lateral, orçamento em US$ com o R$ ao lado. Implementado em
+`src/lesteshop/app/` e `app.py`, testes em `tests/test_app.py`. Usa só a coleta mais
+recente de cada (loja, produto) e avisa ofertas com mais de 30 dias.
+
+**Próximas etapas (aguardando decisão):** horário comercial padrão (hoje 07:00–16:00),
+o que fazer com o horário que o coletor lê de cada loja, lista de termos da coleta,
+autorização do Compras Paraguai, conferência do leitor de páginas e coleta real.
+
 * Exibir na tela o bloco `fiscal` (uso de cada limite, alertas, imposto sem cota,
   declaração e-DBV) e o texto da premissa da cota integral.
 

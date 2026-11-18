@@ -292,6 +292,25 @@ python -m lesteshop.fiscal.experimentos --so-resumo
 Os experimentos gravam `data/resultados/fase3/resultados_fase3.csv`, as soluções em
 `data/resultados/fase3/solucoes/r0.25/` e `data/resultados/fase3/resumo_fase3.md`.
 
+## Fase 4 — Aplicativo (Streamlit)
+
+```bash
+pip install -e ".[dev,app]"
+streamlit run app.py        # abre em http://localhost:8501
+```
+
+Uma página: na barra lateral, a origem dos dados (base **fictícia** identificada na tela
+enquanto não houver coleta real), a cotação e os dados da viagem (chegada, saída e
+orçamento opcional em US$); no centro, a lista de compras (busca, quantidade e
+prioridade 1–5), o botão **Calcular roteiro** e o resultado: onde comprar cada item,
+roteiro a pé com horários, itens deixados de fora, gasto, imposto, custo total em US$ e
+R$ e o bloco da Receita Federal (cota, limites, declaração e premissa).
+
+Código em `src/lesteshop/app/`: `base.py` (base do SQLite, só a coleta mais recente de
+cada loja/produto, origem real/fictícia), `pedido.py` (monta a instância a partir do que
+o turista digita, usando `montar_instancia()` da Fase 2), `apresentacao.py` (tabelas e
+textos) e `tela.py` (interface). O modelo e os parâmetros não mudaram (r = US$ 0,25/min).
+
 ## Documentação
 
 * [Dicionário de dados](docs/dicionario_de_dados.md)

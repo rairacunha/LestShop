@@ -1,0 +1,220 @@
+"""Fase 4: base do app, montagem da instância do pedido, apresentação e tela."""
+
+from __future__ import annotations
+
+import datetime as dt
+import json
+from pathlib import Path
+
+import pandas as pd
+import pytest
+
+from lesteshop.app import apresentacao as ap
+from lesteshop.app import base as base_app
+from lesteshop.app.base import BaseApp, carregar_base, ofertas_antigas, so_mais_recente
+from lesteshop.app.pedido import ErroPedido, ItemPedido, montar_pedido, validar_pedido
+from lesteshop.data import config
+from lesteshop.data.cotacao import Cotacao
+from lesteshop.data.sources.fonte_csv import FonteCSV
+from lesteshop.otimizacao.instancia import carregar_instancia
+from lesteshop.otimizacao.resolver import resolver
+from lesteshop.otimizacao.solucao import descrever
+
+RAIZ = Path(__file__).resolve().parents[1]
+COTACAO = Cotacao("2026-11-18", 5.0, "teste")
+
+
+@pytest.fixture(scope="module")
+def base_ficticia(tmp_path_factory) -> BaseApp:
+    return carregar_base(tmp_path_factory.mktemp("banco") / "lesteshop.db")
+
+
+def base_da_pasta(pasta: Path) -> BaseApp:
+    fonte = FonteCSV(pasta)
+    ofertas = so_mais_recente(fonte.carregar_ofertas())
+    produtos = fonte.carregar_produtos()
+    produtos = produtos[produtos["produto_id"].isin(set(ofertas["produto_id"]))].reset_index(drop=True)
+    return BaseApp(lojas=fonte.carregar_lojas(), produtos=produtos, ofertas=ofertas,
+                   pontos=fonte.carregar_pontos_partida(), caminho_banco=pasta)
+
+
+# --- base -----------------------------------------------------------------------
+def test_base_ficticia_identificada(base_ficticia):
+    assert base_ficticia.origem == "ficticia"
+    assert base_ficticia.data_coleta == ("2026-10-26", "2026-10-26")
+    assert base_ficticia.n_lojas == 50
+    nivel, texto = ap.texto_origem(base_ficticia)
+    assert nivel == "atencao" and "FICTÍCIA" in texto
+
+
+def test_so_produtos_com_oferta(base_ficticia):
+    assert set(base_ficticia.produtos["produto_id"]) <= set(base_ficticia.ofertas["produto_id"])
+    assert not base_ficticia.produtos.empty
+
+
+def test_coleta_mais_recente_vale_mesmo_mais_cara():
+    of = pd.DataFrame([
+        {"loja_id": "L1", "produto_id": "P1", "preco_usd": 10.0, "data_coleta": "2026-10-01", "tipo_dado": "real"},
+        {"loja_id": "L1", "produto_id": "P1", "preco_usd": 12.0, "data_coleta": "2026-11-01", "tipo_dado": "real"},
+        {"loja_id": "L2", "produto_id": "P1", "preco_usd": 11.0, "data_coleta": "2026-10-01", "tipo_dado": "real"},
+    ])
+    r = so_mais_recente(of)
+    assert sorted(zip(r["loja_id"], r["preco_usd"])) == [("L1", 12.0), ("L2", 11.0)]
+
+
+def test_origem_real_e_mista(base_ficticia):
+    real = BaseApp(base_ficticia.lojas, base_ficticia.produtos,
+                   base_ficticia.ofertas.assign(tipo_dado="real"), base_ficticia.pontos, Path("."))
+    assert real.origem == "real"
+    assert ap.texto_origem(real)[0] == "ok" and "26/10/2026" in ap.texto_origem(real)[1]
+    mista = real.ofertas.copy()
+    mista.loc[0, "tipo_dado"] = "sintetico"
+    assert BaseApp(real.lojas, real.produtos, mista, real.pontos, Path(".")).origem == "mista"
+
+
+def test_aviso_de_oferta_antiga(base_ficticia):
+    pid = base_ficticia.produtos["produto_id"].iloc[0]
+    assert ofertas_antigas(base_ficticia, [pid], hoje=dt.date(2026, 11, 1)) == []
+    avisos = ofertas_antigas(base_ficticia, [pid], hoje=dt.date(2026, 12, 31))
+    assert len(avisos) == 1 and "26/10/2026" in avisos[0]
+
+
+# --- pedido ---------------------------------------------------------------------
+def _ids(base, n):
+    return list(base.produtos["produto_id"].iloc[:n])
+
+
+def test_montar_pedido_sem_orcamento_usa_a_cota(base_ficticia):
+    ids = _ids(base_ficticia, 3)
+    inst = montar_pedido(base_ficticia, [ItemPedido(ids[0], 2, 5), ItemPedido(ids[1]), ItemPedido(ids[2], 1, 1)],
+                         dt.time(9, 0), dt.time(14, 30))
+    assert not inst.orcamento_informado and inst.orcamento == inst.cota == 500.0
+    assert (inst.chegada, inst.saida) == (540, 870)
+    assert [(i.produto_id, i.quantidade, i.prioridade) for i in inst.itens] == \
+        [(ids[0], 2, 5), (ids[1], 1, 3), (ids[2], 1, 1)]
+    assert inst.n_lojas_instancia == 50 and inst.tamanho is None
+
+
+def test_montar_pedido_com_orcamento(base_ficticia):
+    inst = montar_pedido(base_ficticia, [ItemPedido(_ids(base_ficticia, 1)[0])], "08:00", "16:00", 750.0)
+    assert inst.orcamento_informado and inst.orcamento == 750.0
+
+
+@pytest.mark.parametrize("itens, chegada, saida, orcamento, trecho", [
+    ("vazia", "08:00", "16:00", None, "pelo menos um item"),
+    ("dup", "08:00", "16:00", None, "mais de uma vez"),
+    ("qtd0", "08:00", "16:00", None, "quantidade"),
+    ("pri6", "08:00", "16:00", None, "prioridade"),
+    ("ok", "16:00", "08:00", None, "saída"),
+    ("ok", "08:00", "16:00", 0.0, "orçamento"),
+    ("desconhecido", "08:00", "16:00", None, "não está na base"),
+])
+def test_validacao(base_ficticia, itens, chegada, saida, orcamento, trecho):
+    pid = _ids(base_ficticia, 1)[0]
+    itens = {"dup": [ItemPedido(pid), ItemPedido(pid)], "qtd0": [ItemPedido(pid, 0)],
+             "pri6": [ItemPedido(pid, 1, 6)], "ok": [ItemPedido(pid)],
+             "desconhecido": [ItemPedido("XXX")], "vazia": []}[itens]
+    erros = validar_pedido(base_ficticia, itens, chegada, saida, orcamento)
+    assert any(trecho in e for e in erros)
+    with pytest.raises(ErroPedido):
+        montar_pedido(base_ficticia, itens, chegada, saida, orcamento)
+
+
+def test_preco_da_coleta_mais_recente_entra_na_instancia(base_ficticia):
+    of = base_ficticia.ofertas
+    linha = of.iloc[0]
+    antiga = linha.copy()
+    antiga["preco_usd"] = 0.01
+    antiga["data_coleta"] = "2026-01-01"
+    base = BaseApp(base_ficticia.lojas, base_ficticia.produtos,
+                   so_mais_recente(pd.concat([of, antiga.to_frame().T], ignore_index=True)),
+                   base_ficticia.pontos, Path("."))
+    inst = montar_pedido(base, [ItemPedido(linha["produto_id"])], "07:00", "16:00")
+    i = next(n for n in inst.nos_lojas if inst.loja(n).loja_id == linha["loja_id"])
+    assert inst.preco[(i, 0)] == pytest.approx(float(linha["preco_usd"]))
+
+
+@pytest.mark.parametrize("nome", ["inst_001_pequena", "inst_045_media"])
+def test_pedido_equivale_a_instancia_da_pasta(nome):
+    """Montar pelo app a lista de uma instância dá a mesma solução que ler a pasta."""
+    pasta = config.DIR_INSTANCIAS / nome
+    meta = json.loads((pasta / "metadata.json").read_text(encoding="utf-8"))
+    lista = pd.read_csv(pasta / "lista_compras.csv", dtype={"produto_id": str})
+    itens = [ItemPedido(r.produto_id, int(r.quantidade), int(r.prioridade)) for r in lista.itertuples()]
+    inst_app = montar_pedido(base_da_pasta(pasta), itens, meta["horario_chegada"], meta["horario_saida"],
+                             meta.get("orcamento_usd"))
+    inst_pasta = carregar_instancia(pasta)
+    sol_app, _ = resolver(inst_app)
+    sol_pasta, _ = resolver(inst_pasta)
+    d_app, d_pasta = descrever(sol_app, inst_app), descrever(sol_pasta, inst_pasta)
+    assert d_app["resumo"]["objetivo"] == pytest.approx(d_pasta["resumo"]["objetivo"])
+    assert d_app["resumo"]["gasto_produtos"] == pytest.approx(d_pasta["resumo"]["gasto_produtos"])
+    compras = lambda d: sorted((p["loja_id"], c["produto_id"]) for p in d["roteiro"] for c in p["compras"])
+    assert compras(d_app) == compras(d_pasta)
+
+
+# --- apresentação ---------------------------------------------------------------
+def test_formatos():
+    assert ap.fmt_usd(1234.5) == "US$ 1.234,50"
+    assert ap.fmt_brl(None) == "—" and ap.fmt_brl(10) == "R$ 10,00"
+    assert ap.em_brl(10, COTACAO) == 50.0 and ap.em_brl(10, None) is None
+    assert ap.fmt_data("2026-10-26") == "26/10/2026"
+
+
+def test_tabelas_do_resultado(base_ficticia):
+    sem_oferta = base_ficticia.produtos["produto_id"].iloc[0]
+    # Tira as ofertas de um item para ele aparecer como "sem oferta".
+    base = BaseApp(base_ficticia.lojas, base_ficticia.produtos,
+                   base_ficticia.ofertas[base_ficticia.ofertas["produto_id"] != sem_oferta],
+                   base_ficticia.pontos, Path("."))
+    ids = _ids(base_ficticia, 4)
+    inst = montar_pedido(base, [ItemPedido(p) for p in ids], "08:00", "16:00")
+    sol, _ = resolver(inst)
+    d = descrever(sol, inst)
+    itens = ap.tabela_itens(d, base, COTACAO)
+    assert len(itens) == d["resumo"]["itens_comprados"]
+    assert set(itens["Origem"]) == {"fictícia"} and itens["Subtotal (R$)"].str.startswith("R$").all()
+    rot = ap.tabela_roteiro(d)
+    assert rot.iloc[0]["Local"].startswith("Ponte") and rot.iloc[-1]["Chegada"] == d["horario_retorno"]
+    fora = ap.tabela_fora(d, inst)
+    assert "nenhuma loja" in fora.set_index("Item").loc[base_ficticia.nome_produto(sem_oferta), "Motivo"]
+    totais = ap.totais(d, COTACAO)
+    assert [t[0] for t in totais] == ["Gasto com produtos", "Imposto estimado", "Custo total"]
+    f = ap.resumo_fiscal(d, COTACAO)
+    assert "Portaria" in f["cota"] and f["premissa"]
+
+
+def test_resumo_fiscal_com_limite_ultrapassado():
+    inst = carregar_instancia(config.DIR_INSTANCIAS / "inst_078_grande")
+    sol, _ = resolver(inst)
+    d = descrever(sol, inst)
+    f = ap.resumo_fiscal(d, COTACAO)
+    assert f["imposto_sem_cota"] and "R$" in f["imposto_sem_cota"]
+    assert f["declaracao"].startswith("Sim")
+    assert "ACIMA do limite" in set(ap.tabela_limites(d["fiscal"])["Situação"])
+
+
+def test_texto_solver():
+    assert ap.texto_solver({"info": {"status": "otimo"}}) is None
+    assert "tempo limite" in ap.texto_solver({"info": {"status": "viavel (limite de tempo)", "gap": 0.039}})
+
+
+# --- tela -----------------------------------------------------------------------
+def test_tela_calcula_roteiro(base_ficticia, monkeypatch):
+    pytest.importorskip("streamlit")
+    from streamlit.testing.v1 import AppTest
+
+    monkeypatch.setattr(base_app, "carregar_base", lambda *a, **k: base_ficticia)
+    monkeypatch.setattr(base_app, "cotacao_para_exibir", lambda *a, **k: COTACAO)
+    at = AppTest.from_file(str(RAIZ / "app.py"), default_timeout=120)
+    at.run()
+    assert not at.exception
+    assert any("FICTÍCIA" in w.value for w in at.warning)
+    pid = base_ficticia.produtos["produto_id"].iloc[1]
+    at.selectbox(key="novo_produto").set_value(pid).run()
+    assert at.number_input(key=f"qtd_{pid}").value == 1
+    next(b for b in at.button if b.label == "Calcular roteiro").click().run()
+    assert not at.exception
+    textos = " ".join(m.value for m in at.markdown)
+    assert "Roteiro a pé" in textos and "Receita Federal" in textos
+    assert len(at.dataframe) >= 2
