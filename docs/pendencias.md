@@ -123,8 +123,14 @@ Cloudflare, presente em páginas normais, com a verificação).
 * **Coordenadas:** vêm do site (as 10 lojas conferidas tinham); `lojas_complemento.csv`
   fica só para lojas sem coordenada ou com coordenada errada.
 
-**Próximas etapas (aguardando decisão):** autorização do Compras Paraguai (e-mail sem
-resposta até 18/11/2026), lista de termos da coleta e coleta real.
+* **Autorização do Compras Paraguai:** o primeiro e-mail não teve resposta até 18/11/2026;
+  um segundo e-mail será enviado. Decidido seguir com a coleta mesmo sem resposta, em
+  escala pequena e uma única vez, com as regras de boa conduta do LesteShop: robots.txt
+  respeitado, 1 acesso a cada 10 s, identificação do projeto acadêmico em cada acesso,
+  sem contornar a verificação anti-robô e só a lista de produtos combinada. Se o site
+  pedir para não coletar, a coleta para e os dados coletados não são usados.
+
+**Próximas etapas:** lista de termos da coleta e coleta real.
 
 * Exibir na tela o bloco `fiscal` (uso de cada limite, alertas, imposto sem cota,
   declaração e-DBV) e o texto da premissa da cota integral.
