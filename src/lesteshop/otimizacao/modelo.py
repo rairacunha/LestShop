@@ -167,8 +167,12 @@ def resolver_exato(
         _iniciar_com(var, solucao_inicial, inst)
     with tempfile.TemporaryDirectory() as tmp:
         log = Path(tmp) / "cbc.log"
+        # keepFiles=True com os arquivos dentro de ``tmp``: no Windows, o PuLP só passa a
+        # solução inicial (warm start) ao CBC quando os arquivos são mantidos; sem isso o
+        # CBC começa do zero e pode não parar no tempo limite. A pasta é apagada no fim.
         solver = pulp.PULP_CBC_CMD(msg=msg, timeLimit=limite_s, warmStart=warm, logPath=str(log),
-                                   threads=1)
+                                   threads=1, keepFiles=True)
+        solver.create_tmp_files = lambda _nome, *ext: (str(Path(tmp) / f"modelo-pulp.{e}") for e in ext)
         inicio = time.perf_counter()
         prob.solve(solver)
         tempo = time.perf_counter() - inicio
