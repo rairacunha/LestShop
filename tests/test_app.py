@@ -236,3 +236,11 @@ def test_preco_atipico_e_descartado_com_aviso():
     assert "Fone G-Tide (US$ 9.00)" in avisos["P"][0] and "iPad 11" in avisos["P"][0]
     # Com menos de 3 ofertas não há mediana confiável: nada é descartado.
     assert len(base_app.descartar_precos_atipicos(of.iloc[2:])[0]) == 2
+
+
+def test_cotacao_do_site_vem_das_ofertas():
+    of = pd.DataFrame({"preco_usd": [80.0, 100.0, 0.0], "preco_brl": [476.0, 595.0, 10.0],
+                       "data_coleta": ["2026-11-19", "2026-11-20", "2026-11-20"]})
+    c = base_app.cotacao_do_site(of)
+    assert c.valor_brl_por_usd == 5.95 and c.data == "2026-11-20" and "Compras Paraguai" in c.fonte
+    assert base_app.cotacao_do_site(of.assign(preco_brl=None)) is None

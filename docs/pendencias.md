@@ -152,7 +152,10 @@ para os itens que o turista escolhe**, na hora de calcular. Substitui a coleta e
   pessoa resolve a verificação, se o site pedir). No Codespaces, usar a "Base guardada".
 * A "Base guardada" (SQLite: coletas salvas ou a base fictícia) continua como segunda
   opção na tela.
-* Com preços reais, o R$ não usa a cotação fictícia de teste: sem PTAX, só US$.
+* **Cotação (20/11/2026):** o R$ usa a cotação do próprio Compras Paraguai, tirada das
+  ofertas (mediana de preço em R$ ÷ preço em US$; na coleta de 20/11/2026, R$ 5,95), sem
+  acesso extra ao site. Sem ofertas reais, a PTAX; com preços reais, nunca a cotação
+  fictícia de teste (sem cotação, só US$).
 * **Preço atípico (20/11/2026):** na coleta real, lojas cadastraram outros produtos na
   página de um modelo (fones de US$ 9 e um celular Hotwav na página do iPad). Oferta com
   preço menor que a metade da mediana do mesmo produto (com 3 ofertas ou mais) é

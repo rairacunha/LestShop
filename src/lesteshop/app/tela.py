@@ -85,11 +85,28 @@ def _adicionar() -> None:
     st.session_state["novo_produto"] = None
 
 
-def _barra_lateral(cotacao) -> tuple:
+def _cotacao_para(modo: str):
+    """Cotação mostrada (decidido em 20/11/2026): a do Compras Paraguai, tirada das
+    ofertas; sem ofertas reais, a PTAX (ou, na base fictícia, a cotação de teste)."""
+    r = st.session_state.get("resultado")
+    if r is not None and r.get("cotacao") is not None and r["assinatura"][0] == modo:
+        return r["cotacao"]
+    if modo == MODO_BASE or _base().origem == "real":
+        base = _base()
+        if base.origem == "real" and (c := base_app.cotacao_do_site(base.ofertas)) is not None:
+            return c
+        if modo == MODO_BASE:
+            return _cotacao()
+    c = _cotacao()
+    return None if c is not None and "fictíc" in c.fonte.lower() else c
+
+
+def _barra_lateral() -> tuple:
     with st.sidebar:
         st.header("Fonte dos preços")
         modo = st.radio("Fonte dos preços", [MODO_CONSULTA, MODO_BASE], key="modo",
                         label_visibility="collapsed", on_change=_limpar_lista)
+        cotacao = _cotacao_para(modo)
         if modo == MODO_CONSULTA:
             st.info("Ao calcular, o app consulta no Compras Paraguai **só os itens da sua lista** "
                     "(preços guardados por 6 h). Se o site pedir a verificação de humano, "
@@ -107,8 +124,6 @@ def _barra_lateral(cotacao) -> tuple:
                 base_app.carregar_base(recriar=True)
                 st.session_state["resultado"] = None
                 st.rerun()
-        if cotacao is not None and modo == MODO_CONSULTA and "fictíc" in cotacao.fonte.lower():
-            cotacao = None  # preços reais não são convertidos com a cotação fictícia de teste
         if cotacao is None:
             st.caption("Cotação do dólar indisponível: valores só em US$.")
         else:
@@ -188,7 +203,8 @@ def _otimizar(base, itens, chegada, saida, orcamento, categorias=None):
 def _calcular_base(pedidos, chegada, saida, orcamento) -> dict | None:
     base = _base()
     r = _otimizar(base, [ItemPedido(*p) for p in pedidos], chegada, saida, orcamento)
-    return None if r is None else {"d": r[0], "inst": r[1], "base": base, "consulta": None}
+    return None if r is None else {"d": r[0], "inst": r[1], "base": base, "consulta": None,
+                                   "cotacao": base_app.cotacao_do_site(base.ofertas) if base.origem == "real" else None}
 
 
 def _calcular_consulta(pedidos, chegada, saida, orcamento) -> dict | None:
@@ -213,7 +229,7 @@ def _calcular_consulta(pedidos, chegada, saida, orcamento) -> dict | None:
     if r is None:
         return None
     r[0]["avisos"] = list(r[0]["avisos"]) + list(res.avisos)
-    return {"d": r[0], "inst": r[1], "base": base,
+    return {"d": r[0], "inst": r[1], "base": base, "cotacao": base_app.cotacao_do_site(base.ofertas),
             "consulta": {"res": res, "nao_encontrados": [cat[i].nome for i in res.nao_encontrados]}}
 
 
@@ -296,13 +312,12 @@ def _resultado(r: dict, cotacao) -> None:
 def main() -> None:
     st.set_page_config(page_title="LesteShop", page_icon="🛍️", layout="wide")
     _estado()
-    cotacao = _cotacao()
 
     st.title("LesteShop")
     st.caption("Onde comprar cada item em Ciudad del Este, o roteiro a pé a partir da Ponte da "
                "Amizade e a situação frente à cota da Receita Federal.")
 
-    modo, chegada, saida, orcamento, cotacao = _barra_lateral(cotacao)
+    modo, chegada, saida, orcamento, cotacao = _barra_lateral()
     if modo == MODO_BASE and _base().origem != "real":
         st.warning(ap.texto_origem(_base())[1])
     pedidos = _lista_de_compras(_opcoes(modo))
@@ -319,4 +334,4 @@ def main() -> None:
         if r["assinatura"] != assinatura:
             st.info("A lista ou os dados da viagem mudaram: clique em **Calcular roteiro** de novo.")
         else:
-            _resultado(r, cotacao)
+            _resultado(r, r.get("cotacao") or cotacao)

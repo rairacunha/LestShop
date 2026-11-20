@@ -28,6 +28,8 @@ import pandas as pd
 from ..data import config, database
 from ..data.cotacao import Cotacao, ErroCotacao, obter_cotacao
 
+FONTE_COTACAO_SITE = "Compras Paraguai (R$ ÷ US$ das ofertas)"
+
 
 @dataclass
 class BaseApp:
@@ -152,3 +154,17 @@ def cotacao_para_exibir(caminho: str | Path = config.CAMINHO_BANCO) -> Cotacao |
         return None
     finally:
         con.close()
+
+
+def cotacao_do_site(ofertas: pd.DataFrame) -> Cotacao | None:
+    """Cotação usada pelo Compras Paraguai, tirada das próprias ofertas (decidido em
+    20/11/2026): mediana de ``preco_brl / preco_usd``. Não acessa a internet.
+    ``None`` se as ofertas não trazem o preço em R$."""
+    if ofertas.empty or "preco_brl" not in ofertas:
+        return None
+    ok = ofertas[(ofertas["preco_usd"] > 0) & (ofertas["preco_brl"] > 0)]
+    if ok.empty:
+        return None
+    valor = float((ok["preco_brl"] / ok["preco_usd"]).median())
+    data = str(ok["data_coleta"].dropna().max()) if "data_coleta" in ok else ""
+    return Cotacao(data, round(valor, 4), FONTE_COTACAO_SITE)
