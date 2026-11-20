@@ -27,7 +27,7 @@ from dataclasses import dataclass, field
 
 import pandas as pd
 
-from ..app.base import BaseApp, so_mais_recente
+from ..app.base import BaseApp, descartar_precos_atipicos, so_mais_recente
 from ..data import config as config_dados
 from ..data import esquema
 from ..data.database import aplicar_complemento_lojas
@@ -151,6 +151,9 @@ def consultar(
     res.lojas = esquema.padronizar(pd.DataFrame(lojas, columns=esquema.COLUNAS["lojas"]), "lojas") \
         .drop_duplicates("loja_id", keep="last").reset_index(drop=True)
     res.ofertas = esquema.padronizar(pd.DataFrame(ofertas, columns=esquema.COLUNAS["ofertas"]), "ofertas")
+    res.ofertas, avisos = descartar_precos_atipicos(res.ofertas, dict(zip(res.produtos["produto_id"],
+                                                                          res.produtos["nome"])))
+    res.avisos.extend(a for lista in avisos.values() for a in lista)
     return res
 
 

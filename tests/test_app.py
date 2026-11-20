@@ -13,7 +13,7 @@ from lesteshop.app import apresentacao as ap
 from lesteshop.app import base as base_app
 from lesteshop.app.base import BaseApp, carregar_base, ofertas_antigas, so_mais_recente
 from lesteshop.app.pedido import ErroPedido, ItemPedido, montar_pedido, validar_pedido
-from lesteshop.data import config
+from lesteshop.data import config, database
 from lesteshop.data.cotacao import Cotacao
 from lesteshop.data.sources.fonte_csv import FonteCSV
 from lesteshop.otimizacao.instancia import carregar_instancia
@@ -26,7 +26,10 @@ COTACAO = Cotacao("2026-11-18", 5.0, "teste")
 
 @pytest.fixture(scope="module")
 def base_ficticia(tmp_path_factory) -> BaseApp:
-    return carregar_base(tmp_path_factory.mktemp("banco") / "lesteshop.db")
+    # Sempre a base fictícia de data/raw/, mesmo que haja coletas reais em data/coletas/.
+    caminho = tmp_path_factory.mktemp("banco") / "lesteshop.db"
+    database.recriar_banco(caminho, fontes=[FonteCSV(config.DIR_RAW)]).close()
+    return carregar_base(caminho)
 
 
 def base_da_pasta(pasta: Path) -> BaseApp:
@@ -222,3 +225,14 @@ def test_tela_calcula_roteiro(base_ficticia, monkeypatch):
     textos = " ".join(m.value for m in at.markdown)
     assert "Roteiro a pé" in textos and "Receita Federal" in textos
     assert len(at.dataframe) >= 2
+
+
+def test_preco_atipico_e_descartado_com_aviso():
+    of = pd.DataFrame({"loja_id": ["A", "B", "C", "D"], "produto_id": ["P"] * 4,
+                       "titulo_oferta": ["iPad", "iPad", "iPad", "Fone G-Tide"],
+                       "preco_usd": [449.0, 455.0, 440.0, 9.0]})
+    ficam, avisos = base_app.descartar_precos_atipicos(of, {"P": "iPad 11"})
+    assert list(ficam["loja_id"]) == ["A", "B", "C"]
+    assert "Fone G-Tide (US$ 9.00)" in avisos["P"][0] and "iPad 11" in avisos["P"][0]
+    # Com menos de 3 ofertas não há mediana confiável: nada é descartado.
+    assert len(base_app.descartar_precos_atipicos(of.iloc[2:])[0]) == 2

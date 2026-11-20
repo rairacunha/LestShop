@@ -153,6 +153,15 @@ para os itens que o turista escolhe**, na hora de calcular. Substitui a coleta e
 * A "Base guardada" (SQLite: coletas salvas ou a base fictícia) continua como segunda
   opção na tela.
 * Com preços reais, o R$ não usa a cotação fictícia de teste: sem PTAX, só US$.
+* **Preço atípico (20/11/2026):** na coleta real, lojas cadastraram outros produtos na
+  página de um modelo (fones de US$ 9 e um celular Hotwav na página do iPad). Oferta com
+  preço menor que a metade da mediana do mesmo produto (com 3 ofertas ou mais) é
+  descartada, com aviso na tela (`app.base.descartar_precos_atipicos`, usada na base
+  guardada e na consulta).
+* **Coleta real de 20/11/2026** (`data/coletas/2026-11-20/`): 12 produtos (celulares,
+  games, informática), 55 lojas, todas com coordenadas, 38 com horário. O termo
+  "xbox series s" trouxe o controle do Xbox, não o console (no catálogo curado, o
+  console tem a página do modelo).
 
 * Exibir na tela o bloco `fiscal` (uso de cada limite, alertas, imposto sem cota,
   declaração e-DBV) e o texto da premissa da cota integral.

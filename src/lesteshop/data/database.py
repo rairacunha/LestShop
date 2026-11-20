@@ -217,8 +217,9 @@ def recriar_banco(
     if config.CAMINHO_CATALOGO.exists():
         cat = pd.read_csv(config.CAMINHO_CATALOGO, dtype=str, keep_default_na=False, na_values=[""])
         gravar_tabela_simples(con, "catalogo_modelos", cat.drop_duplicates("modelo_id"))
-    for pasta in pastas_de_coleta():
-        arq = pasta / "descartes.csv"
+    # Descartes só das pastas que entraram no banco (e não de todas as coletas).
+    for pasta in [f.pasta for f in fontes if isinstance(f, FonteCSV)]:
+        arq = Path(pasta) / "descartes.csv"
         if arq.exists():
             desc = pd.read_csv(arq, dtype=str, keep_default_na=False, na_values=[""])
             with con:

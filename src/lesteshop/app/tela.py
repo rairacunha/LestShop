@@ -180,7 +180,8 @@ def _otimizar(base, itens, chegada, saida, orcamento, categorias=None):
             return None
         sol, _ = resolver(inst, r=config_otim.R_PADRAO)
         d = descrever(sol, inst)
-        d["avisos"] = list(d["avisos"]) + base_app.ofertas_antigas(base, [it.produto_id for it in itens])
+        d["avisos"] = (list(d["avisos"]) + base_app.ofertas_antigas(base, [it.produto_id for it in itens])
+                       + [a for it in itens for a in base.avisos_produto.get(it.produto_id, [])])
     return d, inst
 
 
