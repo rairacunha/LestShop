@@ -156,6 +156,19 @@ para os itens que o turista escolhe**, na hora de calcular. Substitui a coleta e
   caixa de busca (palavras em qualquer ordem, sem acento, início de palavra; usa o
   `IndiceCatalogo` da Fase 1), com até 8 resultados e um botão "Adicionar" em cada.
   O menu exigia as palavras na ordem do nome.
+* **Orçamento só como referência (20/11/2026):** no app, todos os itens entram no roteiro,
+  mesmo passando do orçamento ou da cota; o app avisa quanto o custo total passa do
+  orçamento e calcula o imposto. O modelo da Fase 2 não mudou: o app passa como B o custo
+  da cesta mais cara possível (`pedido.teto_sem_limite`), então comprar um item sempre
+  melhora o objetivo; um item só fica de fora se não houver tempo para passar na loja, e
+  aí a prioridade decide. Substitui, no app, a regra "sem orçamento, B = cota" da Fase 2
+  (os experimentos da Fase 2 continuam com a regra original).
+* **Produto fora da base (20/11/2026):** no modo Consulta, a busca procura primeiro no
+  catálogo curado e nos produtos já guardados; se não achar, procura no Compras Paraguai
+  (1 página, cache de 6 h) e mostra os modelos encontrados. Todo item consultado no site
+  é gravado na base guardada (`data/coletas/<data>/`), que cresce com o uso.
+* **Roteiro:** sai da Ponte da Amizade e volta a ela; o título "Roteiro a pé" virou
+  "Roteiro". O **mapa** do roteiro fica para a Fase 5 (design).
 * **Cotação (20/11/2026):** o R$ usa a cotação do próprio Compras Paraguai, tirada das
   ofertas (mediana de preço em R$ ÷ preço em US$; na coleta de 20/11/2026, R$ 5,95), sem
   acesso extra ao site. Sem ofertas reais, a PTAX; com preços reais, nunca a cotação
@@ -190,6 +203,10 @@ Fase própria, depois que a Fase 4 terminar funcionando com dados reais: cores,
 logotipo, textos e organização das telas (e, se for desejado, versão para celular).
 O cálculo (modelo, regras fiscais e montagem da instância) não muda nesta fase. Na
 Fase 4 o app usa o visual padrão do Streamlit.
+
+* **Mapa do roteiro** (pedido em 20/11/2026): lojas no mapa, na ordem da visita, saindo
+  e voltando à Ponte da Amizade (a biblioteca pydeck já vem com o Streamlit). A troca
+  manual da ordem das lojas continua em "Melhorias futuras".
 
 ## Melhorias da base de dados (podem entrar antes da Fase 2)
 

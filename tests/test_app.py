@@ -12,7 +12,7 @@ import pytest
 from lesteshop.app import apresentacao as ap
 from lesteshop.app import base as base_app
 from lesteshop.app.base import BaseApp, carregar_base, ofertas_antigas, so_mais_recente
-from lesteshop.app.pedido import ErroPedido, ItemPedido, montar_pedido, validar_pedido
+from lesteshop.app.pedido import ErroPedido, ItemPedido, montar_pedido, teto_sem_limite, validar_pedido
 from lesteshop.data import config, database
 from lesteshop.data.cotacao import Cotacao
 from lesteshop.data.sources.fonte_csv import FonteCSV
@@ -224,7 +224,7 @@ def test_tela_calcula_roteiro(base_ficticia, monkeypatch):
     next(b for b in at.button if b.label == "Calcular roteiro").click().run()
     assert not at.exception
     textos = " ".join(m.value for m in at.markdown)
-    assert "Roteiro a pé" in textos and "Receita Federal" in textos
+    assert "Roteiro" in textos and "Receita Federal" in textos
     assert len(at.dataframe) >= 2
 
 
@@ -245,3 +245,21 @@ def test_cotacao_do_site_vem_das_ofertas():
     c = base_app.cotacao_do_site(of)
     assert c.valor_brl_por_usd == 5.95 and c.data == "2026-11-20" and "Compras Paraguai" in c.fonte
     assert base_app.cotacao_do_site(of.assign(preco_brl=None)) is None
+
+
+def test_orcamento_so_referencia_todos_os_itens_entram(base_ficticia):
+    """Decidido em 20/11/2026: no app, o orçamento não corta itens (só avisa)."""
+    caros = (base_ficticia.ofertas.groupby("produto_id")["preco_usd"].min()
+             .sort_values(ascending=False).index[:3].tolist())
+    itens = [ItemPedido(p, 1, 1) for p in caros]
+    inst = montar_pedido(base_ficticia, itens, "07:00", "16:00", teto_sem_limite(base_ficticia, itens))
+    d = descrever(resolver(inst)[0], inst)
+    assert d["nao_comprados"] == [] and d["resumo"]["custo_total"] > 500
+    aviso = ap.aviso_orcamento(d, 500.0, COTACAO)
+    assert aviso and "passa do seu orçamento de US$ 500,00" in aviso and "R$" in aviso
+    assert ap.aviso_orcamento(d, None, None) is None
+    assert ap.aviso_orcamento(d, d["resumo"]["custo_total"] + 1, None) is None
+    # Com a regra antiga (B = cota), algum item ficaria de fora.
+    inst_cota = montar_pedido(base_ficticia, itens, "07:00", "16:00")
+    assert descrever(resolver(inst_cota)[0], inst_cota)["nao_comprados"]
+

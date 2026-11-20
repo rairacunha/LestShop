@@ -16,6 +16,10 @@ resolve).
 
 O resultado vira a matriz Produto × Loja × Preço e uma ``BaseApp``, que o app passa
 ao modelo de otimização da Fase 2 (sem mudanças).
+
+Decidido em 20/11/2026: produto que não está na base é procurado no site
+(``buscar_no_site``), e todo item consultado no site é gravado na base guardada
+(``data/coletas/<data>/``, mesmo formato da coleta em lote), que cresce com o uso.
 """
 
 from __future__ import annotations
@@ -31,10 +35,12 @@ from ..app.base import BaseApp, descartar_precos_atipicos, so_mais_recente
 from ..data import config as config_dados
 from ..data import esquema
 from ..data.database import aplicar_complemento_lojas
-from ..data.sources.comprasparaguai import FonteComprasParaguai
+from ..data.coletar import salvar_coleta_csv
+from ..data.sources.comprasparaguai import FonteComprasParaguai, ResultadoColeta
 from ..data.sources.fonte_csv import FonteCSV
 from ..data.sources.http import ClienteHTTP, ErroColeta
 from ..data.sources.parser_cp import ErroEstruturaHTML
+from ..data.texto import tokens
 from ..data.validator import validar
 from ..fiscal.categorias import Classificacao, MapaCategorias, carregar_categorias
 from . import config
@@ -99,10 +105,13 @@ def consultar(
     cache: CacheConsulta | None = None,
     progresso: Callable[[str], None] | None = None,
     dir_cache_lojas=None,
+    dir_coletas=None,
 ) -> ResultadoConsulta:
     """Consulta os ``itens`` (cache primeiro). ``criar_cliente`` só é chamado se
     algum item precisar ir ao site; o cliente é fechado no fim. ``dir_cache_lojas``:
-    pasta do cache permanente das páginas de loja (padrão ``data/cache/lojas/``)."""
+    pasta do cache permanente das páginas de loja (padrão ``data/cache/lojas/``).
+    ``dir_coletas``: se informado, cada item consultado no site é gravado na base
+    guardada, em ``<dir_coletas>/<data>/`` (o app passa ``data/coletas``)."""
     cache = cache or CacheConsulta()
     avisar = progresso or (lambda _m: None)
     produtos, lojas, ofertas = [], [], []
@@ -134,6 +143,8 @@ def consultar(
                     res.nao_encontrados.append(item.id)
                     continue
                 cache.gravar(item.id, dados)
+                if dir_coletas is not None:
+                    guardar_na_base(dados, dir_coletas)
             produtos.append(dados["produto"])
             lojas.extend(dados["lojas"])
             ofertas.extend(dados["ofertas"])
@@ -188,3 +199,38 @@ def criar_cliente_navegador() -> ClienteHTTP:
     from ..data.sources.navegador import ClienteNavegador
 
     return ClienteNavegador(intervalo=config.INTERVALO_S, cache_paginas=False)
+
+
+def guardar_na_base(dados: dict, dir_coletas) -> None:
+    """Acrescenta um item consultado à base guardada (CSV do dia, sem duplicar)."""
+    from pathlib import Path
+
+    data = str(dados["ofertas"][0]["data_coleta"]) if dados["ofertas"] else dt.date.today().isoformat()
+    res = ResultadoColeta(
+        lojas=esquema.padronizar(pd.DataFrame(dados["lojas"], columns=esquema.COLUNAS["lojas"]), "lojas"),
+        produtos=esquema.padronizar(pd.DataFrame([dados["produto"]], columns=esquema.COLUNAS["produtos"]), "produtos"),
+        ofertas=esquema.padronizar(pd.DataFrame(dados["ofertas"], columns=esquema.COLUNAS["ofertas"]), "ofertas"),
+        descartes=pd.DataFrame(columns=["data", "termo", "url_modelo", "loja_slug", "cidade", "motivo"]),
+    )
+    salvar_coleta_csv(res, Path(dir_coletas) / data)
+
+
+def buscar_no_site(texto: str, criar_cliente: Callable[[], ClienteHTTP],
+                   cache: CacheConsulta | None = None, limite: int = 8) -> list[dict]:
+    """Modelos que a busca do Compras Paraguai encontra para ``texto`` (nome, url,
+    modelo_id). Uma requisição (a página de busca), guardada no cache por 6 h."""
+    cache = cache or CacheConsulta()
+    chave = "busca:" + " ".join(tokens(texto))
+    dados = cache.obter(chave)
+    if dados is not None:
+        return dados["modelos"]
+    cliente = criar_cliente()
+    try:
+        modelos = FonteComprasParaguai(cliente=cliente).buscar_modelos(texto)
+    finally:
+        if hasattr(cliente, "fechar"):
+            cliente.fechar()
+    achados = [{"nome": m["nome"], "url": m["url"], "modelo_id": m["modelo_id"]}
+               for m in modelos if m.get("nome")][:limite]
+    cache.gravar(chave, {"modelos": achados, "consultado_em": dt.datetime.now().isoformat(timespec="minutes")})
+    return achados

@@ -25,23 +25,38 @@ import streamlit as st
 
 from ..consulta import busca
 from ..consulta.cache import CacheConsulta
-from ..consulta.catalogo import carregar_catalogo_app
+from ..consulta.catalogo import ItemCatalogo, carregar_catalogo_app
+from ..data import config as config_dados
+from ..data.sources.http import ErroColeta
+from ..data.sources.parser_cp import ErroEstruturaHTML
 from ..data.catalogo import IndiceCatalogo
 from ..otimizacao import config as config_otim
 from ..otimizacao.resolver import resolver
 from ..otimizacao.solucao import descrever
 from . import apresentacao as ap
 from . import base as base_app
-from .pedido import ErroPedido, ItemPedido, montar_pedido, validar_pedido
+from .pedido import ErroPedido, ItemPedido, montar_pedido, teto_sem_limite, validar_pedido
 
 LEGENDA_PRIORIDADE = {1: "1 · tanto faz", 2: "2 · pouco", 3: "3 · médio", 4: "4 · muito", 5: "5 · essencial"}
 MODO_CONSULTA = "Consulta ao Compras Paraguai"
 MODO_BASE = "Base guardada"
 
 
-@st.cache_resource(show_spinner="Carregando a base de ofertas…")
+def _assinatura_coletas() -> tuple:
+    """Muda quando uma coleta ou consulta grava dados novos em data/coletas/."""
+    pasta = config_dados.DIR_COLETAS
+    if not pasta.exists():
+        return ()
+    return tuple(sorted((str(a), a.stat().st_mtime) for a in pasta.glob("*/*.csv")))
+
+
+@st.cache_resource(show_spinner="Carregando a base de ofertas…", max_entries=1)
+def _base_cache(_assinatura: tuple) -> base_app.BaseApp:
+    return base_app.carregar_base(recriar=bool(_assinatura))
+
+
 def _base() -> base_app.BaseApp:
-    return base_app.carregar_base()
+    return _base_cache(_assinatura_coletas())
 
 
 @st.cache_data(ttl=3600, show_spinner=False)
@@ -55,6 +70,7 @@ def _catalogo():
 
 
 def _estado() -> None:
+    st.session_state.setdefault("livres", {})       # id -> ItemCatalogo da busca livre no site
     st.session_state.setdefault("lista", [])          # ids (catálogo ou produto), na ordem
     st.session_state.setdefault("resultado", None)    # dict com assinatura, descrever(), Instancia, base...
 
@@ -80,6 +96,29 @@ def _adicionar(pid: str) -> None:
         st.session_state["lista"].append(pid)
         st.session_state[f"qtd_{pid}"] = 1
         st.session_state[f"pri_{pid}"] = 3
+
+
+def _adicionar_modelo(modelo: dict, termo: str) -> None:
+    """Modelo achado na busca do site (fora da base): entra na lista e, ao calcular, é
+    consultado e gravado na base guardada."""
+    pid = f"cp:{modelo['modelo_id']}"
+    st.session_state["livres"][pid] = ItemCatalogo(pid, modelo["nome"], termo, "", modelo["url"])
+    _adicionar(pid)
+
+
+def _itens_catalogo() -> dict[str, ItemCatalogo]:
+    """Itens que o modo Consulta oferece: catálogo curado + produtos reais já guardados
+    na base (coletas e consultas anteriores) + modelos achados agora na busca do site."""
+    itens = {it.id: it for it in _catalogo()}
+    urls = {it.url_modelo for it in itens.values() if it.url_modelo}
+    base = _base()
+    for r in base.produtos.itertuples():
+        url = r.url_modelo if isinstance(r.url_modelo, str) else None
+        if url and url not in urls and str(r.tipo_dado) == "real":
+            pid = "cp:" + str(r.produto_id).removeprefix("CP-")
+            cat = r.categoria if isinstance(r.categoria, str) else ""
+            itens[pid] = ItemCatalogo(pid, r.nome, r.nome, cat, url)
+    return {**itens, **st.session_state.get("livres", {})}
 
 
 @st.cache_resource(show_spinner=False)
@@ -123,8 +162,7 @@ def _barra_lateral() -> tuple:
             nivel, texto = ap.texto_origem(base)
             (st.success if nivel == "ok" else st.warning)(texto)
             if st.button("Recarregar base"):
-                _base.clear()
-                base_app.carregar_base(recriar=True)
+                _base_cache.clear()
                 st.session_state["resultado"] = None
                 st.rerun()
         if cotacao is None:
@@ -144,15 +182,17 @@ def _barra_lateral() -> tuple:
                                               step=50.0, key="orcamento"))
             if cotacao is not None:
                 st.caption(f"≈ {ap.fmt_brl(ap.em_brl(orcamento, cotacao))}")
+            st.caption("O orçamento é só referência: todos os itens entram no roteiro e o app "
+                       "avisa se o custo total passar dele.")
         else:
-            st.caption("Sem orçamento: o app usa como teto a cota de isenção.")
+            st.caption("Sem orçamento: todos os itens entram no roteiro.")
     return modo, chegada, saida, orcamento, cotacao
 
 
 def _opcoes(modo: str) -> dict[str, str]:
     """id -> rótulo do menu suspenso."""
     if modo == MODO_CONSULTA:
-        return {it.id: it.rotulo for it in _catalogo()}
+        return {pid: (it.rotulo if it.categoria else it.nome) for pid, it in _itens_catalogo().items()}
     base = _base()
     rotulos = {}
     for r in base.produtos.itertuples():
@@ -160,20 +200,45 @@ def _opcoes(modo: str) -> dict[str, str]:
     return rotulos
 
 
+def _linha_resultado(nome: str, pid: str, ao_clicar, args) -> None:
+    c1, c2 = st.columns([8, 2], vertical_alignment="center")
+    c1.write(nome)
+    ja = pid in st.session_state["lista"]
+    c2.button("Na lista" if ja else "Adicionar", key=f"add_{pid}", disabled=ja,
+              on_click=ao_clicar, args=args, width="stretch")
+
+
+def _buscar_no_site(texto: str) -> None:
+    """Produto que não está na base: procura no Compras Paraguai (1 página, cache 6 h)."""
+    with st.spinner("Não está na base: procurando no Compras Paraguai… (se o site pedir a "
+                    "verificação de humano, resolva-a na janela do navegador)"):
+        try:
+            modelos = busca.buscar_no_site(texto, busca.criar_cliente_navegador)
+        except (ErroColeta, ErroEstruturaHTML) as e:
+            st.error(f"Não foi possível procurar no Compras Paraguai: {e}")
+            return
+    if not modelos:
+        st.caption("Nenhum produto encontrado na base nem no Compras Paraguai. Tente outras palavras.")
+        return
+    st.caption("Não estava na base. Encontrados no Compras Paraguai (ao calcular, os preços são "
+               "consultados e o produto passa a fazer parte da base):")
+    for m in modelos:
+        _linha_resultado(m["nome"], f"cp:{m['modelo_id']}", _adicionar_modelo, (m, texto))
+
+
 def _lista_de_compras(opcoes: dict[str, str]) -> list[tuple[str, int, int]]:
     st.subheader("1. Lista de compras")
+    consulta = st.session_state.get("modo", MODO_CONSULTA) == MODO_CONSULTA
     texto = st.text_input("Buscar produto", key="busca_produto",
                           placeholder="Digite palavras do nome (em qualquer ordem) e aperte Enter. Ex.: iphone 17")
     if texto.strip():
         achados = _indice(tuple(opcoes.items())).sugerir(texto, limite=8)
-        if achados.empty:
-            st.caption("Nenhum produto encontrado. Tente menos palavras ou só a marca.")
         for r in achados.itertuples():
-            c1, c2 = st.columns([8, 2], vertical_alignment="center")
-            c1.write(r.nome)
-            ja = r.id in st.session_state["lista"]
-            c2.button("Na lista" if ja else "Adicionar", key=f"add_{r.id}", disabled=ja,
-                      on_click=_adicionar, args=(r.id,), width="stretch")
+            _linha_resultado(r.nome, r.id, _adicionar, (r.id,))
+        if achados.empty and not consulta:
+            st.caption("Nenhum produto encontrado. Tente menos palavras ou só a marca.")
+        elif achados.empty:
+            _buscar_no_site(texto)
     if msg := st.session_state.pop("msg_lista", None):
         st.info(msg)
 
@@ -189,7 +254,8 @@ def _lista_de_compras(opcoes: dict[str, str]) -> list[tuple[str, int, int]]:
                               help="Mais de uma unidade é comprada junto, numa loja só.")
         pri = c3.selectbox("Prioridade", options=list(LEGENDA_PRIORIDADE), key=f"pri_{pid}",
                            format_func=LEGENDA_PRIORIDADE.get,
-                           help="Quanto o item importa: os de prioridade maior ficam de fora por último.")
+                           help="Se não der tempo de passar em todas as lojas, os itens de prioridade "
+                                "maior são mantidos.")
         c4.button("✕", key=f"rem_{pid}", help="Remover da lista", on_click=_remover, args=(pid,))
         pedidos.append((pid, int(qtd), int(pri)))
     return pedidos
@@ -203,7 +269,8 @@ def _otimizar(base, itens, chegada, saida, orcamento, categorias=None):
         return None
     with st.spinner("Calculando o melhor roteiro…"):
         try:
-            inst = montar_pedido(base, itens, chegada, saida, orcamento, categorias=categorias)
+            inst = montar_pedido(base, itens, chegada, saida, teto_sem_limite(base, itens),
+                                 categorias=categorias)
         except (ErroPedido, ValueError) as e:
             st.error(str(e))
             return None
@@ -225,10 +292,11 @@ def _calcular_consulta(pedidos, chegada, saida, orcamento) -> dict | None:
     if hhmm(saida) <= hhmm(chegada):
         st.error("O horário de saída deve ser depois do horário de chegada.")
         return None
-    cat = {it.id: it for it in _catalogo()}
+    cat = _itens_catalogo()
     itens_cat = [cat[pid] for pid, _, _ in pedidos]
     with st.status("Consultando preços no Compras Paraguai…", expanded=True) as status:
-        res = busca.consultar(itens_cat, busca.criar_cliente_navegador, progresso=status.write)
+        res = busca.consultar(itens_cat, busca.criar_cliente_navegador, progresso=status.write,
+                              dir_coletas=config_dados.DIR_COLETAS)
         status.update(label=f"Consulta concluída ({res.requisicoes} acesso(s) ao site; "
                             f"{len(res.do_cache)} item(ns) com preços guardados).",
                       state="complete", expanded=False)
@@ -274,11 +342,13 @@ def _resultado(r: dict, cotacao) -> None:
     if aviso := ap.texto_solver(d):
         st.info(aviso)
 
+    if aviso := ap.aviso_orcamento(d, r.get("orcamento"), cotacao):
+        st.warning(aviso)
     cols = st.columns(3)
     for col, (rot, usd, brl) in zip(cols, ap.totais(d, cotacao)):
         col.metric(rot, usd)
         col.caption(brl)
-    st.markdown(f"**Cota de isenção:** {d['situacao_cota']}.")
+    st.markdown(f"**Cota de isenção:** {ap.situacao_cota(d)}.")
 
     st.markdown("#### Onde comprar cada item")
     itens = ap.tabela_itens(d, base, cotacao)
@@ -287,12 +357,13 @@ def _resultado(r: dict, cotacao) -> None:
     else:
         st.dataframe(itens, hide_index=True, width="stretch")
 
-    st.markdown("#### Roteiro a pé")
-    st.caption(f"Tempo andando: cerca de {d['resumo']['tempo_andando']:.0f} min. "
-               "Os horários contam a caminhada, a espera pela abertura e o tempo em cada loja.")
+    st.markdown("#### Roteiro")
+    st.caption(f"Saída da Ponte da Amizade e volta a ela. Deslocamento: cerca de "
+               f"{d['resumo']['tempo_andando']:.0f} min. Os horários contam o deslocamento, a espera "
+               "pela abertura e o tempo em cada loja.")
     st.dataframe(ap.tabela_roteiro(d), hide_index=True, width="stretch")
 
-    fora = ap.tabela_fora(d, inst)
+    fora = ap.tabela_fora(d, inst, orcamento_limita=False)
     if not fora.empty:
         st.markdown("#### Itens deixados de fora")
         st.dataframe(fora, hide_index=True, width="stretch")
@@ -328,7 +399,7 @@ def main() -> None:
     _estado()
 
     st.title("LesteShop")
-    st.caption("Onde comprar cada item em Ciudad del Este, o roteiro a pé a partir da Ponte da "
+    st.caption("Onde comprar cada item em Ciudad del Este, o roteiro saindo e voltando à Ponte da "
                "Amizade e a situação frente à cota da Receita Federal.")
 
     modo, chegada, saida, orcamento, cotacao = _barra_lateral()
@@ -341,7 +412,8 @@ def main() -> None:
     if st.button("Calcular roteiro", type="primary", disabled=not pedidos):
         calcular = _calcular_consulta if modo == MODO_CONSULTA else _calcular_base
         r = calcular(pedidos, chegada, saida, orcamento)
-        st.session_state["resultado"] = None if r is None else {**r, "assinatura": assinatura}
+        st.session_state["resultado"] = (None if r is None
+                                         else {**r, "assinatura": assinatura, "orcamento": orcamento})
 
     r = st.session_state["resultado"]
     if r is not None:

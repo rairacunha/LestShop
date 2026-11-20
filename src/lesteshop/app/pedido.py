@@ -13,6 +13,7 @@ from dataclasses import dataclass
 import pandas as pd
 
 from ..fiscal.categorias import MapaCategorias
+from ..fiscal.regras import carregar_regras
 from ..otimizacao.instancia import Instancia, hhmm_para_min, montar_instancia
 from .base import BaseApp
 
@@ -98,3 +99,17 @@ def montar_pedido(
         produtos_df=base.produtos.set_index("produto_id"), ofertas_df=base.ofertas,
         pontos=base.pontos, lista=lista, orcamento=orcamento, categorias=categorias,
     )
+
+
+def teto_sem_limite(base: BaseApp, itens: list[ItemPedido]) -> float:
+    """Orçamento que nunca limita a compra (decidido em 20/11/2026).
+
+    No app, o orçamento do turista é só referência (com aviso, se for ultrapassado):
+    todos os itens entram na rota, mesmo passando do orçamento ou da cota. O modelo
+    da Fase 2 não muda; o app passa a ele, como B, o custo da cesta mais cara
+    possível (maior preço de cada item × quantidade, mais o imposto máximo) + 1.
+    Com esse B, λ·(G + αE + r·t) < 1 ≤ v_k: comprar um item sempre melhora o
+    objetivo, e um item só fica de fora se não houver tempo para passar na loja."""
+    maior = base.ofertas.groupby("produto_id")["preco_usd"].max()
+    gasto_max = sum(float(maior.get(it.produto_id, 0.0)) * it.quantidade for it in itens)
+    return round(gasto_max * (1 + carregar_regras().aliquota_rte) + 1.0, 2)

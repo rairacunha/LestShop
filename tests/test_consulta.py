@@ -182,8 +182,9 @@ def test_tela_consulta_ao_vivo(cache, tmp_path, monkeypatch):
     from lesteshop.app import base as base_app
 
     original = busca.consultar
-    monkeypatch.setattr(busca, "consultar", lambda itens, criar, progresso=None: original(
-        itens, criar, cache=cache, progresso=progresso, dir_cache_lojas=tmp_path / "lojas"))
+    monkeypatch.setattr(busca, "consultar", lambda itens, criar, progresso=None, dir_coletas=None: original(
+        itens, criar, cache=cache, progresso=progresso, dir_cache_lojas=tmp_path / "lojas",
+        dir_coletas=tmp_path / "coletas"))
     monkeypatch.setattr(busca, "criar_cliente_navegador", ClienteFalso)
     monkeypatch.setattr(base_app, "cotacao_para_exibir", lambda *a, **k: None)
     monkeypatch.setattr("lesteshop.app.tela.carregar_catalogo_app", lambda: [PERFUME])
@@ -199,5 +200,50 @@ def test_tela_consulta_ao_vivo(cache, tmp_path, monkeypatch):
     assert not at.exception
     assert any("Preços do Compras Paraguai, consultados em" in s.value for s in at.success)
     textos = " ".join(m.value for m in at.markdown)
-    assert "Roteiro a pé" in textos
+    assert "Roteiro" in textos
+    assert list((tmp_path / "coletas").glob("*/ofertas.csv")), "a consulta deve entrar na base"
     tela._catalogo.clear()
+
+
+
+def test_buscar_no_site_usa_cache(cache):
+    cli = ClienteFalso({f"{config.URL_BASE_CP}/busca/?q=playstation+5+pro":
+                        (REAIS / "busca.html").read_text(encoding="utf-8")})
+    modelos = busca.buscar_no_site("playstation 5 pro", lambda: cli, cache=cache)
+    assert modelos[0]["nome"] == "Sony Playstation 5 Pro 2TB Digital Edition" and cli.fechado
+    assert busca.buscar_no_site("Playstation 5 PRO", lambda: pytest.fail("deveria usar o cache"),
+                                cache=cache) == modelos
+
+
+def test_item_consultado_entra_na_base_guardada(cache, tmp_path):
+    res = busca.consultar([PERFUME], lambda: ClienteFalso(), cache=cache,
+                          dir_cache_lojas=tmp_path / "lojas", dir_coletas=tmp_path / "coletas")
+    pasta = next((tmp_path / "coletas").iterdir())
+    from lesteshop.data.sources.fonte_csv import FonteCSV
+    guardado = FonteCSV(pasta)
+    assert set(guardado.carregar_produtos()["produto_id"]) == {"CP-7965"}
+    assert len(guardado.carregar_ofertas()) == len(res.ofertas) and len(guardado.carregar_lojas()) == 10
+    # Vindo do cache, não grava de novo (nem duplica).
+    busca.consultar([PERFUME], lambda: pytest.fail("deveria usar o cache"), cache=cache,
+                    dir_coletas=tmp_path / "coletas")
+    assert len(FonteCSV(pasta).carregar_ofertas()) == len(res.ofertas)
+
+
+def test_tela_produto_fora_da_base_e_procurado_no_site(monkeypatch):
+    pytest.importorskip("streamlit")
+    from streamlit.testing.v1 import AppTest
+
+    from lesteshop.app import base as base_app
+    from lesteshop.app import tela
+
+    monkeypatch.setattr(base_app, "cotacao_para_exibir", lambda *a, **k: None)
+    monkeypatch.setattr(busca, "buscar_no_site", lambda texto, criar: [
+        {"nome": "Antena Starlink Mini Kit", "url": "https://www.comprasparaguai.com.br/antena-starlink-mini_61234/",
+         "modelo_id": "61234"}])
+    tela._catalogo.clear()
+    at = AppTest.from_file(str(Path(__file__).resolve().parents[1] / "app.py"), default_timeout=60)
+    at.run()
+    at.text_input(key="busca_produto").input("antena zzzz").run()   # não está na base
+    assert any("Encontrados no Compras Paraguai" in c.value for c in at.caption)
+    next(b for b in at.button if b.key == "add_cp:61234").click().run()
+    assert not at.exception and at.session_state["lista"] == ["cp:61234"]

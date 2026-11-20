@@ -90,8 +90,9 @@ def tabela_roteiro(d: dict) -> pd.DataFrame:
     return pd.DataFrame(linhas)
 
 
-def tabela_fora(d: dict, inst: Instancia) -> pd.DataFrame:
-    """Itens deixados de fora, com o motivo."""
+def tabela_fora(d: dict, inst: Instancia, orcamento_limita: bool = True) -> pd.DataFrame:
+    """Itens deixados de fora, com o motivo. ``orcamento_limita=False``: o orçamento
+    não limitou a compra (app), então o motivo só pode ser o horário."""
     idx = {it.produto_id: k for k, it in enumerate(inst.itens)}
     linhas = []
     for it in d["nao_comprados"]:
@@ -99,7 +100,8 @@ def tabela_fora(d: dict, inst: Instancia) -> pd.DataFrame:
         if k is None or not inst.lojas_do_item(k):
             motivo = "nenhuma loja disponível vende este item"
         else:
-            motivo = "não coube no orçamento ou no horário, ou não compensou o custo"
+            motivo = ("não coube no orçamento ou no horário, ou não compensou o custo" if orcamento_limita
+                      else "não deu tempo de passar na loja dentro do horário da viagem e das lojas")
         linhas.append({"Item": it["nome"], "Prioridade": it["prioridade"], "Motivo": motivo})
     return pd.DataFrame(linhas)
 
@@ -121,7 +123,7 @@ def resumo_fiscal(d: dict, cotacao: Cotacao | None) -> dict:
     f = d["fiscal"]
     sem_cota = f["imposto_sem_cota_usd"]
     return {
-        "situacao_cota": d["situacao_cota"],
+        "situacao_cota": situacao_cota(d),
         "cota": f"{fmt_usd(f['cota_usd'])} por pessoa, via {f['via']} ({f['fonte_cota']})",
         "declaracao": ("Sim: preencher a e-DBV e passar pelo canal \"bens a declarar\"."
                        if f["declaracao_necessaria"] else "Não é necessária."),
@@ -143,3 +145,26 @@ def texto_solver(d: dict) -> str | None:
         extra = f" (distância máxima do ótimo: {gap:.1%})" if isinstance(gap, (int, float)) else ""
         return f"Melhor roteiro encontrado dentro do tempo limite{extra}."
     return None
+
+
+def aviso_orcamento(d: dict, orcamento: float | None, cotacao: Cotacao | None) -> str | None:
+    """Aviso quando o custo total (produtos + imposto) passa do orçamento de referência."""
+    if orcamento is None:
+        return None
+    custo = d["resumo"]["custo_total"]
+    if custo <= orcamento + 1e-6:
+        return None
+    excesso = custo - orcamento
+    brl = em_brl(excesso, cotacao)
+    extra = f" ({fmt_brl(brl)})" if brl is not None else ""
+    return (f"O custo total ({fmt_usd(custo)}) passa do seu orçamento de {fmt_usd(orcamento)} "
+            f"em {fmt_usd(excesso)}{extra}. Todos os itens foram mantidos.")
+
+
+
+def situacao_cota(d: dict) -> str:
+    """Situação da cota com valores no formato brasileiro."""
+    r = d["resumo"]
+    if r["excedente"] <= 0:
+        return "dentro da cota"
+    return f"excede a cota em {fmt_usd(r['excedente'])} (imposto {fmt_usd(r['imposto'])})"
