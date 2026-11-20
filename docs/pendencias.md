@@ -152,6 +152,10 @@ para os itens que o turista escolhe**, na hora de calcular. Substitui a coleta e
   pessoa resolve a verificação, se o site pedir). No Codespaces, usar a "Base guardada".
 * A "Base guardada" (SQLite: coletas salvas ou a base fictícia) continua como segunda
   opção na tela.
+* **Busca de produtos (20/11/2026):** o menu suspenso do Streamlit foi trocado por uma
+  caixa de busca (palavras em qualquer ordem, sem acento, início de palavra; usa o
+  `IndiceCatalogo` da Fase 1), com até 8 resultados e um botão "Adicionar" em cada.
+  O menu exigia as palavras na ordem do nome.
 * **Cotação (20/11/2026):** o R$ usa a cotação do próprio Compras Paraguai, tirada das
   ofertas (mediana de preço em R$ ÷ preço em US$; na coleta de 20/11/2026, R$ 5,95), sem
   acesso extra ao site. Sem ofertas reais, a PTAX; com preços reais, nunca a cotação

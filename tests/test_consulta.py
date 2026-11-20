@@ -193,7 +193,8 @@ def test_tela_consulta_ao_vivo(cache, tmp_path, monkeypatch):
     at = AppTest.from_file(str(raiz / "app.py"), default_timeout=120)
     at.run()
     assert not at.exception
-    at.selectbox(key="novo_produto").set_value("perfume").run()
+    at.text_input(key="busca_produto").input("belle vie perfume").run()  # qualquer ordem
+    next(b for b in at.button if b.key == "add_perfume").click().run()
     next(b for b in at.button if b.label == "Calcular roteiro").click().run()
     assert not at.exception
     assert any("Preços do Compras Paraguai, consultados em" in s.value for s in at.success)

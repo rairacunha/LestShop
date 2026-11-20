@@ -26,6 +26,7 @@ import streamlit as st
 from ..consulta import busca
 from ..consulta.cache import CacheConsulta
 from ..consulta.catalogo import carregar_catalogo_app
+from ..data.catalogo import IndiceCatalogo
 from ..otimizacao import config as config_otim
 from ..otimizacao.resolver import resolver
 from ..otimizacao.solucao import descrever
@@ -72,17 +73,19 @@ def _remover(pid: str) -> None:
         st.session_state.pop(chave, None)
 
 
-def _adicionar() -> None:
-    pid = st.session_state.get("novo_produto")
-    if not pid:
-        return
+def _adicionar(pid: str) -> None:
     if pid in st.session_state["lista"]:
         st.session_state["msg_lista"] = "Este produto já está na lista: ajuste a quantidade abaixo."
     else:
         st.session_state["lista"].append(pid)
         st.session_state[f"qtd_{pid}"] = 1
         st.session_state[f"pri_{pid}"] = 3
-    st.session_state["novo_produto"] = None
+
+
+@st.cache_resource(show_spinner=False)
+def _indice(rotulos: tuple[tuple[str, str], ...]) -> IndiceCatalogo:
+    """Índice de busca (palavras em qualquer ordem, sem acento, início de palavra)."""
+    return IndiceCatalogo(pd.DataFrame(rotulos, columns=["id", "nome"]))
 
 
 def _cotacao_para(modo: str):
@@ -159,15 +162,26 @@ def _opcoes(modo: str) -> dict[str, str]:
 
 def _lista_de_compras(opcoes: dict[str, str]) -> list[tuple[str, int, int]]:
     st.subheader("1. Lista de compras")
-    st.selectbox("Buscar produto", options=list(opcoes), index=None, format_func=opcoes.get,
-                 placeholder="Digite parte do nome e escolha na lista…", key="novo_produto",
-                 on_change=_adicionar)
+    texto = st.text_input("Buscar produto", key="busca_produto",
+                          placeholder="Digite palavras do nome (em qualquer ordem) e aperte Enter. Ex.: iphone 17")
+    if texto.strip():
+        achados = _indice(tuple(opcoes.items())).sugerir(texto, limite=8)
+        if achados.empty:
+            st.caption("Nenhum produto encontrado. Tente menos palavras ou só a marca.")
+        for r in achados.itertuples():
+            c1, c2 = st.columns([8, 2], vertical_alignment="center")
+            c1.write(r.nome)
+            ja = r.id in st.session_state["lista"]
+            c2.button("Na lista" if ja else "Adicionar", key=f"add_{r.id}", disabled=ja,
+                      on_click=_adicionar, args=(r.id,), width="stretch")
     if msg := st.session_state.pop("msg_lista", None):
         st.info(msg)
 
     pedidos = []
     if not st.session_state["lista"]:
-        st.caption("A lista está vazia. Escolha um produto acima para incluir.")
+        st.caption("A lista está vazia. Busque um produto acima e clique em Adicionar.")
+    else:
+        st.markdown("**Sua lista**")
     for pid in list(st.session_state["lista"]):
         c1, c2, c3, c4 = st.columns([5, 2, 3, 1], vertical_alignment="bottom")
         c1.markdown(f"**{opcoes.get(pid, pid)}**")

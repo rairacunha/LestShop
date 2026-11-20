@@ -218,7 +218,8 @@ def test_tela_calcula_roteiro(base_ficticia, monkeypatch):
     at.radio(key="modo").set_value("Base guardada").run()
     assert any("FICTÍCIA" in w.value for w in at.warning)
     pid = base_ficticia.produtos["produto_id"].iloc[1]
-    at.selectbox(key="novo_produto").set_value(pid).run()
+    at.text_input(key="busca_produto").input(base_ficticia.nome_produto(pid)).run()
+    next(b for b in at.button if b.key == f"add_{pid}").click().run()
     assert at.number_input(key=f"qtd_{pid}").value == 1
     next(b for b in at.button if b.label == "Calcular roteiro").click().run()
     assert not at.exception
