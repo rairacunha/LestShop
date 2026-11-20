@@ -12,6 +12,7 @@ from dataclasses import dataclass
 
 import pandas as pd
 
+from ..fiscal.categorias import MapaCategorias
 from ..otimizacao.instancia import Instancia, hhmm_para_min, montar_instancia
 from .base import BaseApp
 
@@ -75,8 +76,10 @@ def montar_pedido(
     chegada: str | dt.time,
     saida: str | dt.time,
     orcamento: float | None = None,
+    categorias: MapaCategorias | None = None,
 ) -> Instancia:
-    """Instância do pedido. ``orcamento=None``: sem orçamento (B = cota)."""
+    """Instância do pedido. ``orcamento=None``: sem orçamento (B = cota).
+    ``categorias``: padrão = ``data/categorias_fiscais.csv``."""
     erros = validar_pedido(base, itens, chegada, saida, orcamento)
     if erros:
         raise ErroPedido(" ".join(erros))
@@ -93,5 +96,5 @@ def montar_pedido(
     return montar_instancia(
         nome="pedido", meta=meta, lojas_df=base.lojas,
         produtos_df=base.produtos.set_index("produto_id"), ofertas_df=base.ofertas,
-        pontos=base.pontos, lista=lista, orcamento=orcamento,
+        pontos=base.pontos, lista=lista, orcamento=orcamento, categorias=categorias,
     )

@@ -14,7 +14,7 @@ streamlit run app.py
 O Codespaces abre o app numa aba nova (porta 8501; se não abrir, veja a aba **Ports** e
 clique no globo da porta 8501). Para testar: escolha produtos na busca, ajuste
 quantidade e prioridade, informe os horários na barra lateral e clique em
-**Calcular roteiro**. A base é fictícia e o app avisa isso na tela. Para parar o app,
+**Calcular roteiro**. No Codespaces, escolha **Base guardada** na barra lateral: a consulta ao Compras Paraguai precisa de um computador com tela, para a verificação de humano (veja o README). Para parar o app,
 volte ao terminal e aperte `Ctrl+C`.
 
 Se o Codespaces foi criado antes desta versão, instale o Streamlit uma vez com

@@ -212,6 +212,7 @@ def test_tela_calcula_roteiro(base_ficticia, monkeypatch):
     at = AppTest.from_file(str(RAIZ / "app.py"), default_timeout=120)
     at.run()
     assert not at.exception
+    at.radio(key="modo").set_value("Base guardada").run()
     assert any("FICTÍCIA" in w.value for w in at.warning)
     pid = base_ficticia.produtos["produto_id"].iloc[1]
     at.selectbox(key="novo_produto").set_value(pid).run()

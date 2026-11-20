@@ -130,7 +130,29 @@ Cloudflare, presente em páginas normais, com a verificação).
   sem contornar a verificação anti-robô e só a lista de produtos combinada. Se o site
   pedir para não coletar, a coleta para e os dados coletados não são usados.
 
-**Próximas etapas:** lista de termos da coleta e coleta real.
+### Etapa 3 — consulta sob demanda (decidido e implementado em 20/11/2026)
+
+Decisão da dona do projeto: em vez de uma coleta completa, o app consulta o site **só
+para os itens que o turista escolhe**, na hora de calcular. Substitui a coleta em lote
+(e a linha "coleta no aparelho do usuário: fora da Fase 4" da seção 8.3 do handoff).
+
+* **Catálogo curado** `data/catalogo_app.json` (28 produtos populares, termo de busca
+  limpo, categoria e, quando conhecida, a página do modelo no site) popula o menu.
+* **Pacote `src/lesteshop/consulta/`**, separado da otimização: `catalogo.py`,
+  `cache.py` (SQLite `data/cache/consulta.db`, validade de **6 h** por item) e
+  `busca.py` (consulta só os itens da lista; matriz Produto × Loja × Preço em US$; base
+  para o app). As páginas de loja (endereço, coordenadas, horário) têm cache permanente
+  em `data/cache/lojas/`.
+* **Tráfego:** intervalo mínimo de **1,5 s** entre requisições (ou o Crawl-delay do
+  robots.txt, se maior), robots.txt respeitado, projeto identificado, sem contornar a
+  verificação anti-robô. A coleta em lote (`coletar`) continua com 10 s.
+* **Rota:** a matriz vai para o modelo da Fase 2 **sem mudanças** (agrupa as compras em
+  poucas lojas próximas e pesa custo total, imposto e caminhada, com r = US$ 0,25/min).
+* **Onde roda:** a consulta precisa de um computador com tela (o Chromium abre e a
+  pessoa resolve a verificação, se o site pedir). No Codespaces, usar a "Base guardada".
+* A "Base guardada" (SQLite: coletas salvas ou a base fictícia) continua como segunda
+  opção na tela.
+* Com preços reais, o R$ não usa a cotação fictícia de teste: sem PTAX, só US$.
 
 * Exibir na tela o bloco `fiscal` (uso de cada limite, alertas, imposto sem cota,
   declaração e-DBV) e o texto da premissa da cota integral.

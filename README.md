@@ -299,7 +299,15 @@ pip install -e ".[dev,app]"
 streamlit run app.py        # abre em http://localhost:8501
 ```
 
-Uma página: na barra lateral, a origem dos dados (base **fictícia** identificada na tela
+**Fonte dos preços.** Por padrão, o app consulta o **Compras Paraguai na hora**, só
+para os itens da lista: o menu vem do catálogo curado `data/catalogo_app.json` e cada
+item consultado fica guardado por 6 horas (`data/cache/consulta.db`), com 1,5 s entre
+as requisições. Precisa rodar no computador (não no Codespaces): uma janela do navegador
+abre e, se o site pedir a verificação de humano, você a resolve. Código em
+`src/lesteshop/consulta/` (catálogo, cache e busca), separado da otimização. A outra
+opção, **Base guardada**, usa o SQLite (coletas salvas ou a base fictícia).
+
+Uma página: na barra lateral, a fonte (base **fictícia** identificada na tela
 enquanto não houver coleta real), a cotação e os dados da viagem (chegada, saída e
 orçamento opcional em US$); no centro, a lista de compras (busca, quantidade e
 prioridade 1–5), o botão **Calcular roteiro** e o resultado: onde comprar cada item,
