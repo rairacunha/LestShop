@@ -129,7 +129,9 @@ def parse_busca(html: str) -> list[dict]:
             if cartao is not None:
                 item["preco_a_partir_usd"] = parse_preco(RE_USD.search(_texto(cartao)).group(1))
     if not modelos:
-        if RE_SEM_RESULTADO.search(_texto(principal)):
+        # Lista de resultados encontrada, mas só com ofertas avulsas de lojas (links
+        # /<slug>__<id>/), sem página de modelo: o termo é pulado, sem parar a coleta.
+        if resultados is not None or RE_SEM_RESULTADO.search(_texto(principal)):
             return []
         raise ErroEstruturaHTML(
             "Página de busca do Compras Paraguai sem nenhum link de modelo (/<slug>_<id>/) "
