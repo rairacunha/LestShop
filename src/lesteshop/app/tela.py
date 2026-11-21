@@ -1,4 +1,4 @@
-"""Interface Streamlit do LesteShop (Fase 4).
+"""Interface Streamlit do LesteShop (Fase 4; design da Fase 5).
 
 Rodar na raiz do projeto::
 
@@ -14,13 +14,19 @@ Fontes dos preços:
   site (``lesteshop.consulta``, cache de 6 h). Precisa rodar num computador com tela:
   se o site pedir a verificação anti-robô, a pessoa a resolve na janela que abrir.
 * **Base guardada**: a base do SQLite (coletas salvas ou a base fictícia).
+
+Fase 5 (21/11/2026): tema azul e vermelho (``.streamlit/config.toml``), textos simples
+para o turista, resumo no topo do resultado e mapa do roteiro (pydeck). O cálculo não
+mudou. O logotipo entra quando existir ``assets/logo.png``.
 """
 
 from __future__ import annotations
 
 import datetime as dt
+import math
 import os
 import sys
+from pathlib import Path
 
 import pandas as pd
 import streamlit as st
@@ -40,6 +46,10 @@ from . import base as base_app
 from .pedido import ErroPedido, ItemPedido, montar_pedido, teto_sem_limite, validar_pedido
 
 LEGENDA_PRIORIDADE = {1: "1 · tanto faz", 2: "2 · pouco", 3: "3 · médio", 4: "4 · muito", 5: "5 · essencial"}
+# Lugar do logotipo (Fase 5): a dona do projeto vai criar o arquivo. Enquanto ele não
+# existir, a tela fica só com o nome "LesteShop".
+LOGO = Path(__file__).resolve().parents[3] / "assets" / "logo.png"
+AZUL, VERMELHO, BRANCO = [0, 56, 168], [213, 43, 30], [255, 255, 255]
 MODO_CONSULTA = "Consulta ao Compras Paraguai"
 MODO_BASE = "Base guardada"
 
@@ -159,18 +169,19 @@ def _cotacao_para(modo: str):
 
 def _barra_lateral() -> tuple:
     with st.sidebar:
-        st.header("Fonte dos preços")
+        st.header("De onde vêm os preços")
         modos = [MODO_CONSULTA, MODO_BASE] if tem_tela() else [MODO_BASE]
         modo = st.radio("Fonte dos preços", modos, key="modo",
                         label_visibility="collapsed", on_change=_limpar_lista)
         if not tem_tela():
-            st.caption("Versão web: usa os preços já coletados no Compras Paraguai. A consulta "
-                       "ao vivo funciona só no computador (precisa da verificação de humano).")
+            st.caption("Na versão web, o app usa os preços já buscados no site Compras Paraguai. "
+                       "A busca na hora só funciona no computador (o site pede para provar que "
+                       "você não é um robô).")
         cotacao = _cotacao_para(modo)
         if modo == MODO_CONSULTA:
-            st.info("Ao calcular, o app consulta no Compras Paraguai **só os itens da sua lista** "
-                    "(preços guardados por 6 h). Se o site pedir a verificação de humano, "
-                    "resolva-a na janela do navegador que abrir.")
+            st.info("Ao calcular, o app busca no site Compras Paraguai os preços **só dos produtos "
+                    "da sua lista** e guarda o resultado por 6 horas. Se o site pedir para provar "
+                    "que você não é um robô, responda na janela do navegador que abrir.")
             if st.button("Apagar preços guardados"):
                 CacheConsulta().limpar()
                 st.session_state["resultado"] = None
@@ -187,23 +198,24 @@ def _barra_lateral() -> tuple:
             st.caption("Cotação do dólar indisponível: valores só em US$.")
         else:
             valor = f"{cotacao.valor_brl_por_usd:.4f}".replace(".", ",")
-            st.caption(f"Cotação: US$ 1 = R$ {valor} "
-                       f"({ap.fmt_data(cotacao.data)}, {cotacao.fonte}). O R$ é só para referência.")
+            st.caption(f"Dólar: US$ 1 = R$ {valor} "
+                       f"({ap.fmt_data(cotacao.data)}, {cotacao.fonte}). Os valores em R$ são "
+                       "só para você ter uma ideia; as lojas cobram em dólar.")
 
-        st.header("Dados da viagem")
-        st.caption("Horários no lado paraguaio, depois de atravessar a Ponte da Amizade.")
-        chegada = st.time_input("Chegada", dt.time(8, 0), step=900, key="chegada")
-        saida = st.time_input("Saída (volta à Ponte)", dt.time(16, 0), step=900, key="saida")
+        st.header("Sua viagem")
+        st.caption("Horários do lado paraguaio, depois de atravessar a Ponte da Amizade.")
+        chegada = st.time_input("Chego à Ponte às", dt.time(8, 0), step=900, key="chegada")
+        saida = st.time_input("Quero voltar à Ponte até", dt.time(16, 0), step=900, key="saida")
         orcamento = None
         if st.checkbox("Tenho um orçamento", key="tem_orcamento"):
             orcamento = float(st.number_input("Orçamento (US$)", min_value=1.0, value=500.0,
                                               step=50.0, key="orcamento"))
             if cotacao is not None:
                 st.caption(f"≈ {ap.fmt_brl(ap.em_brl(orcamento, cotacao))}")
-            st.caption("O orçamento é só referência: todos os itens entram no roteiro e o app "
-                       "avisa se o custo total passar dele.")
+            st.caption("O orçamento serve só de referência: todos os produtos continuam na lista "
+                       "e o app avisa se o total passar dele.")
         else:
-            st.caption("Sem orçamento: todos os itens entram no roteiro.")
+            st.caption("Sem orçamento: o app monta o roteiro com todos os produtos da lista.")
     return modo, chegada, saida, orcamento, cotacao
 
 
@@ -228,24 +240,24 @@ def _linha_resultado(nome: str, pid: str, ao_clicar, args) -> None:
 
 def _buscar_no_site(texto: str) -> None:
     """Produto que não está na base: procura no Compras Paraguai (1 página, cache 6 h)."""
-    with st.spinner("Não está na base: procurando no Compras Paraguai… (se o site pedir a "
-                    "verificação de humano, resolva-a na janela do navegador)"):
+    with st.spinner("Este produto ainda não está no app: procurando no Compras Paraguai… (se o "
+                    "site pedir para provar que você não é um robô, responda na janela do navegador)"):
         try:
             modelos = busca.buscar_no_site(texto, busca.criar_cliente_navegador)
         except (ErroColeta, ErroEstruturaHTML) as e:
             st.error(f"Não foi possível procurar no Compras Paraguai: {e}")
             return
     if not modelos:
-        st.caption("Nenhum produto encontrado na base nem no Compras Paraguai. Tente outras palavras.")
+        st.caption("Nenhum produto encontrado, nem no app nem no Compras Paraguai. Tente outras palavras.")
         return
-    st.caption("Não estava na base. Encontrados no Compras Paraguai (ao calcular, os preços são "
-               "consultados e o produto passa a fazer parte da base):")
+    st.caption("Ainda não estava no app. Encontrados no Compras Paraguai (ao calcular, o app "
+               "busca os preços e guarda o produto para as próximas vezes):")
     for m in modelos:
         _linha_resultado(m["nome"], f"cp:{m['modelo_id']}", _adicionar_modelo, (m, texto))
 
 
 def _lista_de_compras(opcoes: dict[str, str]) -> list[tuple[str, int, int]]:
-    st.subheader("1. Lista de compras")
+    st.subheader("1. O que você quer comprar")
     consulta = st.session_state.get("modo") == MODO_CONSULTA
     texto = st.text_input("Buscar produto", key="busca_produto",
                           placeholder="Digite palavras do nome (em qualquer ordem) e aperte Enter. Ex.: iphone 17")
@@ -265,6 +277,8 @@ def _lista_de_compras(opcoes: dict[str, str]) -> list[tuple[str, int, int]]:
         st.caption("A lista está vazia. Busque um produto acima e clique em Adicionar.")
     else:
         st.markdown("**Sua lista**")
+        st.caption("**Prioridade:** diz o que é mais importante para você. Se não der tempo de "
+                   "passar em todas as lojas, o app mantém primeiro os produtos de prioridade maior.")
     for pid in list(st.session_state["lista"]):
         c1, c2, c3, c4 = st.columns([5, 2, 3, 1], vertical_alignment="bottom")
         c1.markdown(f"**{opcoes.get(pid, pid)}**")
@@ -272,8 +286,8 @@ def _lista_de_compras(opcoes: dict[str, str]) -> list[tuple[str, int, int]]:
                               help="Mais de uma unidade é comprada junto, numa loja só.")
         pri = c3.selectbox("Prioridade", options=list(LEGENDA_PRIORIDADE), key=f"pri_{pid}",
                            format_func=LEGENDA_PRIORIDADE.get,
-                           help="Se não der tempo de passar em todas as lojas, os itens de prioridade "
-                                "maior são mantidos.")
+                           help="Se não der tempo de passar em todas as lojas, os produtos de "
+                                "prioridade maior ficam na lista.")
         c4.button("✕", key=f"rem_{pid}", help="Remover da lista", on_click=_remover, args=(pid,))
         pedidos.append((pid, int(qtd), int(pri)))
     return pedidos
@@ -285,7 +299,7 @@ def _otimizar(base, itens, chegada, saida, orcamento, categorias=None):
         for e in erros:
             st.error(e)
         return None
-    with st.spinner("Calculando o melhor roteiro…"):
+    with st.spinner("Procurando o melhor roteiro para você…"):
         try:
             inst = montar_pedido(base, itens, chegada, saida, teto_sem_limite(base, itens),
                                  categorias=categorias)
@@ -312,17 +326,17 @@ def _calcular_consulta(pedidos, chegada, saida, orcamento) -> dict | None:
         return None
     cat = _itens_catalogo()
     itens_cat = [cat[pid] for pid, _, _ in pedidos]
-    with st.status("Consultando preços no Compras Paraguai…", expanded=True) as status:
+    with st.status("Buscando os preços no Compras Paraguai…", expanded=True) as status:
         res = busca.consultar(itens_cat, busca.criar_cliente_navegador, progresso=status.write,
                               dir_coletas=config_dados.DIR_COLETAS)
-        status.update(label=f"Consulta concluída ({res.requisicoes} acesso(s) ao site; "
-                            f"{len(res.do_cache)} item(ns) com preços guardados).",
+        status.update(label=f"Preços encontrados ({res.requisicoes} acesso(s) ao site; "
+                            f"{len(res.do_cache)} produto(s) com preços guardados de antes).",
                       state="complete", expanded=False)
     for aviso in res.avisos:
         st.warning(aviso)
     itens = [ItemPedido(res.por_item[pid], q, p) for pid, q, p in pedidos if pid in res.por_item]
     if not itens:
-        st.error("Nenhum item da lista foi encontrado no Compras Paraguai.")
+        st.error("Nenhum produto da lista foi encontrado no Compras Paraguai.")
         return None
     base = busca.para_base(res)
     r = _otimizar(base, itens, chegada, saida, orcamento, categorias=busca.mapa_categorias(itens_cat, res))
@@ -355,90 +369,162 @@ def _comparativo(c: dict | None, cotacao) -> None:
     """Compra avulsa (Shopping China) × roteiro do LesteShop."""
     if c is None:
         return
-    st.markdown(f"#### Comparativo: compra avulsa no {c['referencia']} × roteiro do LesteShop")
+    st.markdown("#### Quanto você economiza")
+    st.caption(f"Comparação com a **compra avulsa**: comprar tudo numa loja só, o {c['referencia']}, "
+               "a mais procurada pelos turistas.")
     if c["na_media"]:
-        st.info(f"O {c['referencia']} não vende: {', '.join(c['na_media'])}. Na compra avulsa, "
-                "esses itens entram pelo preço médio das lojas.")
+        st.info(f"O {c['referencia']} não vende: {', '.join(c['na_media'])}. Para comparar, esses "
+                "produtos entram pelo preço médio das lojas.")
     c1, c2, c3 = st.columns(3)
-    c1.metric(f"Compra avulsa ({c['referencia']})", _valor(c["custo_avulsa"], cotacao))
+    c1.metric(f"Tudo no {c['referencia']}", _valor(c["custo_avulsa"], cotacao))
     volta = f" · volta à Ponte às {c['retorno_avulsa']}" if c["retorno_avulsa"] else ""
     c1.caption(f"{ap.fmt_usd(c['custo_avulsa'])}{volta}")
-    c2.metric(f"Roteiro do LesteShop ({c['lojas_rota']} loja{'s' if c['lojas_rota'] > 1 else ''})",
+    c2.metric(f"Seu roteiro ({c['lojas_rota']} loja{'s' if c['lojas_rota'] > 1 else ''})",
               _valor(c["custo_rota"], cotacao))
     c2.caption(f"{ap.fmt_usd(c['custo_rota'])} · volta à Ponte às {c['retorno_rota']}")
     if c["economia"] > 0.005:
-        c3.metric("Economia com o LesteShop", _valor(c["economia"], cotacao), delta=ap.fmt_pct(c["economia_pct"]))
-        c3.caption("Economia = (avulsa − roteiro) ÷ avulsa.")
+        c3.metric("Você economiza", _valor(c["economia"], cotacao),
+                  delta=f"{ap.fmt_pct(c['economia_pct'])} a menos")
+        c3.caption("Economia = (compra avulsa − seu roteiro) ÷ compra avulsa.")
     else:
-        c3.metric("Economia com o LesteShop", _valor(0.0, cotacao))
-        c3.caption("A compra avulsa não sairia mais cara nesta lista.")
-    st.caption("Valores com imposto (cota de US$ 500 por pessoa).")
-    with st.expander("Preço de cada item nos dois cenários"):
+        c3.metric("Você economiza", _valor(0.0, cotacao))
+        c3.caption("Nesta lista, comprar tudo numa loja só não sairia mais caro.")
+    st.caption("Os dois valores já incluem o imposto da Receita.")
+    with st.expander("Preço de cada produto nos dois casos"):
         st.dataframe(c["tabela"], hide_index=True, width="stretch")
 
 
-def _resultado(r: dict, cotacao) -> None:
-    d, inst, base, consulta = r["d"], r["inst"], r["base"], r["consulta"]
-    st.subheader("3. Resultado")
+def _resumo(cartoes: list[dict]) -> None:
+    """Os quatro números do topo do resultado, num quadro com borda."""
+    with st.container(border=True):
+        for col, c in zip(st.columns(len(cartoes)), cartoes):
+            col.metric(c["rotulo"], c["valor"])
+            col.caption(c["detalhe"])
+
+
+def _zoom(extensao_graus: float) -> float:
+    """Zoom do mapa para caber todas as paradas (Ciudad del Este: poucos quarteirões)."""
+    if extensao_graus <= 0:
+        return 16.0
+    return max(12.0, min(17.0, math.log2(360 / extensao_graus) - 0.9))
+
+
+def _mapa(m: dict | None) -> None:
+    """Mapa do roteiro (pydeck, mapa de fundo gratuito da CARTO, sem chave)."""
+    if m is None:
+        st.caption("Mapa indisponível: faltam as coordenadas de alguma loja.")
+        return
+    import pydeck as pdk
+
+    pontos = m["pontos"].copy()
+    pontos["cor"] = [VERMELHO if t == "ponte" else AZUL for t in pontos["tipo"]]
+    pontos["raio"] = [12 + 3 * (len(n) - 1) for n in pontos["numero"]]
+    trechos = pd.DataFrame([{"de": [t["de"][1], t["de"][0]], "para": [t["para"][1], t["para"][0]]}
+                            for t in m["trechos"]])
+    camadas = [
+        pdk.Layer("LineLayer", trechos, get_source_position="de", get_target_position="para",
+                  get_color=AZUL + [170], get_width=4),
+        pdk.Layer("ScatterplotLayer", pontos, get_position=["lon", "lat"], get_fill_color="cor",
+                  get_radius="raio", radius_units="'pixels'", stroked=True, get_line_color=BRANCO,
+                  line_width_min_pixels=2, pickable=True),
+        pdk.Layer("TextLayer", pontos, get_position=["lon", "lat"], get_text="numero", get_size=13,
+                  get_color=BRANCO, font_weight=700, get_text_anchor="'middle'",
+                  get_alignment_baseline="'center'"),
+    ]
+    lat, lon = m["centro"]
+    deck = pdk.Deck(
+        layers=camadas, map_provider="carto", map_style="light",
+        initial_view_state=pdk.ViewState(latitude=lat, longitude=lon, zoom=_zoom(m["extensao"])),
+        tooltip={"html": "<b>{nome}</b><br/>{horario}<br/><b>Comprar:</b> {comprar}",
+                 "style": {"backgroundColor": "#0038A8", "color": "white", "fontSize": "13px"}},
+    )
+    st.pydeck_chart(deck, height=440)
+    st.caption("🔴 **P** = Ponte da Amizade (saída e volta) · 🔵 números = lojas, na ordem da visita "
+               "(\"1-3\" = paradas 1 a 3, no mesmo prédio). "
+               "Passe o mouse num ponto para ver o horário e o que comprar. As linhas ligam as "
+               "paradas em linha reta: **não mostram o caminho pelas ruas**.")
+
+
+def _origem_dos_precos(base, consulta) -> None:
     if consulta is not None:
         res = consulta["res"]
         momentos = sorted(res.consultado_em.values())
         quando = (f"{ap.fmt_data(momentos[0])} {momentos[0][11:16]}" if momentos else "—")
-        st.success(f"Preços do Compras Paraguai, consultados em {quando} (só os itens da lista).")
+        st.success(f"Preços do Compras Paraguai, consultados em {quando} (só os produtos da sua lista).")
         if consulta["nao_encontrados"]:
             st.warning("Não encontrados no site: " + ", ".join(consulta["nao_encontrados"]) + ".")
     elif base.origem != "real":
         st.warning(ap.texto_origem(base)[1])
-    if aviso := ap.texto_solver(d):
-        st.info(aviso)
 
-    if aviso := ap.aviso_orcamento(d, r.get("orcamento"), cotacao):
-        st.warning(aviso)
-    cols = st.columns(3)
-    for col, (rot, usd, brl) in zip(cols, ap.totais(d, cotacao)):
-        col.metric(rot, usd)
-        col.caption(brl)
-    st.markdown(f"**Cota de isenção:** {ap.situacao_cota(d)}.")
 
-    st.markdown("#### Onde comprar cada item")
-    itens = ap.tabela_itens(d, base, cotacao)
-    if itens.empty:
-        st.warning("Nenhum item pôde ser comprado com estes dados.")
-    else:
-        st.dataframe(itens, hide_index=True, width="stretch")
-
-    st.markdown("#### Roteiro")
-    st.caption(f"Saída da Ponte da Amizade e volta a ela. Deslocamento: cerca de "
-               f"{d['resumo']['tempo_andando']:.0f} min. Os horários contam o deslocamento, a espera "
-               "pela abertura e o tempo em cada loja.")
-    st.dataframe(ap.tabela_roteiro(d), hide_index=True, width="stretch")
-
-    _comparativo(ap.comparativo_avulsa(d, inst, base), cotacao)
-
-    fora = ap.tabela_fora(d, inst, orcamento_limita=False)
-    if not fora.empty:
-        st.markdown("#### Itens deixados de fora")
-        st.dataframe(fora, hide_index=True, width="stretch")
-
-    if consulta is not None:
-        with st.expander("Preços encontrados (Produto × Loja, em US$)"):
-            st.dataframe(_matriz(consulta["res"]), width="stretch")
-
-    st.markdown("#### Receita Federal: cota, limites e declaração")
+def _receita_federal(d: dict, inst, cotacao) -> dict:
+    st.markdown("#### Receita Federal: cota e declaração")
     f = ap.resumo_fiscal(d, cotacao)
+    st.caption(f"**O que é a cota:** na volta, cada pessoa pode trazer até "
+               f"{ap.fmt_usd(inst.cota)} em compras sem pagar imposto. Sobre o que passar disso, "
+               f"a Receita cobra {ap.fmt_pct(inst.aliquota)} de imposto.")
     for alerta in f["alertas"]:
         st.warning(alerta)
-    st.markdown(f"- **Cota:** {f['cota']}.\n"
-                f"- **Situação:** {f['situacao_cota']}.\n"
-                f"- **Declaração (e-DBV):** {f['declaracao']}")
+    st.markdown(f"- **Sua situação:** {f['situacao_cota']}.\n"
+                f"- **Precisa declarar?** {f['declaracao']}")
     if f["imposto_sem_cota"]:
         st.markdown(f"- **Imposto sem a cota:** {f['imposto_sem_cota']}.")
+    st.caption("**O que é a e-DBV:** a declaração de bens do viajante, feita pela internet "
+               "(site ou aplicativo da Receita) antes de passar pela fiscalização.")
     limites = ap.tabela_limites(d["fiscal"])
     if not limites.empty:
         with st.expander("Limites de quantidade da bagagem"):
             st.dataframe(limites, hide_index=True, width="stretch")
-    st.caption(f"Premissa: {f['premissa']} Regras em vigor em {f['data_referencia']}.")
+    st.caption(f"Regra usada: {f['cota']}. {f['premissa']} Regras em vigor em {f['data_referencia']}.")
+    return f
 
+
+def _resultado(r: dict, cotacao) -> None:
+    d, inst, base, consulta = r["d"], r["inst"], r["base"], r["consulta"]
+    st.subheader("3. Seu resultado")
+    _origem_dos_precos(base, consulta)
+    if aviso := ap.texto_solver(d):
+        st.info(aviso)
+    if aviso := ap.aviso_orcamento(d, r.get("orcamento"), cotacao):
+        st.warning(aviso)
+
+    comparativo = ap.comparativo_avulsa(d, inst, base)
+    _resumo(ap.resumo_topo(d, comparativo, cotacao))
+
+    st.markdown("#### Quanto você vai pagar")
+    cols = st.columns(3)
+    for col, (rot, usd, brl) in zip(cols, ap.totais(d, cotacao)):
+        col.metric(rot, usd)
+        col.caption(brl)
+    st.markdown(f"**Cota da Receita:** {ap.situacao_cota(d)}.")
+
+    st.markdown("#### Onde comprar")
+    itens = ap.tabela_itens(d, base, cotacao)
+    if itens.empty:
+        st.warning("Nenhum produto pôde ser comprado com estes dados.")
+    else:
+        st.dataframe(itens, hide_index=True, width="stretch")
+
+    st.markdown("#### Seu roteiro")
+    st.caption(f"Sai da Ponte da Amizade e volta para ela. Tempo andando: cerca de "
+               f"{d['resumo']['tempo_andando']:.0f} min. Os horários já contam a caminhada, a espera "
+               "até a loja abrir e o tempo de compra em cada loja.")
+    if d["roteiro"]:
+        _mapa(ap.dados_mapa(d, inst, base))
+    st.dataframe(ap.tabela_roteiro(d), hide_index=True, width="stretch")
+
+    _comparativo(comparativo, cotacao)
+
+    fora = ap.tabela_fora(d, inst, orcamento_limita=False)
+    if not fora.empty:
+        st.markdown("#### Produtos que ficaram de fora")
+        st.dataframe(fora, hide_index=True, width="stretch")
+
+    f = _receita_federal(d, inst, cotacao)
+
+    if consulta is not None:
+        with st.expander("Todos os preços encontrados (produto × loja, em US$)"):
+            st.dataframe(_matriz(consulta["res"]), width="stretch")
     avisos = list(d["avisos"]) + list(f["avisos"])
     if avisos:
         with st.expander(f"Avisos ({len(avisos)})"):
@@ -448,11 +534,13 @@ def _resultado(r: dict, cotacao) -> None:
 
 def main() -> None:
     st.set_page_config(page_title="LesteShop", page_icon="🛍️", layout="wide")
+    if LOGO.exists():
+        st.logo(str(LOGO), size="large")
     _estado()
 
     st.title("LesteShop")
-    st.caption("Onde comprar cada item em Ciudad del Este, o roteiro saindo e voltando à Ponte da "
-               "Amizade e a situação frente à cota da Receita Federal.")
+    st.caption("Seu guia de compras em Ciudad del Este: onde comprar cada produto, o caminho "
+               "saindo e voltando à Ponte da Amizade e quanto você paga de imposto na Receita.")
 
     modo, chegada, saida, orcamento, cotacao = _barra_lateral()
     if modo == MODO_BASE and _base().origem != "real":
@@ -461,7 +549,7 @@ def main() -> None:
 
     st.subheader("2. Calcular")
     assinatura = (modo, tuple(pedidos), chegada, saida, orcamento)
-    if st.button("Calcular roteiro", type="primary", disabled=not pedidos):
+    if st.button("Calcular meu roteiro", type="primary", disabled=not pedidos):
         calcular = _calcular_consulta if modo == MODO_CONSULTA else _calcular_base
         r = calcular(pedidos, chegada, saida, orcamento)
         st.session_state["resultado"] = (None if r is None
@@ -470,6 +558,6 @@ def main() -> None:
     r = st.session_state["resultado"]
     if r is not None:
         if r["assinatura"] != assinatura:
-            st.info("A lista ou os dados da viagem mudaram: clique em **Calcular roteiro** de novo.")
+            st.info("A lista ou os dados da viagem mudaram: clique em **Calcular meu roteiro** de novo.")
         else:
             _resultado(r, r.get("cotacao") or cotacao)

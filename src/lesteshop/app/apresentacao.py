@@ -55,8 +55,8 @@ def texto_origem(base: BaseApp) -> tuple[str, str]:
 def totais(d: dict, cotacao: Cotacao | None) -> list[tuple[str, str, str]]:
     """(rótulo, US$, R$) de gasto, imposto e custo total."""
     r = d["resumo"]
-    linhas = [("Gasto com produtos", r["gasto_produtos"]), ("Imposto estimado", r["imposto"]),
-              ("Custo total", r["custo_total"])]
+    linhas = [("Produtos", r["gasto_produtos"]), ("Imposto da Receita", r["imposto"]),
+              ("Total a pagar", r["custo_total"])]
     return [(rot, fmt_usd(v), fmt_brl(em_brl(v, cotacao))) for rot, v in linhas]
 
 
@@ -67,27 +67,27 @@ def tabela_itens(d: dict, base: BaseApp, cotacao: Cotacao | None) -> pd.DataFram
             sub = c["preco_usd"] * c["quantidade"]
             info = base.info_oferta(parada["loja_id"], c["produto_id"])
             linhas.append({
-                "Item": c["nome"], "Qtd.": c["quantidade"], "Loja": parada["nome"],
-                "Preço unit. (US$)": fmt_usd(c["preco_usd"]), "Subtotal (US$)": fmt_usd(sub),
-                "Subtotal (R$)": fmt_brl(em_brl(sub, cotacao)),
-                "Coletado em": fmt_data(info["data_coleta"]),
-                "Origem": "real" if info["tipo_dado"] == "real" else "fictícia",
+                "Parada": parada["ordem"], "Produto": c["nome"], "Qtd.": c["quantidade"],
+                "Loja": parada["nome"], "Preço (US$)": fmt_usd(c["preco_usd"]),
+                "Total (US$)": fmt_usd(sub), "Total (R$)": fmt_brl(em_brl(sub, cotacao)),
+                "Preço visto em": fmt_data(info["data_coleta"]),
+                "Preço": "real" if info["tipo_dado"] == "real" else "fictício (teste)",
             })
     return pd.DataFrame(linhas)
 
 
 def tabela_roteiro(d: dict) -> pd.DataFrame:
-    linhas = [{"Ordem": "—", "Local": "Ponte da Amizade (lado paraguaio)", "Prédio": "",
-               "Chegada": d["horario_chegada"], "Atendimento": "", "Saída": d["horario_chegada"],
-               "Comprar": "início do passeio"}]
+    linhas = [{"Parada": "Início", "Onde": "Ponte da Amizade (lado paraguaio)", "Prédio": "",
+               "Chega às": d["horario_chegada"], "Atendido às": "", "Sai às": d["horario_chegada"],
+               "O que comprar": "começo do passeio"}]
     for p in d["roteiro"]:
         linhas.append({
-            "Ordem": str(p["ordem"]), "Local": p["nome"], "Prédio": p["predio"] or "",
-            "Chegada": p["chegada"], "Atendimento": p["inicio_atendimento"], "Saída": p["saida"],
-            "Comprar": ", ".join(f"{c['quantidade']}× {c['nome']}" for c in p["compras"]),
+            "Parada": str(p["ordem"]), "Onde": p["nome"], "Prédio": p["predio"] or "",
+            "Chega às": p["chegada"], "Atendido às": p["inicio_atendimento"], "Sai às": p["saida"],
+            "O que comprar": ", ".join(f"{c['quantidade']}× {c['nome']}" for c in p["compras"]),
         })
-    linhas.append({"Ordem": "—", "Local": "Volta à Ponte da Amizade", "Prédio": "",
-                   "Chegada": d["horario_retorno"], "Atendimento": "", "Saída": "", "Comprar": ""})
+    linhas.append({"Parada": "Fim", "Onde": "Volta à Ponte da Amizade", "Prédio": "",
+                   "Chega às": d["horario_retorno"], "Atendido às": "", "Sai às": "", "O que comprar": ""})
     return pd.DataFrame(linhas)
 
 
@@ -103,7 +103,7 @@ def tabela_fora(d: dict, inst: Instancia, orcamento_limita: bool = True) -> pd.D
         else:
             motivo = ("não coube no orçamento ou no horário, ou não compensou o custo" if orcamento_limita
                       else "não deu tempo de passar na loja dentro do horário da viagem e das lojas")
-        linhas.append({"Item": it["nome"], "Prioridade": it["prioridade"], "Motivo": motivo})
+        linhas.append({"Produto": it["nome"], "Prioridade": it["prioridade"], "Por quê": motivo})
     return pd.DataFrame(linhas)
 
 
@@ -126,11 +126,13 @@ def resumo_fiscal(d: dict, cotacao: Cotacao | None) -> dict:
     return {
         "situacao_cota": situacao_cota(d),
         "cota": f"{fmt_usd(f['cota_usd'])} por pessoa, via {f['via']} ({f['fonte_cota']})",
-        "declaracao": ("Sim: preencher a e-DBV e passar pelo canal \"bens a declarar\"."
-                       if f["declaracao_necessaria"] else "Não é necessária."),
+        "declaracao": ("Sim: preencha a e-DBV antes de cruzar a Ponte e passe pela fila "
+                       "\"bens a declarar\" na Receita."
+                       if f["declaracao_necessaria"] else "Não precisa declarar."),
         "imposto_sem_cota": (None if sem_cota is None else
-                             f"{fmt_usd(sem_cota)} ({fmt_brl(em_brl(sem_cota, cotacao))}), se a bagagem "
-                             "perder a cota por passar de um limite de unidades"),
+                             f"{fmt_usd(sem_cota)} ({fmt_brl(em_brl(sem_cota, cotacao))}). É o que você "
+                             "pagaria se a Receita tirar a cota porque a bagagem passou de um limite "
+                             "de unidades"),
         "alertas": f["alertas"],
         "avisos": f["avisos"],
         "premissa": f["premissa"],
@@ -139,12 +141,14 @@ def resumo_fiscal(d: dict, cotacao: Cotacao | None) -> dict:
 
 
 def texto_solver(d: dict) -> str | None:
-    """Aviso quando o modelo exato parou no tempo limite sem provar o ótimo."""
+    """Aviso quando o modelo exato parou no tempo limite sem provar o ótimo (em
+    linguagem simples: sem "ótimo" nem "gap" na tela)."""
     info = d.get("info", {})
     if info.get("status") not in (None, "otimo"):
         gap = info.get("gap")
-        extra = f" (distância máxima do ótimo: {gap:.1%})" if isinstance(gap, (int, float)) else ""
-        return f"Melhor roteiro encontrado dentro do tempo limite{extra}."
+        extra = (f" Pode existir um roteiro até {fmt_pct(gap)} melhor."
+                 if isinstance(gap, (int, float)) else "")
+        return f"Este é o melhor roteiro encontrado no tempo limite de cálculo.{extra}"
     return None
 
 
@@ -158,8 +162,8 @@ def aviso_orcamento(d: dict, orcamento: float | None, cotacao: Cotacao | None) -
     excesso = custo - orcamento
     brl = em_brl(excesso, cotacao)
     extra = f" ({fmt_brl(brl)})" if brl is not None else ""
-    return (f"O custo total ({fmt_usd(custo)}) passa do seu orçamento de {fmt_usd(orcamento)} "
-            f"em {fmt_usd(excesso)}{extra}. Todos os itens foram mantidos.")
+    return (f"O total a pagar ({fmt_usd(custo)}) passa do seu orçamento de {fmt_usd(orcamento)} "
+            f"em {fmt_usd(excesso)}{extra}. Todos os itens foram mantidos na lista.")
 
 
 
@@ -168,7 +172,7 @@ def situacao_cota(d: dict) -> str:
     r = d["resumo"]
     if r["excedente"] <= 0:
         return "dentro da cota"
-    return f"excede a cota em {fmt_usd(r['excedente'])} (imposto {fmt_usd(r['imposto'])})"
+    return f"passa da cota em {fmt_usd(r['excedente'])} (imposto de {fmt_usd(r['imposto'])})"
 
 
 def _imposto(gasto: float, inst: Instancia) -> float:
@@ -208,7 +212,7 @@ def comparativo_avulsa(d: dict, inst: Instancia, base: BaseApp,
             na_media.append(c["nome"])
         g_rota += preco_rota * q
         g_avulsa += preco_av * q
-        linhas.append({"Item": c["nome"], "Qtd.": q, "Roteiro: loja": p["nome"],
+        linhas.append({"Produto": c["nome"], "Qtd.": q, "Roteiro: loja": p["nome"],
                        "Roteiro (US$)": fmt_usd(preco_rota * q), "Avulsa: onde": onde,
                        "Avulsa (US$)": fmt_usd(preco_av * q),
                        "Diferença (US$)": fmt_usd((preco_av - preco_rota) * q)})
@@ -233,3 +237,100 @@ def comparativo_avulsa(d: dict, inst: Instancia, base: BaseApp,
 
 def fmt_pct(valor: float) -> str:
     return f"{valor * 100:.1f}%".replace(".", ",")
+
+
+# --- Fase 5: resumo no topo do resultado e mapa do roteiro --------------------------
+def resumo_topo(d: dict, comparativo: dict | None, cotacao: Cotacao | None) -> list[dict]:
+    """Os quatro números do topo do resultado (decidido em 21/11/2026): total a pagar,
+    economia, hora de volta à Ponte e situação da cota. Cada um: rótulo, valor, detalhe."""
+    r = d["resumo"]
+    brl = em_brl(r["custo_total"], cotacao)
+    total = {"rotulo": "Total a pagar", "valor": fmt_brl(brl) if brl is not None else fmt_usd(r["custo_total"]),
+             "detalhe": (f"{fmt_usd(r['custo_total'])}, já com o imposto" if brl is not None
+                         else "já com o imposto")}
+    if comparativo is None:
+        economia = {"rotulo": "Economia", "valor": "—", "detalhe": "nada foi comprado"}
+    elif comparativo["economia"] > 0.005:
+        e = comparativo["economia"]
+        e_brl = em_brl(e, cotacao)
+        economia = {"rotulo": "Você economiza", "valor": fmt_brl(e_brl) if e_brl is not None else fmt_usd(e),
+                    "detalhe": f"{fmt_pct(comparativo['economia_pct'])} a menos que comprar tudo "
+                               f"no {comparativo['referencia']}"}
+    else:
+        economia = {"rotulo": "Você economiza", "valor": fmt_brl(0.0) if cotacao is not None else fmt_usd(0.0),
+                    "detalhe": f"nesta lista, o {comparativo['referencia']} sai pelo mesmo preço"}
+    volta = {"rotulo": "Volta à Ponte", "valor": d["horario_retorno"],
+             "detalhe": f"você queria sair até {d['horario_saida']}"}
+    if r["excedente"] <= 0:
+        cota = {"rotulo": "Cota da Receita", "valor": "Dentro da cota", "detalhe": "sem imposto a pagar"}
+    else:
+        cota = {"rotulo": "Cota da Receita", "valor": "Passa da cota",
+                "detalhe": f"em {fmt_usd(r['excedente'])}: imposto de {fmt_usd(r['imposto'])}"}
+    return [total, economia, volta, cota]
+
+
+def _quando_e_o_que(p: dict) -> tuple[str, str]:
+    horario = f"chega às {p['chegada']}, sai às {p['saida']}"
+    if p["inicio_atendimento"] != p["chegada"]:
+        horario = f"chega às {p['chegada']} (a loja abre às {p['inicio_atendimento']}), sai às {p['saida']}"
+    return horario, ", ".join(f"{c['quantidade']}× {c['nome']}" for c in p["compras"])
+
+
+def _rotulo_numeros(ordens: list[int]) -> str:
+    """Rótulo curto do ponto no mapa: "3"; paradas seguidas "1-3"; senão "1,4"."""
+    if len(ordens) > 1 and ordens == list(range(ordens[0], ordens[0] + len(ordens))):
+        return f"{ordens[0]}-{ordens[-1]}"
+    return ",".join(str(o) for o in ordens)
+
+
+def dados_mapa(d: dict, inst: Instancia, base: BaseApp) -> dict | None:
+    """Pontos e linhas do mapa do roteiro (sem Streamlit, para poder ser testado).
+
+    Ponte da Amizade (partida e volta) + lojas numeradas na ordem da visita. Lojas no
+    mesmo prédio (ou no mesmo endereço) viram um ponto só, com os números juntos
+    ("1-3"), para os números não ficarem um em cima do outro.
+    As linhas ligam as paradas em reta: não seguem as ruas. ``None`` se não há roteiro
+    ou faltam coordenadas."""
+    if not d["roteiro"]:
+        return None
+    p0 = base.pontos[base.pontos["id"].astype(int) == 0]
+    if p0.empty:
+        return None
+    ponte = (float(p0.iloc[0]["latitude"]), float(p0.iloc[0]["longitude"]))
+    coords = {l.loja_id: (l.latitude, l.longitude) for l in inst.lojas}
+    if any(p["loja_id"] not in coords for p in d["roteiro"]):
+        return None
+
+    grupos: dict[object, list[dict]] = {}
+    caminho = [ponte]
+    for p in d["roteiro"]:
+        lat, lon = coords[p["loja_id"]]
+        chave = p["predio"] if p.get("predio") else (round(lat, 6), round(lon, 6))
+        grupos.setdefault(chave, []).append(p)
+        caminho.append((lat, lon))
+    caminho.append(ponte)
+
+    pontos = [{"lat": ponte[0], "lon": ponte[1], "numero": "P", "tipo": "ponte",
+               "nome": "Ponte da Amizade (lado paraguaio)",
+               "horario": f"saída às {d['horario_chegada']}, volta às {d['horario_retorno']}",
+               "comprar": "começo e fim do passeio"}]
+    for paradas in grupos.values():
+        numeros = [str(p["ordem"]) for p in paradas]
+        textos = [_quando_e_o_que(p) for p in paradas]
+        lat = sum(coords[p["loja_id"]][0] for p in paradas) / len(paradas)
+        lon = sum(coords[p["loja_id"]][1] for p in paradas) / len(paradas)
+        predio = paradas[0].get("predio")
+        pontos.append({
+            "lat": lat, "lon": lon, "tipo": "loja",
+            "numero": _rotulo_numeros([p["ordem"] for p in paradas]),
+            "nome": (f"{predio}: " if predio and len(paradas) > 1 else "")
+                    + " / ".join(f"{n}. {p['nome']}" for n, p in zip(numeros, paradas)),
+            "horario": " / ".join(h for h, _ in textos),
+            "comprar": " / ".join(c for _, c in textos),
+        })
+    trechos = [{"de": caminho[i], "para": caminho[i + 1]} for i in range(len(caminho) - 1)]
+    lats = [c[0] for c in caminho]
+    lons = [c[1] for c in caminho]
+    return {"pontos": pd.DataFrame(pontos), "trechos": trechos,
+            "centro": ((min(lats) + max(lats)) / 2, (min(lons) + max(lons)) / 2),
+            "extensao": max(max(lats) - min(lats), max(lons) - min(lons))}

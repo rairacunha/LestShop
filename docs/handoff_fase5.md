@@ -140,6 +140,10 @@ implementar, mostrando prints (computador) para a dona do projeto conferir.
    (rotas pelas ruas continuam como pendência) — deixar isso claro numa legenda.
 6. **Versão para celular: fora por enquanto.**
 
+**Situação em 21/11/2026:** itens 1 a 5 implementados no branch `claude/fase5-design`
+(resumo em `docs/pendencias.md`, seção da Fase 5). Falta só o arquivo do logotipo
+(`assets/logo.png`), que a dona do projeto vai criar.
+
 Regras da Fase 5: o **cálculo não muda** (modelo, regras fiscais, montagem da instância,
 consulta e base). Mudanças só em `src/lesteshop/app/tela.py`, `apresentacao.py` (textos),
 tema e documentação; os testes da tela (`tests/test_app.py`, `tests/test_consulta.py`)

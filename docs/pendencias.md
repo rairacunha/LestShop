@@ -240,6 +240,35 @@ enquanto. Entrega do projeto em 23/11/2026, sem tempo de consultar o professor.
   e voltando à Ponte da Amizade (a biblioteca pydeck já vem com o Streamlit). A troca
   manual da ordem das lojas continua em "Melhorias futuras".
 
+### Implementado (21/11/2026, branch `claude/fase5-design`)
+
+O cálculo não mudou (modelo, regras fiscais, montagem da instância, consulta e base).
+
+* **Cores:** tema azul (`#0038A8`) e vermelho (`#D52B1E`), fundo claro, em
+  `.streamlit/config.toml`. O vermelho fica para alertas e para a Ponte no mapa.
+* **Logotipo:** lugar pronto. Basta salvar `assets/logo.png`; o app mostra com
+  `st.logo` (instruções em `assets/README.md`). Nenhum logotipo foi inventado.
+* **Textos simples:** "O que você quer comprar", "Seu resultado", "Quanto você vai
+  pagar", "Onde comprar", "Seu roteiro", "Quanto você economiza", "Receita Federal: cota
+  e declaração"; explicações curtas de cota, e-DBV, prioridade e orçamento; botão
+  "Calcular meu roteiro". "Ótimo" e "gap" saíram do aviso de tempo limite.
+* **Resumo no topo do resultado** (`apresentacao.resumo_topo`): total a pagar,
+  economia em relação à compra avulsa, hora de volta à Ponte e situação da cota.
+* **Mapa do roteiro** (`apresentacao.dados_mapa` + `tela._mapa`, pydeck, mapa de fundo
+  gratuito da CARTO, sem chave): Ponte em vermelho ("P"), lojas em azul, numeradas na
+  ordem da visita; lojas do mesmo prédio num ponto só ("1-3"); ao passar o mouse,
+  horário e o que comprar. Linhas retas entre as paradas, com legenda dizendo que não
+  seguem as ruas.
+* Testes: os textos da tela foram atualizados em `tests/test_app.py` e
+  `tests/test_consulta.py`; testes novos do resumo e do mapa.
+
+### Ficou para depois (percebido na Fase 5; não implementar sem autorização)
+
+* O alerta da e-DBV vem do módulo fiscal com números no formato americano ("US$ 1768.00").
+  Como as regras fiscais não mudam na Fase 5, o texto ficou como está.
+* Rotas pelas ruas no mapa (hoje, linhas retas) e troca manual da ordem das lojas.
+* Versão para celular.
+
 ## Melhorias da base de dados (podem entrar antes da Fase 2)
 
 * ~~Conferir o parser contra páginas reais~~ — feito na Fase 4 (18/11/2026), com páginas
