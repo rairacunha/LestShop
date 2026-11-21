@@ -320,6 +320,11 @@ cota) e o **mapa do roteiro** (Ponte e lojas numeradas na ordem da visita; linha
 que não seguem as ruas). O logotipo entra quando existir `assets/logo.png` (ver
 `assets/README.md`).
 
+**Forma de pagamento.** Na barra lateral (PIX por padrão). O acréscimo (dinheiro 0%,
+PIX 3%, cartão 6%, valores estimados em `data/formas_pagamento.csv`) entra no valor dos
+produtos, e o imposto é calculado sobre o valor com o acréscimo. O roteiro não muda; a
+tela mostra quanto a forma escolhida custa a mais que o dinheiro.
+
 Código em `src/lesteshop/app/`: `base.py` (base do SQLite, só a coleta mais recente de
 cada loja/produto, origem real/fictícia), `pedido.py` (monta a instância a partir do que
 o turista digita, usando `montar_instancia()` da Fase 2), `apresentacao.py` (tabelas e

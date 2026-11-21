@@ -142,7 +142,9 @@ implementar, mostrando prints (computador) para a dona do projeto conferir.
 
 **Situação em 21/11/2026:** itens 1 a 5 implementados no branch `claude/fase5-design`
 (resumo em `docs/pendencias.md`, seção da Fase 5). Falta só o arquivo do logotipo
-(`assets/logo.png`), que a dona do projeto vai criar.
+(`assets/logo.png`), que a dona do projeto vai criar. Também foi implementado, com
+autorização da dona do projeto, o **acréscimo por forma de pagamento** (única mudança de
+cálculo da fase; detalhes em `docs/pendencias.md`).
 
 Regras da Fase 5: o **cálculo não muda** (modelo, regras fiscais, montagem da instância,
 consulta e base). Mudanças só em `src/lesteshop/app/tela.py`, `apresentacao.py` (textos),

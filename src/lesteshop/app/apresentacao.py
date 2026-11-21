@@ -183,17 +183,21 @@ LOJA_REFERENCIA = "CP-shopping-china"  # loja mais procurada pelos turistas (21/
 
 
 def comparativo_avulsa(d: dict, inst: Instancia, base: BaseApp,
-                       loja_ref: str = LOJA_REFERENCIA) -> dict | None:
+                       loja_ref: str = LOJA_REFERENCIA, acrescimo: float = 0.0) -> dict | None:
     """Compra avulsa × roteiro do LesteShop (decidido em 21/11/2026).
 
     Compra avulsa = o turista compra tudo na loja de referência (Shopping China); o que
     ela não vende, ele paga pelo preço médio das lojas que vendem o item (média do menor
     preço de cada loja). O imposto de cada cenário é calculado sobre o gasto total
-    (cota integral). Economia = (avulsa − roteiro) ÷ avulsa. ``None`` se nada foi comprado."""
+    (cota integral). Economia = (avulsa − roteiro) ÷ avulsa. ``None`` se nada foi comprado.
+
+    Acréscimo da forma de pagamento (21/11/2026): ``inst`` já vem com os preços com a
+    taxa (``pagamento.com_acrescimo``) e ``acrescimo`` aplica a mesma taxa aos preços da
+    compra avulsa, que vêm da base."""
     comprados = [(p, c) for p in d["roteiro"] for c in p["compras"]]
     if not comprados:
         return None
-    por_loja = base.ofertas.groupby(["produto_id", "loja_id"])["preco_usd"].min()
+    por_loja = base.ofertas.groupby(["produto_id", "loja_id"])["preco_usd"].min() * (1 + acrescimo)
     media = por_loja.groupby("produto_id").mean()
     lojas = base.lojas.set_index("loja_id")
     nome_ref = str(lojas.loc[loja_ref, "nome"]) if loja_ref in lojas.index else None
@@ -334,3 +338,17 @@ def dados_mapa(d: dict, inst: Instancia, base: BaseApp) -> dict | None:
     return {"pontos": pd.DataFrame(pontos), "trechos": trechos,
             "centro": ((min(lats) + max(lats)) / 2, (min(lons) + max(lons)) / 2),
             "extensao": max(max(lats) - min(lats), max(lons) - min(lons))}
+
+
+def texto_pagamento(forma_nome: str, acrescimo: float, custo: float, custo_dinheiro: float,
+                    cotacao: Cotacao | None) -> str:
+    """Quanto a forma de pagamento custa a mais que pagar em dinheiro (com o imposto)."""
+    if acrescimo == 0:
+        return f"Pagando em **{forma_nome.lower()}**: sem acréscimo."
+    extra = custo - custo_dinheiro
+    brl = em_brl(extra, cotacao)
+    em_reais = f" ({fmt_brl(brl)})" if brl is not None else ""
+    pct = f"{acrescimo * 100:g}".replace(".", ",")
+    return (f"Pagando com **{forma_nome}** (+{pct}% nos preços): você paga "
+            f"**{fmt_usd(extra)}{em_reais} a mais** do que pagando em dinheiro, já contando o "
+            "imposto sobre o valor maior da nota.")

@@ -43,6 +43,7 @@ from ..otimizacao.resolver import resolver
 from ..otimizacao.solucao import descrever
 from . import apresentacao as ap
 from . import base as base_app
+from .pagamento import carregar_formas, com_acrescimo
 from .pedido import ErroPedido, ItemPedido, montar_pedido, teto_sem_limite, validar_pedido
 
 LEGENDA_PRIORIDADE = {1: "1 · tanto faz", 2: "2 · pouco", 3: "3 · médio", 4: "4 · muito", 5: "5 · essencial"}
@@ -86,6 +87,11 @@ def _base() -> base_app.BaseApp:
 @st.cache_data(ttl=3600, show_spinner=False)
 def _cotacao():
     return base_app.cotacao_para_exibir()
+
+
+@st.cache_data(show_spinner=False)
+def _formas():
+    return carregar_formas()
 
 
 @st.cache_data(show_spinner=False)
@@ -216,7 +222,15 @@ def _barra_lateral() -> tuple:
                        "e o app avisa se o total passar dele.")
         else:
             st.caption("Sem orçamento: o app monta o roteiro com todos os produtos da lista.")
-    return modo, chegada, saida, orcamento, cotacao
+
+        formas = _formas()
+        padrao = next(i for i, fp in enumerate(formas) if fp.padrao)
+        forma = st.radio("Forma de pagamento", formas, index=padrao, key="forma_pagamento",
+                         format_func=lambda fp: fp.rotulo)
+        st.caption("Nas lojas, o preço muda com a forma de pagamento. Os acréscimos são "
+                   "estimados (observação de campo, não vêm do site) e o imposto é calculado "
+                   "sobre o valor com o acréscimo, que é o valor da nota.")
+    return modo, chegada, saida, orcamento, cotacao, forma
 
 
 def _opcoes(modo: str) -> dict[str, str]:
@@ -310,13 +324,13 @@ def _otimizar(base, itens, chegada, saida, orcamento, categorias=None):
         d = descrever(sol, inst)
         d["avisos"] = (list(d["avisos"]) + base_app.ofertas_antigas(base, [it.produto_id for it in itens])
                        + [a for it in itens for a in base.avisos_produto.get(it.produto_id, [])])
-    return d, inst
+    return d, inst, sol
 
 
 def _calcular_base(pedidos, chegada, saida, orcamento) -> dict | None:
     base = _base()
     r = _otimizar(base, [ItemPedido(*p) for p in pedidos], chegada, saida, orcamento)
-    return None if r is None else {"d": r[0], "inst": r[1], "base": base, "consulta": None,
+    return None if r is None else {"d": r[0], "inst": r[1], "sol": r[2], "base": base, "consulta": None,
                                    "cotacao": base_app.cotacao_do_site(base.ofertas) if base.origem == "real" else None}
 
 
@@ -343,7 +357,7 @@ def _calcular_consulta(pedidos, chegada, saida, orcamento) -> dict | None:
     if r is None:
         return None
     r[0]["avisos"] = list(r[0]["avisos"]) + list(res.avisos)
-    return {"d": r[0], "inst": r[1], "base": base, "cotacao": base_app.cotacao_do_site(base.ofertas),
+    return {"d": r[0], "inst": r[1], "sol": r[2], "base": base, "cotacao": base_app.cotacao_do_site(base.ofertas),
             "consulta": {"res": res, "nao_encontrados": [cat[i].nome for i in res.nao_encontrados]}}
 
 
@@ -479,8 +493,20 @@ def _receita_federal(d: dict, inst, cotacao) -> dict:
     return f
 
 
-def _resultado(r: dict, cotacao) -> None:
-    d, inst, base, consulta = r["d"], r["inst"], r["base"], r["consulta"]
+def _com_forma(r: dict, forma) -> tuple[dict, object]:
+    """Refaz os valores do roteiro já escolhido com o acréscimo da forma de pagamento
+    (o roteiro e as lojas não mudam; o imposto é sobre o valor com o acréscimo)."""
+    if forma.acrescimo == 0:
+        return r["d"], r["inst"]
+    inst = com_acrescimo(r["inst"], forma.acrescimo)
+    d = descrever(r["sol"], inst)
+    d["avisos"] = r["d"]["avisos"]
+    return d, inst
+
+
+def _resultado(r: dict, cotacao, forma) -> None:
+    base, consulta = r["base"], r["consulta"]
+    d, inst = _com_forma(r, forma)
     st.subheader("3. Seu resultado")
     _origem_dos_precos(base, consulta)
     if aviso := ap.texto_solver(d):
@@ -488,7 +514,7 @@ def _resultado(r: dict, cotacao) -> None:
     if aviso := ap.aviso_orcamento(d, r.get("orcamento"), cotacao):
         st.warning(aviso)
 
-    comparativo = ap.comparativo_avulsa(d, inst, base)
+    comparativo = ap.comparativo_avulsa(d, inst, base, acrescimo=forma.acrescimo)
     _resumo(ap.resumo_topo(d, comparativo, cotacao))
 
     st.markdown("#### Quanto você vai pagar")
@@ -497,8 +523,13 @@ def _resultado(r: dict, cotacao) -> None:
         col.metric(rot, usd)
         col.caption(brl)
     st.markdown(f"**Cota da Receita:** {ap.situacao_cota(d)}.")
+    st.markdown(ap.texto_pagamento(forma.nome, forma.acrescimo, d["resumo"]["custo_total"],
+                                   r["d"]["resumo"]["custo_total"], cotacao))
 
     st.markdown("#### Onde comprar")
+    if forma.acrescimo:
+        st.caption(f"Preços já com o acréscimo de {forma.rotulo.split('(+')[1].rstrip(')')} "
+                   f"por pagar com {forma.nome}.")
     itens = ap.tabela_itens(d, base, cotacao)
     if itens.empty:
         st.warning("Nenhum produto pôde ser comprado com estes dados.")
@@ -542,7 +573,7 @@ def main() -> None:
     st.caption("Seu guia de compras em Ciudad del Este: onde comprar cada produto, o caminho "
                "saindo e voltando à Ponte da Amizade e quanto você paga de imposto na Receita.")
 
-    modo, chegada, saida, orcamento, cotacao = _barra_lateral()
+    modo, chegada, saida, orcamento, cotacao, forma = _barra_lateral()
     if modo == MODO_BASE and _base().origem != "real":
         st.warning(ap.texto_origem(_base())[1])
     pedidos = _lista_de_compras(_opcoes(modo))
@@ -560,4 +591,4 @@ def main() -> None:
         if r["assinatura"] != assinatura:
             st.info("A lista ou os dados da viagem mudaram: clique em **Calcular meu roteiro** de novo.")
         else:
-            _resultado(r, r.get("cotacao") or cotacao)
+            _resultado(r, r.get("cotacao") or cotacao, forma)
