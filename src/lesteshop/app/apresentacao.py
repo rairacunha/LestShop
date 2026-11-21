@@ -175,53 +175,58 @@ def _imposto(gasto: float, inst: Instancia) -> float:
     return inst.aliquota * max(0.0, gasto - inst.cota)
 
 
-def comparativo_primeira_loja(d: dict, inst: Instancia) -> dict | None:
-    """Simula comprar tudo na 1ª loja do roteiro e compara com o roteiro sugerido
-    (decidido em 21/11/2026).
+LOJA_REFERENCIA = "CP-shopping-china"  # loja mais procurada pelos turistas (21/11/2026)
 
-    Itens que a 1ª loja não vende ficam de fora da comparação (e são listados). Os dois
-    cenários são comparados só nos itens que a 1ª loja vende; o imposto de cada cenário
-    é recalculado sobre o gasto desses itens (cota integral). ``None`` se o roteiro tem
-    menos de duas lojas (não há o que comparar)."""
-    if len(d["roteiro"]) < 2:
+
+def comparativo_avulsa(d: dict, inst: Instancia, base: BaseApp,
+                       loja_ref: str = LOJA_REFERENCIA) -> dict | None:
+    """Compra avulsa × roteiro do LesteShop (decidido em 21/11/2026).
+
+    Compra avulsa = o turista compra tudo na loja de referência (Shopping China); o que
+    ela não vende, ele paga pelo preço médio das lojas que vendem o item (média do menor
+    preço de cada loja). O imposto de cada cenário é calculado sobre o gasto total
+    (cota integral). Economia = (avulsa − roteiro) ÷ avulsa. ``None`` se nada foi comprado."""
+    comprados = [(p, c) for p in d["roteiro"] for c in p["compras"]]
+    if not comprados:
         return None
+    por_loja = base.ofertas.groupby(["produto_id", "loja_id"])["preco_usd"].min()
+    media = por_loja.groupby("produto_id").mean()
+    lojas = base.lojas.set_index("loja_id")
+    nome_ref = str(lojas.loc[loja_ref, "nome"]) if loja_ref in lojas.index else None
     no = {l.loja_id: i for i, l in enumerate(inst.lojas, start=1)}
     idx = {it.produto_id: k for k, it in enumerate(inst.itens)}
-    primeira = d["roteiro"][0]
-    i1 = no[primeira["loja_id"]]
-    linhas, faltam = [], []
-    g_rota = g_uma = 0.0
-    for p in d["roteiro"]:
-        for c in p["compras"]:
-            k = idx[c["produto_id"]]
-            q = inst.itens[k].quantidade
-            preco_rota = inst.preco[(no[p["loja_id"]], k)]
-            preco_uma = inst.preco.get((i1, k))
-            if preco_uma is None:
-                faltam.append(c["nome"])
-                linhas.append({"Item": c["nome"], "Qtd.": q, "Loja no roteiro": p["nome"],
-                               "No roteiro (US$)": fmt_usd(preco_rota * q),
-                               f"Só na {primeira['nome']} (US$)": "não vende", "Diferença (US$)": "—"})
-                continue
-            g_rota += preco_rota * q
-            g_uma += preco_uma * q
-            linhas.append({"Item": c["nome"], "Qtd.": q, "Loja no roteiro": p["nome"],
-                           "No roteiro (US$)": fmt_usd(preco_rota * q),
-                           f"Só na {primeira['nome']} (US$)": fmt_usd(preco_uma * q),
-                           "Diferença (US$)": fmt_usd((preco_uma - preco_rota) * q)})
-    ag = agenda([i1], inst)
+    linhas, na_media = [], []
+    g_rota = g_avulsa = 0.0
+    for p, c in comprados:
+        k = idx[c["produto_id"]]
+        q = inst.itens[k].quantidade
+        preco_rota = inst.preco[(no[p["loja_id"]], k)]
+        if nome_ref is not None and (c["produto_id"], loja_ref) in por_loja.index:
+            preco_av, onde = float(por_loja[(c["produto_id"], loja_ref)]), nome_ref
+        else:
+            preco_av, onde = float(media[c["produto_id"]]), "preço médio das lojas"
+            na_media.append(c["nome"])
+        g_rota += preco_rota * q
+        g_avulsa += preco_av * q
+        linhas.append({"Item": c["nome"], "Qtd.": q, "Roteiro: loja": p["nome"],
+                       "Roteiro (US$)": fmt_usd(preco_rota * q), "Avulsa: onde": onde,
+                       "Avulsa (US$)": fmt_usd(preco_av * q),
+                       "Diferença (US$)": fmt_usd((preco_av - preco_rota) * q)})
     custo_rota = g_rota + _imposto(g_rota, inst)
-    custo_uma = g_uma + _imposto(g_uma, inst)
+    custo_avulsa = g_avulsa + _imposto(g_avulsa, inst)
+    retorno_avulsa = None
+    if nome_ref is not None and not na_media and loja_ref in no:
+        retorno_avulsa = min_para_hhmm(agenda([no[loja_ref]], inst).retorno)
     return {
-        "loja": primeira["nome"],
+        "referencia": nome_ref or "preço médio das lojas",
         "tabela": pd.DataFrame(linhas),
-        "faltam": faltam,
-        "gasto_rota": g_rota, "gasto_uma": g_uma,
-        "custo_rota": custo_rota, "custo_uma": custo_uma,
-        "economia": custo_uma - custo_rota,
-        # Fórmula da dona do projeto (21/11/2026): (avulso − roteiro) / avulso.
-        "economia_pct": (custo_uma - custo_rota) / custo_uma if custo_uma > 0 else 0.0,
-        "retorno_rota": d["horario_retorno"], "retorno_uma": min_para_hhmm(ag.retorno),
+        "na_media": na_media,
+        "gasto_rota": g_rota, "gasto_avulsa": g_avulsa,
+        "custo_rota": custo_rota, "custo_avulsa": custo_avulsa,
+        "economia": custo_avulsa - custo_rota,
+        # Fórmula da dona do projeto (21/11/2026): (avulsa − roteiro) / avulsa.
+        "economia_pct": (custo_avulsa - custo_rota) / custo_avulsa if custo_avulsa > 0 else 0.0,
+        "retorno_rota": d["horario_retorno"], "retorno_avulsa": retorno_avulsa,
         "lojas_rota": len(d["roteiro"]),
     }
 

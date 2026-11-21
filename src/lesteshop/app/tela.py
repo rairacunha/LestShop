@@ -352,26 +352,27 @@ def _valor(usd: float, cotacao) -> str:
 
 
 def _comparativo(c: dict | None, cotacao) -> None:
-    """E se o turista comprasse tudo na 1ª loja do roteiro?"""
+    """Compra avulsa (Shopping China) × roteiro do LesteShop."""
     if c is None:
         return
-    st.markdown(f"#### Comparativo: e se comprasse tudo na {c['loja']}?")
-    if c["faltam"]:
-        st.info(f"A {c['loja']} não vende: {', '.join(c['faltam'])}. A comparação considera só "
-                "os outros itens.")
-    if c["gasto_uma"] == 0:
-        st.caption("A primeira loja não vende nenhum dos outros itens: não há o que comparar.")
-        return
+    st.markdown(f"#### Comparativo: compra avulsa no {c['referencia']} × roteiro do LesteShop")
+    if c["na_media"]:
+        st.info(f"O {c['referencia']} não vende: {', '.join(c['na_media'])}. Na compra avulsa, "
+                "esses itens entram pelo preço médio das lojas.")
     c1, c2, c3 = st.columns(3)
-    c1.metric(f"Compra avulsa: tudo na {c['loja']}", _valor(c["custo_uma"], cotacao))
-    c1.caption(f"{ap.fmt_usd(c['custo_uma'])} · volta à Ponte às {c['retorno_uma']}")
-    c2.metric(f"Roteiro do LesteShop ({c['lojas_rota']} lojas)", _valor(c["custo_rota"], cotacao))
+    c1.metric(f"Compra avulsa ({c['referencia']})", _valor(c["custo_avulsa"], cotacao))
+    volta = f" · volta à Ponte às {c['retorno_avulsa']}" if c["retorno_avulsa"] else ""
+    c1.caption(f"{ap.fmt_usd(c['custo_avulsa'])}{volta}")
+    c2.metric(f"Roteiro do LesteShop ({c['lojas_rota']} loja{'s' if c['lojas_rota'] > 1 else ''})",
+              _valor(c["custo_rota"], cotacao))
     c2.caption(f"{ap.fmt_usd(c['custo_rota'])} · volta à Ponte às {c['retorno_rota']}")
-    c3.metric("Economia com o LesteShop", _valor(max(c["economia"], 0.0), cotacao),
-              delta=ap.fmt_pct(c["economia_pct"]) if c["economia"] > 0.005 else None)
-    c3.caption("Economia = (avulsa − roteiro) ÷ avulsa." if c["economia"] > 0.005
-               else "Comprar tudo na primeira loja não sairia mais caro.")
-    st.caption("Valores com imposto, só dos itens que a primeira loja vende.")
+    if c["economia"] > 0.005:
+        c3.metric("Economia com o LesteShop", _valor(c["economia"], cotacao), delta=ap.fmt_pct(c["economia_pct"]))
+        c3.caption("Economia = (avulsa − roteiro) ÷ avulsa.")
+    else:
+        c3.metric("Economia com o LesteShop", _valor(0.0, cotacao))
+        c3.caption("A compra avulsa não sairia mais cara nesta lista.")
+    st.caption("Valores com imposto (cota de US$ 500 por pessoa).")
     with st.expander("Preço de cada item nos dois cenários"):
         st.dataframe(c["tabela"], hide_index=True, width="stretch")
 
@@ -412,7 +413,7 @@ def _resultado(r: dict, cotacao) -> None:
                "pela abertura e o tempo em cada loja.")
     st.dataframe(ap.tabela_roteiro(d), hide_index=True, width="stretch")
 
-    _comparativo(ap.comparativo_primeira_loja(d, inst), cotacao)
+    _comparativo(ap.comparativo_avulsa(d, inst, base), cotacao)
 
     fora = ap.tabela_fora(d, inst, orcamento_limita=False)
     if not fora.empty:

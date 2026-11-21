@@ -167,11 +167,15 @@ para os itens que o turista escolhe**, na hora de calcular. Substitui a coleta e
   catálogo curado e nos produtos já guardados; se não achar, procura no Compras Paraguai
   (1 página, cache de 6 h) e mostra os modelos encontrados. Todo item consultado no site
   é gravado na base guardada (`data/coletas/<data>/`), que cresce com o uso.
-* **Comparativo (21/11/2026):** depois do roteiro, o app simula comprar tudo na 1ª loja
-  do roteiro: preço de cada item nos dois cenários, itens que a 1ª loja não vende (fora da
-  comparação), custo com imposto, economia do roteiro e hora de volta à Ponte
-  (`apresentacao.comparativo_primeira_loja`). Economia (fórmula da dona do projeto):
-  (custo avulso − custo do roteiro) ÷ custo avulso, mostrada em R$ e em %.
+* **Comparativo (21/11/2026):** depois do roteiro, o app compara a **compra avulsa** com o
+  roteiro do LesteShop. Compra avulsa = tudo no **Shopping China** (a loja mais procurada);
+  o que ele não vende entra pelo **preço médio das lojas** que vendem o item. Imposto
+  calculado em cada cenário (cota integral). Economia (fórmula da dona do projeto):
+  (custo avulso − custo do roteiro) ÷ custo avulso, em R$ e em %
+  (`apresentacao.comparativo_avulsa`; loja de referência em `LOJA_REFERENCIA`). Na base
+  fictícia (sem Shopping China), a referência é só o preço médio. Substitui a primeira
+  versão, que comparava com a 1ª loja do roteiro (referência fraca: essa loja já é barata
+  nos itens dela e não vendia vários itens).
 * **Versão web (21/11/2026):** publicada no Streamlit Community Cloud (arquivo principal
   `app.py`, que põe `src/` no caminho de importação). Num servidor sem tela, a consulta
   ao vivo fica escondida e o app usa a base guardada (`tela.tem_tela()`;

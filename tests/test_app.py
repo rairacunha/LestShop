@@ -265,24 +265,22 @@ def test_orcamento_so_referencia_todos_os_itens_entram(base_ficticia):
 
 
 
-def test_comparativo_tudo_na_primeira_loja(base_ficticia):
-    ids = _ids(base_ficticia, 6)
+def test_comparativo_avulsa_shopping_china(base_ficticia):
+    ids = _ids(base_ficticia, 5)
     itens = [ItemPedido(p) for p in ids]
     inst = montar_pedido(base_ficticia, itens, "07:00", "16:00", teto_sem_limite(base_ficticia, itens))
     d = descrever(resolver(inst)[0], inst)
-    assert len(d["roteiro"]) >= 2
-    c = ap.comparativo_primeira_loja(d, inst)
-    assert c["loja"] == d["roteiro"][0]["nome"]
-    # Economia = custo só na 1ª loja − custo no roteiro (o modelo também pesa a caminhada,
-    # então a diferença pode, em tese, ser negativa).
-    assert c["economia"] == pytest.approx(c["custo_uma"] - c["custo_rota"])
-    assert len(c["tabela"]) == d["resumo"]["itens_comprados"]
-    assert all(n in set(c["tabela"]["Item"]) for n in c["faltam"])
-    assert c["economia_pct"] == pytest.approx(c["economia"] / c["custo_uma"])
-    assert c["retorno_uma"] <= c["retorno_rota"]  # uma loja só: volta mais cedo
-    # Roteiro com uma loja só: nada a comparar.
-    um = {**d, "roteiro": d["roteiro"][:1]}
-    assert ap.comparativo_primeira_loja(um, inst) is None
+    # Base fictícia não tem o Shopping China: tudo pelo preço médio das lojas.
+    c = ap.comparativo_avulsa(d, inst, base_ficticia)
+    assert c["referencia"] == "preço médio das lojas" and len(c["na_media"]) == len(c["tabela"])
+    assert c["custo_rota"] == pytest.approx(d["resumo"]["custo_total"])
+    assert c["economia_pct"] == pytest.approx(c["economia"] / c["custo_avulsa"])
+    # Com uma loja de referência (a primeira do roteiro), os itens dela usam o preço dela.
+    ref = d["roteiro"][0]["loja_id"]
+    c2 = ap.comparativo_avulsa(d, inst, base_ficticia, loja_ref=ref)
+    nome_ref = d["roteiro"][0]["nome"]
+    assert c2["referencia"] == nome_ref
+    assert (c2["tabela"]["Avulsa: onde"] == nome_ref).sum() >= len(d["roteiro"][0]["compras"])
 
 
 def test_versao_web_esconde_a_consulta_ao_vivo(monkeypatch):
