@@ -170,7 +170,12 @@ para os itens que o turista escolhe**, na hora de calcular. Substitui a coleta e
 * **Comparativo (21/11/2026):** depois do roteiro, o app simula comprar tudo na 1ª loja
   do roteiro: preço de cada item nos dois cenários, itens que a 1ª loja não vende (fora da
   comparação), custo com imposto, economia do roteiro e hora de volta à Ponte
-  (`apresentacao.comparativo_primeira_loja`).
+  (`apresentacao.comparativo_primeira_loja`). Economia (fórmula da dona do projeto):
+  (custo avulso − custo do roteiro) ÷ custo avulso, mostrada em R$ e em %.
+* **Versão web (21/11/2026):** publicada no Streamlit Community Cloud (arquivo principal
+  `app.py`, que põe `src/` no caminho de importação). Num servidor sem tela, a consulta
+  ao vivo fica escondida e o app usa a base guardada (`tela.tem_tela()`;
+  `LESTESHOP_CONSULTA=0/1` força a escolha).
 * **Roteiro:** sai da Ponte da Amizade e volta a ela; o título "Roteiro a pé" virou
   "Roteiro". O **mapa** do roteiro fica para a Fase 5 (design).
 * **Cotação (20/11/2026):** o R$ usa a cotação do próprio Compras Paraguai, tirada das

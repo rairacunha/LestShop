@@ -278,7 +278,23 @@ def test_comparativo_tudo_na_primeira_loja(base_ficticia):
     assert c["economia"] == pytest.approx(c["custo_uma"] - c["custo_rota"])
     assert len(c["tabela"]) == d["resumo"]["itens_comprados"]
     assert all(n in set(c["tabela"]["Item"]) for n in c["faltam"])
+    assert c["economia_pct"] == pytest.approx(c["economia"] / c["custo_uma"])
     assert c["retorno_uma"] <= c["retorno_rota"]  # uma loja só: volta mais cedo
     # Roteiro com uma loja só: nada a comparar.
     um = {**d, "roteiro": d["roteiro"][:1]}
     assert ap.comparativo_primeira_loja(um, inst) is None
+
+
+def test_versao_web_esconde_a_consulta_ao_vivo(monkeypatch):
+    from lesteshop.app import tela
+
+    monkeypatch.delenv("LESTESHOP_CONSULTA", raising=False)
+    monkeypatch.setattr(tela.sys, "platform", "linux")
+    monkeypatch.delenv("DISPLAY", raising=False)
+    monkeypatch.delenv("WAYLAND_DISPLAY", raising=False)
+    assert not tela.tem_tela()          # servidor (Streamlit Cloud, Codespaces)
+    monkeypatch.setattr(tela.sys, "platform", "win32")
+    assert tela.tem_tela()              # notebook com Windows
+    monkeypatch.setenv("LESTESHOP_CONSULTA", "0")
+    assert not tela.tem_tela()
+    assert ap.fmt_pct(0.1234) == "12,3%"

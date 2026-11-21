@@ -187,6 +187,7 @@ def test_tela_consulta_ao_vivo(cache, tmp_path, monkeypatch):
         dir_coletas=tmp_path / "coletas"))
     monkeypatch.setattr(busca, "criar_cliente_navegador", ClienteFalso)
     monkeypatch.setattr(base_app, "cotacao_para_exibir", lambda *a, **k: None)
+    monkeypatch.setenv("LESTESHOP_CONSULTA", "1")  # simula um computador com tela
     monkeypatch.setattr("lesteshop.app.tela.carregar_catalogo_app", lambda: [PERFUME])
     from lesteshop.app import tela
     tela._catalogo.clear()  # o Streamlit guarda o catálogo entre execuções
@@ -237,6 +238,7 @@ def test_tela_produto_fora_da_base_e_procurado_no_site(monkeypatch):
     from lesteshop.app import tela
 
     monkeypatch.setattr(base_app, "cotacao_para_exibir", lambda *a, **k: None)
+    monkeypatch.setenv("LESTESHOP_CONSULTA", "1")  # simula um computador com tela
     monkeypatch.setattr(busca, "buscar_no_site", lambda texto, criar: [
         {"nome": "Antena Starlink Mini Kit", "url": "https://www.comprasparaguai.com.br/antena-starlink-mini_61234/",
          "modelo_id": "61234"}])

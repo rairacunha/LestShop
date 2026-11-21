@@ -219,6 +219,12 @@ def comparativo_primeira_loja(d: dict, inst: Instancia) -> dict | None:
         "gasto_rota": g_rota, "gasto_uma": g_uma,
         "custo_rota": custo_rota, "custo_uma": custo_uma,
         "economia": custo_uma - custo_rota,
+        # Fórmula da dona do projeto (21/11/2026): (avulso − roteiro) / avulso.
+        "economia_pct": (custo_uma - custo_rota) / custo_uma if custo_uma > 0 else 0.0,
         "retorno_rota": d["horario_retorno"], "retorno_uma": min_para_hhmm(ag.retorno),
         "lojas_rota": len(d["roteiro"]),
     }
+
+
+def fmt_pct(valor: float) -> str:
+    return f"{valor * 100:.1f}%".replace(".", ",")

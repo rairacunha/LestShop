@@ -19,6 +19,8 @@ Fontes dos preços:
 from __future__ import annotations
 
 import datetime as dt
+import os
+import sys
 
 import pandas as pd
 import streamlit as st
@@ -40,6 +42,18 @@ from .pedido import ErroPedido, ItemPedido, montar_pedido, teto_sem_limite, vali
 LEGENDA_PRIORIDADE = {1: "1 · tanto faz", 2: "2 · pouco", 3: "3 · médio", 4: "4 · muito", 5: "5 · essencial"}
 MODO_CONSULTA = "Consulta ao Compras Paraguai"
 MODO_BASE = "Base guardada"
+
+
+def tem_tela() -> bool:
+    """False num servidor sem tela (Streamlit Community Cloud, Codespaces): lá não há como
+    abrir o navegador para a verificação anti-robô, então a consulta ao vivo é escondida.
+    ``LESTESHOP_CONSULTA=0/1`` força a escolha."""
+    forcado = os.environ.get("LESTESHOP_CONSULTA")
+    if forcado in ("0", "1"):
+        return forcado == "1"
+    if sys.platform.startswith("linux"):
+        return bool(os.environ.get("DISPLAY") or os.environ.get("WAYLAND_DISPLAY"))
+    return True  # Windows e Mac
 
 
 def _assinatura_coletas() -> tuple:
@@ -146,8 +160,12 @@ def _cotacao_para(modo: str):
 def _barra_lateral() -> tuple:
     with st.sidebar:
         st.header("Fonte dos preços")
-        modo = st.radio("Fonte dos preços", [MODO_CONSULTA, MODO_BASE], key="modo",
+        modos = [MODO_CONSULTA, MODO_BASE] if tem_tela() else [MODO_BASE]
+        modo = st.radio("Fonte dos preços", modos, key="modo",
                         label_visibility="collapsed", on_change=_limpar_lista)
+        if not tem_tela():
+            st.caption("Versão web: usa os preços já coletados no Compras Paraguai. A consulta "
+                       "ao vivo funciona só no computador (precisa da verificação de humano).")
         cotacao = _cotacao_para(modo)
         if modo == MODO_CONSULTA:
             st.info("Ao calcular, o app consulta no Compras Paraguai **só os itens da sua lista** "
@@ -228,7 +246,7 @@ def _buscar_no_site(texto: str) -> None:
 
 def _lista_de_compras(opcoes: dict[str, str]) -> list[tuple[str, int, int]]:
     st.subheader("1. Lista de compras")
-    consulta = st.session_state.get("modo", MODO_CONSULTA) == MODO_CONSULTA
+    consulta = st.session_state.get("modo") == MODO_CONSULTA
     texto = st.text_input("Buscar produto", key="busca_produto",
                           placeholder="Digite palavras do nome (em qualquer ordem) e aperte Enter. Ex.: iphone 17")
     if texto.strip():
@@ -327,6 +345,12 @@ def _matriz(res) -> pd.DataFrame:
     return larga.map(lambda v: "" if pd.isna(v) else ap.fmt_usd(v))
 
 
+def _valor(usd: float, cotacao) -> str:
+    """Em R$ (cotação do site), ou em US$ se não houver cotação."""
+    brl = ap.em_brl(usd, cotacao)
+    return ap.fmt_brl(brl) if brl is not None else ap.fmt_usd(usd)
+
+
 def _comparativo(c: dict | None, cotacao) -> None:
     """E se o turista comprasse tudo na 1ª loja do roteiro?"""
     if c is None:
@@ -339,16 +363,14 @@ def _comparativo(c: dict | None, cotacao) -> None:
         st.caption("A primeira loja não vende nenhum dos outros itens: não há o que comparar.")
         return
     c1, c2, c3 = st.columns(3)
-    c1.metric(f"Roteiro sugerido ({c['lojas_rota']} lojas)", ap.fmt_usd(c["custo_rota"]))
-    c1.caption(f"{ap.fmt_brl(ap.em_brl(c['custo_rota'], cotacao))} · volta à Ponte às {c['retorno_rota']}")
-    c2.metric(f"Tudo na {c['loja']}", ap.fmt_usd(c["custo_uma"]))
-    c2.caption(f"{ap.fmt_brl(ap.em_brl(c['custo_uma'], cotacao))} · volta à Ponte às {c['retorno_uma']}")
-    if c["economia"] > 0.005:
-        c3.metric("Economia com o roteiro", ap.fmt_usd(c["economia"]))
-        c3.caption(f"{ap.fmt_brl(ap.em_brl(c['economia'], cotacao))} a menos, com produtos e imposto")
-    else:
-        c3.metric("Economia com o roteiro", ap.fmt_usd(0))
-        c3.caption("Comprar tudo na primeira loja não sairia mais caro.")
+    c1.metric(f"Compra avulsa: tudo na {c['loja']}", _valor(c["custo_uma"], cotacao))
+    c1.caption(f"{ap.fmt_usd(c['custo_uma'])} · volta à Ponte às {c['retorno_uma']}")
+    c2.metric(f"Roteiro do LesteShop ({c['lojas_rota']} lojas)", _valor(c["custo_rota"], cotacao))
+    c2.caption(f"{ap.fmt_usd(c['custo_rota'])} · volta à Ponte às {c['retorno_rota']}")
+    c3.metric("Economia com o LesteShop", _valor(max(c["economia"], 0.0), cotacao),
+              delta=ap.fmt_pct(c["economia_pct"]) if c["economia"] > 0.005 else None)
+    c3.caption("Economia = (avulsa − roteiro) ÷ avulsa." if c["economia"] > 0.005
+               else "Comprar tudo na primeira loja não sairia mais caro.")
     st.caption("Valores com imposto, só dos itens que a primeira loja vende.")
     with st.expander("Preço de cada item nos dois cenários"):
         st.dataframe(c["tabela"], hide_index=True, width="stretch")
