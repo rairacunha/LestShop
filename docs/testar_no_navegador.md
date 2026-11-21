@@ -1,15 +1,32 @@
-# Testar a Fase 1 pelo navegador (GitHub Codespaces)
+# Testar pelo navegador (GitHub Codespaces)
 
 O Codespaces abre este repositório num computador na nuvem, com Python e as
 dependências já instalados. Os testes rodam sozinhos na primeira abertura.
+
+## Abrir o aplicativo (Fase 4)
+
+No terminal do Codespaces:
+
+```bash
+streamlit run app.py
+```
+
+O Codespaces abre o app numa aba nova (porta 8501; se não abrir, veja a aba **Ports** e
+clique no globo da porta 8501). Para testar: escolha produtos na busca, ajuste
+quantidade e prioridade, informe os horários na barra lateral e clique em
+**Calcular roteiro**. No Codespaces, escolha **Base guardada** na barra lateral: a consulta ao Compras Paraguai precisa de um computador com tela, para a verificação de humano (veja o README). Para parar o app,
+volte ao terminal e aperte `Ctrl+C`.
+
+Se o Codespaces foi criado antes desta versão, instale o Streamlit uma vez com
+`pip install -e '.[dev,app]'`.
 
 Abra o terminal (menu ☰ → Terminal → New Terminal) e rode:
 
 | Critério de aceite | Comando | Esperado |
 |---|---|---|
-| Testes | `pytest` | `76 passed, 4 skipped` (os testes do navegador e das páginas reais são pulados aqui) |
+| Testes | `pytest` | cerca de 300 testes passando, 1 pulado (o do navegador, sem tela no Codespaces) |
 | Gerador | `python -m lesteshop.data.generator --size pequena --seed 42` | instância em `data/instances/pequena_seed42/` |
-| Resumo e validação | `python -m lesteshop.data.resumo --recriar` | 8 lojas, 18 produtos, 72 ofertas, "Validação: OK"; CSVs em `data/export/` |
+| Resumo e validação | `python -m lesteshop.data.resumo --recriar` | lojas, produtos e ofertas da base (coletas reais de `data/coletas/`), "Validação: OK"; CSVs em `data/export/` |
 | Consulta | `python -m lesteshop.data.database --vendem "playstation 5 pro"` | lojas da mais barata para a mais cara |
 
 Para ver os arquivos gerados, abra `data/export/` ou `data/instances/` no explorador

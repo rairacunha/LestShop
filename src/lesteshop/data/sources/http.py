@@ -46,8 +46,13 @@ class ClienteHTTP:
         relogio=time.monotonic,
         hoje: dt.date | None = None,
         timeout: float = 30.0,
+        cache_paginas: bool = True,
     ):
         self.dir_cache = Path(dir_cache)
+        # False: não lê nem grava o cache diário de páginas (a consulta sob demanda
+        # do app tem o próprio cache, com validade em horas). O robots.txt continua
+        # guardado por dia.
+        self.cache_paginas = cache_paginas
         self.intervalo = intervalo
         self.user_agent = user_agent
         self.sessao = sessao or requests.Session()
@@ -111,7 +116,7 @@ class ClienteHTTP:
 
     def get_bytes(self, url: str) -> bytes:
         cache = self._arquivo_cache(url)
-        if cache.exists():
+        if self.cache_paginas and cache.exists():
             return cache.read_bytes()
         rp = self._robots_de(url)
         intervalo = self.intervalo
@@ -124,8 +129,9 @@ class ClienteHTTP:
         resp = self._baixar(url, intervalo)
         if resp.status_code != 200:
             raise ErroColeta(f"O site respondeu HTTP {resp.status_code} para {url}.")
-        cache.parent.mkdir(parents=True, exist_ok=True)
-        cache.write_bytes(resp.content)
+        if self.cache_paginas:
+            cache.parent.mkdir(parents=True, exist_ok=True)
+            cache.write_bytes(resp.content)
         log.info("Baixado: %s", url)
         return resp.content
 

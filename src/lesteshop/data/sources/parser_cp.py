@@ -99,7 +99,14 @@ def _json_ld(sopa: BeautifulSoup) -> list[dict]:
 def parse_busca(html: str) -> list[dict]:
     """Lista de modelos: ``nome``, ``url``, ``modelo_id``, ``preco_a_partir_usd``."""
     sopa = _sopa(html)
+    # O site real traz, além dos resultados, um painel de autocompletar com os
+    # produtos "mais buscados" (links de modelo que não têm nada a ver com a busca).
+    for t in sopa.select("#autocomplete-panel, .autocomplete-panel"):
+        t.decompose()
     principal = _conteudo_principal(sopa)
+    resultados = principal.select_one(".container-resultados-busca, .resultados-busca")
+    if resultados is not None:
+        principal = resultados
     modelos: dict[str, dict] = {}
     for a in principal.find_all("a", href=True):
         caminho = _caminho(a["href"])
@@ -122,7 +129,9 @@ def parse_busca(html: str) -> list[dict]:
             if cartao is not None:
                 item["preco_a_partir_usd"] = parse_preco(RE_USD.search(_texto(cartao)).group(1))
     if not modelos:
-        if RE_SEM_RESULTADO.search(_texto(principal)):
+        # Lista de resultados encontrada, mas só com ofertas avulsas de lojas (links
+        # /<slug>__<id>/), sem página de modelo: o termo é pulado, sem parar a coleta.
+        if resultados is not None or RE_SEM_RESULTADO.search(_texto(principal)):
             return []
         raise ErroEstruturaHTML(
             "Página de busca do Compras Paraguai sem nenhum link de modelo (/<slug>_<id>/) "
@@ -385,13 +394,32 @@ def _extrair_horario(principal: Tag) -> tuple[str | None, str | None]:
     return f"{int(h1):02d}:{m1}", f"{int(h2):02d}:{m2}"
 
 
+_TIPOS_LOJA_LD = ("Store", "LocalBusiness", "ElectronicsStore", "DepartmentStore")
+_RE_HORARIO_LD = re.compile(r"^Mo(?:-(?:Fr|Sa|Su))?\s+(\d{2}):(\d{2})-(\d{2}):(\d{2})$")
+
+
+def _horario_ld(loja: dict) -> tuple[str | None, str | None]:
+    """Horário dos dias úteis do JSON-LD (``openingHours``: "Mo-Fr 06:30-17:00")."""
+    horas = loja.get("openingHours")
+    for item in [horas] if isinstance(horas, str) else (horas or []):
+        m = _RE_HORARIO_LD.match(str(item).strip())
+        if m:
+            return f"{m.group(1)}:{m.group(2)}", f"{m.group(3)}:{m.group(4)}"
+    return None, None
+
+
 def parse_loja(html: str, slug: str) -> dict:
     """Nome, cidade, endereço, latitude/longitude (se houver mapa) e horário."""
     sopa = _sopa(html)
     ld = _json_ld(sopa)
+    # O site real põe o nome num <h1> dentro de um <header> da própria página (que
+    # _conteudo_principal descarta) e traz os dados da loja em JSON-LD do tipo Store.
+    loja_ld = next((i for i in ld if i.get("@type") in _TIPOS_LOJA_LD), None)
+    ld = [loja_ld] if loja_ld is not None else ld
+    h1 = sopa.find("h1")
+    nome = (loja_ld or {}).get("name") or (_texto(h1) if h1 is not None else "")
     principal = _conteudo_principal(sopa)
-    h1 = principal.find("h1")
-    if h1 is None or not _texto(h1):
+    if not str(nome).strip():
         raise ErroEstruturaHTML(
             f"Página da loja '{slug}' sem título <h1>. O HTML do Compras Paraguai provavelmente "
             "mudou; revise lesteshop/data/sources/parser_cp.py."
@@ -406,10 +434,12 @@ def parse_loja(html: str, slug: str) -> dict:
         cidade = cidades_pag[0]
     else:
         cidade = None
-    abre, fecha = _extrair_horario(principal)
+    abre, fecha = _horario_ld(loja_ld) if loja_ld is not None else (None, None)
+    if abre is None:
+        abre, fecha = _extrair_horario(principal)
     return {
         "slug": slug,
-        "nome": _texto(h1),
+        "nome": re.sub(r"\s+", " ", str(nome)).strip(),
         "cidade": cidade,
         "endereco": endereco,
         "latitude": lat,

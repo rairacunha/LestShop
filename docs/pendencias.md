@@ -91,32 +91,159 @@ não mudou.
 * **Cota adicional de loja franca de fronteira (Foz do Iguaçu).** Não se aplica às lojas
   de Ciudad del Este; só faria sentido se o app passasse a incluir lojas do lado brasileiro.
 
-## Fase 4 — Aplicativo
+## Fase 4 — Aplicativo — concluída (21/11/2026)
 
 Escopo decidido em 18/11/2026 (detalhes em [`handoff_fase4.md`](handoff_fase4.md),
 seção 8): Streamlit; coleta real no computador da dona do projeto, com horário comercial
 padrão para as lojas e coordenadas à mão; base fictícia identificada enquanto não houver
 a real; data da viagem não é perguntada; mapa e alteração manual ficam para melhorias.
 
-* Exibir na tela o bloco `fiscal` (uso de cada limite, alertas, imposto sem cota,
-  declaração e-DBV) e o texto da premissa da cota integral.
+### Etapa 1 — primeira versão do app (implementada em 18/11/2026)
 
-* **Coleta no aparelho do usuário.** Como o site exige verificação humana, um servidor não
-  consegue coletar sozinho. No app, as páginas teriam de ser carregadas no próprio
-  celular/computador do turista (que resolve a verificação), ou o app usaria só a base já
-  coletada. Decidir a arquitetura nesta fase.
+Decisões aprovadas: autocompletar com a lista do Streamlit (só produtos da base), uma
+página com barra lateral, orçamento em US$ com o R$ ao lado. Implementado em
+`src/lesteshop/app/` e `app.py`, testes em `tests/test_app.py`. Usa só a coleta mais
+recente de cada (loja, produto) e avisa ofertas com mais de 30 dias.
 
-* Lista suspensa de autocompletar usando `catalogo.sugerir_modelos()` (já pronta e testada).
-* Telas de lista de compras, resultado (itens, lojas, roteiro, gasto, situação da cota).
-* Exibição em R$ via `cotacao.obter_cotacao()` / `usd_para_brl()`.
-* Tela de resultado a partir de `otimizacao.solucao.descrever()` (JSON pronto com itens,
-  roteiro, gasto, imposto, situação da cota, bagagem e avisos).
+### Etapa 2 — conferência do leitor de páginas (18/11/2026)
+
+Páginas reais salvas no computador da dona do projeto (`salvar_fixtures --navegador`) e
+guardadas em `tests/fixtures/reais/`. Corrigidos: a busca (lia o painel de "mais
+buscados") e a página de loja (nome, endereço, coordenadas e horário agora vêm do JSON-LD
+`Store` do site); o detector de verificação anti-robô (confundia o script de detecção do
+Cloudflare, presente em páginas normais, com a verificação).
+
+**Decisões (18/11/2026):**
+
+* **Horário das lojas:** usar o horário de segunda a sexta que o site informa para cada
+  loja; quando a loja não informa, vale o padrão comercial **07:00–16:00** (mantido;
+  conferido com 8 lojas reais: abrem entre 06:00 e 07:30, a maioria fecha às 16:00). Esta
+  decisão substitui a da seção 8.2 do handoff ("não coletado loja a loja"), tomada antes de
+  se saber que o site traz o horário. O site informa os horários no horário de Brasília.
+* **Coordenadas:** vêm do site (as 10 lojas conferidas tinham); `lojas_complemento.csv`
+  fica só para lojas sem coordenada ou com coordenada errada.
+
+* **Autorização do Compras Paraguai:** o primeiro e-mail não teve resposta até 18/11/2026;
+  um segundo e-mail será enviado. Decidido seguir com a coleta mesmo sem resposta, em
+  escala pequena e uma única vez, com as regras de boa conduta do LesteShop: robots.txt
+  respeitado, 1 acesso a cada 10 s, identificação do projeto acadêmico em cada acesso,
+  sem contornar a verificação anti-robô e só a lista de produtos combinada. Se o site
+  pedir para não coletar, a coleta para e os dados coletados não são usados.
+
+### Etapa 3 — consulta sob demanda (decidido e implementado em 20/11/2026)
+
+Decisão da dona do projeto: em vez de uma coleta completa, o app consulta o site **só
+para os itens que o turista escolhe**, na hora de calcular. Substitui a coleta em lote
+(e a linha "coleta no aparelho do usuário: fora da Fase 4" da seção 8.3 do handoff).
+
+* **Catálogo curado** `data/catalogo_app.json` (28 produtos populares, termo de busca
+  limpo, categoria e, quando conhecida, a página do modelo no site) popula o menu.
+* **Pacote `src/lesteshop/consulta/`**, separado da otimização: `catalogo.py`,
+  `cache.py` (SQLite `data/cache/consulta.db`, validade de **6 h** por item) e
+  `busca.py` (consulta só os itens da lista; matriz Produto × Loja × Preço em US$; base
+  para o app). As páginas de loja (endereço, coordenadas, horário) têm cache permanente
+  em `data/cache/lojas/`.
+* **Tráfego:** intervalo mínimo de **1,5 s** entre requisições (ou o Crawl-delay do
+  robots.txt, se maior), robots.txt respeitado, projeto identificado, sem contornar a
+  verificação anti-robô. A coleta em lote (`coletar`) continua com 10 s.
+* **Rota:** a matriz vai para o modelo da Fase 2 **sem mudanças** (agrupa as compras em
+  poucas lojas próximas e pesa custo total, imposto e caminhada, com r = US$ 0,25/min).
+* **Onde roda:** a consulta precisa de um computador com tela (o Chromium abre e a
+  pessoa resolve a verificação, se o site pedir). No Codespaces, usar a "Base guardada".
+* A "Base guardada" (SQLite: coletas salvas ou a base fictícia) continua como segunda
+  opção na tela.
+* **Busca de produtos (20/11/2026):** o menu suspenso do Streamlit foi trocado por uma
+  caixa de busca (palavras em qualquer ordem, sem acento, início de palavra; usa o
+  `IndiceCatalogo` da Fase 1), com até 8 resultados e um botão "Adicionar" em cada.
+  O menu exigia as palavras na ordem do nome.
+* **Orçamento só como referência (20/11/2026):** no app, todos os itens entram no roteiro,
+  mesmo passando do orçamento ou da cota; o app avisa quanto o custo total passa do
+  orçamento e calcula o imposto. O modelo da Fase 2 não mudou: o app passa como B o custo
+  da cesta mais cara possível (`pedido.teto_sem_limite`), então comprar um item sempre
+  melhora o objetivo; um item só fica de fora se não houver tempo para passar na loja, e
+  aí a prioridade decide. Substitui, no app, a regra "sem orçamento, B = cota" da Fase 2
+  (os experimentos da Fase 2 continuam com a regra original).
+* **Produto fora da base (20/11/2026):** no modo Consulta, a busca procura primeiro no
+  catálogo curado e nos produtos já guardados; se não achar, procura no Compras Paraguai
+  (1 página, cache de 6 h) e mostra os modelos encontrados. Todo item consultado no site
+  é gravado na base guardada (`data/coletas/<data>/`), que cresce com o uso.
+* **Comparativo (21/11/2026):** depois do roteiro, o app compara a **compra avulsa** com o
+  roteiro do LesteShop. Compra avulsa = tudo no **Shopping China** (a loja mais procurada);
+  o que ele não vende entra pelo **preço médio das lojas** que vendem o item. Imposto
+  calculado em cada cenário (cota integral). Economia (fórmula da dona do projeto):
+  (custo avulso − custo do roteiro) ÷ custo avulso, em R$ e em %
+  (`apresentacao.comparativo_avulsa`; loja de referência em `LOJA_REFERENCIA`). Na base
+  fictícia (sem Shopping China), a referência é só o preço médio. Substitui a primeira
+  versão, que comparava com a 1ª loja do roteiro (referência fraca: essa loja já é barata
+  nos itens dela e não vendia vários itens).
+* **Versão web (21/11/2026):** publicada no Streamlit Community Cloud (arquivo principal
+  `app.py`, que põe `src/` no caminho de importação). Num servidor sem tela, a consulta
+  ao vivo fica escondida e o app usa a base guardada (`tela.tem_tela()`;
+  `LESTESHOP_CONSULTA=0/1` força a escolha).
+* **Roteiro:** sai da Ponte da Amizade e volta a ela; o título "Roteiro a pé" virou
+  "Roteiro". O **mapa** do roteiro fica para a Fase 5 (design).
+* **Cotação (20/11/2026):** o R$ usa a cotação do próprio Compras Paraguai, tirada das
+  ofertas (mediana de preço em R$ ÷ preço em US$; na coleta de 20/11/2026, R$ 5,95), sem
+  acesso extra ao site. Sem ofertas reais, a PTAX; com preços reais, nunca a cotação
+  fictícia de teste (sem cotação, só US$).
+* **Preço atípico (20/11/2026):** na coleta real, lojas cadastraram outros produtos na
+  página de um modelo (fones de US$ 9 e um celular Hotwav na página do iPad). Oferta com
+  preço menor que a metade da mediana do mesmo produto (com 3 ofertas ou mais) é
+  descartada, com aviso na tela (`app.base.descartar_precos_atipicos`, usada na base
+  guardada e na consulta).
+* **Coleta real de 20/11/2026** (`data/coletas/2026-11-20/`): 12 produtos (celulares,
+  games, informática), 55 lojas, todas com coordenadas, 38 com horário. O termo
+  "xbox series s" trouxe o controle do Xbox, não o console (no catálogo curado, o
+  console tem a página do modelo).
+
+### Encerramento da Fase 4 (21/11/2026)
+
+Entregue: app Streamlit (no computador, no Codespaces e na web, no Streamlit Community
+Cloud), consulta sob demanda com cache, base guardada que cresce com coletas e
+consultas, coleta real de 20/11/2026, comparativo com a compra avulsa e bloco fiscal
+completo. Resumo e decisões em [`handoff_fase5.md`](handoff_fase5.md).
+
+### Ficou para depois (percebido na Fase 4; não implementar sem autorização)
+
+* **Instância grande lenta no Windows.** No notebook da dona do projeto (Windows), a
+  `inst_078_grande` não terminou em 500 s (no Linux, 5 s). O warm start do CBC no Windows
+  foi corrigido (`keepFiles`), mas a causa da lentidão restante não foi diagnosticada.
+  Não afeta o app (listas pequenas resolvem em segundos); afeta testes antigos da Fase 2
+  com instâncias grandes (`test_otimizacao.py`). Diagnóstico pendente: resolver a
+  `inst_078_grande` com `limite_s=30` no Windows e ver se o limite de tempo é respeitado.
+* **Segundo e-mail ao Compras Paraguai.** O primeiro ficou sem resposta. O texto sugerido
+  fala em "1 acesso a cada 10 segundos"; a consulta do app usa 1,5 s (a coleta em lote,
+  10 s). Ajustar o texto antes de enviar.
+* **Validação com o professor** das decisões da Fase 4 que mudaram regras aprovadas:
+  orçamento só como referência no app, horário das lojas vindo do site, consulta sob
+  demanda, descarte de preço atípico e cotação do site.
+* **Experimentos da Fase 2 com dados reais** (continua da Fase 2).
+* **Categoria dos produtos achados na busca livre do site:** vem do site (ex.: "Celular")
+  e pode não estar em `categorias_fiscais.csv` (vira "outros", com aviso). Para bebidas e
+  cigarros, o limite fiscal precisa do conteúdo por unidade, que a busca livre não informa.
+* **Comparativo com outras referências** (ex.: a loja única mais barata que vende todos os
+  itens), se o professor pedir.
+
+## Fase 5 — Design do aplicativo (aberta em 21/11/2026; decisões aprovadas em 21/11/2026)
+
+Fase própria, depois que a Fase 4 terminar funcionando com dados reais: cores,
+logotipo, textos e organização das telas (e, se for desejado, versão para celular).
+O cálculo (modelo, regras fiscais e montagem da instância) não muda nesta fase. Na
+Fase 4 o app usa o visual padrão do Streamlit.
+
+Decisões aprovadas (detalhes em [`handoff_fase5.md`](handoff_fase5.md), seção 5): cores
+azul e vermelho; logotipo no final, criado pela dona do projeto; resultado numa página
+só; linguagem mais simples para o turista; mapa do roteiro; versão para celular fora por
+enquanto. Entrega do projeto em 23/11/2026, sem tempo de consultar o professor.
+
+* **Mapa do roteiro** (pedido em 20/11/2026): lojas no mapa, na ordem da visita, saindo
+  e voltando à Ponte da Amizade (a biblioteca pydeck já vem com o Streamlit). A troca
+  manual da ordem das lojas continua em "Melhorias futuras".
 
 ## Melhorias da base de dados (podem entrar antes da Fase 2)
 
-* Conferir o parser contra páginas reais (`python -m lesteshop.data.salvar_fixtures
-  "playstation 5 pro"`) — as fixtures atuais foram escritas à mão porque o ambiente de
-  desenvolvimento não tinha acesso ao site.
+* ~~Conferir o parser contra páginas reais~~ — feito na Fase 4 (18/11/2026), com páginas
+  salvas em `tests/fixtures/reais/`.
 * Verificar se as ofertas da página de modelo são paginadas ou carregadas por JavaScript;
   hoje só lemos o HTML inicial.
 * Popular `categoria` no catálogo (o sitemap não informa).

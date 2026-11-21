@@ -129,3 +129,10 @@ def test_modelo_sem_aviso_de_desconto_fica_vazio():
 ])
 def test_extrair_desconto_brasil(texto, esperado):
     assert parser_cp.extrair_desconto_brasil(texto) == esperado
+
+
+def test_busca_so_com_ofertas_avulsas_nao_para_a_coleta():
+    html = """<html><body><main><div class="container-resultados-busca"><div class="row resultados-busca">
+    <div class="promocao-produtos-item"><a href="/capa-dobe-para-ps5__4915825/">Capa</a> US$ 5,50</div>
+    </div></div></main></body></html>"""
+    assert parser_cp.parse_busca(html) == []
