@@ -224,12 +224,17 @@ completo. Resumo e decisões em [`handoff_fase5.md`](handoff_fase5.md).
 * **Comparativo com outras referências** (ex.: a loja única mais barata que vende todos os
   itens), se o professor pedir.
 
-## Fase 5 — Design do aplicativo (aberta em 21/11/2026; proposta aguardando aprovação)
+## Fase 5 — Design do aplicativo (aberta em 21/11/2026; decisões aprovadas em 21/11/2026)
 
 Fase própria, depois que a Fase 4 terminar funcionando com dados reais: cores,
 logotipo, textos e organização das telas (e, se for desejado, versão para celular).
 O cálculo (modelo, regras fiscais e montagem da instância) não muda nesta fase. Na
 Fase 4 o app usa o visual padrão do Streamlit.
+
+Decisões aprovadas (detalhes em [`handoff_fase5.md`](handoff_fase5.md), seção 5): cores
+azul e vermelho; logotipo no final, criado pela dona do projeto; resultado numa página
+só; linguagem mais simples para o turista; mapa do roteiro; versão para celular fora por
+enquanto. Entrega do projeto em 23/11/2026, sem tempo de consultar o professor.
 
 * **Mapa do roteiro** (pedido em 20/11/2026): lojas no mapa, na ordem da visita, saindo
   e voltando à Ponte da Amizade (a biblioteca pydeck já vem com o Streamlit). A troca

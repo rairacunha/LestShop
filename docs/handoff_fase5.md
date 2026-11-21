@@ -2,7 +2,9 @@
 
 Documento autocontido para começar a Fase 5 (design do aplicativo). Repositório:
 **`rairacunha/LestShop`**. Situação em 21/11/2026: Fases 1 a 4 concluídas; a Fase 5 foi
-aberta e a proposta aguarda aprovação.
+aberta e as decisões de design foram **aprovadas pela dona do projeto em 21/11/2026**
+(seção 5). **Entrega do projeto: 23/11/2026** (2 dias). Não há tempo de consultar o
+professor: as decisões da dona do projeto valem como finais nesta fase.
 
 ## 1. Contexto do projeto
 
@@ -117,20 +119,34 @@ src/lesteshop/consulta/        separado da otimização
   816 ofertas. Exemplo: iPad, Switch 2, iPhone 16, mouse MX Master e DualSense → economia
   de US$ 117 (4,6%) em relação à compra avulsa.
 
-## 5. Escopo da Fase 5 — design do aplicativo
+## 5. Fase 5 — design do aplicativo: decisões aprovadas (21/11/2026)
 
-Decidido em 18/11/2026 e ampliado em 20/11/2026 (registrado em `docs/pendencias.md`):
+A proposta foi apresentada e aprovada. **Não é preciso apresentar a proposta de novo:**
+implementar, mostrando prints (computador) para a dona do projeto conferir.
 
-* cores, logotipo, textos e organização das telas;
-* versão para celular, se for desejado;
-* **mapa do roteiro:** lojas no mapa, na ordem da visita, saindo e voltando à Ponte da
-  Amizade (a biblioteca pydeck já vem com o Streamlit).
+1. **Cores — opção 1: azul e vermelho** (referência discreta ao Paraguai; bom contraste,
+   ideia de "guia de compras"). Tema do Streamlit em `.streamlit/config.toml`
+   (`[theme]`: cor principal, fundo, texto, fonte). Fundo claro.
+2. **Logotipo: fica para o final; a dona do projeto vai criar.** Deixar o lugar pronto
+   (ex.: `st.logo` com um arquivo em `assets/`), sem inventar um logotipo.
+3. **Resultado numa página só** (sem abas), com títulos mais claros e um resumo no topo
+   do resultado (custo total, economia, hora de volta à Ponte, situação da cota).
+4. **Linguagem mais simples para o turista** em toda a tela: títulos como "Quanto você
+   vai pagar", "Onde comprar", "Seu roteiro"; explicações curtas de cota, e-DBV,
+   prioridade e orçamento; menos termos técnicos ("instância", "ótimo", "gap" não aparecem).
+5. **Mapa do roteiro** (pedido em 20/11/2026): Ponte da Amizade, lojas numeradas na ordem
+   da visita e volta à Ponte; ao passar o mouse, horário e o que comprar. pydeck (já vem
+   com o Streamlit), mapa de fundo gratuito sem chave. Linhas retas entre as paradas
+   (rotas pelas ruas continuam como pendência) — deixar isso claro numa legenda.
+6. **Versão para celular: fora por enquanto.**
 
-Fora da Fase 5 (continua em "Melhorias futuras" ou em pendências): troca manual da ordem
-das lojas no mapa, qualquer mudança no modelo ou nas regras, coleta automática num
-servidor, contas de usuário.
+Regras da Fase 5: o **cálculo não muda** (modelo, regras fiscais, montagem da instância,
+consulta e base). Mudanças só em `src/lesteshop/app/tela.py`, `apresentacao.py` (textos),
+tema e documentação; os testes da tela (`tests/test_app.py`, `tests/test_consulta.py`)
+procuram alguns textos — atualizar junto. Rodar `pytest` antes de cada commit.
 
-O primeiro passo da Fase 5 é **apresentar a proposta de design e esperar a aprovação**.
+Fora da Fase 5: troca manual da ordem das lojas no mapa, versão para celular, qualquer
+mudança no modelo ou nas regras, coleta automática num servidor, contas de usuário.
 
 ## 6. Pendências abertas (detalhes em `docs/pendencias.md`)
 
