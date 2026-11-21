@@ -321,6 +321,7 @@ textos) e `tela.py` (interface). O modelo e os parâmetros não mudaram (r = US$
 
 ## Documentação
 
+* [Handoff da Fase 5 (situação atual do projeto)](docs/handoff_fase5.md)
 * [Dicionário de dados](docs/dicionario_de_dados.md)
 * [Modelo matemático da Fase 2](docs/modelo_matematico.md)
 * [Resultados dos experimentos da Fase 2](data/resultados/resumo_experimentos.md)

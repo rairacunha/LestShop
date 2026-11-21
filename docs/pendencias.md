@@ -91,7 +91,7 @@ não mudou.
 * **Cota adicional de loja franca de fronteira (Foz do Iguaçu).** Não se aplica às lojas
   de Ciudad del Este; só faria sentido se o app passasse a incluir lojas do lado brasileiro.
 
-## Fase 4 — Aplicativo
+## Fase 4 — Aplicativo — concluída (21/11/2026)
 
 Escopo decidido em 18/11/2026 (detalhes em [`handoff_fase4.md`](handoff_fase4.md),
 seção 8): Streamlit; coleta real no computador da dona do projeto, com horário comercial
@@ -196,21 +196,35 @@ para os itens que o turista escolhe**, na hora de calcular. Substitui a coleta e
   "xbox series s" trouxe o controle do Xbox, não o console (no catálogo curado, o
   console tem a página do modelo).
 
-* Exibir na tela o bloco `fiscal` (uso de cada limite, alertas, imposto sem cota,
-  declaração e-DBV) e o texto da premissa da cota integral.
+### Encerramento da Fase 4 (21/11/2026)
 
-* **Coleta no aparelho do usuário.** Como o site exige verificação humana, um servidor não
-  consegue coletar sozinho. No app, as páginas teriam de ser carregadas no próprio
-  celular/computador do turista (que resolve a verificação), ou o app usaria só a base já
-  coletada. Decidir a arquitetura nesta fase.
+Entregue: app Streamlit (no computador, no Codespaces e na web, no Streamlit Community
+Cloud), consulta sob demanda com cache, base guardada que cresce com coletas e
+consultas, coleta real de 20/11/2026, comparativo com a compra avulsa e bloco fiscal
+completo. Resumo e decisões em [`handoff_fase5.md`](handoff_fase5.md).
 
-* Lista suspensa de autocompletar usando `catalogo.sugerir_modelos()` (já pronta e testada).
-* Telas de lista de compras, resultado (itens, lojas, roteiro, gasto, situação da cota).
-* Exibição em R$ via `cotacao.obter_cotacao()` / `usd_para_brl()`.
-* Tela de resultado a partir de `otimizacao.solucao.descrever()` (JSON pronto com itens,
-  roteiro, gasto, imposto, situação da cota, bagagem e avisos).
+### Ficou para depois (percebido na Fase 4; não implementar sem autorização)
 
-## Fase 5 — Design do aplicativo (decidido em 18/11/2026; não implementar antes)
+* **Instância grande lenta no Windows.** No notebook da dona do projeto (Windows), a
+  `inst_078_grande` não terminou em 500 s (no Linux, 5 s). O warm start do CBC no Windows
+  foi corrigido (`keepFiles`), mas a causa da lentidão restante não foi diagnosticada.
+  Não afeta o app (listas pequenas resolvem em segundos); afeta testes antigos da Fase 2
+  com instâncias grandes (`test_otimizacao.py`). Diagnóstico pendente: resolver a
+  `inst_078_grande` com `limite_s=30` no Windows e ver se o limite de tempo é respeitado.
+* **Segundo e-mail ao Compras Paraguai.** O primeiro ficou sem resposta. O texto sugerido
+  fala em "1 acesso a cada 10 segundos"; a consulta do app usa 1,5 s (a coleta em lote,
+  10 s). Ajustar o texto antes de enviar.
+* **Validação com o professor** das decisões da Fase 4 que mudaram regras aprovadas:
+  orçamento só como referência no app, horário das lojas vindo do site, consulta sob
+  demanda, descarte de preço atípico e cotação do site.
+* **Experimentos da Fase 2 com dados reais** (continua da Fase 2).
+* **Categoria dos produtos achados na busca livre do site:** vem do site (ex.: "Celular")
+  e pode não estar em `categorias_fiscais.csv` (vira "outros", com aviso). Para bebidas e
+  cigarros, o limite fiscal precisa do conteúdo por unidade, que a busca livre não informa.
+* **Comparativo com outras referências** (ex.: a loja única mais barata que vende todos os
+  itens), se o professor pedir.
+
+## Fase 5 — Design do aplicativo (aberta em 21/11/2026; proposta aguardando aprovação)
 
 Fase própria, depois que a Fase 4 terminar funcionando com dados reais: cores,
 logotipo, textos e organização das telas (e, se for desejado, versão para celular).
@@ -223,9 +237,8 @@ Fase 4 o app usa o visual padrão do Streamlit.
 
 ## Melhorias da base de dados (podem entrar antes da Fase 2)
 
-* Conferir o parser contra páginas reais (`python -m lesteshop.data.salvar_fixtures
-  "playstation 5 pro"`) — as fixtures atuais foram escritas à mão porque o ambiente de
-  desenvolvimento não tinha acesso ao site.
+* ~~Conferir o parser contra páginas reais~~ — feito na Fase 4 (18/11/2026), com páginas
+  salvas em `tests/fixtures/reais/`.
 * Verificar se as ofertas da página de modelo são paginadas ou carregadas por JavaScript;
   hoje só lemos o HTML inicial.
 * Popular `categoria` no catálogo (o sitemap não informa).
