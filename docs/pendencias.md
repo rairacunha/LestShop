@@ -221,6 +221,15 @@ completo. Resumo e decisões em [`handoff_fase5.md`](handoff_fase5.md).
 * **Categoria dos produtos achados na busca livre do site:** vem do site (ex.: "Celular")
   e pode não estar em `categorias_fiscais.csv` (vira "outros", com aviso). Para bebidas e
   cigarros, o limite fiscal precisa do conteúdo por unidade, que a busca livre não informa.
+* **Acréscimo por forma de pagamento** (aprovado em 21/11/2026; fazer **depois do design
+  da Fase 5**, na mesma sessão). Nas lojas, o preço muda com a forma de pagamento:
+  dinheiro 0%, PIX 3%, cartão 6% (observação de campo, não vem do site: valores
+  **estimados e editáveis**, num arquivo de configuração com a origem registrada).
+  Campo "Forma de pagamento" na barra lateral, com **PIX** marcado por padrão. O acréscimo
+  entra no valor dos produtos, e o **imposto é calculado sobre o valor com a taxa** (é o
+  valor da nota fiscal). A escolha das lojas não muda (o acréscimo é igual em todas); a
+  tela mostra quanto a forma de pagamento custa a mais que o dinheiro. O comparativo
+  aplica a mesma taxa aos dois cenários.
 * **Comparativo com outras referências** (ex.: a loja única mais barata que vende todos os
   itens), se o professor pedir.
 
