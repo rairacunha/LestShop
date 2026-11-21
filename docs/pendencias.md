@@ -167,6 +167,10 @@ para os itens que o turista escolhe**, na hora de calcular. Substitui a coleta e
   catálogo curado e nos produtos já guardados; se não achar, procura no Compras Paraguai
   (1 página, cache de 6 h) e mostra os modelos encontrados. Todo item consultado no site
   é gravado na base guardada (`data/coletas/<data>/`), que cresce com o uso.
+* **Comparativo (21/11/2026):** depois do roteiro, o app simula comprar tudo na 1ª loja
+  do roteiro: preço de cada item nos dois cenários, itens que a 1ª loja não vende (fora da
+  comparação), custo com imposto, economia do roteiro e hora de volta à Ponte
+  (`apresentacao.comparativo_primeira_loja`).
 * **Roteiro:** sai da Ponte da Amizade e volta a ela; o título "Roteiro a pé" virou
   "Roteiro". O **mapa** do roteiro fica para a Fase 5 (design).
 * **Cotação (20/11/2026):** o R$ usa a cotação do próprio Compras Paraguai, tirada das

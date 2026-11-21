@@ -9,7 +9,8 @@ from __future__ import annotations
 import pandas as pd
 
 from ..data.cotacao import Cotacao, usd_para_brl
-from ..otimizacao.instancia import Instancia
+from ..otimizacao.instancia import Instancia, min_para_hhmm
+from ..otimizacao.rota import agenda
 from .base import BaseApp
 
 SITUACAO_LIMITE = {"abaixo": "dentro do limite", "no_limite": "no limite", "acima": "ACIMA do limite"}
@@ -168,3 +169,56 @@ def situacao_cota(d: dict) -> str:
     if r["excedente"] <= 0:
         return "dentro da cota"
     return f"excede a cota em {fmt_usd(r['excedente'])} (imposto {fmt_usd(r['imposto'])})"
+
+
+def _imposto(gasto: float, inst: Instancia) -> float:
+    return inst.aliquota * max(0.0, gasto - inst.cota)
+
+
+def comparativo_primeira_loja(d: dict, inst: Instancia) -> dict | None:
+    """Simula comprar tudo na 1ª loja do roteiro e compara com o roteiro sugerido
+    (decidido em 21/11/2026).
+
+    Itens que a 1ª loja não vende ficam de fora da comparação (e são listados). Os dois
+    cenários são comparados só nos itens que a 1ª loja vende; o imposto de cada cenário
+    é recalculado sobre o gasto desses itens (cota integral). ``None`` se o roteiro tem
+    menos de duas lojas (não há o que comparar)."""
+    if len(d["roteiro"]) < 2:
+        return None
+    no = {l.loja_id: i for i, l in enumerate(inst.lojas, start=1)}
+    idx = {it.produto_id: k for k, it in enumerate(inst.itens)}
+    primeira = d["roteiro"][0]
+    i1 = no[primeira["loja_id"]]
+    linhas, faltam = [], []
+    g_rota = g_uma = 0.0
+    for p in d["roteiro"]:
+        for c in p["compras"]:
+            k = idx[c["produto_id"]]
+            q = inst.itens[k].quantidade
+            preco_rota = inst.preco[(no[p["loja_id"]], k)]
+            preco_uma = inst.preco.get((i1, k))
+            if preco_uma is None:
+                faltam.append(c["nome"])
+                linhas.append({"Item": c["nome"], "Qtd.": q, "Loja no roteiro": p["nome"],
+                               "No roteiro (US$)": fmt_usd(preco_rota * q),
+                               f"Só na {primeira['nome']} (US$)": "não vende", "Diferença (US$)": "—"})
+                continue
+            g_rota += preco_rota * q
+            g_uma += preco_uma * q
+            linhas.append({"Item": c["nome"], "Qtd.": q, "Loja no roteiro": p["nome"],
+                           "No roteiro (US$)": fmt_usd(preco_rota * q),
+                           f"Só na {primeira['nome']} (US$)": fmt_usd(preco_uma * q),
+                           "Diferença (US$)": fmt_usd((preco_uma - preco_rota) * q)})
+    ag = agenda([i1], inst)
+    custo_rota = g_rota + _imposto(g_rota, inst)
+    custo_uma = g_uma + _imposto(g_uma, inst)
+    return {
+        "loja": primeira["nome"],
+        "tabela": pd.DataFrame(linhas),
+        "faltam": faltam,
+        "gasto_rota": g_rota, "gasto_uma": g_uma,
+        "custo_rota": custo_rota, "custo_uma": custo_uma,
+        "economia": custo_uma - custo_rota,
+        "retorno_rota": d["horario_retorno"], "retorno_uma": min_para_hhmm(ag.retorno),
+        "lojas_rota": len(d["roteiro"]),
+    }

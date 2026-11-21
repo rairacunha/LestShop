@@ -263,3 +263,22 @@ def test_orcamento_so_referencia_todos_os_itens_entram(base_ficticia):
     inst_cota = montar_pedido(base_ficticia, itens, "07:00", "16:00")
     assert descrever(resolver(inst_cota)[0], inst_cota)["nao_comprados"]
 
+
+
+def test_comparativo_tudo_na_primeira_loja(base_ficticia):
+    ids = _ids(base_ficticia, 6)
+    itens = [ItemPedido(p) for p in ids]
+    inst = montar_pedido(base_ficticia, itens, "07:00", "16:00", teto_sem_limite(base_ficticia, itens))
+    d = descrever(resolver(inst)[0], inst)
+    assert len(d["roteiro"]) >= 2
+    c = ap.comparativo_primeira_loja(d, inst)
+    assert c["loja"] == d["roteiro"][0]["nome"]
+    # Economia = custo só na 1ª loja − custo no roteiro (o modelo também pesa a caminhada,
+    # então a diferença pode, em tese, ser negativa).
+    assert c["economia"] == pytest.approx(c["custo_uma"] - c["custo_rota"])
+    assert len(c["tabela"]) == d["resumo"]["itens_comprados"]
+    assert all(n in set(c["tabela"]["Item"]) for n in c["faltam"])
+    assert c["retorno_uma"] <= c["retorno_rota"]  # uma loja só: volta mais cedo
+    # Roteiro com uma loja só: nada a comparar.
+    um = {**d, "roteiro": d["roteiro"][:1]}
+    assert ap.comparativo_primeira_loja(um, inst) is None

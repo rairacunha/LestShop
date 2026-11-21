@@ -327,6 +327,33 @@ def _matriz(res) -> pd.DataFrame:
     return larga.map(lambda v: "" if pd.isna(v) else ap.fmt_usd(v))
 
 
+def _comparativo(c: dict | None, cotacao) -> None:
+    """E se o turista comprasse tudo na 1ª loja do roteiro?"""
+    if c is None:
+        return
+    st.markdown(f"#### Comparativo: e se comprasse tudo na {c['loja']}?")
+    if c["faltam"]:
+        st.info(f"A {c['loja']} não vende: {', '.join(c['faltam'])}. A comparação considera só "
+                "os outros itens.")
+    if c["gasto_uma"] == 0:
+        st.caption("A primeira loja não vende nenhum dos outros itens: não há o que comparar.")
+        return
+    c1, c2, c3 = st.columns(3)
+    c1.metric(f"Roteiro sugerido ({c['lojas_rota']} lojas)", ap.fmt_usd(c["custo_rota"]))
+    c1.caption(f"{ap.fmt_brl(ap.em_brl(c['custo_rota'], cotacao))} · volta à Ponte às {c['retorno_rota']}")
+    c2.metric(f"Tudo na {c['loja']}", ap.fmt_usd(c["custo_uma"]))
+    c2.caption(f"{ap.fmt_brl(ap.em_brl(c['custo_uma'], cotacao))} · volta à Ponte às {c['retorno_uma']}")
+    if c["economia"] > 0.005:
+        c3.metric("Economia com o roteiro", ap.fmt_usd(c["economia"]))
+        c3.caption(f"{ap.fmt_brl(ap.em_brl(c['economia'], cotacao))} a menos, com produtos e imposto")
+    else:
+        c3.metric("Economia com o roteiro", ap.fmt_usd(0))
+        c3.caption("Comprar tudo na primeira loja não sairia mais caro.")
+    st.caption("Valores com imposto, só dos itens que a primeira loja vende.")
+    with st.expander("Preço de cada item nos dois cenários"):
+        st.dataframe(c["tabela"], hide_index=True, width="stretch")
+
+
 def _resultado(r: dict, cotacao) -> None:
     d, inst, base, consulta = r["d"], r["inst"], r["base"], r["consulta"]
     st.subheader("3. Resultado")
@@ -362,6 +389,8 @@ def _resultado(r: dict, cotacao) -> None:
                f"{d['resumo']['tempo_andando']:.0f} min. Os horários contam o deslocamento, a espera "
                "pela abertura e o tempo em cada loja.")
     st.dataframe(ap.tabela_roteiro(d), hide_index=True, width="stretch")
+
+    _comparativo(ap.comparativo_primeira_loja(d, inst), cotacao)
 
     fora = ap.tabela_fora(d, inst, orcamento_limita=False)
     if not fora.empty:
