@@ -90,3 +90,14 @@ def test_robots_txt_proibindo_interrompe(cliente_falso, tmp_path):
                                  dir_cache_lojas=tmp_path / "lojas", hoje=HOJE)
     with pytest.raises(ErroColeta, match="robots.txt proíbe"):
         fonte.coletar()
+
+
+def test_pagina_normal_com_script_de_deteccao_nao_e_desafio():
+    """O Cloudflare põe o script jsd em páginas normais: isso não é verificação."""
+    from lesteshop.data.sources.navegador import _e_desafio
+
+    normal = ("<html><head><title>Compras Paraguai</title></head><body>ok"
+              "<script>a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js'</script></body></html>")
+    assert not _e_desafio("Compras Paraguai", normal)
+    assert _e_desafio("Just a moment...", '<script src="/cdn-cgi/challenge-platform/h/b/orchestrate/x.js"></script>')
+    assert _e_desafio("", "<script>window._cf_chl_opt={}</script>")

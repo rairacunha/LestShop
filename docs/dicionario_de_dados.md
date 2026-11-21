@@ -1,4 +1,4 @@
-# Dicionário de dados — LesteShop, Fase 1
+# Dicionário de dados — LesteShop (Fases 1 a 4)
 
 Todas as fontes (`FonteCSV`, `FonteComprasParaguai`, futura `FonteAPI`) entregam as
 tabelas abaixo com as mesmas colunas. Valores monetários são sempre em **US$**;
@@ -199,3 +199,48 @@ Uma linha por (instância, r). Valores em US$ e minutos. Formulação em
 | heur_* | Os mesmos indicadores para a solução da heurística (`heur_tempo_s` = tempo da heurística) |
 | tempo_total_s | Tempo total da rodada (heurística + exato + polimentos) |
 | viavel | Verificação independente de viabilidade das duas soluções |
+
+## Fase 4 — aplicativo e consulta sob demanda
+
+### `data/catalogo_app.json` (catálogo curado do app)
+
+Lista fixa de produtos populares que a busca do app oferece primeiro. Cada item de
+`produtos`:
+
+| Campo | Significado |
+|---|---|
+| `id` | identificador estável do item no catálogo (ex.: `iphone-17-256`) |
+| `nome` | nome mostrado na busca; começa pela marca, como no site |
+| `termo` | termo de busca no Compras Paraguai, usado quando não há `url_modelo` |
+| `categoria` | categoria do projeto, a mesma de `data/categorias_fiscais.csv` |
+| `url_modelo` | (opcional) página do modelo no site; a consulta vai direto a ela |
+| `conteudo_por_unidade` | (opcional) litros por garrafa, para o limite de bebidas |
+
+### `data/cache/consulta.db` (cache da consulta, não versionado)
+
+Tabela `consultas` (`item_id`, `gravado_em` em segundos desde 1970, `dados` em JSON). Para
+cada item consultado: produto, lojas, ofertas e `consultado_em`. Também guarda as buscas
+de modelos no site (`item_id` começando por `busca:`). **Validade: 6 horas.** As páginas de
+loja têm cache permanente em `data/cache/lojas/`.
+
+### `data/coletas/<AAAA-MM-DD>/` (base guardada)
+
+Mesmo formato das tabelas `lojas`, `produtos`, `ofertas` (e `descartes`), um conjunto por
+dia. Recebe a coleta em lote (`python -m lesteshop.data.coletar ... --navegador`) **e** todo
+item consultado ao vivo no app. A base guardada do app usa, de cada (loja, produto), a
+oferta da coleta mais recente; depois, descarta o **preço atípico** (menor que a metade da
+mediana do produto, com 3 ofertas ou mais), com aviso.
+
+### Campos que passaram a vir do site (página da loja, JSON-LD `Store`)
+
+* `lojas.latitude` / `lojas.longitude`: coordenadas publicadas pelo site;
+  `lojas_complemento.csv` só para lojas sem coordenada ou com coordenada errada.
+* `lojas.abre` / `lojas.fecha`: horário de segunda a sexta (`openingHours`, ex.
+  `Mo-Fr 06:30-17:00`); vazio → padrão comercial 07:00–16:00. O site informa em horário
+  de Brasília.
+
+### Cotação mostrada no app
+
+`app.base.cotacao_do_site()`: mediana de `preco_brl / preco_usd` das ofertas reais (a
+cotação do próprio Compras Paraguai; R$ 5,95 na coleta de 20/11/2026). Sem ofertas reais,
+a PTAX. Só para exibição: os cálculos continuam em US$.

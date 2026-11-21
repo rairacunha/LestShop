@@ -292,8 +292,36 @@ python -m lesteshop.fiscal.experimentos --so-resumo
 Os experimentos gravam `data/resultados/fase3/resultados_fase3.csv`, as soluções em
 `data/resultados/fase3/solucoes/r0.25/` e `data/resultados/fase3/resumo_fase3.md`.
 
+## Fase 4 — Aplicativo (Streamlit)
+
+```bash
+pip install -e ".[dev,app]"
+streamlit run app.py        # abre em http://localhost:8501
+```
+
+**Fonte dos preços.** Por padrão, o app consulta o **Compras Paraguai na hora**, só
+para os itens da lista: o menu vem do catálogo curado `data/catalogo_app.json` e cada
+item consultado fica guardado por 6 horas (`data/cache/consulta.db`), com 1,5 s entre
+as requisições. Precisa rodar no computador (não no Codespaces): uma janela do navegador
+abre e, se o site pedir a verificação de humano, você a resolve. Código em
+`src/lesteshop/consulta/` (catálogo, cache e busca), separado da otimização. A outra
+opção, **Base guardada**, usa o SQLite (coletas salvas ou a base fictícia).
+
+Uma página: na barra lateral, a fonte (base **fictícia** identificada na tela
+enquanto não houver coleta real), a cotação e os dados da viagem (chegada, saída e
+orçamento opcional em US$); no centro, a lista de compras (busca, quantidade e
+prioridade 1–5), o botão **Calcular roteiro** e o resultado: onde comprar cada item,
+roteiro a pé com horários, itens deixados de fora, gasto, imposto, custo total em US$ e
+R$ e o bloco da Receita Federal (cota, limites, declaração e premissa).
+
+Código em `src/lesteshop/app/`: `base.py` (base do SQLite, só a coleta mais recente de
+cada loja/produto, origem real/fictícia), `pedido.py` (monta a instância a partir do que
+o turista digita, usando `montar_instancia()` da Fase 2), `apresentacao.py` (tabelas e
+textos) e `tela.py` (interface). O modelo e os parâmetros não mudaram (r = US$ 0,25/min).
+
 ## Documentação
 
+* [Handoff da Fase 5 (situação atual do projeto)](docs/handoff_fase5.md)
 * [Dicionário de dados](docs/dicionario_de_dados.md)
 * [Modelo matemático da Fase 2](docs/modelo_matematico.md)
 * [Resultados dos experimentos da Fase 2](data/resultados/resumo_experimentos.md)

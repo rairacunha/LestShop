@@ -1,4 +1,4 @@
-# Origem dos dados — LesteShop, Fase 1
+# Origem dos dados — LesteShop (Fases 1 a 4)
 
 ## Classificação
 
@@ -21,7 +21,8 @@ Nenhum dado inventado é marcado como `real`.
 | Desconto em relação ao Brasil (`desconto_brasil_pct`) | Aviso "~X% mais barato que no Brasil" da página do modelo | **Estimativa do próprio Compras Paraguai, sem metodologia divulgada** (não se sabe com quais preços brasileiros, de quando, nem se inclui impostos). Vazio quando a página não mostra; não estimamos nem completamos valores. Vazio em toda a base fictícia |
 | Peso e volume | Tabela de especificações da página do modelo ("Peso Bruto", "Dimensões" da embalagem) | Vazio quando não existe; nunca estimado automaticamente |
 | Catálogo de modelos | Sitemap indicado no `robots.txt` | Nome derivado do slug da URL |
-| Cotação do dólar | PTAX de venda do Banco Central (API Olinda) | Só para exibir R$ |
+| Cotação do dólar | No app: a do Compras Paraguai, tirada das ofertas (R$ ÷ US$). Sem ofertas reais: PTAX de venda do Banco Central (API Olinda) | Só para exibir R$ |
+| Coordenadas e horário das lojas | JSON-LD `Store` da página da loja (desde 18/11/2026) | Horário de segunda a sexta; sem horário, padrão 07:00–16:00 |
 | Ponte da Amizade (nó 0) | Posição aproximada da cabeceira paraguaia, lida no mapa | `estimado` |
 | Base fictícia (`data/raw/`, `data/instances/inst_*`) | `scripts/gerar_base_ficticia.py`, seed 2026 | Lojas, prédios e produtos inventados ("(fictícia)" no nome); coordenadas sorteadas no microcentro; preços ±15% em torno de um preço-base com viés por loja; cotação fictícia R$ 5,14 |
 | Semente dos testes (`tests/fixtures/semente/`) | Criada à mão para os testes automáticos | Lojas fictícias ("Loja Semente …"); preços sintéticos em torno de valores de mercado; produtos são modelos reais com peso/volume estimados |
@@ -29,7 +30,8 @@ Nenhum dado inventado é marcado como `real`.
 ## Boa conduta na coleta
 
 * `robots.txt` respeitado (URLs proibidas interrompem a coleta; `Crawl-delay` respeitado se for maior que 10 s).
-* Pelo menos 10 s entre requisições ao mesmo host.
+* Pelo menos 10 s entre requisições ao mesmo host na coleta em lote; 1,5 s na consulta sob
+  demanda do app (só os itens da lista do turista, com cache de 6 h).
 * User-Agent `LesteShop/0.1 (projeto academico de Pesquisa Operacional II; ...)`. A variável de ambiente `LESTESHOP_CONTATO` acrescenta um contato.
 * Cache diário das páginas em `data/cache/paginas/<data>/`: a mesma página não é baixada de novo no mesmo dia.
 * Somente os termos/URLs pedidos; nunca o site inteiro (o catálogo usa apenas o sitemap).
@@ -37,9 +39,12 @@ Nenhum dado inventado é marcado como `real`.
 
 ## Limitações conhecidas
 
-* **A Fase 1 foi concluída com dados fictícios.** O coletor real está pronto e testado com
-  páginas imitadas, mas a primeira coleta real ainda não foi feita (depende da verificação
-  anti-robô, item 0). Nenhum preço desta base deve ser usado para decidir compras.
+* **Dados reais desde a Fase 4.** O leitor foi conferido com páginas reais em 18/11/2026 e a
+  primeira coleta real foi feita em 20/11/2026 (`data/coletas/2026-11-20/`). A base fictícia
+  de `data/raw/` continua nos experimentos das Fases 2 e 3 e nos testes.
+* **Lojas cadastram outros produtos na página de um modelo** (ex.: fones de US$ 9 na
+  página do iPad). O app descarta ofertas com preço menor que a metade da mediana do
+  produto, com aviso.
 
 0. **Proteção anti-robô do site (Cloudflare).** Em 17/10/2026 o Compras Paraguai passou a
    responder HTTP 403 com `cf-mitigated: challenge` a qualquer acesso automático, inclusive ao
@@ -70,6 +75,7 @@ Nenhum dado inventado é marcado como `real`.
    Este, a loja é descartada (postura conservadora).
 6. **Coordenadas**: o retângulo de validação de Ciudad del Este é aproximado
    (lat −25,60 a −25,42; lon −54,75 a −54,597) e propositalmente exclui Foz do Iguaçu.
-7. **Horário de funcionamento e tempo de permanência** raramente aparecem na fonte; ficam
-   vazios nos dados reais.
+7. **Horário de funcionamento**: vem da página da loja quando ela informa (38 das 55 lojas
+   da coleta de 20/11/2026); senão, padrão 07:00–16:00. O **tempo de permanência** não
+   aparece na fonte (padrão 20 min).
 8. **Nome no catálogo** vem do slug da URL (sem acentos e com maiúsculas aproximadas).

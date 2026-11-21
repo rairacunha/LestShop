@@ -31,8 +31,10 @@ from .http import ClienteHTTP, ErroColeta
 
 log = logging.getLogger(__name__)
 
-# Trechos que aparecem na página de desafio do Cloudflare.
-_MARCAS_DESAFIO = ("/cdn-cgi/challenge-platform/", "challenges.cloudflare.com", "cf-chl-")
+# Trechos que só aparecem na página de desafio do Cloudflare. Atenção: páginas
+# normais também carregam "/cdn-cgi/challenge-platform/scripts/jsd/main.js" (detecção
+# em segundo plano), por isso a marca genérica "/cdn-cgi/challenge-platform/" não serve.
+_MARCAS_DESAFIO = ("/cdn-cgi/challenge-platform/h/", "_cf_chl_opt", "cf-chl-")
 _TITULOS_DESAFIO = ("just a moment", "um momento", "attention required", "verificando", "checking your browser")
 
 _JS_FETCH = """
