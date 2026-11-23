@@ -94,7 +94,7 @@ def _app(base_ficticia, monkeypatch):
                         lambda: dt.datetime(2026, 11, 23, 10, 0, tzinfo=ps.FUSO_PARAGUAI))
     at = AppTest.from_file(str(RAIZ / "app.py"), default_timeout=120)
     at.run()
-    at.radio(key="modo").set_value("Base guardada").run()
+    at.run()  # sem tela: só a base guardada, sem opção a escolher
     for pid in base_ficticia.produtos["produto_id"].iloc[:3]:
         at.text_input(key="busca_produto").input(base_ficticia.nome_produto(pid)).run()
         next(b for b in at.button if b.key == f"add_{pid}").click().run()

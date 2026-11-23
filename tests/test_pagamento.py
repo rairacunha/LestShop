@@ -109,7 +109,7 @@ def test_tela_forma_de_pagamento(base_ficticia, monkeypatch):
     monkeypatch.setattr(base_app, "cotacao_para_exibir", lambda *a, **k: COTACAO)
     at = AppTest.from_file(str(RAIZ / "app.py"), default_timeout=120)
     at.run()
-    at.radio(key="modo").set_value("Base guardada").run()
+    at.run()  # sem tela: só a base guardada, sem opção a escolher
     assert at.radio(key="forma_pagamento").value.forma_id == "pix"  # PIX por padrão
     pid = base_ficticia.produtos["produto_id"].iloc[1]
     at.text_input(key="busca_produto").input(base_ficticia.nome_produto(pid)).run()

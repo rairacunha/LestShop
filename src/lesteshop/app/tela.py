@@ -216,14 +216,13 @@ def _cotacao_para(modo: str):
 
 def _barra_lateral() -> tuple:
     with st.sidebar:
-        st.header("De onde vêm os preços")
         modos = [MODO_CONSULTA, MODO_BASE] if tem_tela() else [MODO_BASE]
-        modo = st.radio("Fonte dos preços", modos, key="modo",
-                        label_visibility="collapsed", on_change=_limpar_lista)
-        if not tem_tela():
-            st.caption("Na versão web, o app usa os preços já buscados no site Compras Paraguai. "
-                       "A busca na hora só funciona no computador (o site pede para provar que "
-                       "você não é um robô).")
+        if len(modos) > 1:  # no computador: consulta ao vivo ou preços já guardados
+            st.header("De onde vêm os preços")
+            modo = st.radio("Fonte dos preços", modos, key="modo",
+                            label_visibility="collapsed", on_change=_limpar_lista)
+        else:               # na web só há os preços guardados: nada a escolher
+            modo = st.session_state["modo"] = MODO_BASE
         cotacao = _cotacao_para(modo)
         if modo == MODO_CONSULTA:
             st.info("Ao calcular, o app busca no site Compras Paraguai os preços **só dos produtos "
@@ -233,14 +232,6 @@ def _barra_lateral() -> tuple:
                 CacheConsulta().limpar()
                 st.session_state["resultado"] = None
                 st.toast("Preços guardados apagados: a próxima consulta vai ao site.")
-        else:
-            base = _base()
-            nivel, texto = ap.texto_origem(base)
-            (st.success if nivel == "ok" else st.warning)(texto)
-            if st.button("Recarregar base"):
-                _base_cache.clear()
-                st.session_state["resultado"] = None
-                st.rerun()
         if cotacao is None:
             st.caption("Cotação do dólar indisponível: valores só em US$.")
         else:
