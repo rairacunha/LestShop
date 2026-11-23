@@ -8,15 +8,15 @@ COLUNAS: dict[str, list[str]] = {
     "lojas": [
         "loja_id", "nome", "slug", "cidade", "endereco", "predio", "latitude",
         "longitude", "coordenada_pendente", "abre", "fecha",
-        "tempo_permanencia_min", "fonte", "tipo_dado",
+        "tempo_permanencia_min", "fonte", "tipo_dado", "nome_normalizado", "zona",
     ],
     "produtos": [
         "produto_id", "nome", "categoria", "url_modelo", "peso_kg", "volume_l",
-        "desconto_brasil_pct", "tipo_dado",
+        "desconto_brasil_pct", "tipo_dado", "slug",
     ],
     "ofertas": [
         "loja_id", "produto_id", "titulo_oferta", "codigo_loja", "preco_usd",
-        "preco_brl", "data_coleta", "fonte", "tipo_dado",
+        "preco_brl", "data_coleta", "fonte", "tipo_dado", "url_oferta", "coletado_em",
     ],
     "pontos_partida": ["id", "nome", "latitude", "longitude"],
     "catalogo_modelos": ["modelo_id", "nome", "url", "categoria", "data_atualizacao"],
@@ -32,10 +32,10 @@ _NUMERICAS = {
 }
 _TEXTO = {
     "lojas": ["loja_id", "nome", "slug", "cidade", "endereco", "predio", "abre",
-              "fecha", "fonte", "tipo_dado"],
-    "produtos": ["produto_id", "nome", "categoria", "url_modelo", "tipo_dado"],
+              "fecha", "fonte", "tipo_dado", "nome_normalizado", "zona"],
+    "produtos": ["produto_id", "nome", "categoria", "url_modelo", "tipo_dado", "slug"],
     "ofertas": ["loja_id", "produto_id", "titulo_oferta", "codigo_loja",
-                "data_coleta", "fonte", "tipo_dado"],
+                "data_coleta", "fonte", "tipo_dado", "url_oferta", "coletado_em"],
     "catalogo_modelos": ["modelo_id", "nome", "url", "categoria", "data_atualizacao"],
 }
 

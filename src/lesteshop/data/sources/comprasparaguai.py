@@ -8,7 +8,7 @@ import logging
 from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
-from urllib.parse import quote_plus
+from urllib.parse import parse_qsl, quote_plus, urlencode, urlsplit, urlunsplit
 
 import pandas as pd
 
@@ -36,6 +36,21 @@ class ResultadoColeta:
         if self.descartes.empty:
             return {}
         return self.descartes["cidade"].fillna("não identificada").value_counts().to_dict()
+
+
+def url_da_pagina(url: str, pagina: int) -> str:
+    """URL da página ``pagina`` de uma vitrine de categoria, preservando os outros
+    parâmetros (ex.: ``?ordem=relevancia``) e só acrescentando/trocando ``page``. Na
+    página 1, a URL fica como veio (se já tiver ``page``, ele vira 1)."""
+    partes = urlsplit(url)
+    params = parse_qsl(partes.query, keep_blank_values=True)
+    tem_page = any(k == "page" for k, _ in params)
+    if pagina == 1 and not tem_page:
+        return url
+    novos = [(k, str(pagina) if k == "page" else v) for k, v in params]
+    if not tem_page:
+        novos.append(("page", str(pagina)))
+    return urlunsplit(partes._replace(query=urlencode(novos)))
 
 
 def id_loja(slug: str) -> str:
@@ -80,6 +95,28 @@ class FonteComprasParaguai(FonteDeOfertas):
     def buscar_modelos(self, termo: str) -> list[dict]:
         url = f"{config.URL_BASE_CP}/busca/?q={quote_plus(termo)}"
         return parser_cp.parse_busca(self.cliente.get(url))
+
+    def modelos_da_categoria(self, url_categoria: str, paginas: int = 2) -> list[dict]:
+        """Modelos da vitrine de uma categoria (ex.: .../celular/), nas ``paginas``
+        primeiras páginas. Usa o mesmo leitor de cards da busca (``parse_busca``) e o
+        mesmo cliente (intervalo entre acessos, robots.txt, cache). Para antes se uma
+        página não trouxer modelo novo."""
+        achados: dict[str, dict] = {}
+        for n in range(1, max(1, paginas) + 1):
+            url = url_da_pagina(url_categoria, n)
+            try:
+                modelos = parser_cp.parse_busca(self.cliente.get(url))
+            except parser_cp.ErroEstruturaHTML:
+                if n == 1:
+                    raise
+                break  # página além da última
+            novos = [m for m in modelos if m["url"] not in achados]
+            if not novos:
+                break
+            for m in novos:
+                achados[m["url"]] = m
+            log.info("Categoria %s, página %d: %d modelo(s) novo(s).", url_categoria, n, len(novos))
+        return list(achados.values())
 
     # -- b) página do modelo ---------------------------------------------------
     def coletar_ofertas(self, url_modelo: str) -> dict:
@@ -148,6 +185,8 @@ class FonteComprasParaguai(FonteDeOfertas):
                     "data_coleta": data,
                     "fonte": self.nome,
                     "tipo_dado": "real",
+                    "url_oferta": url,
+                    "coletado_em": dt.datetime.now().isoformat(timespec="seconds"),
                 })
                 mantidas += 1
             if mantidas == 0:

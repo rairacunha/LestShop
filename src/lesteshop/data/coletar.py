@@ -8,6 +8,13 @@ Exemplos::
     python -m lesteshop.data.coletar "iphone 16" --max-modelos 3 --categoria Celulares
     python -m lesteshop.data.coletar "playstation 5 pro" --navegador   # janela do Chromium; você resolve a verificação
     python -m lesteshop.data.coletar --arquivo data/coleta_exemplo.json --navegador --max-modelos 2
+    python -m lesteshop.data.coletar --url-categoria https://www.comprasparaguai.com.br/celular/ \
+        --categoria Celulares --paginas 2 --navegador
+
+Com ``--url-categoria`` (vitrine de uma categoria do site), o coletor lê os cards de modelo
+das ``--paginas`` primeiras páginas (padrão 2; só o parâmetro ``page`` da URL muda) com o
+mesmo leitor da busca e coleta cada modelo pelo mesmo caminho da busca por termo (mesma
+limpeza e mesma gravação). Exige ``--categoria``, que é gravada nos produtos.
 
 Com ``--arquivo`` (JSON com uma lista de {"termo", "categoria"}), cada termo é coletado com
 a sua categoria; se um termo der erro, a coleta segue com os outros e o resumo no fim
@@ -82,7 +89,12 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Coleta ofertas reais no Compras Paraguai (Ciudad del Este).")
     parser.add_argument("termos", nargs="*", help="o que buscar, ex.: \"playstation 5 pro\"")
     parser.add_argument("--url", action="append", default=[], help="URL de uma página de modelo (pode repetir)")
-    parser.add_argument("--max-modelos", type=int, default=1, help="quantos modelos coletar por termo (padrão 1)")
+    parser.add_argument("--max-modelos", type=int, default=None,
+                        help="quantos modelos coletar por termo (padrão 1) ou por categoria (padrão: todos das páginas)")
+    parser.add_argument("--url-categoria", action="append", default=[],
+                        help="URL da vitrine de uma categoria do Compras Paraguai (pode repetir; exige --categoria)")
+    parser.add_argument("--paginas", type=int, default=2,
+                        help="quantas páginas ler de cada --url-categoria (padrão 2)")
     parser.add_argument("--categoria", help="categoria a gravar nos produtos coletados (termos avulsos)")
     parser.add_argument("--arquivo", help="JSON com uma lista de {\"termo\", \"categoria\"}")
     parser.add_argument("--listar", action="store_true", help="só lista os modelos encontrados na busca")
@@ -94,8 +106,12 @@ def main(argv: list[str] | None = None) -> int:
         args.fila = carregar_fila(args.termos, args.categoria, args.arquivo)
     except (OSError, ValueError) as e:
         parser.error(str(e))
-    if not args.fila and not args.url:
-        parser.error("informe ao menos um termo de busca, --arquivo ou --url")
+    if not args.fila and not args.url and not args.url_categoria:
+        parser.error("informe ao menos um termo de busca, --arquivo, --url ou --url-categoria")
+    if args.url_categoria and not args.categoria:
+        parser.error("--url-categoria exige --categoria (a categoria gravada nos produtos)")
+    if args.paginas < 1:
+        parser.error("--paginas deve ser pelo menos 1")
 
     cliente = ClienteNavegador() if args.navegador else None
     try:
@@ -122,6 +138,8 @@ def _coletar(args, cliente) -> int:
 
     tarefas = [{"termos": [i["termo"]], "urls": [], "categoria": i["categoria"], "rotulo": f"'{i['termo']}'"}
                for i in args.fila]
+    tarefas += [{"termos": [], "urls": None, "url_categoria": u, "categoria": args.categoria,
+                 "rotulo": f"categoria {u}"} for u in args.url_categoria]
     if args.url:
         tarefas.append({"termos": [], "urls": args.url, "categoria": args.categoria,
                         "rotulo": f"{len(args.url)} URL(s) de modelo"})
@@ -129,8 +147,23 @@ def _coletar(args, cliente) -> int:
     for n, t in enumerate(tarefas, start=1):
         if len(tarefas) > 1:
             print(f"[{t['categoria'] or 'sem categoria'}] ({n}/{len(tarefas)}) Coletando {t['rotulo']}…")
+        if t.get("url_categoria"):
+            try:
+                modelos = FonteComprasParaguai(cliente=cliente).modelos_da_categoria(
+                    t["url_categoria"], args.paginas)
+            except (ErroColeta, ErroEstruturaHTML) as e:
+                print(f"ERRO ao ler a vitrine da categoria: {e}")
+                resumo.append((t["rotulo"], f"FALHOU: {e}"))
+                continue
+            if args.max_modelos:
+                modelos = modelos[: args.max_modelos]
+            print(f"  {len(modelos)} modelo(s) na vitrine ({args.paginas} página(s) no máximo).")
+            if not modelos:
+                resumo.append((t["rotulo"], "FALHOU: nenhum modelo na vitrine"))
+                continue
+            t["urls"] = [m["url"] for m in modelos]
         fonte = FonteComprasParaguai(termos=t["termos"], urls_modelos=t["urls"], cliente=cliente,
-                                     max_modelos_por_termo=args.max_modelos, categoria=t["categoria"])
+                                     max_modelos_por_termo=args.max_modelos or 1, categoria=t["categoria"])
         ok, texto = _coletar_um(args, fonte)
         resumo.append((t["rotulo"], ("OK: " if ok else "FALHOU: ") + texto))
     if len(tarefas) > 1:

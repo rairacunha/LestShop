@@ -38,6 +38,7 @@ from ..data import config as config_dados
 from ..data.sources.http import ErroColeta
 from ..data.sources.parser_cp import ErroEstruturaHTML
 from ..data.catalogo import IndiceCatalogo
+from ..data.limpeza import slug_produto
 from ..otimizacao import config as config_otim
 from ..otimizacao.resolver import resolver
 from ..otimizacao.solucao import descrever
@@ -178,10 +179,13 @@ def _itens_catalogo() -> dict[str, ItemCatalogo]:
     na base (coletas e consultas anteriores) + modelos achados agora na busca do site."""
     itens = {it.id: it for it in _catalogo()}
     urls = {it.url_modelo for it in itens.values() if it.url_modelo}
+    slugs = {slug_produto(it.nome) for it in itens.values()}
     base = _base()
     for r in base.produtos.itertuples():
         url = r.url_modelo if isinstance(r.url_modelo, str) else None
-        if url and url not in urls and str(r.tipo_dado) == "real":
+        slug = r.slug if isinstance(getattr(r, "slug", None), str) else slug_produto(r.nome)
+        if url and url not in urls and slug not in slugs and str(r.tipo_dado) == "real":
+            slugs.add(slug)
             pid = "cp:" + str(r.produto_id).removeprefix("CP-")
             cat = r.categoria if isinstance(r.categoria, str) else ""
             itens[pid] = ItemCatalogo(pid, r.nome, r.nome, cat, url)

@@ -321,6 +321,24 @@ O cálculo não mudou (modelo, regras fiscais, montagem da instância, consulta 
 * Rotas pelas ruas no mapa (hoje, linhas retas) e troca manual da ordem das lojas.
 * Versão para celular.
 
+## Base de dados — ajustes autorizados em 23/11/2026 (implementados)
+
+* **Coletor por lista** (`--arquivo` JSON com termo e categoria), progresso por item, erro
+  num termo não para os outros. **Vitrine de categoria** (`--url-categoria` + `--categoria`,
+  `--paginas` padrão 2): mesmo leitor de cards da busca, paginação só pelo parâmetro `page`
+  (os outros parâmetros da URL ficam), mesma limpeza e gravação. Sem pausas aleatórias
+  nem navegador sem janela: o coletor segue com 10 s fixos, robots.txt e a verificação
+  anti-robô resolvida pela pessoa.
+* **Banco:** `produtos.slug` único, `lojas.nome_normalizado` e `lojas.zona`,
+  `ofertas.url_oferta` e `ofertas.coletado_em`; limpeza antes de gravar
+  (`data/limpeza.py`, `data/filtro_ofertas.json`); lista inicial de lojas
+  (`data/lojas_seed.csv`); consulta `database.ofertas_validas()` (últimos 7 dias).
+* **A conferir:** endereço e coordenada de Monalisa, Atacado Games e Pioneer
+  Internacional (estimados). O leitor de cards não foi testado com uma página real de
+  categoria nem com a página 2 (o site bloqueia o ambiente de desenvolvimento): antes de
+  uma coleta grande, testar no computador com `--max-modelos 2`.
+* A busca por termo continua lendo só a primeira página de resultados.
+
 ## Melhorias da base de dados (podem entrar antes da Fase 2)
 
 * ~~Conferir o parser contra páginas reais~~ — feito na Fase 4 (18/11/2026), com páginas

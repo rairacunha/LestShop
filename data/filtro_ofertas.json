@@ -1,0 +1,33 @@
+{
+  "_sobre": "Filtro de limpeza aplicado antes de gravar no banco (23/11/2026). Comparação sem acento e sem maiúsculas, por palavra inteira, no título da oferta. 'condicao': a oferta sai se a palavra aparecer em qualquer lugar do título. 'acessorios': a oferta sai só se o título COMEÇAR pela palavra e ela não estiver no nome do produto (\"Capa para iPhone 16\" sai; \"Controle DualSense com cabo\" fica; o produto \"Carregador Apple 20W\" continua).",
+  "condicao": [
+    "vitrine",
+    "cpo",
+    "reacondicionado",
+    "recondicionado",
+    "refurbished",
+    "renewed",
+    "seminovo",
+    "semi novo",
+    "usado",
+    "open box",
+    "mostruario"
+  ],
+  "acessorios": [
+    "capa",
+    "capinha",
+    "case",
+    "pelicula",
+    "protetor de tela",
+    "cabo",
+    "carregador",
+    "adaptador",
+    "suporte",
+    "skin",
+    "adesivo",
+    "estojo",
+    "pulseira",
+    "dock",
+    "base de carregamento"
+  ]
+}

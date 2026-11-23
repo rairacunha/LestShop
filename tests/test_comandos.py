@@ -89,3 +89,45 @@ def test_carregar_fila_valida_o_arquivo(tmp_path):
     arq.write_text(json.dumps([{"categoria": "X"}]), encoding="utf-8")
     with pytest.raises(ValueError, match="termo"):
         coletar.carregar_fila([], None, str(arq))
+
+
+def test_url_da_pagina_preserva_parametros():
+    from lesteshop.data.sources.comprasparaguai import url_da_pagina
+
+    base = "https://www.comprasparaguai.com.br/celular/"
+    assert url_da_pagina(base, 1) == base
+    assert url_da_pagina(base, 2) == base + "?page=2"
+    assert url_da_pagina(base + "?ordem=relevancia", 3) == base + "?ordem=relevancia&page=3"
+    assert url_da_pagina(base + "?page=5&ordem=menor-preco", 2) == base + "?page=2&ordem=menor-preco"
+    assert url_da_pagina(base + "?page=5", 1) == base + "?page=1"
+
+
+def test_coletar_por_url_categoria(monkeypatch, tmp_path, cliente_falso, capsys):
+    """--url-categoria: lê os cards com o mesmo leitor da busca, pagina pelo parâmetro page
+    (preservando os outros), respeita o intervalo e grava pelo mesmo caminho."""
+    import pytest
+
+    monkeypatch.setattr(config, "DIR_COLETAS", tmp_path / "coletas")
+    url = f"{config.URL_BASE_CP}/games/?ordem=relevancia"
+    rotas = cliente_falso.sessao_falsa.rotas
+    rotas[url] = "busca_playstation.html"
+    rotas[url + "&page=2"] = "busca_playstation.html"    # sem modelo novo: para aqui
+    original = FonteComprasParaguai
+
+    def fonte_offline(**kw):
+        kw.pop("cliente", None)
+        return original(cliente=cliente_falso, dir_cache_lojas=tmp_path / "lojas", **kw)
+
+    monkeypatch.setattr(coletar, "FonteComprasParaguai", fonte_offline)
+    with pytest.raises(SystemExit):     # --url-categoria sem --categoria
+        coletar.main(["--url-categoria", url])
+    banco = tmp_path / "t.db"
+    assert coletar.main(["--url-categoria", url, "--categoria", "Games", "--paginas", "3", "--max-modelos", "1",
+                         "--banco", str(banco)]) == 0
+    acessos = cliente_falso.sessao_falsa.acessos
+    assert url in acessos and url + "&page=2" in acessos and url + "&page=3" not in acessos
+    assert all(e <= config.INTERVALO_MIN_SEGUNDOS for e in cliente_falso.esperas) and cliente_falso.esperas
+    con = database.conectar(banco)
+    assert con.execute("SELECT DISTINCT categoria FROM produtos").fetchall() == [("Games",)]
+    assert con.execute("SELECT COUNT(*) FROM ofertas WHERE url_oferta IS NOT NULL AND coletado_em IS NOT NULL").fetchone()[0] == 3
+    assert "3 oferta(s) em Ciudad del Este" in capsys.readouterr().out

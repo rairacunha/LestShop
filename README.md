@@ -95,6 +95,10 @@ python -m lesteshop.data.coletar "playstation 5 pro" --navegador
 # coletar uma lista de termos, cada um com a sua categoria (JSON: [{"termo", "categoria"}, ...])
 python -m lesteshop.data.coletar --arquivo data/coleta_exemplo.json --navegador --max-modelos 2
 
+# coletar os principais itens da vitrine de uma categoria (2 páginas por padrão)
+python -m lesteshop.data.coletar --url-categoria "https://www.comprasparaguai.com.br/celular/" \
+    --categoria Celulares --paginas 2 --navegador
+
 # ou indicar a página do modelo diretamente
 python -m lesteshop.data.coletar --url "https://www.comprasparaguai.com.br/<slug>_<id>/" --navegador
 ```
@@ -112,7 +116,10 @@ pytest tests/test_fixtures_reais.py -v
 ```
 
 A coleta espera 10 s entre requisições, respeita o `robots.txt`, guarda as páginas em cache e
-mantém só as lojas de Ciudad del Este. O resultado vai para `data/coletas/<data>/*.csv` e para
+mantém só as lojas de Ciudad del Este. Antes de gravar no banco, a limpeza
+(`src/lesteshop/data/limpeza.py`) tira ofertas "vitrine", "CPO", "reacondicionado" e
+acessórios fora do lugar, une lojas repetidas e usa a lista inicial `data/lojas_seed.csv`.
+Ofertas válidas dos últimos 7 dias, por produto e loja: `database.ofertas_validas(con)`. O resultado vai para `data/coletas/<data>/*.csv` e para
 `data/lesteshop.db`. As lojas sem coordenadas aparecem na saída: copie a posição do Google
 Maps para `data/lojas_complemento.csv`:
 
