@@ -1,14 +1,16 @@
-# Logotipo do LesteShop (lugar reservado)
+# Logotipo do LesteShop
 
-O logotipo vai ser criado pela dona do projeto (decisão da Fase 5, 21/11/2026).
+Criado pela dona do projeto (23/11/2026).
 
-Para ele aparecer no app, basta salvar a imagem aqui com o nome **`logo.png`**
-(fundo transparente, de preferência mais larga do que alta, por exemplo 600 × 200 px).
-Não é preciso mexer no código: `src/lesteshop/app/tela.py` mostra o logotipo no canto
-de cima da barra lateral (`st.logo`) sempre que `assets/logo.png` existir. Enquanto o
-arquivo não existir, a tela mostra só o nome "LesteShop".
+* `logo.png`: logotipo completo, com fundo transparente (o fundo branco, o vão da alça e o
+  miolo das letras foram deixados transparentes; o branco da seta, do pino e do
+  tracejado foi mantido). Aparece no topo da página e no canto da barra lateral.
+* `icone.png`: só a sacola, para a aba do navegador.
 
-Cores do tema (em `.streamlit/config.toml`), para combinar com o logotipo:
+Para trocar o logotipo, basta substituir `logo.png` (fundo transparente, de preferência
+mais largo do que alto). Sem o arquivo, a tela mostra só o nome "LesteShop".
+
+Cores do tema (em `.streamlit/config.toml`), que combinam com o logotipo:
 
 | Uso | Cor |
 |---|---|

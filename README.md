@@ -317,8 +317,7 @@ R$ e o bloco da Receita Federal (cota, limites, declaração e premissa).
 **Design (Fase 5).** Tema azul e vermelho (`.streamlit/config.toml`), textos simples
 para o turista, um resumo no topo do resultado (total a pagar, economia, volta à Ponte e
 cota) e o **mapa do roteiro** (Ponte e lojas numeradas na ordem da visita; linhas retas,
-que não seguem as ruas). O logotipo entra quando existir `assets/logo.png` (ver
-`assets/README.md`).
+que não seguem as ruas). O logotipo fica em `assets/logo.png` (ver `assets/README.md`).
 
 **Forma de pagamento.** Na barra lateral (PIX por padrão). O acréscimo (dinheiro 0%,
 PIX 3%, cartão 6%, valores estimados em `data/formas_pagamento.csv`) entra no valor dos

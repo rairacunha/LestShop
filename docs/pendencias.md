@@ -257,8 +257,9 @@ O cálculo não mudou (modelo, regras fiscais, montagem da instância, consulta 
 
 * **Cores:** tema azul (`#0038A8`) e vermelho (`#D52B1E`), fundo claro, em
   `.streamlit/config.toml`. O vermelho fica para alertas e para a Ponte no mapa.
-* **Logotipo:** lugar pronto. Basta salvar `assets/logo.png`; o app mostra com
-  `st.logo` (instruções em `assets/README.md`). Nenhum logotipo foi inventado.
+* **Logotipo:** criado pela dona do projeto e colocado em 23/11/2026 (`assets/logo.png`,
+  com fundo transparente; `assets/icone.png`, só a sacola, na aba do navegador). Aparece
+  no topo da página e no canto da barra lateral (instruções em `assets/README.md`).
 * **Textos simples:** "O que você quer comprar", "Seu resultado", "Quanto você vai
   pagar", "Onde comprar", "Seu roteiro", "Quanto você economiza", "Receita Federal: cota
   e declaração"; explicações curtas de cota, e-DBV, prioridade e orçamento; botão

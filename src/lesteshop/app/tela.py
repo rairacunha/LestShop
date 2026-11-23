@@ -48,9 +48,10 @@ from .pagamento import carregar_formas, com_acrescimo
 from .pedido import ErroPedido, ItemPedido, montar_pedido, teto_sem_limite, validar_pedido
 
 LEGENDA_PRIORIDADE = {1: "1 · tanto faz", 2: "2 · pouco", 3: "3 · médio", 4: "4 · muito", 5: "5 · essencial"}
-# Lugar do logotipo (Fase 5): a dona do projeto vai criar o arquivo. Enquanto ele não
-# existir, a tela fica só com o nome "LesteShop".
+# Logotipo criado pela dona do projeto (23/11/2026). Sem o arquivo, a tela mostra só o
+# nome "LesteShop". O ícone (a sacola) aparece na aba do navegador.
 LOGO = Path(__file__).resolve().parents[3] / "assets" / "logo.png"
+ICONE = LOGO.with_name("icone.png")
 AZUL, VERMELHO, BRANCO, VERDE = [0, 56, 168], [213, 43, 30], [255, 255, 255], [0, 140, 70]
 # Barra "economizar ↔ andar menos" (autorizada em 23/11/2026): valor de 1 minuto de
 # caminhada (r, US$/min) no objetivo do modelo. O padrão continua US$ 0,25/min.
@@ -702,12 +703,16 @@ def _passeio(r: dict, cotacao, forma) -> None:
 
 
 def main() -> None:
-    st.set_page_config(page_title="LesteShop", page_icon="🛍️", layout="wide")
+    st.set_page_config(page_title="LesteShop", layout="wide",
+                       page_icon=str(ICONE) if ICONE.exists() else "🛍️")
     if LOGO.exists():
         st.logo(str(LOGO), size="large")
     _estado()
 
-    st.title("LesteShop")
+    if LOGO.exists():
+        st.image(str(LOGO), width=260)
+    else:
+        st.title("LesteShop")
     st.caption("Seu guia de compras em Ciudad del Este: onde comprar cada produto, o caminho "
                "saindo e voltando à Ponte da Amizade e quanto você paga de imposto na Receita.")
 
