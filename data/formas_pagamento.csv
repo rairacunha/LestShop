@@ -1,0 +1,4 @@
+forma_id,nome,acrescimo,padrao,origem,data_referencia
+dinheiro,Dinheiro,0.00,nao,"Observação de campo da dona do projeto nas lojas de Ciudad del Este (estimativa, não vem do site)",2026-11-21
+pix,PIX,0.03,sim,"Observação de campo da dona do projeto nas lojas de Ciudad del Este (estimativa, não vem do site)",2026-11-21
+cartao,Cartão de crédito,0.06,nao,"Observação de campo da dona do projeto nas lojas de Ciudad del Este (estimativa, não vem do site)",2026-11-21

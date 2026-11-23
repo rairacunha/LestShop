@@ -197,11 +197,11 @@ def test_tela_consulta_ao_vivo(cache, tmp_path, monkeypatch):
     assert not at.exception
     at.text_input(key="busca_produto").input("belle vie perfume").run()  # qualquer ordem
     next(b for b in at.button if b.key == "add_perfume").click().run()
-    next(b for b in at.button if b.label == "Calcular roteiro").click().run()
+    next(b for b in at.button if b.label == "Calcular meu roteiro").click().run()
     assert not at.exception
     assert any("Preços do Compras Paraguai, consultados em" in s.value for s in at.success)
     textos = " ".join(m.value for m in at.markdown)
-    assert "Roteiro" in textos
+    assert "Seu roteiro" in textos
     assert list((tmp_path / "coletas").glob("*/ofertas.csv")), "a consulta deve entrar na base"
     tela._catalogo.clear()
 

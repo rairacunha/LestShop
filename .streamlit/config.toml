@@ -3,3 +3,19 @@ toolbarMode = "minimal"
 
 [browser]
 gatherUsageStats = false
+
+# Fase 5 (21/11/2026): opção 1 de cores, azul e vermelho (referência discreta ao
+# Paraguai). Fundo claro. Azul = cor principal (botões, links, destaques);
+# vermelho = só para alertas (o Streamlit usa redColor nos avisos de erro).
+[theme]
+base = "light"
+primaryColor = "#0038A8"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#EEF3FB"
+textColor = "#1B2333"
+linkColor = "#0038A8"
+redColor = "#D52B1E"
+blueColor = "#0038A8"
+borderColor = "#D3DCEB"
+font = "sans-serif"
+headingFont = "sans-serif"

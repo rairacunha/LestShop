@@ -310,9 +310,20 @@ opção, **Base guardada**, usa o SQLite (coletas salvas ou a base fictícia).
 Uma página: na barra lateral, a fonte (base **fictícia** identificada na tela
 enquanto não houver coleta real), a cotação e os dados da viagem (chegada, saída e
 orçamento opcional em US$); no centro, a lista de compras (busca, quantidade e
-prioridade 1–5), o botão **Calcular roteiro** e o resultado: onde comprar cada item,
+prioridade 1–5), o botão **Calcular meu roteiro** e o resultado: onde comprar cada item,
 roteiro a pé com horários, itens deixados de fora, gasto, imposto, custo total em US$ e
 R$ e o bloco da Receita Federal (cota, limites, declaração e premissa).
+
+**Design (Fase 5).** Tema azul e vermelho (`.streamlit/config.toml`), textos simples
+para o turista, um resumo no topo do resultado (total a pagar, economia, volta à Ponte e
+cota) e o **mapa do roteiro** (Ponte e lojas numeradas na ordem da visita; linhas retas,
+que não seguem as ruas). O logotipo entra quando existir `assets/logo.png` (ver
+`assets/README.md`).
+
+**Forma de pagamento.** Na barra lateral (PIX por padrão). O acréscimo (dinheiro 0%,
+PIX 3%, cartão 6%, valores estimados em `data/formas_pagamento.csv`) entra no valor dos
+produtos, e o imposto é calculado sobre o valor com o acréscimo. O roteiro não muda; a
+tela mostra quanto a forma escolhida custa a mais que o dinheiro.
 
 Código em `src/lesteshop/app/`: `base.py` (base do SQLite, só a coleta mais recente de
 cada loja/produto, origem real/fictícia), `pedido.py` (monta a instância a partir do que

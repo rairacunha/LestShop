@@ -176,13 +176,13 @@ def test_tabelas_do_resultado(base_ficticia):
     d = descrever(sol, inst)
     itens = ap.tabela_itens(d, base, COTACAO)
     assert len(itens) == d["resumo"]["itens_comprados"]
-    assert set(itens["Origem"]) == {"fictícia"} and itens["Subtotal (R$)"].str.startswith("R$").all()
+    assert set(itens["Preço"]) == {"fictício (teste)"} and itens["Total (R$)"].str.startswith("R$").all()
     rot = ap.tabela_roteiro(d)
-    assert rot.iloc[0]["Local"].startswith("Ponte") and rot.iloc[-1]["Chegada"] == d["horario_retorno"]
+    assert rot.iloc[0]["Onde"].startswith("Ponte") and rot.iloc[-1]["Chega às"] == d["horario_retorno"]
     fora = ap.tabela_fora(d, inst)
-    assert "nenhuma loja" in fora.set_index("Item").loc[base_ficticia.nome_produto(sem_oferta), "Motivo"]
+    assert "nenhuma loja" in fora.set_index("Produto").loc[base_ficticia.nome_produto(sem_oferta), "Por quê"]
     totais = ap.totais(d, COTACAO)
-    assert [t[0] for t in totais] == ["Gasto com produtos", "Imposto estimado", "Custo total"]
+    assert [t[0] for t in totais] == ["Produtos", "Imposto da Receita", "Total a pagar"]
     f = ap.resumo_fiscal(d, COTACAO)
     assert "Portaria" in f["cota"] and f["premissa"]
 
@@ -202,7 +202,9 @@ def test_resumo_fiscal_com_limite_ultrapassado(base_ficticia):
 
 def test_texto_solver():
     assert ap.texto_solver({"info": {"status": "otimo"}}) is None
-    assert "tempo limite" in ap.texto_solver({"info": {"status": "viavel (limite de tempo)", "gap": 0.039}})
+    texto = ap.texto_solver({"info": {"status": "viavel (limite de tempo)", "gap": 0.039}})
+    assert "tempo limite" in texto and "3,9%" in texto
+    assert "ótimo" not in texto and "gap" not in texto  # Fase 5: sem termos técnicos
 
 
 # --- tela -----------------------------------------------------------------------
@@ -221,10 +223,14 @@ def test_tela_calcula_roteiro(base_ficticia, monkeypatch):
     at.text_input(key="busca_produto").input(base_ficticia.nome_produto(pid)).run()
     next(b for b in at.button if b.key == f"add_{pid}").click().run()
     assert at.number_input(key=f"qtd_{pid}").value == 1
-    next(b for b in at.button if b.label == "Calcular roteiro").click().run()
+    next(b for b in at.button if b.label == "Calcular meu roteiro").click().run()
     assert not at.exception
     textos = " ".join(m.value for m in at.markdown)
-    assert "Roteiro" in textos and "Receita Federal" in textos
+    assert "Seu roteiro" in textos and "Receita Federal" in textos
+    assert "Quanto você vai pagar" in textos and "Onde comprar" in textos
+    rotulos = [m.label for m in at.metric]
+    assert rotulos[:4] == ["Total a pagar", "Você economiza", "Volta à Ponte", "Cota da Receita"]
+    assert len(at.get("deck_gl_json_chart")) == 1, "o mapa do roteiro deve aparecer"
     assert len(at.dataframe) >= 2
 
 
@@ -296,3 +302,42 @@ def test_versao_web_esconde_a_consulta_ao_vivo(monkeypatch):
     monkeypatch.setenv("LESTESHOP_CONSULTA", "0")
     assert not tela.tem_tela()
     assert ap.fmt_pct(0.1234) == "12,3%"
+
+
+# --- Fase 5: resumo no topo e mapa ---------------------------------------------------
+def test_resumo_topo_e_dados_do_mapa(base_ficticia):
+    ids = _ids(base_ficticia, 5)
+    itens = [ItemPedido(p) for p in ids]
+    inst = montar_pedido(base_ficticia, itens, "07:00", "16:00", teto_sem_limite(base_ficticia, itens))
+    d = descrever(resolver(inst)[0], inst)
+    c = ap.comparativo_avulsa(d, inst, base_ficticia)
+    topo = ap.resumo_topo(d, c, COTACAO)
+    assert [t["rotulo"] for t in topo] == ["Total a pagar", "Você economiza", "Volta à Ponte", "Cota da Receita"]
+    assert topo[0]["valor"].startswith("R$") and topo[2]["valor"] == d["horario_retorno"]
+    assert topo[3]["valor"] == ("Dentro da cota" if d["resumo"]["excedente"] <= 0 else "Passa da cota")
+    assert ap.resumo_topo(d, c, None)[0]["valor"].startswith("US$")
+
+    m = ap.dados_mapa(d, inst, base_ficticia)
+    pts = m["pontos"]
+    assert pts.iloc[0]["numero"] == "P" and pts.iloc[0]["tipo"] == "ponte"
+    # Cada loja do roteiro aparece num ponto (lojas no mesmo endereço ficam juntas).
+    assert len(pts) >= 2 and pts["numero"].iloc[1:].str.len().gt(0).all()
+    # Ponte -> lojas -> Ponte, em linha reta.
+    assert len(m["trechos"]) == len(d["roteiro"]) + 1
+    assert m["trechos"][0]["de"] == m["trechos"][-1]["para"] == (pts.iloc[0]["lat"], pts.iloc[0]["lon"])
+    assert all(c["nome"] in " ".join(pts["comprar"]) for p in d["roteiro"] for c in p["compras"])
+    assert ap.dados_mapa({**d, "roteiro": []}, inst, base_ficticia) is None
+
+
+def test_mapa_junta_lojas_no_mesmo_predio(base_ficticia):
+    ids = _ids(base_ficticia, 1)
+    inst = montar_pedido(base_ficticia, [ItemPedido(ids[0])], "07:00", "16:00")
+    d = descrever(resolver(inst)[0], inst)
+    p = d["roteiro"][0]
+    p = {**p, "predio": "Galería X"}
+    vizinha = {**p, "ordem": 2, "nome": "Loja vizinha", "compras": [{**p["compras"][0], "nome": "Outro"}]}
+    terceira = {**vizinha, "ordem": 3, "nome": "Loja 3"}
+    m = ap.dados_mapa({**d, "roteiro": [p, vizinha, terceira]}, inst, base_ficticia)
+    assert list(m["pontos"]["numero"]) == ["P", "1-3"]
+    assert ap._rotulo_numeros([1, 4]) == "1,4" and ap._rotulo_numeros([2]) == "2"
+    assert m["pontos"].iloc[1]["nome"].startswith("Galería X: 1.") and "Loja vizinha" in m["pontos"].iloc[1]["nome"]

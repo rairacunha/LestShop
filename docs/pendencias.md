@@ -221,6 +221,15 @@ completo. Resumo e decisões em [`handoff_fase5.md`](handoff_fase5.md).
 * **Categoria dos produtos achados na busca livre do site:** vem do site (ex.: "Celular")
   e pode não estar em `categorias_fiscais.csv` (vira "outros", com aviso). Para bebidas e
   cigarros, o limite fiscal precisa do conteúdo por unidade, que a busca livre não informa.
+* **Acréscimo por forma de pagamento** (aprovado em 21/11/2026; **implementado em
+  21/11/2026** no branch `claude/fase5-design`, ver a seção da Fase 5). Nas lojas, o preço muda com a forma de pagamento:
+  dinheiro 0%, PIX 3%, cartão 6% (observação de campo, não vem do site: valores
+  **estimados e editáveis**, num arquivo de configuração com a origem registrada).
+  Campo "Forma de pagamento" na barra lateral, com **PIX** marcado por padrão. O acréscimo
+  entra no valor dos produtos, e o **imposto é calculado sobre o valor com a taxa** (é o
+  valor da nota fiscal). A escolha das lojas não muda (o acréscimo é igual em todas); a
+  tela mostra quanto a forma de pagamento custa a mais que o dinheiro. O comparativo
+  aplica a mesma taxa aos dois cenários.
 * **Comparativo com outras referências** (ex.: a loja única mais barata que vende todos os
   itens), se o professor pedir.
 
@@ -239,6 +248,51 @@ enquanto. Entrega do projeto em 23/11/2026, sem tempo de consultar o professor.
 * **Mapa do roteiro** (pedido em 20/11/2026): lojas no mapa, na ordem da visita, saindo
   e voltando à Ponte da Amizade (a biblioteca pydeck já vem com o Streamlit). A troca
   manual da ordem das lojas continua em "Melhorias futuras".
+
+### Implementado (21/11/2026, branch `claude/fase5-design`)
+
+O cálculo não mudou (modelo, regras fiscais, montagem da instância, consulta e base).
+
+* **Cores:** tema azul (`#0038A8`) e vermelho (`#D52B1E`), fundo claro, em
+  `.streamlit/config.toml`. O vermelho fica para alertas e para a Ponte no mapa.
+* **Logotipo:** lugar pronto. Basta salvar `assets/logo.png`; o app mostra com
+  `st.logo` (instruções em `assets/README.md`). Nenhum logotipo foi inventado.
+* **Textos simples:** "O que você quer comprar", "Seu resultado", "Quanto você vai
+  pagar", "Onde comprar", "Seu roteiro", "Quanto você economiza", "Receita Federal: cota
+  e declaração"; explicações curtas de cota, e-DBV, prioridade e orçamento; botão
+  "Calcular meu roteiro". "Ótimo" e "gap" saíram do aviso de tempo limite.
+* **Resumo no topo do resultado** (`apresentacao.resumo_topo`): total a pagar,
+  economia em relação à compra avulsa, hora de volta à Ponte e situação da cota.
+* **Mapa do roteiro** (`apresentacao.dados_mapa` + `tela._mapa`, pydeck, mapa de fundo
+  gratuito da CARTO, sem chave): Ponte em vermelho ("P"), lojas em azul, numeradas na
+  ordem da visita; lojas do mesmo prédio num ponto só ("1-3"); ao passar o mouse,
+  horário e o que comprar. Linhas retas entre as paradas, com legenda dizendo que não
+  seguem as ruas.
+* Testes: os textos da tela foram atualizados em `tests/test_app.py` e
+  `tests/test_consulta.py`; testes novos do resumo e do mapa.
+
+### Acréscimo por forma de pagamento (autorizado e implementado em 21/11/2026)
+
+Única mudança de cálculo da Fase 5, autorizada pela dona do projeto.
+
+* Taxas em `data/formas_pagamento.csv` (dinheiro 0%, PIX 3%, cartão 6%; estimadas,
+  observação de campo, com a origem registrada). Campo "Forma de pagamento" na barra
+  lateral, com PIX marcado.
+* `src/lesteshop/app/pagamento.py`: o modelo é resolvido como antes, com os preços do
+  site (o acréscimo é igual em todas as lojas, então o roteiro não muda); depois,
+  `com_acrescimo()` multiplica os preços pela taxa e `descrever()` refaz gasto, imposto
+  (sobre o valor com a taxa, o valor da nota), cota e alertas fiscais. Trocar a forma de
+  pagamento atualiza os valores sem recalcular o roteiro.
+* A tela mostra quanto a forma escolhida custa a mais que pagar em dinheiro, já com o
+  imposto. O comparativo com a compra avulsa aplica a mesma taxa aos dois cenários.
+* Testes em `tests/test_pagamento.py`.
+
+### Ficou para depois (percebido na Fase 5; não implementar sem autorização)
+
+* O alerta da e-DBV vem do módulo fiscal com números no formato americano ("US$ 1768.00").
+  Como as regras fiscais não mudam na Fase 5, o texto ficou como está.
+* Rotas pelas ruas no mapa (hoje, linhas retas) e troca manual da ordem das lojas.
+* Versão para celular.
 
 ## Melhorias da base de dados (podem entrar antes da Fase 2)
 

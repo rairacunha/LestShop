@@ -244,3 +244,23 @@ mediana do produto, com 3 ofertas ou mais), com aviso.
 `app.base.cotacao_do_site()`: mediana de `preco_brl / preco_usd` das ofertas reais (a
 cotação do próprio Compras Paraguai; R$ 5,95 na coleta de 20/11/2026). Sem ofertas reais,
 a PTAX. Só para exibição: os cálculos continuam em US$.
+
+## Acréscimo por forma de pagamento (21/11/2026)
+
+**`data/formas_pagamento.csv`** — editável à mão. Os acréscimos são **estimados**
+(observação de campo nas lojas de Ciudad del Este; não vêm do Compras Paraguai). Lido por
+`src/lesteshop/app/pagamento.py`.
+
+| Campo | Significado |
+|---|---|
+| forma_id | identificador (`dinheiro`, `pix`, `cartao`) |
+| nome | nome mostrado na tela |
+| acrescimo | fração somada ao preço do site (0.03 = 3%); entre 0 e 1. É preciso uma forma com 0 (dinheiro), usada como referência |
+| padrao | `sim` na forma marcada ao abrir o app (exatamente uma; hoje PIX) |
+| origem | de onde veio o valor |
+| data_referencia | data da observação (AAAA-MM-DD) |
+
+O acréscimo entra no valor dos produtos e o imposto é calculado sobre o valor com o
+acréscimo (valor da nota fiscal). O roteiro e as lojas não mudam: o modelo é resolvido com
+os preços do site e os valores são refeitos com a taxa depois. O comparativo com a compra
+avulsa aplica a mesma taxa aos dois cenários.
