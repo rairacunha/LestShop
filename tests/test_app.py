@@ -217,7 +217,7 @@ def test_tela_calcula_roteiro(base_ficticia, monkeypatch):
     at = AppTest.from_file(str(RAIZ / "app.py"), default_timeout=120)
     at.run()
     assert not at.exception
-    at.radio(key="modo").set_value("Base guardada").run()
+    at.run()  # sem tela: só a base guardada, sem opção a escolher
     assert any("FICTÍCIA" in w.value for w in at.warning)
     pid = base_ficticia.produtos["produto_id"].iloc[1]
     at.text_input(key="busca_produto").input(base_ficticia.nome_produto(pid)).run()
@@ -240,7 +240,7 @@ def test_preco_atipico_e_descartado_com_aviso():
                        "preco_usd": [449.0, 455.0, 440.0, 9.0]})
     ficam, avisos = base_app.descartar_precos_atipicos(of, {"P": "iPad 11"})
     assert list(ficam["loja_id"]) == ["A", "B", "C"]
-    assert "Fone G-Tide (US$ 9.00)" in avisos["P"][0] and "iPad 11" in avisos["P"][0]
+    assert "Fone G-Tide (US$ 9,00)" in avisos["P"][0] and "iPad 11" in avisos["P"][0]
     # Com menos de 3 ofertas não há mediana confiável: nada é descartado.
     assert len(base_app.descartar_precos_atipicos(of.iloc[2:])[0]) == 2
 

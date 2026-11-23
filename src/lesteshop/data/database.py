@@ -14,6 +14,7 @@ Uso::
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import logging
 import sqlite3
 from pathlib import Path
@@ -44,7 +45,9 @@ CREATE TABLE IF NOT EXISTS lojas (
     fecha TEXT,
     tempo_permanencia_min REAL,
     fonte TEXT NOT NULL,
-    tipo_dado TEXT NOT NULL CHECK (tipo_dado IN ('real', 'estimado', 'sintetico'))
+    tipo_dado TEXT NOT NULL CHECK (tipo_dado IN ('real', 'estimado', 'sintetico')),
+    nome_normalizado TEXT,           -- chave sem acento/espaço (data/limpeza.py)
+    zona TEXT                        -- Microcentro, Perto do microcentro, Fora do centro
 );
 CREATE TABLE IF NOT EXISTS produtos (
     produto_id TEXT PRIMARY KEY,
@@ -54,7 +57,8 @@ CREATE TABLE IF NOT EXISTS produtos (
     peso_kg REAL CHECK (peso_kg IS NULL OR peso_kg > 0),
     volume_l REAL CHECK (volume_l IS NULL OR volume_l > 0),
     desconto_brasil_pct REAL CHECK (desconto_brasil_pct IS NULL OR (desconto_brasil_pct >= 0 AND desconto_brasil_pct < 1)),
-    tipo_dado TEXT NOT NULL CHECK (tipo_dado IN ('real', 'estimado', 'sintetico'))
+    tipo_dado TEXT NOT NULL CHECK (tipo_dado IN ('real', 'estimado', 'sintetico')),
+    slug TEXT                        -- único (índice abaixo): evita produto repetido no menu
 );
 CREATE TABLE IF NOT EXISTS ofertas (
     oferta_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -66,7 +70,9 @@ CREATE TABLE IF NOT EXISTS ofertas (
     preco_brl REAL CHECK (preco_brl IS NULL OR preco_brl > 0),
     data_coleta TEXT NOT NULL,
     fonte TEXT NOT NULL,
-    tipo_dado TEXT NOT NULL CHECK (tipo_dado IN ('real', 'estimado', 'sintetico'))
+    tipo_dado TEXT NOT NULL CHECK (tipo_dado IN ('real', 'estimado', 'sintetico')),
+    url_oferta TEXT,                 -- página do Compras Paraguai onde a oferta aparece
+    coletado_em TEXT                 -- data e hora da coleta (AAAA-MM-DDTHH:MM:SS)
 );
 CREATE INDEX IF NOT EXISTS ix_ofertas_produto ON ofertas(produto_id, preco_usd);
 CREATE TABLE IF NOT EXISTS pontos_partida (
@@ -88,12 +94,27 @@ CREATE TABLE IF NOT EXISTS descartes_coleta (
 """ + SQL_COTACOES + ";"
 
 
+_COLUNAS_NOVAS = {  # 23/11/2026: bancos antigos ganham as colunas sem perder dados
+    "lojas": ["nome_normalizado TEXT", "zona TEXT"],
+    "produtos": ["slug TEXT"],
+    "ofertas": ["url_oferta TEXT", "coletado_em TEXT"],
+}
+
+
 def conectar(caminho: str | Path = config.CAMINHO_BANCO) -> sqlite3.Connection:
     Path(caminho).parent.mkdir(parents=True, exist_ok=True)
     con = sqlite3.connect(caminho)
     con.execute("PRAGMA foreign_keys = ON")
     con.create_function("normalizar", 1, normalizar, deterministic=True)
     con.executescript(SQL_ESQUEMA)
+    for tabela, colunas in _COLUNAS_NOVAS.items():
+        existentes = {r[1] for r in con.execute(f"PRAGMA table_info({tabela})")}
+        for col in colunas:
+            if col.split()[0] not in existentes:
+                con.execute(f"ALTER TABLE {tabela} ADD COLUMN {col}")
+    con.execute("CREATE UNIQUE INDEX IF NOT EXISTS ux_produtos_slug ON produtos(slug)")
+    con.execute("CREATE INDEX IF NOT EXISTS ix_ofertas_coletado ON ofertas(coletado_em)")
+    con.commit()
     return con
 
 
@@ -109,7 +130,28 @@ def gravar(
     ofertas: pd.DataFrame,
     descartes: pd.DataFrame | None = None,
 ) -> None:
-    """Insere ou atualiza lojas/produtos e substitui as ofertas do mesmo dia."""
+    """Insere ou atualiza lojas/produtos e substitui as ofertas do mesmo dia.
+
+    Antes de gravar passa pela limpeza (``limpeza.preparar``): slug único dos produtos,
+    nome normalizado e zona das lojas, lista inicial de lojas e filtro de ofertas
+    (vitrine, CPO, reacondicionado, acessórios). As ofertas descartadas vão para
+    ``descartes_coleta`` com o motivo."""
+    from .limpeza import preparar
+
+    limpa = preparar(lojas, produtos, ofertas)
+    lojas, produtos, ofertas = limpa.lojas, limpa.produtos, limpa.ofertas
+    # Slug já gravado por outro produto_id (de outra coleta): usa o produto que já existe.
+    existentes = dict(con.execute("SELECT slug, produto_id FROM produtos WHERE slug IS NOT NULL"))
+    troca = {pid: existentes[sl] for pid, sl in zip(produtos["produto_id"], produtos["slug"])
+             if sl in existentes and existentes[sl] != pid}
+    if troca:
+        produtos = produtos[~produtos["produto_id"].isin(troca)]
+        ofertas = ofertas.assign(produto_id=ofertas["produto_id"].map(lambda p: troca.get(p, p)))
+    for aviso in limpa.avisos:
+        log.info(aviso)
+    if not limpa.descartes.empty:
+        descartes = limpa.descartes if descartes is None or descartes.empty else \
+            pd.concat([descartes, limpa.descartes], ignore_index=True)
     col_l, col_p, col_o = (esquema.COLUNAS[t] for t in ("lojas", "produtos", "ofertas"))
     lojas = esquema.padronizar(lojas, "lojas").assign(
         coordenada_pendente=lambda d: d["coordenada_pendente"].astype(int))
@@ -234,6 +276,53 @@ def carregar_tabelas(con: sqlite3.Connection) -> dict[str, pd.DataFrame]:
         tabelas[nome] = esquema.padronizar(df, nome)
     tabelas["descartes_coleta"] = pd.read_sql_query("SELECT * FROM descartes_coleta", con)
     return tabelas
+
+
+SQL_OFERTAS_VALIDAS = """
+WITH recentes AS (
+    SELECT o.*, COALESCE(o.coletado_em, o.data_coleta) AS quando
+    FROM ofertas o
+    WHERE o.preco_usd > 0 AND date(COALESCE(o.coletado_em, o.data_coleta)) >= date(:desde)
+      AND date(COALESCE(o.coletado_em, o.data_coleta)) <= date(:hoje)
+),
+ordenadas AS (
+    SELECT r.*, ROW_NUMBER() OVER (PARTITION BY r.produto_id, r.loja_id
+                                   ORDER BY r.preco_usd, r.quando DESC) AS pos
+    FROM recentes r
+)
+SELECT p.produto_id, p.nome AS produto, p.slug, p.categoria,
+       l.loja_id, l.nome AS loja, l.predio AS shopping_galeria, l.zona, l.latitude, l.longitude,
+       MIN(o.preco_usd) AS menor_preco_usd, ROUND(AVG(o.preco_usd), 2) AS preco_medio_usd,
+       COUNT(*) AS n_ofertas, MAX(o.quando) AS ultima_coleta,
+       MAX(CASE WHEN o.pos = 1 THEN o.url_oferta END) AS url_oferta,
+       MAX(CASE WHEN o.pos = 1 THEN o.titulo_oferta END) AS titulo_mais_barato,
+       MIN(o.tipo_dado) AS tipo_dado
+FROM ordenadas o
+JOIN produtos p ON p.produto_id = o.produto_id
+JOIN lojas l ON l.loja_id = o.loja_id
+WHERE l.cidade IS NOT NULL
+GROUP BY p.produto_id, l.loja_id
+ORDER BY p.nome, menor_preco_usd
+"""
+
+
+def ofertas_validas(con: sqlite3.Connection | None = None, dias: int = 7,
+                    hoje: dt.date | None = None) -> pd.DataFrame:
+    """Ofertas válidas dos últimos ``dias`` dias, uma linha por produto e loja.
+
+    Válida = gravada no banco (já passou pela limpeza: sem vitrine, CPO, reacondicionado
+    nem acessório fora do lugar; só Ciudad del Este), com preço > 0 e coletada entre
+    ``hoje − dias`` e ``hoje``. Por produto e loja: menor preço, preço médio, quantas
+    ofertas, a coleta mais recente e a página da oferta mais barata."""
+    hoje = hoje or dt.date.today()
+    fechar = con is None
+    con = con or conectar()
+    try:
+        return pd.read_sql_query(SQL_OFERTAS_VALIDAS, con, params={
+            "desde": (hoje - dt.timedelta(days=dias)).isoformat(), "hoje": hoje.isoformat()})
+    finally:
+        if fechar:
+            con.close()
 
 
 def lojas_que_vendem(nome_produto: str, con: sqlite3.Connection | None = None) -> pd.DataFrame:

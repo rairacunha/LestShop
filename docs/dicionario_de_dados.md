@@ -264,3 +264,42 @@ O acréscimo entra no valor dos produtos e o imposto é calculado sobre o valor 
 acréscimo (valor da nota fiscal). O roteiro e as lojas não mudam: o modelo é resolvido com
 os preços do site e os valores são refeitos com a taxa depois. O comparativo com a compra
 avulsa aplica a mesma taxa aos dois cenários.
+
+## Limpeza, lista inicial de lojas e consulta dos 7 dias (23/11/2026)
+
+As três tabelas continuam ligadas por chaves estrangeiras (`ofertas.produto_id` →
+`produtos`, `ofertas.loja_id` → `lojas`). Colunas novas (bancos antigos ganham as colunas
+ao abrir, sem perder dados):
+
+| Tabela | Coluna | Significado |
+|---|---|---|
+| produtos | slug | nome sem acento, minúsculas e hífens (ex.: `celular-apple-iphone-16-128gb`); **único**: o mesmo produto não aparece duas vezes no menu |
+| lojas | nome_normalizado | chave sem acento, espaço nem sufixos ("Importados", "S.A."): `Visão VIP` e `Visaovip` → `visaovip` |
+| lojas | zona | da lista inicial ou pela distância à Ponte: Microcentro (até 1,2 km), Perto do microcentro (até 3 km), Fora do centro |
+| lojas | predio | o **shopping/galeria** da loja (já existia; o nome ficou `predio` porque o modelo o usa no tempo de deslocamento dentro do mesmo prédio) |
+| ofertas | url_oferta | página do Compras Paraguai onde a oferta aparece |
+| ofertas | coletado_em | data e hora da coleta (as ofertas antigas ficam com a data) |
+
+**Limpeza antes de gravar** (`src/lesteshop/data/limpeza.py`, chamada por `database.gravar`
+e pela consulta do app):
+
+* `data/filtro_ofertas.json` (editável): sai a oferta com "vitrine", "CPO",
+  "reacondicionado", "usado", "open box" etc. em qualquer lugar do título; sai o
+  acessório ("capa", "película", "cabo"...) quando o título **começa** pela palavra e ela
+  não está no nome do produto. As ofertas descartadas vão para `descartes_coleta`, com o
+  motivo.
+* Lojas com o mesmo nome normalizado **no mesmo lugar** (até 150 m) viram uma só;
+  filiais em outro endereço continuam separadas.
+
+**`data/lojas_seed.csv`** — lista inicial de 9 lojas (Cellshop, Nissei, Mega Eletrônicos,
+Shopping China, Monalisa, Madrid Center, Atacado Games, Visão VIP, Pioneer Internacional):
+chave, nome canônico, apelidos (separados por `|`), shopping/galeria, endereço, zona,
+coordenadas e a origem da coordenada. Seis vêm da página da loja no Compras Paraguai
+(20/11/2026). **Monalisa, Atacado Games e Pioneer Internacional têm coordenada ESTIMADA**
+(ponto do microcentro, a conferir no Google Maps) e endereço "a confirmar". A coordenada da
+lista só é usada para loja **sem** coordenada no site; a do site vale mais.
+
+**`database.ofertas_validas(con, dias=7)`** — uma linha por produto e loja com as ofertas
+válidas (já limpas, preço > 0) coletadas nos últimos `dias` dias: menor preço, preço médio,
+número de ofertas, última coleta, página e título da oferta mais barata, shopping/galeria e
+zona da loja.

@@ -141,10 +141,13 @@ implementar, mostrando prints (computador) para a dona do projeto conferir.
 6. **Versão para celular: fora por enquanto.**
 
 **Situação em 21/11/2026:** itens 1 a 5 implementados no branch `claude/fase5-design`
-(resumo em `docs/pendencias.md`, seção da Fase 5). Falta só o arquivo do logotipo
-(`assets/logo.png`), que a dona do projeto vai criar. Também foi implementado, com
+(resumo em `docs/pendencias.md`, seção da Fase 5). O logotipo, criado pela dona do
+projeto, entrou em 23/11/2026 (`assets/logo.png`). Também foi implementado, com
 autorização da dona do projeto, o **acréscimo por forma de pagamento** (única mudança de
-cálculo da fase; detalhes em `docs/pendencias.md`).
+cálculo da fase; detalhes em `docs/pendencias.md`). Em 23/11/2026 entraram também, com
+autorização: a barra "economizar ↔ andar menos", o recálculo da rota durante o passeio
+(só com localização ativa e em Ciudad del Este) e o formato brasileiro nos alertas fiscais.
+As decisões da Fase 4 foram autorizadas pela dona do projeto sem a validação do professor.
 
 Regras da Fase 5: o **cálculo não muda** (modelo, regras fiscais, montagem da instância,
 consulta e base). Mudanças só em `src/lesteshop/app/tela.py`, `apresentacao.py` (textos),

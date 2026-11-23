@@ -159,7 +159,7 @@ def test_perda_da_cota_mostra_imposto_sem_cota(regras):
     assert res["perde_cota"] and res["limites_ultrapassados"] == ["outros_identicos"]
     assert res["imposto_modelo_usd"] == 0.0
     assert res["imposto_sem_cota_usd"] == pytest.approx(200.0)
-    assert any("perde a cota" in a and "US$ 200.00" in a for a in res["alertas"])
+    assert any("perde a cota" in a and "US$ 200,00" in a for a in res["alertas"])
     assert res["declaracao_necessaria"]
 
 

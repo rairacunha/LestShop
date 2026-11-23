@@ -92,6 +92,13 @@ python -m lesteshop.data.coletar "playstation 5 pro" --listar --navegador
 # coletar as ofertas do primeiro modelo encontrado (padrão: 1 modelo por termo)
 python -m lesteshop.data.coletar "playstation 5 pro" --navegador
 
+# coletar uma lista de termos, cada um com a sua categoria (JSON: [{"termo", "categoria"}, ...])
+python -m lesteshop.data.coletar --arquivo data/coleta_exemplo.json --navegador --max-modelos 2
+
+# coletar os principais itens da vitrine de uma categoria (2 páginas por padrão)
+python -m lesteshop.data.coletar --url-categoria "https://www.comprasparaguai.com.br/celular/" \
+    --categoria Celulares --paginas 2 --navegador
+
 # ou indicar a página do modelo diretamente
 python -m lesteshop.data.coletar --url "https://www.comprasparaguai.com.br/<slug>_<id>/" --navegador
 ```
@@ -109,7 +116,10 @@ pytest tests/test_fixtures_reais.py -v
 ```
 
 A coleta espera 10 s entre requisições, respeita o `robots.txt`, guarda as páginas em cache e
-mantém só as lojas de Ciudad del Este. O resultado vai para `data/coletas/<data>/*.csv` e para
+mantém só as lojas de Ciudad del Este. Antes de gravar no banco, a limpeza
+(`src/lesteshop/data/limpeza.py`) tira ofertas "vitrine", "CPO", "reacondicionado" e
+acessórios fora do lugar, une lojas repetidas e usa a lista inicial `data/lojas_seed.csv`.
+Ofertas válidas dos últimos 7 dias, por produto e loja: `database.ofertas_validas(con)`. O resultado vai para `data/coletas/<data>/*.csv` e para
 `data/lesteshop.db`. As lojas sem coordenadas aparecem na saída: copie a posição do Google
 Maps para `data/lojas_complemento.csv`:
 
@@ -317,13 +327,20 @@ R$ e o bloco da Receita Federal (cota, limites, declaração e premissa).
 **Design (Fase 5).** Tema azul e vermelho (`.streamlit/config.toml`), textos simples
 para o turista, um resumo no topo do resultado (total a pagar, economia, volta à Ponte e
 cota) e o **mapa do roteiro** (Ponte e lojas numeradas na ordem da visita; linhas retas,
-que não seguem as ruas). O logotipo entra quando existir `assets/logo.png` (ver
-`assets/README.md`).
+que não seguem as ruas). O logotipo fica em `assets/logo.png` (ver `assets/README.md`).
 
 **Forma de pagamento.** Na barra lateral (PIX por padrão). O acréscimo (dinheiro 0%,
 PIX 3%, cartão 6%, valores estimados em `data/formas_pagamento.csv`) entra no valor dos
 produtos, e o imposto é calculado sobre o valor com o acréscimo. O roteiro não muda; a
 tela mostra quanto a forma escolhida custa a mais que o dinheiro.
+
+**Economizar ou andar menos.** Uma barra na lateral muda o valor do minuto de caminhada
+(de US$ 0 a US$ 1/min; padrão US$ 0,25): para o lado "economizar" o app aceita andar mais
+por preço menor; para "andar menos", o contrário.
+
+**Recalcular durante o passeio.** Com a localização do aparelho ativa e dentro de Ciudad
+del Este, o turista marca as lojas em que já comprou e o app refaz a rota com o que falta,
+saindo de onde ele está, no horário atual, e voltando à Ponte (`app/passeio.py`).
 
 Código em `src/lesteshop/app/`: `base.py` (base do SQLite, só a coleta mais recente de
 cada loja/produto, origem real/fictícia), `pedido.py` (monta a instância a partir do que

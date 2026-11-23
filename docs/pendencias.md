@@ -214,9 +214,11 @@ completo. Resumo e decisões em [`handoff_fase5.md`](handoff_fase5.md).
 * **Segundo e-mail ao Compras Paraguai.** O primeiro ficou sem resposta. O texto sugerido
   fala em "1 acesso a cada 10 segundos"; a consulta do app usa 1,5 s (a coleta em lote,
   10 s). Ajustar o texto antes de enviar.
-* **Validação com o professor** das decisões da Fase 4 que mudaram regras aprovadas:
+* ~~**Validação com o professor** das decisões da Fase 4 que mudaram regras aprovadas:
   orçamento só como referência no app, horário das lojas vindo do site, consulta sob
-  demanda, descarte de preço atípico e cotação do site.
+  demanda, descarte de preço atípico e cotação do site.~~ **Encerrada em 23/11/2026:** sem
+  tempo de validar antes da entrega, a dona do projeto autorizou essas decisões (e o
+  acréscimo por forma de pagamento) por conta e risco dela.
 * **Experimentos da Fase 2 com dados reais** (continua da Fase 2).
 * **Categoria dos produtos achados na busca livre do site:** vem do site (ex.: "Celular")
   e pode não estar em `categorias_fiscais.csv` (vira "outros", com aviso). Para bebidas e
@@ -255,8 +257,9 @@ O cálculo não mudou (modelo, regras fiscais, montagem da instância, consulta 
 
 * **Cores:** tema azul (`#0038A8`) e vermelho (`#D52B1E`), fundo claro, em
   `.streamlit/config.toml`. O vermelho fica para alertas e para a Ponte no mapa.
-* **Logotipo:** lugar pronto. Basta salvar `assets/logo.png`; o app mostra com
-  `st.logo` (instruções em `assets/README.md`). Nenhum logotipo foi inventado.
+* **Logotipo:** criado pela dona do projeto e colocado em 23/11/2026 (`assets/logo.png`,
+  com fundo transparente; `assets/icone.png`, só a sacola, na aba do navegador). Aparece
+  no topo da página e no canto da barra lateral (instruções em `assets/README.md`).
 * **Textos simples:** "O que você quer comprar", "Seu resultado", "Quanto você vai
   pagar", "Onde comprar", "Seu roteiro", "Quanto você economiza", "Receita Federal: cota
   e declaração"; explicações curtas de cota, e-DBV, prioridade e orçamento; botão
@@ -287,12 +290,54 @@ O cálculo não mudou (modelo, regras fiscais, montagem da instância, consulta 
   imposto. O comparativo com a compra avulsa aplica a mesma taxa aos dois cenários.
 * Testes em `tests/test_pagamento.py`.
 
+### Barra "economizar ↔ andar menos" e recálculo durante o passeio (autorizados e implementados em 23/11/2026)
+
+* **Barra "Economizar ou andar menos?"** na barra lateral: muda o valor do minuto de
+  caminhada r no objetivo do modelo (Economizar ao máximo US$ 0; Economizar US$ 0,10;
+  Equilíbrio US$ 0,25, o padrão de antes; Andar menos US$ 0,50; Andar o mínimo
+  US$ 1,00/min). O modelo é o mesmo; só o parâmetro r muda.
+* **Recálculo durante o passeio** (seção "4. Já está no passeio?"), em
+  `src/lesteshop/app/passeio.py`:
+  * só funciona com a **localização ativa** (botão "Usar minha localização", que pede a
+    posição ao navegador) e **dentro de Ciudad del Este** (retângulo aproximado do
+    município; o lado leste para antes do Rio Paraná, para não aceitar Foz do Iguaçu);
+  * o turista marca as lojas em que já comprou; o app resolve o mesmo modelo para os
+    produtos que faltam, saindo da posição atual no horário atual do Paraguai (UTC−3) e
+    voltando à Ponte. Só a ida (linha 0 da matriz de tempos) muda; a volta continua até
+    a Ponte. Lojas que já não dá tempo de visitar saem da conta;
+  * a cota que sobra é a cota menos o que já foi comprado, então o imposto da compra
+    inteira fica certo; a tela mostra "Já gastou", "Falta gastar" e o total com imposto;
+  * mapa da nova rota com o ponto verde "V" (você).
+  * Limitação: os limites de quantidade da Receita continuam os do cálculo original.
+* Testes em `tests/test_passeio.py`.
+
 ### Ficou para depois (percebido na Fase 5; não implementar sem autorização)
 
-* O alerta da e-DBV vem do módulo fiscal com números no formato americano ("US$ 1768.00").
-  Como as regras fiscais não mudam na Fase 5, o texto ficou como está.
+* ~~O alerta da e-DBV vem do módulo fiscal com números no formato americano ("US$ 1768.00").~~
+  **Corrigido em 23/11/2026** (autorizado pela dona do projeto, por conta e risco dela):
+  só o texto dos alertas em `src/lesteshop/fiscal/verificacao.py` (agora "US$ 1.768,00");
+  as contas não mudaram. O aviso de preço atípico (`app/base.py`) também passou para o
+  formato brasileiro.
 * Rotas pelas ruas no mapa (hoje, linhas retas) e troca manual da ordem das lojas.
 * Versão para celular.
+
+## Base de dados — ajustes autorizados em 23/11/2026 (implementados)
+
+* **Coletor por lista** (`--arquivo` JSON com termo e categoria), progresso por item, erro
+  num termo não para os outros. **Vitrine de categoria** (`--url-categoria` + `--categoria`,
+  `--paginas` padrão 2): mesmo leitor de cards da busca, paginação só pelo parâmetro `page`
+  (os outros parâmetros da URL ficam), mesma limpeza e gravação. Sem pausas aleatórias
+  nem navegador sem janela: o coletor segue com 10 s fixos, robots.txt e a verificação
+  anti-robô resolvida pela pessoa.
+* **Banco:** `produtos.slug` único, `lojas.nome_normalizado` e `lojas.zona`,
+  `ofertas.url_oferta` e `ofertas.coletado_em`; limpeza antes de gravar
+  (`data/limpeza.py`, `data/filtro_ofertas.json`); lista inicial de lojas
+  (`data/lojas_seed.csv`); consulta `database.ofertas_validas()` (últimos 7 dias).
+* **A conferir:** endereço e coordenada de Monalisa, Atacado Games e Pioneer
+  Internacional (estimados). O leitor de cards não foi testado com uma página real de
+  categoria nem com a página 2 (o site bloqueia o ambiente de desenvolvimento): antes de
+  uma coleta grande, testar no computador com `--max-modelos 2`.
+* A busca por termo continua lendo só a primeira página de resultados.
 
 ## Melhorias da base de dados (podem entrar antes da Fase 2)
 
@@ -319,7 +364,7 @@ explícita** (código, modelo e parâmetros continuam como aprovados na Fase 2).
   velocidade poderia depender da declividade do trecho, pela função de caminhada de
   Tobler (TOBLER, W. *Three presentations on geographical analysis and modeling*.
   NCGIA Technical Report 93-1, 1993). Hoje 75 m/min é uma média única.
-* **Reotimização dinâmica da rota** a partir da localização e do horário atuais do
+* ~~**Reotimização dinâmica da rota**~~ (implementada em 23/11/2026, ver a Fase 5) a partir da localização e do horário atuais do
   usuário, durante o passeio (PILLAC, V. et al. A review of dynamic vehicle routing
   problems. *European Journal of Operational Research*, v. 225, n. 1, p. 1–11, 2013).
 * **Mapa do roteiro com alteração manual** (em espera desde 18/11/2026): mostrar as lojas
@@ -337,7 +382,7 @@ explícita** (código, modelo e parâmetros continuam como aprovados na Fase 2).
   ε em US$), minimizar o tempo andando. Proposto na Fase 2 e recusado por ora pela
   complexidade (três resoluções por instância). Hoje o ponderado com λ já garante o
   1º nível; o 2º e o 3º são trocados à taxa r.
-* **Barra "prefiro economizar ↔ prefiro andar menos"** no app, ajustando o valor do
+* ~~**Barra "prefiro economizar ↔ prefiro andar menos"**~~ (implementada em 23/11/2026, ver a Fase 5) no app, ajustando o valor do
   minuto r (ex.: 0 a US$ 1/min). A análise de sensibilidade da Fase 2 (r = 0; 0,25; 1)
   mostra o efeito esperado.
 

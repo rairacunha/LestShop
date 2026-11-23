@@ -38,19 +38,57 @@ from ..data import config as config_dados
 from ..data.sources.http import ErroColeta
 from ..data.sources.parser_cp import ErroEstruturaHTML
 from ..data.catalogo import IndiceCatalogo
+from ..data.limpeza import slug_produto
 from ..otimizacao import config as config_otim
 from ..otimizacao.resolver import resolver
 from ..otimizacao.solucao import descrever
 from . import apresentacao as ap
 from . import base as base_app
+from . import estilo
+from . import passeio as ps
 from .pagamento import carregar_formas, com_acrescimo
 from .pedido import ErroPedido, ItemPedido, montar_pedido, teto_sem_limite, validar_pedido
 
 LEGENDA_PRIORIDADE = {1: "1 · tanto faz", 2: "2 · pouco", 3: "3 · médio", 4: "4 · muito", 5: "5 · essencial"}
-# Lugar do logotipo (Fase 5): a dona do projeto vai criar o arquivo. Enquanto ele não
-# existir, a tela fica só com o nome "LesteShop".
+# Logotipo criado pela dona do projeto (23/11/2026). Sem o arquivo, a tela mostra só o
+# nome "LesteShop". O ícone (a sacola) aparece na aba do navegador.
 LOGO = Path(__file__).resolve().parents[3] / "assets" / "logo.png"
-AZUL, VERMELHO, BRANCO = [0, 56, 168], [213, 43, 30], [255, 255, 255]
+ICONE = LOGO.with_name("icone.png")
+AZUL, VERMELHO, BRANCO, VERDE = [0, 56, 168], [213, 43, 30], [255, 255, 255], [0, 140, 70]
+# Barra "economizar ↔ andar menos" (autorizada em 23/11/2026): valor de 1 minuto de
+# caminhada (r, US$/min) no objetivo do modelo. O padrão continua US$ 0,25/min.
+VALOR_MINUTO = {0.0: "Economizar ao máximo", 0.10: "Economizar", config_otim.R_PADRAO: "Equilíbrio",
+                0.50: "Andar menos", 1.0: "Andar o mínimo"}
+
+# Botão "Usar minha localização" (st.components.v2): pede a posição ao navegador. Só
+# funciona se a pessoa permitir o acesso à localização.
+_JS_LOCALIZACAO = """
+export default function(component) {
+    const { parentElement, setStateValue } = component;
+    const botao = parentElement.querySelector('button');
+    const aviso = parentElement.querySelector('span');
+    botao.onclick = () => {
+        if (!navigator.geolocation) {
+            setStateValue('posicao', { erro: 'Este navegador não informa a localização.' });
+            return;
+        }
+        aviso.textContent = 'Procurando sua localização…';
+        navigator.geolocation.getCurrentPosition(
+            (p) => { aviso.textContent = ''; setStateValue('posicao', {
+                lat: p.coords.latitude, lon: p.coords.longitude,
+                precisao: p.coords.accuracy, quando: Date.now() }); },
+            (e) => { aviso.textContent = ''; setStateValue('posicao', {
+                erro: e.code === 1 ? 'A localização está desativada ou o acesso foi negado.'
+                                   : 'Não foi possível obter a localização.' }); },
+            { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 });
+    };
+}
+"""
+_CSS_LOCALIZACAO = """
+button { background: var(--st-primary-color); color: white; border: none; border-radius: 8px;
+         padding: 0.5rem 1rem; font: inherit; cursor: pointer; }
+span { margin-left: 0.75rem; color: var(--st-text-color); font: inherit; }
+"""
 MODO_CONSULTA = "Consulta ao Compras Paraguai"
 MODO_BASE = "Base guardada"
 
@@ -141,10 +179,13 @@ def _itens_catalogo() -> dict[str, ItemCatalogo]:
     na base (coletas e consultas anteriores) + modelos achados agora na busca do site."""
     itens = {it.id: it for it in _catalogo()}
     urls = {it.url_modelo for it in itens.values() if it.url_modelo}
+    slugs = {slug_produto(it.nome) for it in itens.values()}
     base = _base()
     for r in base.produtos.itertuples():
         url = r.url_modelo if isinstance(r.url_modelo, str) else None
-        if url and url not in urls and str(r.tipo_dado) == "real":
+        slug = r.slug if isinstance(getattr(r, "slug", None), str) else slug_produto(r.nome)
+        if url and url not in urls and slug not in slugs and str(r.tipo_dado) == "real":
+            slugs.add(slug)
             pid = "cp:" + str(r.produto_id).removeprefix("CP-")
             cat = r.categoria if isinstance(r.categoria, str) else ""
             itens[pid] = ItemCatalogo(pid, r.nome, r.nome, cat, url)
@@ -175,14 +216,13 @@ def _cotacao_para(modo: str):
 
 def _barra_lateral() -> tuple:
     with st.sidebar:
-        st.header("De onde vêm os preços")
         modos = [MODO_CONSULTA, MODO_BASE] if tem_tela() else [MODO_BASE]
-        modo = st.radio("Fonte dos preços", modos, key="modo",
-                        label_visibility="collapsed", on_change=_limpar_lista)
-        if not tem_tela():
-            st.caption("Na versão web, o app usa os preços já buscados no site Compras Paraguai. "
-                       "A busca na hora só funciona no computador (o site pede para provar que "
-                       "você não é um robô).")
+        if len(modos) > 1:  # no computador: consulta ao vivo ou preços já guardados
+            st.header("De onde vêm os preços")
+            modo = st.radio("Fonte dos preços", modos, key="modo",
+                            label_visibility="collapsed", on_change=_limpar_lista)
+        else:               # na web só há os preços guardados: nada a escolher
+            modo = st.session_state["modo"] = MODO_BASE
         cotacao = _cotacao_para(modo)
         if modo == MODO_CONSULTA:
             st.info("Ao calcular, o app busca no site Compras Paraguai os preços **só dos produtos "
@@ -192,22 +232,6 @@ def _barra_lateral() -> tuple:
                 CacheConsulta().limpar()
                 st.session_state["resultado"] = None
                 st.toast("Preços guardados apagados: a próxima consulta vai ao site.")
-        else:
-            base = _base()
-            nivel, texto = ap.texto_origem(base)
-            (st.success if nivel == "ok" else st.warning)(texto)
-            if st.button("Recarregar base"):
-                _base_cache.clear()
-                st.session_state["resultado"] = None
-                st.rerun()
-        if cotacao is None:
-            st.caption("Cotação do dólar indisponível: valores só em US$.")
-        else:
-            valor = f"{cotacao.valor_brl_por_usd:.4f}".replace(".", ",")
-            st.caption(f"Dólar: US$ 1 = R$ {valor} "
-                       f"({ap.fmt_data(cotacao.data)}, {cotacao.fonte}). Os valores em R$ são "
-                       "só para você ter uma ideia; as lojas cobram em dólar.")
-
         st.header("Sua viagem")
         st.caption("Horários do lado paraguaio, depois de atravessar a Ponte da Amizade.")
         chegada = st.time_input("Chego à Ponte às", dt.time(8, 0), step=900, key="chegada")
@@ -230,7 +254,15 @@ def _barra_lateral() -> tuple:
         st.caption("Nas lojas, o preço muda com a forma de pagamento. Os acréscimos são "
                    "estimados (observação de campo, não vêm do site) e o imposto é calculado "
                    "sobre o valor com o acréscimo, que é o valor da nota.")
-    return modo, chegada, saida, orcamento, cotacao, forma
+
+        st.header("Economizar ou andar menos?")
+        r_min = st.select_slider("Prefiro", options=list(VALOR_MINUTO), value=config_otim.R_PADRAO,
+                                 format_func=VALOR_MINUTO.get, key="valor_minuto",
+                                 label_visibility="collapsed")
+        st.caption(f"Para o lado **economizar**, o app aceita andar mais para achar preço menor; "
+                   f"para o lado **andar menos**, aceita pagar um pouco mais para andar menos. "
+                   f"(Cada minuto de caminhada vale {ap.fmt_usd(r_min)} na conta.)")
+    return modo, chegada, saida, orcamento, cotacao, forma, r_min
 
 
 def _opcoes(modo: str) -> dict[str, str]:
@@ -271,7 +303,7 @@ def _buscar_no_site(texto: str) -> None:
 
 
 def _lista_de_compras(opcoes: dict[str, str]) -> list[tuple[str, int, int]]:
-    st.subheader("1. O que você quer comprar")
+    estilo.passo(1, "O que você quer comprar", "Busque os produtos e diga a quantidade e a prioridade.")
     consulta = st.session_state.get("modo") == MODO_CONSULTA
     texto = st.text_input("Buscar produto", key="busca_produto",
                           placeholder="Digite palavras do nome (em qualquer ordem) e aperte Enter. Ex.: iphone 17")
@@ -307,7 +339,7 @@ def _lista_de_compras(opcoes: dict[str, str]) -> list[tuple[str, int, int]]:
     return pedidos
 
 
-def _otimizar(base, itens, chegada, saida, orcamento, categorias=None):
+def _otimizar(base, itens, chegada, saida, orcamento, r_min, categorias=None):
     erros = validar_pedido(base, itens, chegada, saida, orcamento)
     if erros:
         for e in erros:
@@ -320,21 +352,21 @@ def _otimizar(base, itens, chegada, saida, orcamento, categorias=None):
         except (ErroPedido, ValueError) as e:
             st.error(str(e))
             return None
-        sol, _ = resolver(inst, r=config_otim.R_PADRAO)
+        sol, _ = resolver(inst, r=r_min)
         d = descrever(sol, inst)
         d["avisos"] = (list(d["avisos"]) + base_app.ofertas_antigas(base, [it.produto_id for it in itens])
                        + [a for it in itens for a in base.avisos_produto.get(it.produto_id, [])])
     return d, inst, sol
 
 
-def _calcular_base(pedidos, chegada, saida, orcamento) -> dict | None:
+def _calcular_base(pedidos, chegada, saida, orcamento, r_min) -> dict | None:
     base = _base()
-    r = _otimizar(base, [ItemPedido(*p) for p in pedidos], chegada, saida, orcamento)
+    r = _otimizar(base, [ItemPedido(*p) for p in pedidos], chegada, saida, orcamento, r_min)
     return None if r is None else {"d": r[0], "inst": r[1], "sol": r[2], "base": base, "consulta": None,
                                    "cotacao": base_app.cotacao_do_site(base.ofertas) if base.origem == "real" else None}
 
 
-def _calcular_consulta(pedidos, chegada, saida, orcamento) -> dict | None:
+def _calcular_consulta(pedidos, chegada, saida, orcamento, r_min) -> dict | None:
     if hhmm(saida) <= hhmm(chegada):
         st.error("O horário de saída deve ser depois do horário de chegada.")
         return None
@@ -353,7 +385,8 @@ def _calcular_consulta(pedidos, chegada, saida, orcamento) -> dict | None:
         st.error("Nenhum produto da lista foi encontrado no Compras Paraguai.")
         return None
     base = busca.para_base(res)
-    r = _otimizar(base, itens, chegada, saida, orcamento, categorias=busca.mapa_categorias(itens_cat, res))
+    r = _otimizar(base, itens, chegada, saida, orcamento, r_min,
+                  categorias=busca.mapa_categorias(itens_cat, res))
     if r is None:
         return None
     r[0]["avisos"] = list(r[0]["avisos"]) + list(res.avisos)
@@ -383,7 +416,7 @@ def _comparativo(c: dict | None, cotacao) -> None:
     """Compra avulsa (Shopping China) × roteiro do LesteShop."""
     if c is None:
         return
-    st.markdown("#### Quanto você economiza")
+    st.markdown("#### 💰 Quanto você economiza")
     st.caption(f"Comparação com a **compra avulsa**: comprar tudo numa loja só, o {c['referencia']}, "
                "a mais procurada pelos turistas.")
     if c["na_media"]:
@@ -410,7 +443,7 @@ def _comparativo(c: dict | None, cotacao) -> None:
 
 def _resumo(cartoes: list[dict]) -> None:
     """Os quatro números do topo do resultado, num quadro com borda."""
-    with st.container(border=True):
+    with st.container(key="resumo"):
         for col, c in zip(st.columns(len(cartoes)), cartoes):
             col.metric(c["rotulo"], c["valor"])
             col.caption(c["detalhe"])
@@ -423,7 +456,7 @@ def _zoom(extensao_graus: float) -> float:
     return max(12.0, min(17.0, math.log2(360 / extensao_graus) - 0.9))
 
 
-def _mapa(m: dict | None) -> None:
+def _mapa(m: dict | None, passeio: bool = False) -> None:
     """Mapa do roteiro (pydeck, mapa de fundo gratuito da CARTO, sem chave)."""
     if m is None:
         st.caption("Mapa indisponível: faltam as coordenadas de alguma loja.")
@@ -431,7 +464,7 @@ def _mapa(m: dict | None) -> None:
     import pydeck as pdk
 
     pontos = m["pontos"].copy()
-    pontos["cor"] = [VERMELHO if t == "ponte" else AZUL for t in pontos["tipo"]]
+    pontos["cor"] = [{"ponte": VERMELHO, "voce": VERDE}.get(t, AZUL) for t in pontos["tipo"]]
     pontos["raio"] = [12 + 3 * (len(n) - 1) for n in pontos["numero"]]
     trechos = pd.DataFrame([{"de": [t["de"][1], t["de"][0]], "para": [t["para"][1], t["para"][0]]}
                             for t in m["trechos"]])
@@ -453,7 +486,9 @@ def _mapa(m: dict | None) -> None:
                  "style": {"backgroundColor": "#0038A8", "color": "white", "fontSize": "13px"}},
     )
     st.pydeck_chart(deck, height=440)
-    st.caption("🔴 **P** = Ponte da Amizade (saída e volta) · 🔵 números = lojas, na ordem da visita "
+    inicio = "🟢 **V** = você, agora · 🔴 **P** = Ponte da Amizade (volta)" if passeio else \
+        "🔴 **P** = Ponte da Amizade (saída e volta)"
+    st.caption(f"{inicio} · 🔵 números = lojas, na ordem da visita "
                "(\"1-3\" = paradas 1 a 3, no mesmo prédio). "
                "Passe o mouse num ponto para ver o horário e o que comprar. As linhas ligam as "
                "paradas em linha reta: **não mostram o caminho pelas ruas**.")
@@ -472,7 +507,7 @@ def _origem_dos_precos(base, consulta) -> None:
 
 
 def _receita_federal(d: dict, inst, cotacao) -> dict:
-    st.markdown("#### Receita Federal: cota e declaração")
+    st.markdown("#### 🧾 Receita Federal: cota e declaração")
     f = ap.resumo_fiscal(d, cotacao)
     st.caption(f"**O que é a cota:** na volta, cada pessoa pode trazer até "
                f"{ap.fmt_usd(inst.cota)} em compras sem pagar imposto. Sobre o que passar disso, "
@@ -507,7 +542,7 @@ def _com_forma(r: dict, forma) -> tuple[dict, object]:
 def _resultado(r: dict, cotacao, forma) -> None:
     base, consulta = r["base"], r["consulta"]
     d, inst = _com_forma(r, forma)
-    st.subheader("3. Seu resultado")
+    estilo.passo(3, "Seu resultado")
     _origem_dos_precos(base, consulta)
     if aviso := ap.texto_solver(d):
         st.info(aviso)
@@ -517,41 +552,47 @@ def _resultado(r: dict, cotacao, forma) -> None:
     comparativo = ap.comparativo_avulsa(d, inst, base, acrescimo=forma.acrescimo)
     _resumo(ap.resumo_topo(d, comparativo, cotacao))
 
-    st.markdown("#### Quanto você vai pagar")
-    cols = st.columns(3)
-    for col, (rot, usd, brl) in zip(cols, ap.totais(d, cotacao)):
-        col.metric(rot, usd)
-        col.caption(brl)
-    st.markdown(f"**Cota da Receita:** {ap.situacao_cota(d)}.")
-    st.markdown(ap.texto_pagamento(forma.nome, forma.acrescimo, d["resumo"]["custo_total"],
-                                   r["d"]["resumo"]["custo_total"], cotacao))
+    with estilo.cartao("pagar"):
+        st.markdown("#### 💵 Quanto você vai pagar")
+        cols = st.columns(3)
+        for col, (rot, usd, brl) in zip(cols, ap.totais(d, cotacao)):
+            col.metric(rot, usd)
+            col.caption(brl)
+        st.markdown(f"**Cota da Receita:** {ap.situacao_cota(d)}.")
+        st.markdown(ap.texto_pagamento(forma.nome, forma.acrescimo, d["resumo"]["custo_total"],
+                                       r["d"]["resumo"]["custo_total"], cotacao))
 
-    st.markdown("#### Onde comprar")
-    if forma.acrescimo:
-        st.caption(f"Preços já com o acréscimo de {forma.rotulo.split('(+')[1].rstrip(')')} "
-                   f"por pagar com {forma.nome}.")
-    itens = ap.tabela_itens(d, base, cotacao)
-    if itens.empty:
-        st.warning("Nenhum produto pôde ser comprado com estes dados.")
-    else:
-        st.dataframe(itens, hide_index=True, width="stretch")
+    with estilo.cartao("onde"):
+        st.markdown("#### 🛍️ Onde comprar")
+        if forma.acrescimo:
+            st.caption(f"Preços já com o acréscimo de {forma.rotulo.split('(+')[1].rstrip(')')} "
+                       f"por pagar com {forma.nome}.")
+        itens = ap.tabela_itens(d, base, cotacao)
+        if itens.empty:
+            st.warning("Nenhum produto pôde ser comprado com estes dados.")
+        else:
+            st.dataframe(itens, hide_index=True, width="stretch")
 
-    st.markdown("#### Seu roteiro")
-    st.caption(f"Sai da Ponte da Amizade e volta para ela. Tempo andando: cerca de "
-               f"{d['resumo']['tempo_andando']:.0f} min. Os horários já contam a caminhada, a espera "
-               "até a loja abrir e o tempo de compra em cada loja.")
-    if d["roteiro"]:
-        _mapa(ap.dados_mapa(d, inst, base))
-    st.dataframe(ap.tabela_roteiro(d), hide_index=True, width="stretch")
+    with estilo.cartao("roteiro"):
+        st.markdown("#### 🗺️ Seu roteiro")
+        st.caption(f"Sai da Ponte da Amizade e volta para ela. Tempo andando: cerca de "
+                   f"{d['resumo']['tempo_andando']:.0f} min. Os horários já contam a caminhada, a espera "
+                   "até a loja abrir e o tempo de compra em cada loja.")
+        if d["roteiro"]:
+            _mapa(ap.dados_mapa(d, inst, base))
+        st.dataframe(ap.tabela_roteiro(d), hide_index=True, width="stretch")
 
-    _comparativo(comparativo, cotacao)
+    with estilo.cartao("economia"):
+        _comparativo(comparativo, cotacao)
 
     fora = ap.tabela_fora(d, inst, orcamento_limita=False)
     if not fora.empty:
-        st.markdown("#### Produtos que ficaram de fora")
-        st.dataframe(fora, hide_index=True, width="stretch")
+        with estilo.cartao("fora"):
+            st.markdown("#### ⏱️ Produtos que ficaram de fora")
+            st.dataframe(fora, hide_index=True, width="stretch")
 
-    f = _receita_federal(d, inst, cotacao)
+    with estilo.cartao("receita"):
+        f = _receita_federal(d, inst, cotacao)
 
     if consulta is not None:
         with st.expander("Todos os preços encontrados (produto × loja, em US$)"):
@@ -563,28 +604,128 @@ def _resultado(r: dict, cotacao, forma) -> None:
                 st.markdown(f"- {a}")
 
 
+_localizacao = None
+
+
+def _botao_localizacao():
+    """Monta o botão de localização (registrado uma vez por sessão do servidor)."""
+    global _localizacao
+    if _localizacao is None:
+        _localizacao = st.components.v2.component(
+            "lesteshop_localizacao", html="<button>📍 Usar minha localização</button><span></span>",
+            css=_CSS_LOCALIZACAO, js=_JS_LOCALIZACAO)
+    return _localizacao(key="localizacao", on_posicao_change=lambda: None)
+
+
+def _posicao_atual() -> dict | None:
+    """Posição do aparelho: {"lat", "lon", "precisao"} ou {"erro"}; None se não pedida."""
+    res = _botao_localizacao()
+    pos = getattr(res, "posicao", None)
+    return pos or st.session_state.get("posicao_teste")  # posicao_teste: só nos testes
+
+
+def _passeio(r: dict, cotacao, forma) -> None:
+    """4. Recalcular a rota durante o passeio (só com a localização ativa e dentro de
+    Ciudad del Este)."""
+    d0, inst0, base = r["d"], r["inst"], r["base"]
+    if not d0["roteiro"]:
+        return
+    estilo.passo(4, "Já está no passeio? Recalcule a rota")
+    st.caption("Se você se atrasou, mudou de caminho ou já passou em algumas lojas, o app refaz a rota "
+               "com o que falta comprar, saindo de onde você está agora e voltando à Ponte. Para isso, "
+               "a **localização do aparelho precisa estar ativa** e você precisa estar em "
+               "**Ciudad del Este**.")
+    nomes = {p["loja_id"]: f"{p['ordem']}. {p['nome']}" for p in d0["roteiro"]}
+    feitas = st.multiselect("Lojas em que você já comprou", list(nomes), format_func=nomes.get,
+                            key="passeio_feitas", placeholder="Nenhuma ainda")
+    pos = _posicao_atual()
+    if not pos:
+        st.info("Clique em **Usar minha localização** e permita o acesso quando o navegador perguntar.")
+        return
+    if pos.get("erro"):
+        st.warning(f"{pos['erro']} Ative a localização do aparelho e do navegador para recalcular a rota.")
+        return
+    lat, lon = float(pos["lat"]), float(pos["lon"])
+    if not ps.em_ciudad_del_este(lat, lon):
+        st.warning("Você não está em Ciudad del Este, então a rota não pode ser recalculada. "
+                   "O recálculo só funciona durante o passeio, do lado paraguaio da Ponte.")
+        return
+    agora = ps.agora_no_paraguai()
+    agora_min = agora.hour * 60 + agora.minute
+    precisao = pos.get("precisao")
+    texto_prec = f" (precisão de cerca de {precisao:.0f} m)" if isinstance(precisao, (int, float)) else ""
+    st.success(f"Localização ativa em Ciudad del Este{texto_prec}. Agora são "
+               f"{agora:%H:%M} no Paraguai.")
+    if agora_min >= inst0.saida:
+        st.warning(f"Já passou do horário em que você queria voltar à Ponte ({d0['horario_saida']}). "
+                   "Mude o horário de volta na barra lateral e calcule de novo.")
+        return
+    if len(feitas) == len(d0["roteiro"]):
+        st.info("Você já passou em todas as lojas do roteiro: é só voltar à Ponte da Amizade.")
+        return
+    if st.button("Recalcular a rota a partir daqui", type="primary"):
+        inst_p, feito = ps.instancia_do_passeio(inst0, d0, set(feitas), lat, lon, agora_min)
+        with st.spinner("Refazendo a rota com o que falta…"):
+            sol, _ = resolver(inst_p, r=r.get("r", config_otim.R_PADRAO))
+        st.session_state["passeio"] = {"sol": sol, "inst": inst_p, "feito": feito,
+                                       "inicio": (lat, lon), "feitas": tuple(feitas)}
+    p = st.session_state.get("passeio")
+    if not p or p["feitas"] != tuple(feitas):
+        return
+    inst_nf = com_acrescimo(p["inst"], forma.acrescimo)
+    d = descrever(p["sol"], inst_nf)
+    st.markdown("#### 🧭 Sua nova rota")
+    if not d["roteiro"]:
+        st.warning("Não dá mais tempo de passar em nenhuma loja antes do horário de volta.")
+    else:
+        _mapa(ap.dados_mapa(d, inst_nf, base, inicio=p["inicio"]), passeio=True)
+        rot = ap.tabela_roteiro(d)
+        rot.loc[0, ["Onde", "O que comprar"]] = ["Você está aqui", "agora"]
+        st.dataframe(rot, hide_index=True, width="stretch")
+    fora = ap.tabela_fora(d, p["inst"], orcamento_limita=False)
+    if not fora.empty:
+        st.markdown("**Produtos que não dá mais tempo de comprar**")
+        st.dataframe(fora, hide_index=True, width="stretch")
+    t = ps.totais_do_passeio(p["feito"], d, inst0, forma.acrescimo)
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Já gastou", _valor(t["feito"], cotacao))
+    c2.metric("Falta gastar", _valor(t["resto"], cotacao))
+    c3.metric("Total da viagem, com imposto", _valor(t["custo_total"], cotacao))
+    st.caption(f"Imposto da compra inteira: {ap.fmt_usd(t['imposto'])} "
+               f"({'dentro da cota' if t['excedente'] <= 0 else 'passa da cota em ' + ap.fmt_usd(t['excedente'])}). "
+               "A rota nova usa os mesmos preços do cálculo anterior e a mesma forma de pagamento.")
+
+
 def main() -> None:
-    st.set_page_config(page_title="LesteShop", page_icon="🛍️", layout="wide")
+    st.set_page_config(page_title="LesteShop", layout="wide",
+                       page_icon=str(ICONE) if ICONE.exists() else "🛍️")
     if LOGO.exists():
         st.logo(str(LOGO), size="large")
     _estado()
 
-    st.title("LesteShop")
-    st.caption("Seu guia de compras em Ciudad del Este: onde comprar cada produto, o caminho "
-               "saindo e voltando à Ponte da Amizade e quanto você paga de imposto na Receita.")
+    estilo.aplicar()
+    if LOGO.exists():
+        estilo.topo(str(LOGO))
+    else:
+        st.title("LesteShop")
+        st.caption("Seu guia de compras em Ciudad del Este: onde comprar cada produto, o caminho "
+                   "saindo e voltando à Ponte da Amizade e quanto você paga de imposto na Receita.")
 
-    modo, chegada, saida, orcamento, cotacao, forma = _barra_lateral()
+    modo, chegada, saida, orcamento, cotacao, forma, r_min = _barra_lateral()
     if modo == MODO_BASE and _base().origem != "real":
         st.warning(ap.texto_origem(_base())[1])
-    pedidos = _lista_de_compras(_opcoes(modo))
+    with estilo.cartao("lista"):
+        pedidos = _lista_de_compras(_opcoes(modo))
 
-    st.subheader("2. Calcular")
-    assinatura = (modo, tuple(pedidos), chegada, saida, orcamento)
-    if st.button("Calcular meu roteiro", type="primary", disabled=not pedidos):
+    estilo.passo(2, "Calcular", "O app escolhe as lojas e a ordem da visita.")
+    assinatura = (modo, tuple(pedidos), chegada, saida, orcamento, r_min)
+    if st.button("Calcular meu roteiro", type="primary", disabled=not pedidos, key="calcular"):
         calcular = _calcular_consulta if modo == MODO_CONSULTA else _calcular_base
-        r = calcular(pedidos, chegada, saida, orcamento)
+        r = calcular(pedidos, chegada, saida, orcamento, r_min)
         st.session_state["resultado"] = (None if r is None
-                                         else {**r, "assinatura": assinatura, "orcamento": orcamento})
+                                         else {**r, "assinatura": assinatura, "orcamento": orcamento,
+                                               "r": r_min})
+        st.session_state["passeio"] = None
 
     r = st.session_state["resultado"]
     if r is not None:
@@ -592,3 +733,4 @@ def main() -> None:
             st.info("A lista ou os dados da viagem mudaram: clique em **Calcular meu roteiro** de novo.")
         else:
             _resultado(r, r.get("cotacao") or cotacao, forma)
+            _passeio(r, r.get("cotacao") or cotacao, forma)

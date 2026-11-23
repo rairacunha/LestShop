@@ -169,11 +169,15 @@ def consultar(
 
 
 def para_base(res: ResultadoConsulta) -> BaseApp:
-    """Base do app a partir da consulta (com as correções de ``lojas_complemento.csv``)."""
+    """Base do app a partir da consulta (com as correções de ``lojas_complemento.csv`` e a
+    mesma limpeza usada antes de gravar no banco: ``data/limpeza.py``)."""
+    from ..data.limpeza import preparar
+
+    limpa = preparar(res.lojas, res.produtos, res.ofertas)
     return BaseApp(
-        lojas=aplicar_complemento_lojas(res.lojas),
-        produtos=res.produtos.sort_values("nome").reset_index(drop=True),
-        ofertas=so_mais_recente(res.ofertas),
+        lojas=aplicar_complemento_lojas(limpa.lojas),
+        produtos=limpa.produtos.sort_values("nome").reset_index(drop=True),
+        ofertas=so_mais_recente(limpa.ofertas),
         pontos=FonteCSV(config_dados.DIR_RAW).carregar_pontos_partida(),
         caminho_banco=config.CAMINHO_CACHE,
     )
