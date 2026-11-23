@@ -43,6 +43,7 @@ from ..otimizacao.resolver import resolver
 from ..otimizacao.solucao import descrever
 from . import apresentacao as ap
 from . import base as base_app
+from . import estilo
 from . import passeio as ps
 from .pagamento import carregar_formas, com_acrescimo
 from .pedido import ErroPedido, ItemPedido, montar_pedido, teto_sem_limite, validar_pedido
@@ -315,7 +316,7 @@ def _buscar_no_site(texto: str) -> None:
 
 
 def _lista_de_compras(opcoes: dict[str, str]) -> list[tuple[str, int, int]]:
-    st.subheader("1. O que você quer comprar")
+    estilo.passo(1, "O que você quer comprar", "Busque os produtos e diga a quantidade e a prioridade.")
     consulta = st.session_state.get("modo") == MODO_CONSULTA
     texto = st.text_input("Buscar produto", key="busca_produto",
                           placeholder="Digite palavras do nome (em qualquer ordem) e aperte Enter. Ex.: iphone 17")
@@ -428,7 +429,7 @@ def _comparativo(c: dict | None, cotacao) -> None:
     """Compra avulsa (Shopping China) × roteiro do LesteShop."""
     if c is None:
         return
-    st.markdown("#### Quanto você economiza")
+    st.markdown("#### 💰 Quanto você economiza")
     st.caption(f"Comparação com a **compra avulsa**: comprar tudo numa loja só, o {c['referencia']}, "
                "a mais procurada pelos turistas.")
     if c["na_media"]:
@@ -455,7 +456,7 @@ def _comparativo(c: dict | None, cotacao) -> None:
 
 def _resumo(cartoes: list[dict]) -> None:
     """Os quatro números do topo do resultado, num quadro com borda."""
-    with st.container(border=True):
+    with st.container(key="resumo"):
         for col, c in zip(st.columns(len(cartoes)), cartoes):
             col.metric(c["rotulo"], c["valor"])
             col.caption(c["detalhe"])
@@ -519,7 +520,7 @@ def _origem_dos_precos(base, consulta) -> None:
 
 
 def _receita_federal(d: dict, inst, cotacao) -> dict:
-    st.markdown("#### Receita Federal: cota e declaração")
+    st.markdown("#### 🧾 Receita Federal: cota e declaração")
     f = ap.resumo_fiscal(d, cotacao)
     st.caption(f"**O que é a cota:** na volta, cada pessoa pode trazer até "
                f"{ap.fmt_usd(inst.cota)} em compras sem pagar imposto. Sobre o que passar disso, "
@@ -554,7 +555,7 @@ def _com_forma(r: dict, forma) -> tuple[dict, object]:
 def _resultado(r: dict, cotacao, forma) -> None:
     base, consulta = r["base"], r["consulta"]
     d, inst = _com_forma(r, forma)
-    st.subheader("3. Seu resultado")
+    estilo.passo(3, "Seu resultado")
     _origem_dos_precos(base, consulta)
     if aviso := ap.texto_solver(d):
         st.info(aviso)
@@ -564,41 +565,47 @@ def _resultado(r: dict, cotacao, forma) -> None:
     comparativo = ap.comparativo_avulsa(d, inst, base, acrescimo=forma.acrescimo)
     _resumo(ap.resumo_topo(d, comparativo, cotacao))
 
-    st.markdown("#### Quanto você vai pagar")
-    cols = st.columns(3)
-    for col, (rot, usd, brl) in zip(cols, ap.totais(d, cotacao)):
-        col.metric(rot, usd)
-        col.caption(brl)
-    st.markdown(f"**Cota da Receita:** {ap.situacao_cota(d)}.")
-    st.markdown(ap.texto_pagamento(forma.nome, forma.acrescimo, d["resumo"]["custo_total"],
-                                   r["d"]["resumo"]["custo_total"], cotacao))
+    with estilo.cartao("pagar"):
+        st.markdown("#### 💵 Quanto você vai pagar")
+        cols = st.columns(3)
+        for col, (rot, usd, brl) in zip(cols, ap.totais(d, cotacao)):
+            col.metric(rot, usd)
+            col.caption(brl)
+        st.markdown(f"**Cota da Receita:** {ap.situacao_cota(d)}.")
+        st.markdown(ap.texto_pagamento(forma.nome, forma.acrescimo, d["resumo"]["custo_total"],
+                                       r["d"]["resumo"]["custo_total"], cotacao))
 
-    st.markdown("#### Onde comprar")
-    if forma.acrescimo:
-        st.caption(f"Preços já com o acréscimo de {forma.rotulo.split('(+')[1].rstrip(')')} "
-                   f"por pagar com {forma.nome}.")
-    itens = ap.tabela_itens(d, base, cotacao)
-    if itens.empty:
-        st.warning("Nenhum produto pôde ser comprado com estes dados.")
-    else:
-        st.dataframe(itens, hide_index=True, width="stretch")
+    with estilo.cartao("onde"):
+        st.markdown("#### 🛍️ Onde comprar")
+        if forma.acrescimo:
+            st.caption(f"Preços já com o acréscimo de {forma.rotulo.split('(+')[1].rstrip(')')} "
+                       f"por pagar com {forma.nome}.")
+        itens = ap.tabela_itens(d, base, cotacao)
+        if itens.empty:
+            st.warning("Nenhum produto pôde ser comprado com estes dados.")
+        else:
+            st.dataframe(itens, hide_index=True, width="stretch")
 
-    st.markdown("#### Seu roteiro")
-    st.caption(f"Sai da Ponte da Amizade e volta para ela. Tempo andando: cerca de "
-               f"{d['resumo']['tempo_andando']:.0f} min. Os horários já contam a caminhada, a espera "
-               "até a loja abrir e o tempo de compra em cada loja.")
-    if d["roteiro"]:
-        _mapa(ap.dados_mapa(d, inst, base))
-    st.dataframe(ap.tabela_roteiro(d), hide_index=True, width="stretch")
+    with estilo.cartao("roteiro"):
+        st.markdown("#### 🗺️ Seu roteiro")
+        st.caption(f"Sai da Ponte da Amizade e volta para ela. Tempo andando: cerca de "
+                   f"{d['resumo']['tempo_andando']:.0f} min. Os horários já contam a caminhada, a espera "
+                   "até a loja abrir e o tempo de compra em cada loja.")
+        if d["roteiro"]:
+            _mapa(ap.dados_mapa(d, inst, base))
+        st.dataframe(ap.tabela_roteiro(d), hide_index=True, width="stretch")
 
-    _comparativo(comparativo, cotacao)
+    with estilo.cartao("economia"):
+        _comparativo(comparativo, cotacao)
 
     fora = ap.tabela_fora(d, inst, orcamento_limita=False)
     if not fora.empty:
-        st.markdown("#### Produtos que ficaram de fora")
-        st.dataframe(fora, hide_index=True, width="stretch")
+        with estilo.cartao("fora"):
+            st.markdown("#### ⏱️ Produtos que ficaram de fora")
+            st.dataframe(fora, hide_index=True, width="stretch")
 
-    f = _receita_federal(d, inst, cotacao)
+    with estilo.cartao("receita"):
+        f = _receita_federal(d, inst, cotacao)
 
     if consulta is not None:
         with st.expander("Todos os preços encontrados (produto × loja, em US$)"):
@@ -636,7 +643,7 @@ def _passeio(r: dict, cotacao, forma) -> None:
     d0, inst0, base = r["d"], r["inst"], r["base"]
     if not d0["roteiro"]:
         return
-    st.subheader("4. Já está no passeio? Recalcule a rota")
+    estilo.passo(4, "Já está no passeio? Recalcule a rota")
     st.caption("Se você se atrasou, mudou de caminho ou já passou em algumas lojas, o app refaz a rota "
                "com o que falta comprar, saindo de onde você está agora e voltando à Ponte. Para isso, "
                "a **localização do aparelho precisa estar ativa** e você precisa estar em "
@@ -680,7 +687,7 @@ def _passeio(r: dict, cotacao, forma) -> None:
         return
     inst_nf = com_acrescimo(p["inst"], forma.acrescimo)
     d = descrever(p["sol"], inst_nf)
-    st.markdown("#### Sua nova rota")
+    st.markdown("#### 🧭 Sua nova rota")
     if not d["roteiro"]:
         st.warning("Não dá mais tempo de passar em nenhuma loja antes do horário de volta.")
     else:
@@ -709,21 +716,23 @@ def main() -> None:
         st.logo(str(LOGO), size="large")
     _estado()
 
+    estilo.aplicar()
     if LOGO.exists():
-        st.image(str(LOGO), width=260)
+        estilo.topo(str(LOGO))
     else:
         st.title("LesteShop")
-    st.caption("Seu guia de compras em Ciudad del Este: onde comprar cada produto, o caminho "
-               "saindo e voltando à Ponte da Amizade e quanto você paga de imposto na Receita.")
+        st.caption("Seu guia de compras em Ciudad del Este: onde comprar cada produto, o caminho "
+                   "saindo e voltando à Ponte da Amizade e quanto você paga de imposto na Receita.")
 
     modo, chegada, saida, orcamento, cotacao, forma, r_min = _barra_lateral()
     if modo == MODO_BASE and _base().origem != "real":
         st.warning(ap.texto_origem(_base())[1])
-    pedidos = _lista_de_compras(_opcoes(modo))
+    with estilo.cartao("lista"):
+        pedidos = _lista_de_compras(_opcoes(modo))
 
-    st.subheader("2. Calcular")
+    estilo.passo(2, "Calcular", "O app escolhe as lojas e a ordem da visita.")
     assinatura = (modo, tuple(pedidos), chegada, saida, orcamento, r_min)
-    if st.button("Calcular meu roteiro", type="primary", disabled=not pedidos):
+    if st.button("Calcular meu roteiro", type="primary", disabled=not pedidos, key="calcular"):
         calcular = _calcular_consulta if modo == MODO_CONSULTA else _calcular_base
         r = calcular(pedidos, chegada, saida, orcamento, r_min)
         st.session_state["resultado"] = (None if r is None
