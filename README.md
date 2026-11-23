@@ -92,6 +92,9 @@ python -m lesteshop.data.coletar "playstation 5 pro" --listar --navegador
 # coletar as ofertas do primeiro modelo encontrado (padrão: 1 modelo por termo)
 python -m lesteshop.data.coletar "playstation 5 pro" --navegador
 
+# coletar uma lista de termos, cada um com a sua categoria (JSON: [{"termo", "categoria"}, ...])
+python -m lesteshop.data.coletar --arquivo data/coleta_exemplo.json --navegador --max-modelos 2
+
 # ou indicar a página do modelo diretamente
 python -m lesteshop.data.coletar --url "https://www.comprasparaguai.com.br/<slug>_<id>/" --navegador
 ```

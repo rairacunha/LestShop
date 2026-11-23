@@ -42,3 +42,50 @@ def test_resumo_imprime_e_exporta(tmp_path, capsys):
     assert "Lojas: 8   Produtos: 18" in saida and "coordenada pendente: 1" in saida and "Validação: OK" in saida
     for arq in ("lojas.csv", "produtos.csv", "ofertas.csv"):
         assert (tmp_path / "exp" / arq).exists()
+
+
+def test_coletar_por_arquivo_segue_mesmo_com_erro(monkeypatch, tmp_path, cliente_falso, capsys):
+    """--arquivo: cada termo com a sua categoria; um termo com erro não impede os outros."""
+    import json
+
+    from lesteshop.data.sources.http import ErroColeta
+
+    monkeypatch.setattr(config, "DIR_COLETAS", tmp_path / "coletas")
+    original = FonteComprasParaguai
+    categorias = []
+
+    def fonte_offline(**kw):
+        kw.pop("cliente", None)
+        categorias.append((kw.get("termos"), kw.get("categoria")))
+        fonte = original(cliente=cliente_falso, dir_cache_lojas=tmp_path / "lojas", **kw)
+        if kw.get("termos") == ["termo quebrado"]:
+            fonte.coletar = lambda: (_ for _ in ()).throw(ErroColeta("site fora do ar"))
+        return fonte
+
+    monkeypatch.setattr(coletar, "FonteComprasParaguai", fonte_offline)
+    arq = tmp_path / "lista.json"
+    arq.write_text(json.dumps([{"termo": "playstation 5 pro", "categoria": "Games"},
+                               {"termo": "termo quebrado", "categoria": "Outros"}]), encoding="utf-8")
+    codigo = coletar.main(["--arquivo", str(arq), "avulso", "--categoria", "Geral",
+                           "--banco", str(tmp_path / "t.db")])
+    saida = capsys.readouterr().out
+    assert codigo == 1  # houve falha, mas o que deu certo foi gravado
+    assert "[Games] (1/3) Coletando 'playstation 5 pro'" in saida and "Resumo da coleta" in saida
+    assert "'termo quebrado': FALHOU: site fora do ar" in saida
+    assert (["playstation 5 pro"], "Games") in categorias and (["avulso"], "Geral") in categorias
+    con = database.conectar(tmp_path / "t.db")
+    assert con.execute("SELECT COUNT(*) FROM ofertas").fetchone()[0] == 3
+
+
+def test_carregar_fila_valida_o_arquivo(tmp_path):
+    import json
+
+    import pytest
+
+    arq = tmp_path / "a.json"
+    arq.write_text(json.dumps([{"termo": "ipad"}, {"termo": "IPAD", "categoria": "X"}]), encoding="utf-8")
+    assert coletar.carregar_fila(["mouse"], "Geral", str(arq)) == [
+        {"termo": "ipad", "categoria": "Geral"}, {"termo": "mouse", "categoria": "Geral"}]
+    arq.write_text(json.dumps([{"categoria": "X"}]), encoding="utf-8")
+    with pytest.raises(ValueError, match="termo"):
+        coletar.carregar_fila([], None, str(arq))
