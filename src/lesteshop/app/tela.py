@@ -232,14 +232,6 @@ def _barra_lateral() -> tuple:
                 CacheConsulta().limpar()
                 st.session_state["resultado"] = None
                 st.toast("Preços guardados apagados: a próxima consulta vai ao site.")
-        if cotacao is None:
-            st.caption("Cotação do dólar indisponível: valores só em US$.")
-        else:
-            valor = f"{cotacao.valor_brl_por_usd:.4f}".replace(".", ",")
-            st.caption(f"Dólar: US$ 1 = R$ {valor} "
-                       f"({ap.fmt_data(cotacao.data)}, {cotacao.fonte}). Os valores em R$ são "
-                       "só para você ter uma ideia; as lojas cobram em dólar.")
-
         st.header("Sua viagem")
         st.caption("Horários do lado paraguaio, depois de atravessar a Ponte da Amizade.")
         chegada = st.time_input("Chego à Ponte às", dt.time(8, 0), step=900, key="chegada")
