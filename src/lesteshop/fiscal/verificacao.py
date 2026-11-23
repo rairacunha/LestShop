@@ -67,6 +67,11 @@ def _fmt(v: float) -> str:
     return f"{v:g}".replace(".", ",")
 
 
+def _usd(v: float) -> str:
+    """Valor em dólar no formato brasileiro: US$ 1.768,00 (só o texto; a conta não muda)."""
+    return "US$ " + f"{v:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
+
 def _avaliar_regra(regra: Regra, itens: list[ItemCesta]) -> tuple[dict | None, list[str]]:
     avisos: list[str] = []
     pool = [it for it in itens if it.categoria_fiscal == regra.categoria_fiscal
@@ -105,7 +110,7 @@ def _alerta_limite(s: dict, aliquota: float, gasto: float) -> str:
             f"para um limite de {_fmt(s['limite'])} {s['unidade']} ({s['fonte']}).")
     if s["consequencia"] == "perde_cota":
         return (base + " Pela norma, a bagagem perde a cota de isenção e vai para o regime de "
-                f"tributação especial sobre todo o valor: imposto estimado de US$ {aliquota * gasto:.2f}.")
+                f"tributação especial sobre todo o valor: imposto estimado de {_usd(aliquota * gasto)}.")
     if s["consequencia"] == "regime_comum":
         excesso = s["usado"] - s["limite"]
         return (base + f" O excesso ({_fmt(round(excesso, 4))} {s['unidade']}) não pode ser "
@@ -134,7 +139,7 @@ def verificar(
     excede_cota = gasto_produtos > regras.cota_usd + TOL
     motivos = []
     if excede_cota:
-        motivos.append(f"o gasto (US$ {gasto_produtos:.2f}) passa da cota de US$ {regras.cota_usd:.2f}")
+        motivos.append(f"o gasto ({_usd(gasto_produtos)}) passa da cota de {_usd(regras.cota_usd)}")
     if acima:
         motivos.append("há limite quantitativo ultrapassado")
     declaracao = bool(motivos)

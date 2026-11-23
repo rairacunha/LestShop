@@ -287,14 +287,18 @@ def _rotulo_numeros(ordens: list[int]) -> str:
     return ",".join(str(o) for o in ordens)
 
 
-def dados_mapa(d: dict, inst: Instancia, base: BaseApp) -> dict | None:
+def dados_mapa(d: dict, inst: Instancia, base: BaseApp,
+               inicio: tuple[float, float] | None = None) -> dict | None:
     """Pontos e linhas do mapa do roteiro (sem Streamlit, para poder ser testado).
 
     Ponte da Amizade (partida e volta) + lojas numeradas na ordem da visita. Lojas no
     mesmo prédio (ou no mesmo endereço) viram um ponto só, com os números juntos
     ("1-3"), para os números não ficarem um em cima do outro.
     As linhas ligam as paradas em reta: não seguem as ruas. ``None`` se não há roteiro
-    ou faltam coordenadas."""
+    ou faltam coordenadas.
+
+    ``inicio`` (recálculo durante o passeio): a rota sai da posição atual do turista
+    (ponto "Você") e volta à Ponte."""
     if not d["roteiro"]:
         return None
     p0 = base.pontos[base.pontos["id"].astype(int) == 0]
@@ -306,7 +310,7 @@ def dados_mapa(d: dict, inst: Instancia, base: BaseApp) -> dict | None:
         return None
 
     grupos: dict[object, list[dict]] = {}
-    caminho = [ponte]
+    caminho = [inicio or ponte]
     for p in d["roteiro"]:
         lat, lon = coords[p["loja_id"]]
         chave = p["predio"] if p.get("predio") else (round(lat, 6), round(lon, 6))
@@ -316,8 +320,13 @@ def dados_mapa(d: dict, inst: Instancia, base: BaseApp) -> dict | None:
 
     pontos = [{"lat": ponte[0], "lon": ponte[1], "numero": "P", "tipo": "ponte",
                "nome": "Ponte da Amizade (lado paraguaio)",
-               "horario": f"saída às {d['horario_chegada']}, volta às {d['horario_retorno']}",
-               "comprar": "começo e fim do passeio"}]
+               "horario": (f"volta às {d['horario_retorno']}" if inicio else
+                           f"saída às {d['horario_chegada']}, volta às {d['horario_retorno']}"),
+               "comprar": "fim do passeio" if inicio else "começo e fim do passeio"}]
+    if inicio:
+        pontos.append({"lat": inicio[0], "lon": inicio[1], "numero": "V", "tipo": "voce",
+                       "nome": "Você está aqui", "horario": f"agora: {d['horario_chegada']}",
+                       "comprar": "o que falta da lista"})
     for paradas in grupos.values():
         numeros = [str(p["ordem"]) for p in paradas]
         textos = [_quando_e_o_que(p) for p in paradas]

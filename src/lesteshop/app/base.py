@@ -100,7 +100,7 @@ def descartar_precos_atipicos(ofertas: pd.DataFrame, nomes: dict[str, str] | Non
     avisos: dict[str, list[str]] = {}
     for pid, grupo in ofertas[atipica].groupby("produto_id"):
         nome = (nomes or {}).get(pid, pid)
-        exemplos = ", ".join(f"{t} (US$ {p:.2f})" for t, p in
+        exemplos = ", ".join(f"{t} (US$ " + f"{p:.2f}".replace(".", ",") + ")" for t, p in
                              zip(grupo["titulo_oferta"].fillna("?"), grupo["preco_usd"]))
         avisos[pid] = [f"{len(grupo)} oferta(s) de {nome} descartada(s) por preço menor que a metade "
                        f"do preço mediano (provável outro produto cadastrado na página): {exemplos}."]

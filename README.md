@@ -325,6 +325,14 @@ PIX 3%, cartão 6%, valores estimados em `data/formas_pagamento.csv`) entra no v
 produtos, e o imposto é calculado sobre o valor com o acréscimo. O roteiro não muda; a
 tela mostra quanto a forma escolhida custa a mais que o dinheiro.
 
+**Economizar ou andar menos.** Uma barra na lateral muda o valor do minuto de caminhada
+(de US$ 0 a US$ 1/min; padrão US$ 0,25): para o lado "economizar" o app aceita andar mais
+por preço menor; para "andar menos", o contrário.
+
+**Recalcular durante o passeio.** Com a localização do aparelho ativa e dentro de Ciudad
+del Este, o turista marca as lojas em que já comprou e o app refaz a rota com o que falta,
+saindo de onde ele está, no horário atual, e voltando à Ponte (`app/passeio.py`).
+
 Código em `src/lesteshop/app/`: `base.py` (base do SQLite, só a coleta mais recente de
 cada loja/produto, origem real/fictícia), `pedido.py` (monta a instância a partir do que
 o turista digita, usando `montar_instancia()` da Fase 2), `apresentacao.py` (tabelas e
